@@ -1,0 +1,419 @@
+---
+// Launch Countdown Component
+const LAUNCH_DATE = new Date('2026-05-01T00:00:00');
+---
+
+<!-- Launch Countdown Modal -->
+<div class="modal-overlay" id="subscriptionModal">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="modal-header">
+      <div class="investigating-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span class="pulse-ring"></span>
+      </div>
+      <h2>Investigation in Progress</h2>
+      <p class="tagline">Our AI is deep in the archives, building 200 casefiles across 10 volumes.</p>
+    </div>
+
+    <div class="countdown-section">
+      <p class="countdown-label">Full library unlocks in</p>
+      <div class="countdown-timer" id="countdownTimer">
+        <div class="time-block">
+          <span class="time-value" id="days">--</span>
+          <span class="time-label">days</span>
+        </div>
+        <div class="time-separator">:</div>
+        <div class="time-block">
+          <span class="time-value" id="hours">--</span>
+          <span class="time-label">hours</span>
+        </div>
+        <div class="time-separator">:</div>
+        <div class="time-block">
+          <span class="time-value" id="minutes">--</span>
+          <span class="time-label">min</span>
+        </div>
+        <div class="time-separator">:</div>
+        <div class="time-block">
+          <span class="time-value" id="seconds">--</span>
+          <span class="time-label">sec</span>
+        </div>
+      </div>
+      <p class="launch-date">May 1, 2026</p>
+    </div>
+
+    <div class="preview-section">
+      <p class="preview-text">While you wait, explore our free preview:</p>
+      <a href="/historiqly-books/vol/hoaxes" class="preview-btn" id="previewBtn">
+        <span>Vol 1: Hoaxes</span>
+        <span class="free-tag">3 Free Cases</span>
+      </a>
+    </div>
+
+    <div class="notify-section">
+      <p>Get notified when we launch:</p>
+      <a href="https://x.com/historiqly" class="follow-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        Follow @historiqly
+      </a>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ launchDate: LAUNCH_DATE.toISOString() }}>
+  const modal = document.getElementById('subscriptionModal');
+  const closeBtn = document.getElementById('modalClose');
+  const previewBtn = document.getElementById('previewBtn');
+  const targetDate = new Date(launchDate);
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate.getTime() - now.getTime();
+
+    if (diff <= 0) {
+      // Launch time! Reload to show subscription modal
+      window.location.reload();
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+  }
+
+  // Update immediately and then every second
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Open modal
+  function openSubscriptionModal() {
+    modal?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Close modal
+  function closeSubscriptionModal() {
+    modal?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Close button
+  closeBtn?.addEventListener('click', closeSubscriptionModal);
+
+  // Preview button closes modal
+  previewBtn?.addEventListener('click', () => {
+    closeSubscriptionModal();
+  });
+
+  // Click outside to close
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeSubscriptionModal();
+    }
+  });
+
+  // Escape key to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('open')) {
+      closeSubscriptionModal();
+    }
+  });
+
+  // Expose function globally
+  window.openSubscriptionModal = openSubscriptionModal;
+
+  // Auto-attach to subscribe links/buttons
+  document.querySelectorAll('[data-subscription]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      openSubscriptionModal();
+    });
+  });
+</script>
+
+<style>
+  .modal-overlay,
+  .modal-overlay * {
+    box-sizing: border-box;
+  }
+
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  .modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-content {
+    background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
+    border: 1px solid rgba(93, 181, 133, 0.2);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    max-width: 400px;
+    width: calc(100% - 2rem);
+    position: relative;
+    max-height: calc(100vh - 2rem);
+    overflow: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.3s;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .modal-overlay.open .modal-content {
+    transform: translateY(0) scale(1);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .modal-close:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .modal-header {
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+  }
+
+  .investigating-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    overflow: visible;
+  }
+
+  .investigating-icon svg {
+    color: #5DB585;
+    animation: search 3s ease-in-out infinite;
+  }
+
+  @keyframes search {
+    0%, 100% { transform: rotate(-10deg) scale(1); }
+    50% { transform: rotate(10deg) scale(1.05); }
+  }
+
+  .pulse-ring {
+    position: absolute;
+    inset: 0;
+    border: 2px solid #5DB585;
+    border-radius: 50%;
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(0.8); opacity: 0.8; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
+
+  .modal-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.375rem;
+    color: #fff;
+  }
+
+  .tagline {
+    color: #888;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .countdown-section {
+    background: rgba(93, 181, 133, 0.05);
+    border: 1px solid rgba(93, 181, 133, 0.15);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .countdown-label {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #5DB585;
+    margin: 0 0 0.75rem;
+    font-weight: 600;
+  }
+
+  .countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.375rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 44px;
+  }
+
+  .time-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .time-label {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin-top: 0.25rem;
+  }
+
+  .time-separator {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #444;
+    margin-top: -0.75rem;
+  }
+
+  .launch-date {
+    font-size: 0.75rem;
+    color: #666;
+    margin: 0;
+  }
+
+  .preview-section {
+    margin-bottom: 1rem;
+  }
+
+  .preview-text {
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0 0 0.5rem;
+  }
+
+  .preview-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .preview-btn:hover {
+    border-color: #5DB585;
+    background: rgba(93, 181, 133, 0.05);
+  }
+
+  .free-tag {
+    font-size: 0.625rem;
+    padding: 0.2rem 0.4rem;
+    background: #5DB585;
+    color: #0a0a0a;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .notify-section {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .notify-section p {
+    font-size: 0.75rem;
+    color: #666;
+    margin: 0 0 0.5rem;
+  }
+
+  .follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #ccc;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .follow-btn:hover {
+    border-color: #5DB585;
+    color: #5DB585;
+  }
+
+  @media (max-width: 480px) {
+    .modal-content {
+      padding: 1.5rem 1.25rem;
+    }
+
+    .time-value {
+      font-size: 1.5rem;
+    }
+
+    .time-block {
+      min-width: 40px;
+    }
+
+    .countdown-timer {
+      gap: 0.25rem;
+    }
+  }
+</style>
