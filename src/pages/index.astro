@@ -66,22 +66,22 @@ import Layout from '../layouts/Layout.astro';
   <section class="section what-you-get">
     <h2>What's Inside Each Volume</h2>
     <div class="features">
-      <div class="feature">
+      <div class="feature card">
         <span class="feature-icon">📄</span>
         <h4>5 Deep-Dive Casefiles</h4>
         <p class="text-muted">Each investigation is 3,500+ words of forensic analysis</p>
       </div>
-      <div class="feature">
+      <div class="feature card">
         <span class="feature-icon">📊</span>
         <h4>Evidence Maps</h4>
         <p class="text-muted">Visual breakdown of every source with A-D grades</p>
       </div>
-      <div class="feature">
+      <div class="feature card">
         <span class="feature-icon">⏱️</span>
         <h4>Reconstructed Timelines</h4>
         <p class="text-muted">Verified chronology from high-grade sources only</p>
       </div>
-      <div class="feature">
+      <div class="feature card">
         <span class="feature-icon">🎯</span>
         <h4>Theory Scoreboards</h4>
         <p class="text-muted">Quantified analysis with confidence scores</p>
@@ -106,14 +106,15 @@ import Layout from '../layouts/Layout.astro';
           <li>✓ The Hughes Autobiography</li>
           <li>✓ The Cottingley Fairies</li>
         </ul>
-        <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="btn-primary">Get Volume 1 →</a>
+        <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="btn-primary full-width">Get Volume 1 →</a>
       </div>
       
-      <div class="card pricing-card">
+      <div class="card pricing-card best-value">
+        <span class="best-value-badge">Best Value</span>
         <h3>The Complete Collection</h3>
         <p class="price">$24.99 <span class="price-note">Save 35%</span></p>
-        <p class="text-muted">All 10 volumes (50 casefiles)</p>
-        <a href="https://historiqly.lemonsqueezy.com/buy/bundle" class="btn-primary">Get All 10 →</a>
+        <p class="text-muted collection-desc">All 10 volumes (50 casefiles)</p>
+        <a href="https://historiqly.lemonsqueezy.com/buy/bundle" class="btn-secondary full-width">Get All 10 →</a>
       </div>
     </div>
   </section>
@@ -122,19 +123,19 @@ import Layout from '../layouts/Layout.astro';
   <section class="section faq">
     <h2>FAQ</h2>
     <div class="faq-list">
-      <details class="faq-item">
+      <details class="faq-item card">
         <summary>Is this written by AI?</summary>
         <p>No. Our books are written by human researchers. We use AI as a tool for analysis—to process data, identify connections, and score evidence. The writing and final verdicts are human-led.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item card">
         <summary>What formats are included?</summary>
         <p>You get both PDF and ePub files. They work on Kindle, iPad, computer, or phone.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item card">
         <summary>Is this a subscription?</summary>
         <p>No. All purchases are one-time. You buy what you want, when you want.</p>
       </details>
-      <details class="faq-item">
+      <details class="faq-item card">
         <summary>What's your refund policy?</summary>
         <p>30-day money-back guarantee, no questions asked.</p>
       </details>
@@ -143,9 +144,11 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- Final CTA -->
   <section class="section final-cta">
-    <h2>Your Investigation Starts Now</h2>
-    <p class="text-muted">For a limited time, get Volume 1 for just $1.99</p>
-    <a href="#pricing" class="btn-primary">Get the Hoax Dossier →</a>
+    <div class="final-cta-content">
+      <h2>Your Investigation Starts Now</h2>
+      <p class="text-muted">For a limited time, get Volume 1 for just $1.99</p>
+      <a href="#pricing" class="btn-primary">Get the Hoax Dossier →</a>
+    </div>
   </section>
 
   <!-- Footer -->
@@ -156,76 +159,118 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+  /* ===== IMPROVED TYPOGRAPHY & SPACING ===== */
+  
   .hero {
-    min-height: 80vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 4rem 1.5rem;
-    background: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%);
+    padding: 6rem 1.5rem;
+    background-color: var(--surface);
   }
 
   .hero-content {
-    max-width: 800px;
+    max-width: 900px;
   }
 
   .hero h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 700;
-    line-height: 1.1;
-    margin: 1.5rem 0;
+    font-size: clamp(2.75rem, 8vw, 5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin: 2rem 0;
+    letter-spacing: -0.02em;
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
     color: var(--muted-foreground);
-    margin-bottom: 2rem;
-    max-width: 600px;
+    margin-bottom: 3rem;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.8;
+  }
+
+  /* ===== IMPROVED SECTIONS ===== */
+  
+  .section {
+    padding: 6rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .problem-solution {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
   }
 
   @media (max-width: 768px) {
     .problem-solution {
       grid-template-columns: 1fr;
-      gap: 2rem;
+      gap: 3rem;
     }
   }
 
   .problem-solution h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .problem-solution p {
+    font-size: 1.125rem;
+    line-height: 1.8;
   }
 
   .tagline {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: var(--primary);
-    margin-top: 1.5rem;
+    margin-top: 2rem;
   }
 
+  /* ===== SECTION HEADINGS ===== */
+  
   .how-it-works h2,
   .what-you-get h2,
   .pricing h2,
   .faq h2,
   .final-cta h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
   }
 
   .section-subtitle {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    font-size: 1.125rem;
   }
 
+  /* ===== IMPROVED CARDS ===== */
+  
+  .card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-l);
+    padding: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    border-color: var(--primary);
+    background-color: var(--surface-elevated);
+    transform: translateY(-2px);
+  }
+
+  /* ===== STEPS (Evidence Engine) ===== */
+  
   .steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -240,57 +285,89 @@ import Layout from '../layouts/Layout.astro';
 
   .step {
     text-align: center;
+    padding: 2.5rem 2rem;
   }
 
   .step-number {
-    width: 48px;
-    height: 48px;
-    background: var(--primary-dim);
+    width: 56px;
+    height: 56px;
+    background: var(--surface-elevated);
+    border: 2px solid var(--border-strong);
     color: var(--primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 1.25rem;
-    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .step:hover .step-number {
+    border-color: var(--primary);
+    background-color: var(--primary-dim);
   }
 
   .step h3 {
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
   }
 
+  .step p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  /* ===== FEATURES (What's Inside) ===== */
+  
   .features {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .features {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
+  @media (max-width: 500px) {
+    .features {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .feature {
     text-align: center;
+    padding: 2rem 1.5rem;
   }
 
   .feature-icon {
-    font-size: 2rem;
+    font-size: 2.5rem;
     display: block;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
   }
 
   .feature h4 {
-    margin-bottom: 0.25rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
   }
 
+  .feature p {
+    font-size: 0.9375rem;
+  }
+
+  /* ===== PRICING CARDS ===== */
+  
   .pricing-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
   }
 
@@ -302,78 +379,212 @@ import Layout from '../layouts/Layout.astro';
 
   .pricing-card {
     text-align: center;
+    padding: 3rem 2rem;
+    position: relative;
   }
 
   .pricing-card.featured {
     border-color: var(--primary);
-    position: relative;
+  }
+
+  .pricing-card.best-value {
+    border-color: var(--border-strong);
+  }
+
+  .best-value-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: var(--background);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-s);
   }
 
   .pricing-card h3 {
-    margin: 1rem 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 1rem 0 0.75rem;
   }
 
   .price {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
     color: var(--primary);
     margin: 0.5rem 0;
   }
 
   .price-note {
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--muted-foreground);
+  }
+
+  .collection-desc {
+    margin-bottom: 2rem;
   }
 
   .features-list {
     list-style: none;
     padding: 0;
-    margin: 1.5rem 0;
+    margin: 1.5rem 0 2rem;
     text-align: left;
   }
 
   .features-list li {
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
     border-bottom: 1px solid var(--border);
+    font-size: 1rem;
   }
 
+  .full-width {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ===== IMPROVED BUTTONS ===== */
+  
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background-color: var(--primary);
+    color: var(--background);
+    font-weight: 700;
+    font-size: 1.125rem;
+    border-radius: var(--radius-m);
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 14px rgba(93, 181, 133, 0.25);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(93, 181, 133, 0.35);
+    color: var(--background);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background-color: transparent;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 1.125rem;
+    border: 2px solid var(--primary);
+    border-radius: var(--radius-m);
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--primary);
+    color: var(--background);
+    transform: translateY(-3px);
+  }
+
+  /* ===== FAQ ===== */
+  
   .faq-list {
-    max-width: 700px;
+    max-width: 750px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 1rem 0;
+    padding: 1.25rem 1.5rem;
   }
 
   .faq-item summary {
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.125rem;
     cursor: pointer;
     padding: 0.5rem 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--primary);
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
   }
 
   .faq-item p {
     color: var(--muted-foreground);
-    padding-top: 0.5rem;
+    padding-top: 1rem;
+    line-height: 1.8;
   }
 
+  /* ===== FINAL CTA ===== */
+  
   .final-cta {
-    text-align: center;
     background: var(--surface);
     border-radius: var(--radius-l);
     margin: 2rem auto;
-    max-width: 800px;
+    max-width: 900px;
   }
 
+  .final-cta-content {
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .final-cta p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  /* ===== FOOTER ===== */
+  
   .footer {
     text-align: center;
-    padding: 3rem 1.5rem;
+    padding: 4rem 1.5rem;
     border-top: 1px solid var(--border);
   }
 
   .footer p {
     margin: 0.5rem 0;
+  }
+
+  /* ===== UTILITIES ===== */
+  
+  .text-muted {
+    color: var(--muted-foreground);
+  }
+
+  .text-primary {
+    color: var(--primary);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.375rem 1rem;
+    background-color: var(--primary-dim);
+    color: var(--primary);
+    border-radius: var(--radius-s);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 </style>
