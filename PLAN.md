@@ -86,22 +86,41 @@ MATURE (Year 3+)
 ├── "Season 2" - new volumes / expanded library
 ```
 
-### Content Calendar
+### Release Cadence
 
-| Month | Release |
-|-------|---------|
-| 1 | Vol 1: Hoaxes (Launch) |
-| 3 | Vol 2: Myths |
-| 5 | Vol 3: Cold Cases |
-| 7 | Vol 4: Disappearances |
-| 9 | Vol 5: Conspiracies |
-| 11 | Vol 6: Secret Societies |
-| 13 | Vol 7: Declassified |
-| 15 | Vol 8: Unexplained |
-| 17 | Vol 9: Lost Civilizations |
-| 19 | Vol 10: Archaeological |
+**Drip model:** Release individual investigations across multiple volumes (not whole volumes at once)
 
-*~2 years to complete initial library*
+| Timeframe | Investigations Released |
+|-----------|------------------------|
+| Per week | 1-2 new cases |
+| Per month | 5-6 new cases |
+| Per year | ~65 cases |
+| Full library | ~3 years |
+
+**Example month:**
+```
+Week 1: +1 Vol 2 (Myths) + 1 Vol 5 (Conspiracies)
+Week 2: +1 Vol 3 (Cold Cases)
+Week 3: +1 Vol 7 (Declassified) + 1 Vol 2 (Myths)
+Week 4: +1 Vol 4 (Disappearances)
+```
+
+**Why drip works better:**
+- Weekly "new case" emails = constant engagement
+- Multiple volumes grow simultaneously
+- Subscribers see progress across topics they care about
+- No long waits between volume drops
+- Builds anticipation for specific cases
+
+### Launch Content
+
+| Content | Count | Status |
+|---------|-------|--------|
+| Vol 1 complete | 20 cases | At launch |
+| Free preview | 3 cases | At launch |
+| Vols 2-10 | Titles only | "Coming Soon" |
+
+*Launch with Vol 1 complete, then drip 1-2 cases/week across remaining volumes*
 
 ---
 
