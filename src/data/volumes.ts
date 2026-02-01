@@ -8,7 +8,7 @@ export const volumes: Volume[] = [
     icon: "mask",
     tagline: "History's greatest deceptions, exposed",
     description: "From forged diaries to fabricated fossils, we investigate the most audacious hoaxes that fooled the world.",
-    totalCases: 7,
+    totalCases: 20,
   },
   {
     num: 2,
@@ -17,7 +17,7 @@ export const volumes: Volume[] = [
     icon: "scroll",
     tagline: "Separating fact from legend",
     description: "Popular historical beliefs examined as case files. Did Cleopatra really die by snake bite?",
-    totalCases: 7,
+    totalCases: 20,
   },
   {
     num: 3,
@@ -26,7 +26,7 @@ export const volumes: Volume[] = [
     icon: "fingerprint",
     tagline: "Unsolved mysteries revisited",
     description: "From Jack the Ripper to the Zodiac Killer, history's most baffling unsolved cases.",
-    totalCases: 7,
+    totalCases: 20,
   },
   {
     num: 4,
@@ -35,7 +35,7 @@ export const volumes: Volume[] = [
     icon: "ghost",
     tagline: "Vanished without a trace",
     description: "People, ships, and aircraft that vanished mysteriously. What really happened to Amelia Earhart?",
-    totalCases: 8,
+    totalCases: 20,
   },
   {
     num: 5,
@@ -44,7 +44,7 @@ export const volumes: Volume[] = [
     icon: "eye",
     tagline: "Truth behind the theories",
     description: "From JFK to Area 51, separating legitimate concerns from unfounded speculation.",
-    totalCases: 7,
+    totalCases: 20,
   },
   {
     num: 6,
@@ -53,7 +53,7 @@ export const volumes: Volume[] = [
     icon: "key",
     tagline: "Behind closed doors",
     description: "From the Illuminati to Skull and Bones, investigating the truth about secretive organizations.",
-    totalCases: 7,
+    totalCases: 20,
   },
   {
     num: 7,
@@ -62,7 +62,7 @@ export const volumes: Volume[] = [
     icon: "folder",
     tagline: "Government secrets revealed",
     description: "MKUltra, COINTELPRO, and other declassified programs that prove some conspiracies are real.",
-    totalCases: 7,
+    totalCases: 20,
   },
   {
     num: 8,
@@ -71,7 +71,7 @@ export const volumes: Volume[] = [
     icon: "ufo",
     tagline: "Phenomena beyond explanation",
     description: "From the Dyatlov Pass to the Loch Ness Monster, events that science still can't fully explain.",
-    totalCases: 7,
+    totalCases: 20,
   },
   {
     num: 9,
@@ -80,7 +80,7 @@ export const volumes: Volume[] = [
     icon: "pyramid",
     tagline: "Ancient mysteries uncovered",
     description: "Atlantis, Göbekli Tepe, and lost knowledge that challenges our understanding of the past.",
-    totalCases: 7,
+    totalCases: 20,
   },
   {
     num: 10,
@@ -89,7 +89,7 @@ export const volumes: Volume[] = [
     icon: "compass",
     tagline: "Digging for truth",
     description: "The Nazca Lines, the Voynich Manuscript, and artifacts that defy easy explanation.",
-    totalCases: 7,
+    totalCases: 20,
   },
   {
     num: 11,
@@ -98,7 +98,7 @@ export const volumes: Volume[] = [
     icon: "gem",
     tagline: "The hunt for missing fortunes",
     description: "From the Gardner Museum heist to Nazi gold, the greatest thefts and lost treasures in history.",
-    totalCases: 7,
+    totalCases: 20,
   },
 ];
 

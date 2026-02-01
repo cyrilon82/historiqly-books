@@ -1,0 +1,52 @@
+---
+interface Props {
+  released: number;
+  total: number;
+  size?: "sm" | "md";
+}
+
+const { released, total, size = "md" } = Astro.props;
+const percentage = Math.round((released / total) * 100);
+---
+
+<div class:list={["progress-indicator", size]}>
+  <div class="progress-bar">
+    <div class="progress-fill" style={`width: ${percentage}%`}></div>
+  </div>
+  <span class="progress-text">{released} of {total} available</span>
+</div>
+
+<style>
+  .progress-indicator {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: #5db585;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+
+  .progress-text {
+    font-size: 0.75rem;
+    color: #888;
+  }
+
+  .progress-indicator.sm .progress-bar {
+    height: 3px;
+  }
+
+  .progress-indicator.sm .progress-text {
+    font-size: 0.625rem;
+  }
+</style>

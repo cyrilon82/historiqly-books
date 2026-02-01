@@ -22,11 +22,13 @@ import EmailCapture from '../../components/EmailCapture.astro';
     <div class="cases-section">
       <h2>Planned Casefiles</h2>
       <div class="cases-preview">
-        <div class="case-preview"><span class="case-num">01</span><span>The Piltdown Man</span></div>
-        <div class="case-preview"><span class="case-num">02</span><span>The Hitler Diaries</span></div>
-        <div class="case-preview"><span class="case-num">03</span><span>The Cardiff Giant</span></div>
+        <div class="case-preview"><span class="case-num">01</span><span>The Piltdown Man</span><span class="free-badge">Free Preview Coming Soon</span></div>
+        <div class="case-preview"><span class="case-num">02</span><span>The Cardiff Giant</span><span class="free-badge">Free Preview Coming Soon</span></div>
+        <div class="case-preview"><span class="case-num">03</span><span>The Hitler Diaries</span><span class="free-badge">Free Preview Coming Soon</span></div>
         <div class="case-preview"><span class="case-num">04</span><span>The Cottingley Fairies</span></div>
-        <div class="case-preview"><span class="case-num">05</span><span>The Protocols of Zion</span></div>
+        <div class="case-preview"><span class="case-num">05</span><span>The Shroud of Turin</span></div>
+        <div class="case-preview"><span class="case-num">06</span><span>Han van Meegeren's Vermeers</span></div>
+        <div class="case-preview"><span class="case-num">07</span><span>The Donation of Constantine</span></div>
       </div>
     </div>
 
@@ -47,4 +49,21 @@ import EmailCapture from '../../components/EmailCapture.astro';
   .cases-preview { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 3rem; }
   .case-preview { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: #111111; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; color: #a8a8a8; }
   .case-num { display: inline-block; padding: 0.25rem 0.5rem; background: #161616; border-radius: 4px; font-size: 0.75rem; font-weight: 700; color: #777; }
+  .free-badge {
+    margin-left: auto;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #000;
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    animation: shimmer 2s infinite;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+  }
+  @keyframes shimmer {
+    0%, 100% { opacity: 1; box-shadow: 0 0 12px rgba(245, 158, 11, 0.4); }
+    50% { opacity: 0.9; box-shadow: 0 0 20px rgba(245, 158, 11, 0.6); }
+  }
 </style>
