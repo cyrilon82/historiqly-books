@@ -4,9 +4,14 @@
 
 ---
 
-## 🚀 Launch Date: April 15, 2026
+## 🚀 Launch: When Ready (April 15 deadline)
 
-**Pre-launch focus:** Build @Historiqly X account (2.5 months)
+**Launch triggers (hit these = launch):**
+- ✅ 1,000+ X followers
+- ✅ 200+ email subscribers
+- ✅ 3 free cases live & validated
+
+**Pre-launch focus:** Build @Historiqly X account until milestones hit
 
 ---
 
