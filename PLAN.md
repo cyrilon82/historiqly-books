@@ -4,9 +4,9 @@
 
 ---
 
-## 🚀 Launch Date: May 1, 2026
+## 🚀 Launch Date: April 15, 2026
 
-**Pre-launch focus:** Build @Historiqly X account (3 months)
+**Pre-launch focus:** Build @Historiqly X account (2.5 months)
 
 ---
 
@@ -134,17 +134,24 @@ Week 4: +1 Vol 4 (Disappearances)
 
 ### Pre-Launch (Feb - Apr 2026)
 
-**Launch Date: May 1, 2026**
+**Launch Date: April 15, 2026**
 
-1. **Build X account (@Historiqly)** - 3 months to grow audience
-2. Tease case content, build anticipation
-3. Email waitlist collection
-4. Target: 1,000+ followers, 200+ email list by launch
+| Date | Milestone |
+|------|-----------|
+| Feb 1-7 | Write 3 free investigations |
+| Feb 8 | Launch site with 3 free cases |
+| Feb-Apr | Build X audience using case content |
+| Apr 15 | **Full subscription launch** 🚀 |
+
+**Targets by launch:**
+- 1,000+ X followers
+- 200+ email waitlist
+- Vol 1 complete (20 cases)
 
 **Content calendar:**
-- Feb: Establish voice, daily posts, engage history community
+- Feb: Launch free cases, establish voice, daily posts, engage history community
 - Mar: Weekly threads (case previews), grow engagement
-- Apr: Launch hype, waitlist push, final case teasers
+- Apr 1-15: Launch hype, waitlist push, countdown
 
 ### Launch Free Tier
 
