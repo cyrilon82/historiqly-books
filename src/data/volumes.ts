@@ -1,0 +1,111 @@
+import type { Volume } from "./types";
+
+export const volumes: Volume[] = [
+  {
+    num: 1,
+    title: "Hoaxes & Frauds",
+    slug: "hoaxes",
+    icon: "mask",
+    tagline: "History's greatest deceptions, exposed",
+    description: "From forged diaries to fabricated fossils, we investigate the most audacious hoaxes that fooled the world.",
+    totalCases: 20,
+  },
+  {
+    num: 2,
+    title: "Myths Debunked",
+    slug: "myths",
+    icon: "scroll",
+    tagline: "Separating fact from legend",
+    description: "Popular beliefs and urban legends put to the test with rigorous evidence-based analysis.",
+    totalCases: 20,
+  },
+  {
+    num: 3,
+    title: "Cold Cases",
+    slug: "cold-cases",
+    icon: "fingerprint",
+    tagline: "Unsolved mysteries revisited",
+    description: "Applying modern analysis to history's most baffling unsolved cases.",
+    totalCases: 20,
+  },
+  {
+    num: 4,
+    title: "Disappearances",
+    slug: "disappearances",
+    icon: "ghost",
+    tagline: "Vanished without a trace",
+    description: "People, ships, and aircraft that vanished mysteriously. What really happened?",
+    totalCases: 20,
+  },
+  {
+    num: 5,
+    title: "Conspiracies",
+    slug: "conspiracies",
+    icon: "eye",
+    tagline: "Truth behind the theories",
+    description: "Separating legitimate concerns from unfounded speculation with evidence-based investigation.",
+    totalCases: 20,
+  },
+  {
+    num: 6,
+    title: "Secret Societies",
+    slug: "secret-societies",
+    icon: "key",
+    tagline: "Behind closed doors",
+    description: "From the Illuminati to Skull and Bones, investigating the truth about secretive organizations.",
+    totalCases: 20,
+  },
+  {
+    num: 7,
+    title: "Declassified",
+    slug: "declassified",
+    icon: "folder",
+    tagline: "Government secrets revealed",
+    description: "Analyzing declassified documents to uncover what governments tried to hide.",
+    totalCases: 20,
+  },
+  {
+    num: 8,
+    title: "Unexplained",
+    slug: "unexplained",
+    icon: "ufo",
+    tagline: "Phenomena beyond explanation",
+    description: "UFO sightings, paranormal claims, and anomalous events examined with scientific rigor.",
+    totalCases: 20,
+  },
+  {
+    num: 9,
+    title: "Lost Civilizations",
+    slug: "lost-civilizations",
+    icon: "pyramid",
+    tagline: "Ancient mysteries uncovered",
+    description: "Atlantis, ancient technology claims, and lost empire theories put to the test.",
+    totalCases: 20,
+  },
+  {
+    num: 10,
+    title: "Archaeological",
+    slug: "archaeological",
+    icon: "compass",
+    tagline: "Digging for truth",
+    description: "Contested artifacts, disputed discoveries, and archaeological controversies investigated.",
+    totalCases: 20,
+  },
+];
+
+export const icons: Record<string, string> = {
+  mask: '<path d="M12 2C6.48 2 2 6 2 10.5c0 2.5 1.5 4.5 3 6 1.5 1.5 3.5 2.5 7 2.5s5.5-1 7-2.5c1.5-1.5 3-3.5 3-6C22 6 17.52 2 12 2zm-3 9a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm6 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/>',
+  scroll: '<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 14H9c-.55 0-1-.45-1-1s.45-1 1-1h6c.55 0 1 .45 1 1s-.45 1-1 1zm2-4H7c-.55 0-1-.45-1-1s.45-1 1-1h10c.55 0 1 .45 1 1s-.45 1-1 1zm0-4H7c-.55 0-1-.45-1-1s.45-1 1-1h10c.55 0 1 .45 1 1s-.45 1-1 1z"/>',
+  fingerprint: '<path d="M17.81 4.47c-.08 0-.16-.02-.23-.06C15.66 3.42 14 3 12.01 3c-1.98 0-3.86.47-5.57 1.41-.24.13-.54.04-.68-.2-.13-.24-.04-.55.2-.68C7.82 2.52 9.86 2 12.01 2c2.13 0 3.99.47 6.03 1.52.25.13.34.43.21.67-.09.18-.26.28-.44.28zM3.5 9.72c-.1 0-.2-.03-.29-.09-.23-.16-.28-.47-.12-.7.99-1.4 2.25-2.5 3.75-3.27C9.98 4.04 14 4.03 17.15 5.65c1.5.77 2.76 1.86 3.75 3.25.16.22.11.54-.12.7-.23.16-.54.11-.7-.12-.9-1.26-2.04-2.25-3.39-2.94-2.87-1.47-6.54-1.47-9.4.01-1.36.7-2.5 1.7-3.4 2.96-.08.14-.23.21-.39.21zm6.25 12.07c-.13 0-.26-.05-.35-.15-.87-.87-1.34-1.43-2.01-2.64-.69-1.23-1.05-2.73-1.05-4.34 0-2.97 2.54-5.39 5.66-5.39s5.66 2.42 5.66 5.39c0 .28-.22.5-.5.5s-.5-.22-.5-.5c0-2.42-2.09-4.39-4.66-4.39-2.57 0-4.66 1.97-4.66 4.39 0 1.44.32 2.77.93 3.85.64 1.15 1.08 1.64 1.85 2.42.19.2.19.51 0 .71-.11.1-.24.15-.37.15zm7.17-1.85c-1.19 0-2.24-.3-3.1-.89-1.49-1.01-2.38-2.65-2.38-4.39 0-.28.22-.5.5-.5s.5.22.5.5c0 1.41.72 2.74 1.94 3.56.71.48 1.54.71 2.54.71.24 0 .64-.03 1.04-.1.27-.05.53.13.58.41.05.27-.13.53-.41.58-.57.11-1.07.12-1.21.12zM14.91 22c-.04 0-.09-.01-.13-.02-1.59-.44-2.63-1.03-3.72-2.1-1.4-1.39-2.17-3.24-2.17-5.22 0-1.62 1.38-2.94 3.08-2.94 1.7 0 3.08 1.32 3.08 2.94 0 1.07.93 1.94 2.08 1.94s2.08-.87 2.08-1.94c0-3.77-3.25-6.83-7.25-6.83-2.84 0-5.44 1.58-6.61 4.03-.39.81-.59 1.76-.59 2.8 0 .78.07 2.01.67 3.61.1.26-.03.55-.29.64-.26.1-.55-.04-.64-.29-.49-1.31-.73-2.61-.73-3.96 0-1.2.23-2.29.68-3.24 1.33-2.79 4.28-4.6 7.51-4.6 4.55 0 8.25 3.51 8.25 7.83 0 1.62-1.38 2.94-3.08 2.94s-3.08-1.32-3.08-2.94c0-1.07-.93-1.94-2.08-1.94s-2.08.87-2.08 1.94c0 1.71.66 3.31 1.87 4.51.95.94 1.86 1.46 3.27 1.85.27.07.42.35.35.61-.05.23-.26.38-.47.38z"/>',
+  ghost: '<path d="M12 2C7.58 2 4 5.58 4 10v10.5c0 .83 1 1.25 1.59.66l1.41-1.41 1.41 1.41c.78.78 2.05.78 2.83 0L12 20.34l.76.76c.78.78 2.05.78 2.83 0l1.41-1.41 1.41 1.41c.59.59 1.59.17 1.59-.66V10c0-4.42-3.58-8-8-8zm-2 8c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1z"/>',
+  eye: '<path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>',
+  key: '<path d="M12.65 10A5.99 5.99 0 007 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.22 0 4.15-1.2 5.18-3H15v2c0 1.1.9 2 2 2s2-.9 2-2v-2c1.1 0 2-.9 2-2s-.9-2-2-2h-6.35zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>',
+  folder: '<path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-2.06 11L14 13.06 10.06 17 6 12.94 9.94 9 6 5.06 10.06 9 14 5.06 17.94 9 14 12.94 17.94 17z"/>',
+  ufo: '<ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="4" ry="1.5"/><path d="M12 6c-2.21 0-4 1.79-4 4h8c0-2.21-1.79-4-4-4z"/><circle cx="7" cy="14" r="1"/><circle cx="17" cy="14" r="1"/><circle cx="12" cy="15" r="1"/>',
+  pyramid: '<path d="M12 2L2 22h20L12 2zm0 4l6.5 14h-13L12 6z"/><path d="M12 8l-4 10h8L12 8z" opacity=".3"/>',
+  compass: '<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"/>',
+};
+
+export function getVolume(slug: string): Volume | undefined {
+  return volumes.find((v) => v.slug === slug);
+}

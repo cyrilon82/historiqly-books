@@ -2,519 +2,631 @@
 import SidebarLayout from '../layouts/SidebarLayout.astro';
 ---
 
-<SidebarLayout title="Historiqly AI Casefiles">
-  <style>
-    :root {
-      --bg-color: #0a0a0a;
-      --text-color: #e0e0e0;
-      --accent-color: #5DB585;
-      --border-color: #2a2a2a;
-      --card-bg: #141414;
-    }
-    
-    h1, h2, h3 {
-      color: white;
-      font-weight: 700;
-    }
-    p {
-      line-height: 1.6;
-      color: #a0a0a0;
-    }
+<SidebarLayout title="AI Casefiles — Evidence-Based History">
+  <div class="home-page">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">Vol 1 Free Preview</div>
+      <h1>History's Greatest Mysteries.<br/><span class="text-accent">Investigated by AI.</span></h1>
+      <p class="hero-lead">
+        Every casefile runs through our Evidence Engine: sources graded, timelines rebuilt,
+        theories ranked. No spin. Just evidence.
+      </p>
+      <div class="hero-cta">
+        <a href="#" class="btn-primary" data-subscription>Subscribe — $4.99/mo</a>
+        <a href="/historiqly-books/vol/hoaxes" class="btn-secondary">Preview Vol 1 Free</a>
+      </div>
+      <p class="hero-note">New volumes monthly • Cancel anytime • PDF + ePub</p>
+    </section>
 
-    .text-center { text-align: center; }
-    .text-accent { color: var(--accent-color); }
-    .section-spacer { margin-top: 4rem; margin-bottom: 4rem; }
-    .subtle-rule {
-      border: none;
-      height: 1px;
-      background-color: var(--border-color);
-      margin: 4rem auto;
-      width: 100%;
-    }
+    <!-- Value Prop -->
+    <section class="value-section">
+      <div class="value-grid">
+        <div class="value-block">
+          <h3>Most history books ask you to trust the author.</h3>
+          <p>They give you a polished narrative. But what's left out? The conflicting reports, the unreliable witnesses, the inconvenient facts that didn't fit the story.</p>
+        </div>
+        <div class="value-block highlight">
+          <h3>We ask you to trust the <span class="text-accent">evidence</span>.</h3>
+          <p>AI Casefiles show you everything. Every source is graded. Every claim is tested. Every theory is scored against the evidence—so you can decide for yourself.</p>
+        </div>
+      </div>
+    </section>
 
-    .hero {
-      padding: 4rem 0;
-      text-align: center;
-    }
-    .hero .tag {
-      display: inline-block;
-      background-color: rgba(93, 181, 133, 0.1);
-      color: var(--accent-color);
-      padding: 0.3rem 0.8rem;
-      border-radius: 99px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      border: 1px solid rgba(93, 181, 133, 0.2);
-    }
-    .hero h1 {
-      font-size: 2.75rem;
-      font-weight: 800;
-      line-height: 1.1;
-      margin: 0.5rem 0 1.5rem;
-    }
-    .hero p {
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      font-size: 1.05rem;
-    }
-    .cta-button {
-      display: inline-block;
-      background-color: var(--accent-color);
-      color: #0a0a0a;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 0.875rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: transform 0.2s ease;
-    }
-    .cta-button:hover {
-      transform: scale(1.05);
-    }
-    .cta-button.secondary {
-      background: transparent;
-      border: 2px solid var(--accent-color);
-      color: var(--accent-color);
-      margin-left: 1rem;
-    }
-
-    .two-col-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-    .two-col-grid h3 {
-      font-size: 1.25rem;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-    }
-    .section-header h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .section-header p {
-      font-size: 1rem;
-    }
-
-    .card-grid-3, .card-grid-4 {
-      display: grid;
-      gap: 1.25rem;
-    }
-    .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .card-grid-4 { grid-template-columns: repeat(4, 1fr); }
-
-    .unified-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
-      transition: all 0.2s ease;
-    }
-    .unified-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-color);
-    }
-    .card-icon {
-      height: 36px;
-      width: 36px;
-      margin: 0 auto 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-    }
-    .card-icon.numbered {
-      background-color: var(--border-color);
-      color: var(--text-color);
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-    .card-icon svg {
-      width: 20px;
-      height: 20px;
-    }
-    .unified-card h3 {
-      font-size: 1.1rem;
-      margin: 0 0 0.5rem;
-    }
-    .unified-card p {
-      font-size: 0.9rem;
-      margin: 0;
-      color: #a0a0a0;
-    }
-
-    /* Free Preview Card */
-    .free-preview {
-      background: linear-gradient(135deg, rgba(93, 181, 133, 0.1) 0%, rgba(93, 181, 133, 0.02) 100%);
-      border: 2px solid var(--accent-color);
-      border-radius: 16px;
-      padding: 2.5rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .free-preview .free-tag {
-      display: inline-block;
-      background: var(--accent-color);
-      color: #0a0a0a;
-      padding: 0.25rem 0.75rem;
-      border-radius: 99px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 1rem;
-    }
-    .free-preview h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .free-preview p {
-      margin-bottom: 1.5rem;
-    }
-    .free-preview .cases {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .free-preview .case-tag {
-      background: rgba(255,255,255,0.05);
-      padding: 0.25rem 0.75rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      color: #b0b0b0;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      align-items: stretch;
-    }
-    .pricing-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-    .pricing-card.highlight {
-      border-color: var(--accent-color);
-    }
-    .pricing-tag {
-      display: inline-block;
-      background-color: rgba(93, 181, 133, 0.1);
-      color: var(--accent-color);
-      padding: 0.2rem 0.6rem;
-      border-radius: 99px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      border: 1px solid rgba(93, 181, 133, 0.2);
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-    }
-    .pricing-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    .price {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: white;
-      margin: 0.75rem 0;
-    }
-    .price span {
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: #a0a0a0;
-      margin-left: 0.25rem;
-    }
-    .price-note {
-      font-size: 0.85rem;
-      color: #888;
-      margin-top: -0.5rem;
-      margin-bottom: 0.5rem;
-    }
-    .features-list {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0;
-      flex-grow: 1;
-    }
-    .features-list li {
-      padding-left: 1.5rem;
-      position: relative;
-      margin-bottom: 0.5rem;
-      color: #b0b0b0;
-      font-size: 0.9rem;
-    }
-    .features-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--accent-color);
-      font-weight: 700;
-    }
-    .pricing-button {
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      width: 100%;
-    }
-    .pricing-button.primary {
-      background-color: var(--accent-color);
-      color: var(--bg-color);
-    }
-    .pricing-button.secondary {
-      background-color: transparent;
-      color: var(--accent-color);
-      border: 1px solid var(--accent-color);
-    }
-    .pricing-button:hover {
-      transform: scale(1.02);
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border-color);
-    }
-    .faq-item summary {
-      padding: 1.25rem 0;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-      font-size: 1rem;
-    }
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-    .faq-item summary::after {
-      content: '+';
-      font-size: 1.5rem;
-      font-weight: 400;
-      transition: transform 0.2s;
-    }
-    .faq-item[open] summary::after {
-      transform: rotate(45deg);
-    }
-    .faq-content {
-      padding-bottom: 1.25rem;
-    }
-
-    .final-cta {
-      background-color: var(--card-bg);
-      border-radius: 12px;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .final-cta h2 {
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
-    }
-
-    @media (max-width: 900px) {
-      .card-grid-3, .card-grid-4, .pricing-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      .two-col-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .cta-button.secondary { margin-left: 0; margin-top: 1rem; display: block; }
-    }
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.8rem; }
-      .section-header h2 { font-size: 1.5rem; }
-      .card-grid-3, .card-grid-4, .pricing-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-
-  <section class="hero">
-    <div class="tag">Free Preview Available</div>
-    <h1>Stop Reading History.<br/>Start <span class="text-accent">Investigating</span> It.</h1>
-    <p>AI Casefiles are a new kind of history book. We use AI to build evidence-based dossiers on history's greatest mysteries, hoaxes, and cold cases.</p>
-    <a href="https://historiqly.lemonsqueezy.com/checkout/buy/vol1-free" class="cta-button">Get Vol 1 Free →</a>
-    <a href="#pricing" class="cta-button secondary">See Plans</a>
-  </section>
-
-  <section class="two-col-grid section-spacer">
-    <div>
-      <h3>History Books Ask You to Trust the Author.</h3>
-      <p>Most history books give you a polished narrative. But what's left out? The conflicting reports, the unreliable witnesses, the inconvenient facts.</p>
-    </div>
-    <div>
-      <h3>We Ask You to Trust the <span class="text-accent">Evidence</span>.</h3>
-      <p>AI Casefiles are different. We don't just tell you a story—we give you the complete dossier. Our Evidence Engine systematically grades every source, reconstructs timelines, and scores theories.</p>
-    </div>
-  </section>
-
-  <hr class="subtle-rule"/>
-
-  <section class="section-spacer">
-    <div class="section-header">
+    <!-- Evidence Engine -->
+    <section class="engine-section">
+      <div class="section-label">The Method</div>
       <h2>The Evidence Engine</h2>
-      <p>Forensic rigor meets AI-powered analysis</p>
-    </div>
-    <div class="card-grid-3">
-      <div class="unified-card">
-        <div class="card-icon numbered">1</div>
-        <h3>Source Grading</h3>
-        <p>Every source is graded A-D based on reliability.</p>
-      </div>
-      <div class="unified-card">
-        <div class="card-icon numbered">2</div>
-        <h3>Timeline Reconstruction</h3>
-        <p>We rebuild chronology using only A and B-grade sources.</p>
-      </div>
-      <div class="unified-card">
-        <div class="card-icon numbered">3</div>
-        <h3>Theory Scoreboard</h3>
-        <p>Each theory is scored 0-100 based on evidence.</p>
-      </div>
-    </div>
-  </section>
+      <p class="section-lead">Every case goes through the same forensic process.</p>
 
-  <section class="section-spacer">
-    <div class="section-header">
-      <h2>What's Inside Each Volume</h2>
-    </div>
-    <div class="card-grid-4">
-      <div class="unified-card">
-        <h3>5 Deep-Dive Casefiles</h3>
-        <p>3,500+ words of forensic analysis each</p>
+      <div class="engine-grid">
+        <div class="engine-step">
+          <div class="step-num">01</div>
+          <h4>Source Grading</h4>
+          <p>Every document, witness, and claim is graded A–D based on reliability, proximity, and corroboration.</p>
+        </div>
+        <div class="engine-step">
+          <div class="step-num">02</div>
+          <h4>Timeline Reconstruction</h4>
+          <p>We rebuild the chronology using only A and B-grade sources. Gaps are marked, not filled with speculation.</p>
+        </div>
+        <div class="engine-step">
+          <div class="step-num">03</div>
+          <h4>Theory Scoreboard</h4>
+          <p>Each competing theory is scored 0–100 based on evidence weight. We show what would change the conclusion.</p>
+        </div>
       </div>
-      <div class="unified-card">
-        <h3>Evidence Maps</h3>
-        <p>Visual breakdown with A-D grades</p>
-      </div>
-      <div class="unified-card">
-        <h3>Timelines</h3>
-        <p>Verified chronology from high-grade sources</p>
-      </div>
-      <div class="unified-card">
-        <h3>Theory Scores</h3>
-        <p>Quantified analysis with confidence %</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <hr class="subtle-rule"/>
+    <!-- What's Inside -->
+    <section class="contents-section">
+      <div class="section-label">What You Get</div>
+      <h2>Inside Each Volume</h2>
 
-  <section class="section-spacer" id="pricing">
-    <div class="section-header">
-      <h2>Start Your Investigation</h2>
-      <p>Try Volume 1 free, then unlock the full library</p>
-    </div>
+      <div class="contents-grid">
+        <div class="content-card">
+          <div class="content-icon">5</div>
+          <h4>Deep-Dive Casefiles</h4>
+          <p>3,500+ words each. Full forensic treatment.</p>
+        </div>
+        <div class="content-card">
+          <div class="content-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          </div>
+          <h4>Evidence Maps</h4>
+          <p>Visual breakdown with A–D source grades.</p>
+        </div>
+        <div class="content-card">
+          <div class="content-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <h4>Timelines</h4>
+          <p>Verified chronology from high-grade sources only.</p>
+        </div>
+        <div class="content-card">
+          <div class="content-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+          </div>
+          <h4>Theory Scores</h4>
+          <p>Confidence percentages on each explanation.</p>
+        </div>
+      </div>
+    </section>
 
-    <!-- Free Preview -->
-    <div class="free-preview">
-      <span class="free-tag">Free Preview</span>
-      <h3>Vol 1: Hoaxes, Forgeries & Frauds</h3>
-      <p>5 complete casefiles - no credit card required</p>
-      <div class="cases">
-        <span class="case-tag">The Hitler Diaries</span>
-        <span class="case-tag">The Piltdown Man</span>
-        <span class="case-tag">The Protocols of Zion</span>
-        <span class="case-tag">The Hughes Autobiography</span>
-        <span class="case-tag">The Cottingley Fairies</span>
-      </div>
-      <a href="https://historiqly.lemonsqueezy.com/checkout/buy/vol1-free" class="cta-button">Download Free →</a>
-    </div>
+    <!-- Pricing -->
+    <section class="pricing-section">
+      <div class="section-label">Pricing</div>
+      <h2>Unlock the Full Library</h2>
+      <p class="section-lead">New volumes drop monthly. Subscribe to get them all.</p>
 
-    <!-- Subscription Plans -->
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <h3>Monthly</h3>
-        <div class="price">$4.99<span>/mo</span></div>
-        <p class="price-note">Cancel anytime</p>
-        <ul class="features-list">
-          <li>Access to all 10 volumes</li>
-          <li>New casefiles as they drop</li>
-          <li>PDF + ePub formats</li>
-          <li>DRM-free downloads</li>
-        </ul>
-        <a href="https://historiqly.lemonsqueezy.com/checkout/buy/monthly" class="pricing-button secondary">Start Monthly →</a>
-      </div>
-      <div class="pricing-card highlight">
-        <div class="pricing-tag">Save 35%</div>
-        <h3>Yearly</h3>
-        <div class="price">$39<span>/yr</span></div>
-        <p class="price-note">Just $3.25/mo</p>
-        <ul class="features-list">
-          <li>Access to all 10 volumes</li>
-          <li>New casefiles as they drop</li>
-          <li>PDF + ePub formats</li>
-          <li>DRM-free downloads</li>
-          <li>Bonus: Early access to new cases</li>
-        </ul>
-        <a href="https://historiqly.lemonsqueezy.com/checkout/buy/yearly" class="pricing-button primary">Start Yearly →</a>
-      </div>
-    </div>
-  </section>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Monthly</h3>
+            <p>Full access, flexible commitment</p>
+          </div>
+          <div class="price">$4.99<span class="price-period">/mo</span></div>
+          <ul class="feature-list">
+            <li>All current volumes</li>
+            <li>New volumes as they release</li>
+            <li>PDF + ePub downloads</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a href="https://historiqly.lemonsqueezy.com/subscribe/monthly" class="btn-primary full">Subscribe Monthly</a>
+        </div>
 
-  <hr class="subtle-rule"/>
+        <div class="pricing-card featured">
+          <div class="featured-badge">Save 35%</div>
+          <div class="pricing-header">
+            <h3>Yearly</h3>
+            <p>Best value for serious investigators</p>
+          </div>
+          <div class="price">$39<span class="price-period">/yr</span></div>
+          <ul class="feature-list">
+            <li>Everything in Monthly</li>
+            <li>Early access to new volumes</li>
+            <li>Bonus deep-dive casefiles</li>
+            <li>Subscriber-only content</li>
+          </ul>
+          <a href="https://historiqly.lemonsqueezy.com/subscribe/yearly" class="btn-primary full">Subscribe Yearly</a>
+        </div>
+      </div>
 
-  <section class="section-spacer">
-    <div class="section-header">
-      <h2>FAQ</h2>
-    </div>
-    <details class="faq-item">
-      <summary>Is Volume 1 really free?</summary>
-      <div class="faq-content">
-        <p>Yes! Download Volume 1 with all 5 casefiles completely free. No credit card, no catch. We want you to experience the Evidence Engine before you subscribe.</p>
+      <div class="free-preview">
+        <p>Not ready to commit? <a href="/historiqly-books/vol/hoaxes">Preview Volume 1 free →</a></p>
       </div>
-    </details>
-    <details class="faq-item">
-      <summary>Is this written by AI?</summary>
-      <div class="faq-content">
-        <p>The analysis and scoring is performed by our Evidence Engine AI, but the final narrative is written and edited by historians for clarity.</p>
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>What formats are included?</summary>
-      <div class="faq-content">
-        <p>You get PDF and ePub files, all DRM-free. Read on any device.</p>
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>Can I cancel anytime?</summary>
-      <div class="faq-content">
-        <p>Yes! Cancel your subscription anytime from your account. You'll keep access until the end of your billing period.</p>
-      </div>
-    </details>
-    <details class="faq-item">
-      <summary>What's your refund policy?</summary>
-      <div class="faq-content">
-        <p>If you're not satisfied, email us within 30 days for a full refund. No questions asked.</p>
-      </div>
-    </details>
-  </section>
+    </section>
 
-  <section class="section-spacer">
-    <div class="final-cta">
-      <h2>Start Your First Investigation</h2>
-      <p>Download Volume 1 free. No credit card required.</p>
-      <a href="https://historiqly.lemonsqueezy.com/checkout/buy/vol1-free" class="cta-button" style="margin-top: 1rem;">Get Vol 1 Free →</a>
-    </div>
-  </section>
+    <!-- FAQ -->
+    <section class="faq-section">
+      <h2>Questions</h2>
+      <div class="faq-grid">
+        <details class="faq-item">
+          <summary>Is this written by AI?</summary>
+          <p>Yes—100%. Every casefile is researched, analyzed, and written by the best AI models on the market. As these models improve, so do our investigations. Better AI = deeper research, sharper analysis, more rigorous evidence scoring.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What formats are included?</summary>
+          <p>PDF and ePub. Both are DRM-free—read them on any device.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How often do new volumes come out?</summary>
+          <p>We release one new volume per month. Yearly subscribers get early access before the public release.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I cancel anytime?</summary>
+          <p>Yes. Cancel your subscription anytime from your account. You'll keep access until the end of your billing period.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <h2>Start Investigating</h2>
+      <p>Preview Volume 1 free. Subscribe when you're hooked.</p>
+      <div class="final-cta-buttons">
+        <a href="/historiqly-books/vol/hoaxes" class="btn-secondary">Preview Free</a>
+        <a href="#" class="btn-primary" data-subscription>Subscribe Now</a>
+      </div>
+    </section>
+  </div>
 </SidebarLayout>
+
+<style>
+  .home-page {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .text-accent { color: #5DB585; }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 3rem 0 4rem;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 0.375rem 1rem;
+    background: rgba(93, 181, 133, 0.1);
+    border: 1px solid rgba(93, 181, 133, 0.2);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #5DB585;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-lead {
+    font-size: 1.125rem;
+    color: #a8a8a8;
+    max-width: 540px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .hero-note {
+    font-size: 0.8125rem;
+    color: #666;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.75rem;
+    background: #5DB585;
+    color: #0a0a0a;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: #6FC494;
+    transform: translateY(-1px);
+  }
+
+  .btn-primary.full {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.875rem 1rem;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.75rem;
+    background: transparent;
+    color: #e0e0e0;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: #555;
+    background: rgba(255,255,255,0.03);
+  }
+
+  /* Value Section */
+  .value-section {
+    padding: 2rem 0;
+  }
+
+  .value-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .value-block {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #111;
+    border: 1px solid #1a1a1a;
+  }
+
+  .value-block.highlight {
+    border-color: rgba(93, 181, 133, 0.3);
+    background: rgba(93, 181, 133, 0.03);
+  }
+
+  .value-block h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .value-block p {
+    font-size: 0.9375rem;
+    color: #888;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Section Labels */
+  .section-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #5DB585;
+    margin-bottom: 0.5rem;
+  }
+
+  section h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-lead {
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Engine Section */
+  .engine-section {
+    padding: 3rem 0;
+  }
+
+  .engine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .engine-step {
+    padding: 1.25rem;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 10px;
+  }
+
+  .step-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #5DB585;
+    margin-bottom: 0.75rem;
+  }
+
+  .engine-step h4 {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .engine-step p {
+    font-size: 0.8125rem;
+    color: #777;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Contents Section */
+  .contents-section {
+    padding: 3rem 0;
+  }
+
+  .contents-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+
+  .content-card {
+    padding: 1.25rem;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .content-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #5DB585;
+  }
+
+  .content-card h4 {
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.375rem;
+  }
+
+  .content-card p {
+    font-size: 0.75rem;
+    color: #777;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Pricing Section */
+  .pricing-section {
+    padding: 3rem 0;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .pricing-card {
+    padding: 1.5rem;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-card.featured {
+    border-color: #5DB585;
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -0.625rem;
+    right: 1rem;
+    padding: 0.25rem 0.625rem;
+    background: #5DB585;
+    color: #0a0a0a;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .pricing-header h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .pricing-header p {
+    font-size: 0.8125rem;
+    color: #777;
+    margin: 0;
+  }
+
+  .price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 1rem 0;
+    color: #fff;
+  }
+
+  .price-period {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #888;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    flex-grow: 1;
+  }
+
+  .feature-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+    font-size: 0.875rem;
+    color: #ccc;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .feature-list li:last-child {
+    border-bottom: none;
+  }
+
+  .feature-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #5DB585;
+  }
+
+  .free-preview {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9375rem;
+    color: #777;
+  }
+
+  .free-preview a {
+    color: #5DB585;
+    text-decoration: none;
+  }
+
+  .free-preview a:hover {
+    text-decoration: underline;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 3rem 0;
+  }
+
+  .faq-section h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .faq-item summary {
+    padding: 1rem 0;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.25rem;
+    color: #555;
+    transition: transform 0.2s;
+  }
+
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-item p {
+    padding-bottom: 1rem;
+    color: #888;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Final CTA */
+  .final-cta {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #111;
+    border-radius: 16px;
+    border: 1px solid #1a1a1a;
+    margin: 2rem 0;
+  }
+
+  .final-cta h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .final-cta p {
+    color: #888;
+    margin-bottom: 1.5rem;
+  }
+
+  .final-cta-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .value-grid,
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .engine-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contents-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contents-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+  }
+</style>

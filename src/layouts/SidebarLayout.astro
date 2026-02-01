@@ -1,4 +1,8 @@
 ---
+import { volumes, icons } from "../data/volumes";
+import { getVolumeProgress, hasNewCases } from "../lib/cases";
+import SubscriptionModal from "../components/SubscriptionModal.astro";
+
 interface Props {
   title: string;
   description?: string;
@@ -6,19 +10,6 @@ interface Props {
 }
 
 const { title, description = "AI Casefiles - Evidence-based investigations", currentVolume } = Astro.props;
-
-const volumes = [
-  { num: 1, title: "Hoaxes, Forgeries & Frauds", slug: "hoaxes", available: true },
-  { num: 2, title: "Historical Myths Debunked", slug: "myths", available: false },
-  { num: 3, title: "Cold Cases Reopened", slug: "cold-cases", available: false },
-  { num: 4, title: "Famous Disappearances", slug: "disappearances", available: false },
-  { num: 5, title: "Conspiracy Claims", slug: "conspiracies", available: false },
-  { num: 6, title: "Secret Societies", slug: "secret-societies", available: false },
-  { num: 7, title: "Declassified Dossiers", slug: "declassified", available: false },
-  { num: 8, title: "Unexplained Phenomena", slug: "unexplained", available: false },
-  { num: 9, title: "Lost Civilizations", slug: "lost-civilizations", available: false },
-  { num: 10, title: "Archaeological Mysteries", slug: "archaeological", available: false },
-];
 ---
 
 <!doctype html>
@@ -29,6 +20,12 @@ const volumes = [
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/historiqly-books/favicon.svg" />
     <title>{title} | AI Casefiles</title>
+    <script is:inline>
+      // Apply collapsed state immediately to prevent layout shift
+      if (localStorage.getItem('sidebarCollapsed') === 'true') {
+        document.documentElement.classList.add('sidebar-collapsed');
+      }
+    </script>
   </head>
   <body>
     <!-- Top Bar -->
@@ -36,10 +33,15 @@ const volumes = [
       <div class="top-bar-content">
         <a href="/historiqly-books/" class="logo">
           <img src="/historiqly-books/logo.png" alt="HistorIQly" class="logo-img" />
+          <span class="logo-title">AI Casefiles</span>
         </a>
         <nav class="top-nav">
-          <a href="/historiqly-books/" class="nav-link">Home</a>
-          <a href="https://historiqly.lemonsqueezy.com/checkout/buy/vol1-free" class="btn-primary-sm">Free Preview →</a>
+          <a href="https://x.com/historiqly" class="nav-link nav-icon" target="_blank" rel="noopener" aria-label="Follow on X">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="/historiqly-books/vol/hoaxes" class="btn-primary-sm">Free Preview</a>
         </nav>
         <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
           <span></span>
@@ -54,32 +56,120 @@ const volumes = [
       <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
           <span class="sidebar-title">Volumes</span>
+          <button class="collapse-btn" id="collapseBtn" aria-label="Collapse sidebar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
         </div>
         <nav class="sidebar-nav">
-          {volumes.map((vol) => (
-            <a 
-              href={`/historiqly-books/vol/${vol.slug}`} 
-              class:list={["sidebar-link", { active: currentVolume === vol.num, unavailable: !vol.available }]}
-            >
-              <span class="vol-num">{vol.num}</span>
-              <span class="vol-title">{vol.title}</span>
-              {!vol.available && <span class="coming-soon">Soon</span>}
-              {vol.available && <span class="available-badge">Available</span>}
-            </a>
-          ))}
+          {volumes.map((vol) => {
+            const progress = getVolumeProgress(vol.slug);
+            const isAvailable = progress.released > 0;
+            const hasNew = hasNewCases(vol.slug);
+            return (
+              <a
+                href={`/historiqly-books/vol/${vol.slug}`}
+                class:list={["sidebar-link", { active: currentVolume === vol.num, unavailable: !isAvailable }]}
+                title={`${vol.title} - ${progress.released}/${progress.total} available`}
+              >
+                <span class="vol-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <Fragment set:html={icons[vol.icon]} />
+                  </svg>
+                </span>
+                <span class="vol-info">
+                  <span class="vol-title">{vol.title}</span>
+                  {isAvailable && (
+                    <span class="vol-progress">{progress.released}/{progress.total}</span>
+                  )}
+                </span>
+                {hasNew && <span class="new-dot" title="New cases this week"></span>}
+                {isAvailable && progress.released >= 3 && <span class="available-badge">Free</span>}
+              </a>
+            );
+          })}
         </nav>
+        <div class="sidebar-external">
+          <div class="sidebar-external-header">HistorIQly HQ</div>
+          <a href="https://historiqly.com" class="sidebar-external-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </svg>
+            <div class="external-link-text">
+              <span class="external-link-title">The Witnesses</span>
+              <span class="external-link-desc">Chat with Einstein, Socrates & 140+ minds</span>
+            </div>
+          </a>
+          <a href="https://blog.historiqly.com" class="sidebar-external-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/>
+            </svg>
+            <div class="external-link-text">
+              <span class="external-link-title">The Archives</span>
+              <span class="external-link-desc">Cold cases, time travel & Hollywood myths</span>
+            </div>
+          </a>
+          <a href="https://x.com/historiqly" class="sidebar-external-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            <div class="external-link-text">
+              <span class="external-link-title">Daily Brief</span>
+              <span class="external-link-desc">History takes & AI conversations</span>
+            </div>
+          </a>
+        </div>
       </aside>
 
       <!-- Main Content -->
       <main class="main-content">
         <slot />
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-content">
+            <div class="footer-brand">
+              <img src="/historiqly-books/logo.png" alt="HistorIQly" class="footer-logo" />
+              <p class="footer-tagline">AI-powered historical investigations</p>
+            </div>
+            <div class="footer-links">
+              <a href="https://historiqly.com" target="_blank" rel="noopener">The Witnesses</a>
+              <a href="https://blog.historiqly.com" target="_blank" rel="noopener">The Archives</a>
+              <a href="https://x.com/historiqly" target="_blank" rel="noopener">Daily Brief</a>
+            </div>
+            <p class="footer-copyright">&copy; 2025 HistorIQly. All rights reserved.</p>
+          </div>
+        </footer>
       </main>
     </div>
 
     <script>
       const menuBtn = document.getElementById('menuBtn');
       const sidebar = document.getElementById('sidebar');
-      
+      const collapseBtn = document.getElementById('collapseBtn');
+
+      // Check if we should open sidebar on page load (from Free Preview click)
+      if (sessionStorage.getItem('openSidebar') === 'true') {
+        sessionStorage.removeItem('openSidebar');
+        // On mobile, open the sidebar
+        if (window.innerWidth <= 768) {
+          sidebar?.classList.add('open');
+          menuBtn?.classList.add('open');
+        } else {
+          // On desktop, expand the sidebar if collapsed
+          document.documentElement.classList.remove('sidebar-collapsed');
+          localStorage.setItem('sidebarCollapsed', 'false');
+        }
+      }
+
+      // Toggle collapse on desktop
+      collapseBtn?.addEventListener('click', () => {
+        document.documentElement.classList.toggle('sidebar-collapsed');
+        const isCollapsed = document.documentElement.classList.contains('sidebar-collapsed');
+        localStorage.setItem('sidebarCollapsed', isCollapsed ? 'true' : 'false');
+      });
+
       menuBtn?.addEventListener('click', () => {
         sidebar?.classList.toggle('open');
         menuBtn?.classList.toggle('open');
@@ -94,7 +184,16 @@ const volumes = [
           }
         });
       });
+
+      // Add click handler to Free Preview links to open sidebar on destination
+      document.querySelectorAll('a[href*="/vol/hoaxes"]').forEach(link => {
+        link.addEventListener('click', () => {
+          sessionStorage.setItem('openSidebar', 'true');
+        });
+      });
     </script>
+
+    <SubscriptionModal />
   </body>
 </html>
 
@@ -110,7 +209,8 @@ const volumes = [
     --foreground-muted: #a8a8a8;
     --border: rgba(255, 255, 255, 0.08);
     --border-strong: rgba(255, 255, 255, 0.12);
-    --sidebar-width: 260px;
+    --sidebar-width: 220px;
+    --sidebar-collapsed-width: 52px;
     --topbar-height: 48px;
   }
 
@@ -155,12 +255,20 @@ const volumes = [
   .logo {
     display: flex;
     align-items: center;
+    gap: 0.625rem;
     text-decoration: none;
   }
 
   .logo-img {
     height: 28px;
     width: auto;
+  }
+
+  .logo-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--foreground);
+    letter-spacing: -0.01em;
   }
 
   .top-nav {
@@ -178,6 +286,11 @@ const volumes = [
 
   .nav-link:hover {
     color: var(--foreground);
+  }
+
+  .nav-icon {
+    display: flex;
+    align-items: center;
   }
 
   .btn-primary-sm {
@@ -249,11 +362,15 @@ const volumes = [
     border-right: 1px solid var(--border);
     overflow-y: auto;
     z-index: 50;
+    transition: width 0.2s;
   }
 
   .sidebar-header {
-    padding: 1rem;
+    padding: 0.75rem;
     border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .sidebar-title {
@@ -262,6 +379,26 @@ const volumes = [
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--foreground-muted);
+    transition: opacity 0.2s;
+  }
+
+  .collapse-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    color: var(--foreground-muted);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+
+  .collapse-btn:hover {
+    background: var(--surface-elevated);
+    color: var(--foreground);
   }
 
   .sidebar-nav {
@@ -295,39 +432,60 @@ const volumes = [
     opacity: 0.5;
   }
 
-  .vol-num {
+  .vol-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
     background: var(--surface-elevated);
-    border-radius: 4px;
-    font-size: 0.6875rem;
-    font-weight: 600;
+    border-radius: 6px;
     flex-shrink: 0;
+    color: var(--foreground-muted);
+    transition: all 0.2s;
   }
 
-  .sidebar-link.active .vol-num {
+  .vol-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .sidebar-link:hover .vol-icon {
+    color: var(--primary);
+    background: rgba(93, 181, 133, 0.15);
+  }
+
+  .sidebar-link.active .vol-icon {
     background: var(--primary);
     color: var(--background);
   }
 
-  .vol-title {
+  .vol-info {
+    display: flex;
+    flex-direction: column;
     flex: 1;
+    min-width: 0;
+  }
+
+  .vol-title {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .coming-soon {
-    font-size: 0.5625rem;
-    padding: 0.125rem 0.3rem;
-    background: var(--surface-elevated);
-    border-radius: 3px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  .vol-progress {
+    font-size: 0.625rem;
     color: var(--foreground-muted);
+    opacity: 0.7;
+  }
+
+  .new-dot {
+    width: 6px;
+    height: 6px;
+    background: #22c55e;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
   }
 
   .available-badge {
@@ -346,6 +504,235 @@ const volumes = [
     margin-left: var(--sidebar-width);
     padding: 1.5rem;
     min-height: calc(100vh - var(--topbar-height));
+    transition: margin-left 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-content > :global(*) {
+    width: 100%;
+    max-width: 900px;
+  }
+
+  /* Collapsed Sidebar State */
+  :root.sidebar-collapsed .sidebar {
+    width: var(--sidebar-collapsed-width);
+  }
+
+  :root.sidebar-collapsed .sidebar .sidebar-title {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  :root.sidebar-collapsed .sidebar .sidebar-header {
+    justify-content: center;
+  }
+
+  :root.sidebar-collapsed .sidebar .sidebar-link {
+    justify-content: center;
+    padding: 0.5rem;
+  }
+
+  :root.sidebar-collapsed .sidebar .vol-info,
+  :root.sidebar-collapsed .sidebar .available-badge,
+  :root.sidebar-collapsed .sidebar .new-dot {
+    display: none;
+  }
+
+  :root.sidebar-collapsed .sidebar .vol-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  :root.sidebar-collapsed .sidebar .vol-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  :root.sidebar-collapsed .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+
+  :root.sidebar-collapsed .collapse-btn svg {
+    transform: rotate(180deg);
+  }
+
+  /* Sidebar External Links - HistorIQly HQ */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-external {
+    padding: 0.75rem;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+    background: linear-gradient(180deg, transparent 0%, rgba(93, 181, 133, 0.03) 100%);
+  }
+
+  .sidebar-external-header {
+    font-size: 0.5625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary);
+    padding: 0.375rem 0.5rem 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sidebar-external-header::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  .sidebar-external-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--foreground-muted);
+    font-size: 0.75rem;
+    transition: all 0.2s;
+    margin-bottom: 0.125rem;
+  }
+
+  .sidebar-external-link svg {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    opacity: 0.6;
+    transition: all 0.2s;
+  }
+
+  .sidebar-external-link:hover {
+    background: var(--surface-elevated);
+  }
+
+  .sidebar-external-link:hover svg {
+    opacity: 1;
+    color: var(--primary);
+  }
+
+  .sidebar-external-link:hover .external-link-title {
+    color: var(--primary);
+  }
+
+  .external-link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.0625rem;
+    min-width: 0;
+  }
+
+  .external-link-title {
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--foreground);
+    transition: color 0.2s;
+  }
+
+  .external-link-desc {
+    font-size: 0.625rem;
+    color: var(--foreground-muted);
+    opacity: 0.7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Collapsed state - hide HQ section text, show only icons */
+  :root.sidebar-collapsed .sidebar-external {
+    padding: 0.5rem;
+  }
+
+  :root.sidebar-collapsed .sidebar-external-header {
+    display: none;
+  }
+
+  :root.sidebar-collapsed .sidebar-external-link {
+    justify-content: center;
+    padding: 0.5rem;
+  }
+
+  :root.sidebar-collapsed .external-link-text {
+    display: none;
+  }
+
+  :root.sidebar-collapsed .sidebar-external-link svg {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer-logo {
+    height: 32px;
+    width: auto;
+    opacity: 0.8;
+  }
+
+  .footer-tagline {
+    font-size: 0.8125rem;
+    color: var(--foreground-muted);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-links a {
+    color: var(--foreground-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--primary);
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+    color: var(--foreground-muted);
+    opacity: 0.6;
   }
 
   /* Mobile Styles */
@@ -356,6 +743,10 @@ const volumes = [
 
     .mobile-menu-btn {
       display: flex;
+    }
+
+    .collapse-btn {
+      display: none;
     }
 
     .sidebar {
@@ -372,6 +763,23 @@ const volumes = [
     .main-content {
       margin-left: 0;
       padding: 1rem;
+    }
+
+    :root.sidebar-collapsed .main-content {
+      margin-left: 0;
+    }
+
+    .sidebar-external-link {
+      padding: 0.75rem;
+    }
+
+    .external-link-title {
+      font-size: 0.8125rem;
+    }
+
+    .external-link-desc {
+      font-size: 0.6875rem;
+      white-space: normal;
     }
   }
 </style>
