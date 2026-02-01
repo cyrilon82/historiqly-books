@@ -1,670 +1,435 @@
 ---
-// src/pages/index-v3.astro
-// DESIGNER'S NOTES (V3):
-// This revision focuses on creating a stronger, more consistent design system.
-//
-// KEY CHANGES:
-// 1.  HERO: Increased headline font size and impact. Made CTA larger and more prominent.
-// 2.  CONSISTENCY: Unified the card design. The "Evidence Engine" and "What's Inside" sections
-//     now use the same card component style for a cohesive look. This was the biggest visual flaw.
-// 3.  BALANCE: Fixed the unbalanced pricing cards by setting a consistent height and using flexbox
-//     to align elements, ensuring the CTAs line up perfectly.
-// 4.  STRUCTURE: Added subtle horizontal rules (`<hr>`) to act as visual anchors, dividing
-//     the page into clearer sections and improving flow.
-// 5.  TYPOGRAPHY & POLISH: Refined font sizes for better hierarchy. Introduced consistent "pill"
-//     badges for tags like "New Release" and "Best Value". Added subtle hover effects for interactivity.
-// 6.  SPACING: Adjusted vertical spacing (margin/padding) between sections for better rhythm.
-//
-// CONSTRAINTS FOLLOWED:
-// - No gradients have been added.
-// - Colors are restricted to the existing dark background (#0a0a0a) and green accent (#5DB585).
-// - All original copy has been preserved.
+import SidebarLayout from '../layouts/SidebarLayout.astro';
 ---
 
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Historiqly AI Casefiles</title>
-    <style>
-        :root {
-            --bg-color: #0a0a0a;
-            --text-color: #e0e0e0;
-            --accent-color: #5DB585;
-            --border-color: #2a2a2a;
-            --card-bg: #141414;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            margin: 0;
-            padding: 0;
-            font-size: 16px;
-        }
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        h1, h2, h3 {
-            color: white;
-            font-weight: 700;
-        }
-        p {
-            line-height: 1.6;
-            color: #a0a0a0;
-        }
+<SidebarLayout title="Historiqly AI Casefiles">
+  <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --text-color: #e0e0e0;
+      --accent-color: #5DB585;
+      --border-color: #2a2a2a;
+      --card-bg: #141414;
+    }
+    
+    h1, h2, h3 {
+      color: white;
+      font-weight: 700;
+    }
+    p {
+      line-height: 1.6;
+      color: #a0a0a0;
+    }
 
-        /* --- Utility Classes --- */
-        .text-center { text-align: center; }
-        .text-accent { color: var(--accent-color); }
-        .section-spacer { margin-top: 6rem; margin-bottom: 6rem; }
-        .subtle-rule {
-            border: none;
-            height: 1px;
-            background-color: var(--border-color);
-            margin: 6rem auto;
-            width: 100%;
-        }
+    .text-center { text-align: center; }
+    .text-accent { color: var(--accent-color); }
+    .section-spacer { margin-top: 4rem; margin-bottom: 4rem; }
+    .subtle-rule {
+      border: none;
+      height: 1px;
+      background-color: var(--border-color);
+      margin: 4rem auto;
+      width: 100%;
+    }
 
-        /* --- Hero Section --- */
-        .hero {
-            padding: 8rem 0;
-            text-align: center;
-        }
-        .hero .tag {
-            display: inline-block;
-            background-color: rgba(93, 181, 133, 0.1);
-            color: var(--accent-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 99px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(93, 181, 133, 0.2);
-        }
-        .hero h1 {
-            font-size: 3.5rem; /* Increased size */
-            font-weight: 800;
-            line-height: 1.1;
-            margin: 0.5rem 0 1.5rem;
-        }
-        .hero p {
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            font-size: 1.1rem;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #0a0a0a;
-            font-weight: 700;
-            font-size: 1.1rem;
-            padding: 1rem 2.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: transform 0.2s ease;
-        }
-        .cta-button:hover {
-            transform: scale(1.05);
-        }
+    .hero {
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .hero .tag {
+      display: inline-block;
+      background-color: rgba(93, 181, 133, 0.1);
+      color: var(--accent-color);
+      padding: 0.3rem 0.8rem;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(93, 181, 133, 0.2);
+    }
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0.5rem 0 1.5rem;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: #0a0a0a;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.875rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+    }
 
-        /* --- Two-Column Section --- */
-        .two-col-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-        .two-col-grid h3 {
-            font-size: 1.5rem;
-        }
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .two-col-grid h3 {
+      font-size: 1.25rem;
+    }
 
-        /* --- Section Header --- */
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-        }
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .section-header p {
-            font-size: 1.1rem;
-        }
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+    .section-header h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .section-header p {
+      font-size: 1rem;
+    }
 
-        /* --- UNIFIED CARD SYSTEM --- */
-        .card-grid-3, .card-grid-4 {
-            display: grid;
-            gap: 1.5rem;
-        }
-        .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
-        .card-grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .card-grid-3, .card-grid-4 {
+      display: grid;
+      gap: 1.25rem;
+    }
+    .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .card-grid-4 { grid-template-columns: repeat(4, 1fr); }
 
-        .unified-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.2s ease;
-        }
-        .unified-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-        }
-        .card-icon {
-            height: 40px;
-            width: 40px;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-        .card-icon.numbered {
-            background-color: var(--border-color);
-            color: var(--text-color);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        .card-icon svg {
-            width: 24px;
-            height: 24px;
-        }
-        .unified-card h3 {
-            font-size: 1.2rem;
-            margin: 0 0 0.5rem;
-        }
-        .unified-card p {
-            font-size: 0.95rem;
-            margin: 0;
-            color: #a0a0a0;
-        }
+    .unified-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .unified-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-color);
+    }
+    .card-icon {
+      height: 36px;
+      width: 36px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    .card-icon.numbered {
+      background-color: var(--border-color);
+      color: var(--text-color);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .card-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    .unified-card h3 {
+      font-size: 1.1rem;
+      margin: 0 0 0.5rem;
+    }
+    .unified-card p {
+      font-size: 0.9rem;
+      margin: 0;
+      color: #a0a0a0;
+    }
 
-        /* --- Pricing Section --- */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: stretch; /* Make cards equal height */
-        }
-        .pricing-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column; /* Allow flex-grow */
-            position: relative;
-        }
-        .pricing-card.highlight {
-            border-color: var(--accent-color);
-        }
-        .pricing-tag {
-            display: inline-block;
-            background-color: rgba(93, 181, 133, 0.1);
-            color: var(--accent-color);
-            padding: 0.2rem 0.6rem;
-            border-radius: 99px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(93, 181, 133, 0.2);
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-        }
-        .pricing-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-        .price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: white;
-            margin: 1rem 0;
-        }
-        .price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: #a0a0a0;
-            margin-left: 0.5rem;
-        }
-        .features-list {
-            list-style: none;
-            padding: 0;
-            margin: 1.5rem 0;
-            flex-grow: 1; /* Pushes button down */
-        }
-        .features-list li {
-            padding-left: 1.75rem;
-            position: relative;
-            margin-bottom: 0.75rem;
-            color: #b0b0b0;
-        }
-        .features-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: 700;
-        }
-        .pricing-button {
-            display: block;
-            text-align: center;
-            text-decoration: none;
-            padding: 0.8rem 1rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            width: 100%;
-        }
-        .pricing-button.primary {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-        }
-        .pricing-button.secondary {
-            background-color: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-        }
-        .pricing-button:hover {
-            transform: scale(1.02);
-        }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+    .pricing-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .pricing-card.highlight {
+      border-color: var(--accent-color);
+    }
+    .pricing-tag {
+      display: inline-block;
+      background-color: rgba(93, 181, 133, 0.1);
+      color: var(--accent-color);
+      padding: 0.2rem 0.6rem;
+      border-radius: 99px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(93, 181, 133, 0.2);
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+    .pricing-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      margin: 0.75rem 0;
+    }
+    .price span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #a0a0a0;
+      margin-left: 0.5rem;
+    }
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      flex-grow: 1;
+    }
+    .features-list li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+      color: #b0b0b0;
+      font-size: 0.9rem;
+    }
+    .features-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+    .pricing-button {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+    .pricing-button.primary {
+      background-color: var(--accent-color);
+      color: var(--bg-color);
+    }
+    .pricing-button.secondary {
+      background-color: transparent;
+      color: var(--accent-color);
+      border: 1px solid var(--accent-color);
+    }
+    .pricing-button:hover {
+      transform: scale(1.02);
+    }
 
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+    }
+    .faq-item summary {
+      padding: 1.25rem 0;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      font-size: 1rem;
+    }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 400;
+      transition: transform 0.2s;
+    }
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+    .faq-content {
+      padding-bottom: 1.25rem;
+    }
 
-        /* --- FAQ Section --- */
-        .faq-item {
-            border-bottom: 1px solid var(--border-color);
-        }
-        .faq-item summary {
-            padding: 1.5rem 0;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-            font-size: 1.1rem;
-        }
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-        .faq-item summary::after {
-            content: '+';
-            font-size: 1.5rem;
-            font-weight: 400;
-            transition: transform 0.2s;
-        }
-        .faq-item[open] summary::after {
-            transform: rotate(45deg);
-        }
-        .faq-content {
-            padding-bottom: 1.5rem;
-        }
+    .final-cta {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .final-cta h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
 
-        /* --- Final CTA --- */
-        .final-cta {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        .final-cta h2 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
+    @media (max-width: 900px) {
+      .card-grid-3, .card-grid-4, .pricing-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .two-col-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .section-header h2 { font-size: 1.5rem; }
+      .card-grid-3, .card-grid-4, .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            font-size: 0.9rem;
-            color: #777;
-        }
-        footer a {
-            color: #999;
-            text-decoration: none;
-        }
-        footer a:hover {
-            color: var(--accent-color);
-        }
+  <section class="hero">
+    <div class="tag">New Release</div>
+    <h1>Stop Reading History.<br/>Start <span class="text-accent">Investigating</span> It.</h1>
+    <p>AI Casefiles are a new kind of history book. We use AI to build evidence-based dossiers on history's greatest mysteries, hoaxes, and cold cases.</p>
+    <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="cta-button">Get Vol 1 for $1.99</a>
+  </section>
 
-        /* --- Responsive Design --- */
-        @media (max-width: 900px) {
-            .card-grid-3, .card-grid-4, .pricing-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .two-col-grid { grid-template-columns: 1fr; gap: 2rem; }
-        }
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.2rem; }
-            .section-header h2 { font-size: 2rem; }
-            .card-grid-3, .card-grid-4, .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-            main { padding: 0 1rem; }
-        }
+  <section class="two-col-grid section-spacer">
+    <div>
+      <h3>History Books Ask You to Trust the Author.</h3>
+      <p>Most history books give you a polished narrative. But what's left out? The conflicting reports, the unreliable witnesses, the inconvenient facts.</p>
+    </div>
+    <div>
+      <h3>We Ask You to Trust the <span class="text-accent">Evidence</span>.</h3>
+      <p>AI Casefiles are different. We don't just tell you a story—we give you the complete dossier. Our Evidence Engine systematically grades every source, reconstructs timelines, and scores theories.</p>
+    </div>
+  </section>
 
-    </style>
-</head>
-<body>
-    <main>
-        <!-- ======================= -->
-        <!-- Hero Section -->
-        <!-- ======================= -->
-        <section class="hero">
-            <div class="tag">New Release</div>
-            <h1>Stop Reading History.<br/>Start <span class="text-accent">Investigating</span> It.</h1>
-            <p>AI Casefiles are a new kind of history book. We use AI to build evidence-based dossiers on history's greatest mysteries, hoaxes, and cold cases. It's the prestige documentary you can read in one sitting.</p>
-            <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="cta-button">Get Vol 1 for $1.99 &ndash;</a>
-        </section>
+  <hr class="subtle-rule"/>
 
-        <!-- ======================= -->
-        <!-- Value Prop Section -->
-        <!-- ======================= -->
-        <section class="two-col-grid section-spacer">
-            <div>
-                <h3>History Books Ask You to Trust the Author.</h3>
-                <p>Most history books give you a polished narrative. But what's left out? The conflicting reports, the unreliable witnesses, the inconvenient facts.</p>
-            </div>
-            <div>
-                <h3>We Ask You to Trust the <span class="text-accent">Evidence</span>.</h3>
-                <p>AI Casefiles are different. We don't just tell you a story—we give you the complete dossier. Our Evidence Engine systematically grades every source, reconstructs timelines, and scores theories.<br/><strong>Every source graded. Every timeline tested. Every theory scored.</strong></p>
-            </div>
-        </section>
+  <section class="section-spacer">
+    <div class="section-header">
+      <h2>The Evidence Engine</h2>
+      <p>Forensic rigor meets AI-powered analysis</p>
+    </div>
+    <div class="card-grid-3">
+      <div class="unified-card">
+        <div class="card-icon numbered">1</div>
+        <h3>Source Grading</h3>
+        <p>Every source is graded A-D based on reliability.</p>
+      </div>
+      <div class="unified-card">
+        <div class="card-icon numbered">2</div>
+        <h3>Timeline Reconstruction</h3>
+        <p>We rebuild chronology using only A and B-grade sources.</p>
+      </div>
+      <div class="unified-card">
+        <div class="card-icon numbered">3</div>
+        <h3>Theory Scoreboard</h3>
+        <p>Each theory is scored 0-100 based on evidence.</p>
+      </div>
+    </div>
+  </section>
 
-        <hr class="subtle-rule"/>
+  <section class="section-spacer">
+    <div class="section-header">
+      <h2>What's Inside Each Volume</h2>
+    </div>
+    <div class="card-grid-4">
+      <div class="unified-card">
+        <h3>5 Deep-Dive Casefiles</h3>
+        <p>3,500+ words of forensic analysis each</p>
+      </div>
+      <div class="unified-card">
+        <h3>Evidence Maps</h3>
+        <p>Visual breakdown with A-D grades</p>
+      </div>
+      <div class="unified-card">
+        <h3>Timelines</h3>
+        <p>Verified chronology from high-grade sources</p>
+      </div>
+      <div class="unified-card">
+        <h3>Theory Scores</h3>
+        <p>Quantified analysis with confidence %</p>
+      </div>
+    </div>
+  </section>
 
-        <!-- ======================= -->
-        <!-- The Evidence Engine -->
-        <!-- ======================= -->
-        <section class="section-spacer">
-            <div class="section-header">
-                <h2>The Evidence Engine</h2>
-                <p>Forensic rigor meets AI-powered analysis</p>
-            </div>
-            <div class="card-grid-3">
-                <div class="unified-card">
-                    <div class="card-icon numbered">1</div>
-                    <h3>Source Grading</h3>
-                    <p>Every source is graded A-D based on reliability. Court docs = A, Rumors = C, Known falsehoods = D.</p>
-                </div>
-                <div class="unified-card">
-                    <div class="card-icon numbered">2</div>
-                    <h3>Timeline Reconstruction</h3>
-                    <p>We rebuild the chronology using only A and B-grade sources. Contradictions are highlighted.</p>
-                </div>
-                <div class="unified-card">
-                    <div class="card-icon numbered">3</div>
-                    <h3>Theory Scoreboard</h3>
-                    <p>Each theory is scored 0-100 based on supporting and contradicting evidence. No vibes—just data.</p>
-                </div>
-            </div>
-        </section>
+  <hr class="subtle-rule"/>
 
+  <section class="section-spacer">
+    <div class="section-header">
+      <h2>Get Your First Dossier</h2>
+      <p>PDF + ePub, DRM-Free, instant delivery</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Vol 1: Hoaxes, Forgeries & Frauds</h3>
+        <div class="price">$1.99</div>
+        <ul class="features-list">
+          <li>The Hitler Diaries</li>
+          <li>The Piltdown Man</li>
+          <li>The Protocols of Zion</li>
+          <li>The Hughes Autobiography</li>
+          <li>The Cottingley Fairies</li>
+        </ul>
+        <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="pricing-button primary">Get Volume 1 →</a>
+      </div>
+      <div class="pricing-card highlight">
+        <div class="pricing-tag">Best Value</div>
+        <h3>The Complete Collection</h3>
+        <div class="price">$24.99 <span>Save 35%</span></div>
+        <ul class="features-list">
+          <li>All 10 volumes (50 casefiles)</li>
+        </ul>
+        <a href="https://historiqly.lemonsqueezy.com/buy/complete" class="pricing-button secondary">Get All 10 →</a>
+      </div>
+    </div>
+  </section>
 
-        <!-- ======================= -->
-        <!-- What's Inside Section -->
-        <!-- ======================= -->
-        <section class="section-spacer">
-            <div class="section-header">
-                <h2>What's Inside Each Volume</h2>
-            </div>
-             <div class="card-grid-4">
-                <div class="unified-card">
-                    <div class="card-icon">
-                        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M4 3.5a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zM4 5a.5.5 0 01.5-.5h7a.5.5 0 010 1h-7A.5.5 0 014 5zm0 1.5a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3a.5.5 0 01-.5-.5zm2 5.5a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5a.5.5 0 01-.5-.5zM6 13a.5.5 0 01.5-.5h1a.5.5 0 010 1h-1A.5.5 0 016 13zm-2-11h1v1H4zM3 2h14a1 1 0 011 1v14a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1zm1 14h12V3H4z"></path></svg>
-                    </div>
-                    <h3>5 Deep-Dive Casefiles</h3>
-                    <p>Each investigation is 3,500+ words of forensic analysis</p>
-                </div>
-                <div class="unified-card">
-                    <div class="card-icon">
-                       <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V3zm2.5 1.5a.5.5 0 000 1h7a.5.5 0 000-1h-7zm0 3a.5.5 0 000 1h7a.5.5 0 000-1h-7zm0 3a.5.5 0 000 1h4a.5.5 0 000-1h-4z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <h3>Evidence Maps</h3>
-                    <p>Visual breakdown of every source with A-D grades</p>
-                </div>
-                <div class="unified-card">
-                    <div class="card-icon">
-                        <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2.586L7.707 11.293a1 1 0 001.414 1.414L11 10.414V7z" clip-rule="evenodd"></path></svg>
-                    </div>
-                    <h3>Reconstructed Timelines</h3>
-                    <p>Verified chronology from high-grade sources only</p>
-                </div>
-                <div class="unified-card">
-                     <div class="card-icon">
-                        <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1.13-7.13a.904.904 0 01.636-1.536.904.904 0 01.636 1.536l-1.272.001zm2.26 0l-1.272.001a.904.904 0 110-1.808l1.272-.001a.904.904 0 110 1.808zM9.5 13a.5.5 0 01.5-.5h.001a.5.5 0 010 1H10a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path></svg>
-                     </div>
-                    <h3>Theory Scoreboards</h3>
-                    <p>Quantified analysis with confidence scores</p>
-                </div>
-            </div>
-        </section>
+  <hr class="subtle-rule"/>
 
-        <hr class="subtle-rule"/>
+  <section class="section-spacer">
+    <div class="section-header">
+      <h2>FAQ</h2>
+    </div>
+    <details class="faq-item">
+      <summary>Is this written by AI?</summary>
+      <div class="faq-content">
+        <p>The analysis and scoring is performed by our Evidence Engine AI, but the final narrative is written and edited by historians for clarity.</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>What formats are included?</summary>
+      <div class="faq-content">
+        <p>You get PDF, ePub, and MOBI files, all DRM-free. Read on any device.</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>Is this a subscription?</summary>
+      <div class="faq-content">
+        <p>No. One-time purchase. You buy the volumes you want, you own them forever.</p>
+      </div>
+    </details>
+    <details class="faq-item">
+      <summary>What's your refund policy?</summary>
+      <div class="faq-content">
+        <p>Reply to the download email within 30 days for a full, no-questions-asked refund.</p>
+      </div>
+    </details>
+  </section>
 
-        <!-- ======================= -->
-        <!-- Pricing Section -->
-        <!-- ======================= -->
-        <section class="section-spacer">
-            <div class="section-header">
-                <h2>Get Your First Dossier</h2>
-                <p>PDF + ePub, DRM-Free, instant delivery</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Vol 1: Hoaxes, Forgeries & Frauds</h3>
-                    <div class="price">$1.99</div>
-                    <ul class="features-list">
-                        <li>The Hitler Diaries</li>
-                        <li>The Piltdown Man</li>
-                        <li>The Protocols of Zion</li>
-                        <li>The Hughes Autobiography</li>
-                        <li>The Cottingley Fairies</li>
-                    </ul>
-                    <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="pricing-button primary">Get Volume 1 &rarr;</a>
-                </div>
-                <div class="pricing-card highlight">
-                    <div class="pricing-tag">Best Value</div>
-                    <h3>The Complete Collection</h3>
-                    <div class="price">$24.99 <span>Save 35%</span></div>
-                    <ul class="features-list">
-                        <li>All 10 volumes (50 casefiles)</li>
-                    </ul>
-                    <a href="https://historiqly.lemonsqueezy.com/buy/complete" class="pricing-button secondary">Get All 10 &rarr;</a>
-                </div>
-            </div>
-        </section>
-
-        <hr class="subtle-rule"/>
-
-        <!-- ======================= -->
-        <!-- FAQ Section -->
-        <!-- ======================= -->
-        <section class="section-spacer">
-             <div class="section-header">
-                <h2>FAQ</h2>
-            </div>
-            <details class="faq-item">
-                <summary>Is this written by AI?</summary>
-                <div class="faq-content">
-                    <p>The analysis and scoring is performed by our Evidence Engine AI, but the final narrative and dossier is written and edited by our team of historians and writers for clarity and readability.</p>
-                </div>
-            </details>
-            <details class="faq-item">
-                <summary>What formats are included?</summary>
-                <div class="faq-content">
-                    <p>You get PDF, ePub, and MOBI files, all DRM-free. Read on any device you own.</p>
-                </div>
-            </details>
-            <details class="faq-item">
-                <summary>Is this a subscription?</summary>
-                <div class="faq-content">
-                    <p>No. This is a one-time purchase. You buy the volumes you want, you own them forever.</p>
-                </div>
-            </details>
-             <details class="faq-item">
-                <summary>What's your refund policy?</summary>
-                <div class="faq-content">
-                    <p>If you're not satisfied with your purchase, just reply to the download email within 30 days for a full, no-questions-asked refund.</p>
-                </div>
-            </details>
-        </section>
-
-        <!-- ======================= -->
-        <!-- Final CTA Section -->
-        <!-- ======================= -->
-        <section class="section-spacer">
-            <div class="final-cta">
-                <h2>Your Investigation Starts Now</h2>
-                <p>For a limited time, get Volume 1 for just $1.99.</p>
-                <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="cta-button" style="margin-top: 1.5rem;">Get the Hoax Dossier &rarr;</a>
-            </div>
-        </section>
-    </main>
-
-        <!-- ======================= -->
-        <!-- All Volumes Section -->
-        <!-- ======================= -->
-        <section class="section-spacer">
-            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 0.5rem;">The Complete Series</h2>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">10 volumes of evidence-based investigations</p>
-            
-            <div class="volumes-grid">
-                <a href="/historiqly-books/vol/hoaxes" class="volume-item available">
-                    <span class="vol-num">1</span>
-                    <span class="vol-name">Hoaxes, Forgeries & Frauds</span>
-                    <span class="vol-status available-tag">Available</span>
-                </a>
-                <a href="/historiqly-books/vol/myths" class="volume-item">
-                    <span class="vol-num">2</span>
-                    <span class="vol-name">Historical Myths Debunked</span>
-                    <span class="vol-status">Soon</span>
-                </a>
-                <a href="/historiqly-books/vol/cold-cases" class="volume-item">
-                    <span class="vol-num">3</span>
-                    <span class="vol-name">Cold Cases Reopened</span>
-                    <span class="vol-status">Soon</span>
-                </a>
-                <a href="/historiqly-books/vol/disappearances" class="volume-item">
-                    <span class="vol-num">4</span>
-                    <span class="vol-name">Famous Disappearances</span>
-                    <span class="vol-status">Soon</span>
-                </a>
-                <a href="/historiqly-books/vol/conspiracies" class="volume-item">
-                    <span class="vol-num">5</span>
-                    <span class="vol-name">Conspiracy Claims</span>
-                    <span class="vol-status">Soon</span>
-                </a>
-                <a href="/historiqly-books/vol/secret-societies" class="volume-item">
-                    <span class="vol-num">6</span>
-                    <span class="vol-name">Secret Societies</span>
-                    <span class="vol-status">Soon</span>
-                </a>
-                <a href="/historiqly-books/vol/declassified" class="volume-item">
-                    <span class="vol-num">7</span>
-                    <span class="vol-name">Declassified Dossiers</span>
-                    <span class="vol-status">Soon</span>
-                </a>
-                <a href="/historiqly-books/vol/unexplained" class="volume-item">
-                    <span class="vol-num">8</span>
-                    <span class="vol-name">Unexplained Phenomena</span>
-                    <span class="vol-status">Soon</span>
-                </a>
-                <a href="/historiqly-books/vol/lost-civilizations" class="volume-item">
-                    <span class="vol-num">9</span>
-                    <span class="vol-name">Lost Civilizations</span>
-                    <span class="vol-status">Soon</span>
-                </a>
-                <a href="/historiqly-books/vol/archaeological" class="volume-item">
-                    <span class="vol-num">10</span>
-                    <span class="vol-name">Archaeological Mysteries</span>
-                    <span class="vol-status">Soon</span>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <!-- ======================= -->
-    <!-- Footer -->
-    <!-- ======================= -->
-    <footer>
-        &copy; 2026 HistorIQly. All rights reserved. <br/>
-        <a href="https://historiqly.com">Main Site</a> &middot; <a href="mailto:ai@cyril.page">Contact</a>
-    </footer>
-
-    <style>
-        .volumes-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        @media (max-width: 600px) {
-            .volumes-grid { grid-template-columns: 1fr; }
-        }
-        .volume-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 1.25rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            text-decoration: none;
-            color: var(--text-muted);
-            transition: all 0.2s;
-        }
-        .volume-item:hover {
-            border-color: var(--accent-color);
-            background: #161616;
-            color: var(--text-color);
-        }
-        .volume-item.available {
-            border-color: var(--accent-color);
-            color: var(--text-color);
-        }
-        .vol-num {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            background: #161616;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-        .volume-item.available .vol-num {
-            background: var(--accent-color);
-            color: var(--bg-color);
-        }
-        .vol-name {
-            flex: 1;
-            font-size: 0.9375rem;
-        }
-        .vol-status {
-            font-size: 0.625rem;
-            padding: 0.25rem 0.5rem;
-            background: #1a1a1a;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .vol-status.available-tag {
-            background: rgba(93, 181, 133, 0.15);
-            color: var(--accent-color);
-        }
-    </style>
-</body>
-</html>
+  <section class="section-spacer">
+    <div class="final-cta">
+      <h2>Your Investigation Starts Now</h2>
+      <p>Get Volume 1 for just $1.99.</p>
+      <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="cta-button" style="margin-top: 1rem;">Get the Hoax Dossier →</a>
+    </div>
+  </section>
+</SidebarLayout>
