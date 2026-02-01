@@ -113,7 +113,7 @@ import EmailCapture from '../components/EmailCapture.astro';
             <li>PDF + ePub downloads</li>
             <li>Cancel anytime</li>
           </ul>
-          <a href="https://historiqly.lemonsqueezy.com/subscribe/monthly" class="btn-primary full">Subscribe Monthly</a>
+          <button class="btn-primary full" data-subscription>Subscribe Monthly</button>
         </div>
 
         <div class="pricing-card featured">
@@ -129,7 +129,7 @@ import EmailCapture from '../components/EmailCapture.astro';
             <li>Bonus deep-dive casefiles</li>
             <li>Subscriber-only content</li>
           </ul>
-          <a href="https://historiqly.lemonsqueezy.com/subscribe/yearly" class="btn-primary full">Subscribe Yearly</a>
+          <button class="btn-primary full" data-subscription>Subscribe Yearly</button>
         </div>
       </div>
 
@@ -235,8 +235,11 @@ import EmailCapture from '../components/EmailCapture.astro';
     color: #0a0a0a;
     font-weight: 700;
     font-size: 0.9375rem;
+    font-family: inherit;
     border-radius: 8px;
+    border: none;
     text-decoration: none;
+    cursor: pointer;
     transition: all 0.2s;
   }
 
