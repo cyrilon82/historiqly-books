@@ -13,7 +13,7 @@ export const mythsCases: Case[] = [
     year: "30 BCE",
     confidence: 75,
     releaseDate: "2025-01-01",
-    isFree: false,
+    isFree: true,
   },
   {
     id: "myths-02",
@@ -26,7 +26,7 @@ export const mythsCases: Case[] = [
     verdictLabel: "Myth Debunked",
     year: "8th–11th century",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const mythsCases: Case[] = [
     verdictLabel: "Mostly Myth",
     year: "Golden Age",
     confidence: 85,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -54,7 +54,7 @@ export const mythsCases: Case[] = [
     verdictLabel: "Partially True",
     year: "15th–17th century",
     confidence: 80,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -68,7 +68,7 @@ export const mythsCases: Case[] = [
     verdictLabel: "Myth Debunked",
     year: "500–1000 CE",
     confidence: 90,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const mythsCases: Case[] = [
     verdictLabel: "Myth Debunked",
     year: "19th century",
     confidence: 95,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -96,7 +96,7 @@ export const mythsCases: Case[] = [
     verdictLabel: "Myth Debunked",
     year: "Roman Empire",
     confidence: 85,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
 ];

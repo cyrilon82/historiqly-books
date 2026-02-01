@@ -13,7 +13,7 @@ export const declassifiedCases: Case[] = [
     year: "1953–1973",
     confidence: 100,
     releaseDate: "2025-01-01",
-    isFree: false,
+    isFree: true,
   },
   {
     id: "declassified-02",
@@ -26,7 +26,7 @@ export const declassifiedCases: Case[] = [
     verdictLabel: "Confirmed",
     year: "1945–1959",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const declassifiedCases: Case[] = [
     verdictLabel: "Confirmed",
     year: "1956–1971",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -54,7 +54,7 @@ export const declassifiedCases: Case[] = [
     verdictLabel: "Confirmed",
     year: "1943",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -68,7 +68,7 @@ export const declassifiedCases: Case[] = [
     verdictLabel: "Confirmed",
     year: "1962",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const declassifiedCases: Case[] = [
     verdictLabel: "Confirmed",
     year: "1964",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -96,7 +96,7 @@ export const declassifiedCases: Case[] = [
     verdictLabel: "Confirmed",
     year: "1967–1974",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
 ];

@@ -13,7 +13,7 @@ export const secretSocietiesCases: Case[] = [
     year: "1776–1785",
     confidence: 90,
     releaseDate: "2025-01-01",
-    isFree: false,
+    isFree: true,
   },
   {
     id: "secret-societies-02",
@@ -26,7 +26,7 @@ export const secretSocietiesCases: Case[] = [
     verdictLabel: "Historical Analysis",
     year: "1600s–present",
     confidence: 85,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const secretSocietiesCases: Case[] = [
     verdictLabel: "Historical Analysis",
     year: "1832–present",
     confidence: 75,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -54,7 +54,7 @@ export const secretSocietiesCases: Case[] = [
     verdictLabel: "Historical Analysis",
     year: "1119–1312",
     confidence: 90,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -68,7 +68,7 @@ export const secretSocietiesCases: Case[] = [
     verdictLabel: "Historical Analysis",
     year: "1872–present",
     confidence: 70,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const secretSocietiesCases: Case[] = [
     verdictLabel: "Historical Analysis",
     year: "1090–1275",
     confidence: 80,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -96,7 +96,7 @@ export const secretSocietiesCases: Case[] = [
     verdictLabel: "Historical Analysis",
     year: "1928–present",
     confidence: 80,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
 ];

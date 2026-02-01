@@ -13,7 +13,7 @@ export const disappearancesCases: Case[] = [
     year: "1937",
     confidence: 0,
     releaseDate: "2025-01-01",
-    isFree: false,
+    isFree: true,
   },
   {
     id: "disappearances-02",
@@ -26,7 +26,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Fate Unknown",
     year: "1971",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Fate Unknown",
     year: "1872",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -54,7 +54,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Fate Unknown",
     year: "2014",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -68,7 +68,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Fate Unknown",
     year: "1590",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Presumed Dead",
     year: "1483",
     confidence: 70,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -96,7 +96,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Presumed Dead",
     year: "1975",
     confidence: 90,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -110,7 +110,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Identity Unknown",
     year: "1669–1703",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
 ];

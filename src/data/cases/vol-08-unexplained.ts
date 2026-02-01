@@ -13,7 +13,7 @@ export const unexplainedCases: Case[] = [
     year: "1959",
     confidence: 60,
     releaseDate: "2025-01-01",
-    isFree: false,
+    isFree: true,
   },
   {
     id: "unexplained-02",
@@ -26,7 +26,7 @@ export const unexplainedCases: Case[] = [
     verdictLabel: "Likely Myth",
     year: "1933–present",
     confidence: 85,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const unexplainedCases: Case[] = [
     verdictLabel: "Unexplained",
     year: "1977",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -54,7 +54,7 @@ export const unexplainedCases: Case[] = [
     verdictLabel: "Partially Explained",
     year: "1518",
     confidence: 50,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -68,7 +68,7 @@ export const unexplainedCases: Case[] = [
     verdictLabel: "Likely Explained",
     year: "1908",
     confidence: 75,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const unexplainedCases: Case[] = [
     verdictLabel: "Unexplained",
     year: "Historical",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -96,7 +96,7 @@ export const unexplainedCases: Case[] = [
     verdictLabel: "Unexplained",
     year: "1980s–present",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
 ];

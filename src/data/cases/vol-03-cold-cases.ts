@@ -13,7 +13,7 @@ export const coldCasesCases: Case[] = [
     year: "1888",
     confidence: 0,
     releaseDate: "2025-01-01",
-    isFree: false,
+    isFree: true,
   },
   {
     id: "cold-cases-02",
@@ -26,7 +26,7 @@ export const coldCasesCases: Case[] = [
     verdictLabel: "Unsolved",
     year: "1947",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const coldCasesCases: Case[] = [
     verdictLabel: "Unsolved",
     year: "1968–1974",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -54,7 +54,7 @@ export const coldCasesCases: Case[] = [
     verdictLabel: "Partially Solved",
     year: "1948–2022",
     confidence: 40,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -68,7 +68,7 @@ export const coldCasesCases: Case[] = [
     verdictLabel: "Unsolved",
     year: "1922",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const coldCasesCases: Case[] = [
     verdictLabel: "Unsolved",
     year: "1935–1938",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -96,7 +96,7 @@ export const coldCasesCases: Case[] = [
     verdictLabel: "Unsolved",
     year: "1970",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
 ];

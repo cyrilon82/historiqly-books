@@ -13,7 +13,7 @@ export const lostWorldsCases: Case[] = [
     year: "c. 360 BCE",
     confidence: 95,
     releaseDate: "2025-01-01",
-    isFree: false,
+    isFree: true,
   },
   {
     id: "lost-worlds-02",
@@ -26,7 +26,7 @@ export const lostWorldsCases: Case[] = [
     verdictLabel: "Authentic",
     year: "c. 9600 BCE",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const lostWorldsCases: Case[] = [
     verdictLabel: "Debated",
     year: "c. 10,800 BCE",
     confidence: 40,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -54,7 +54,7 @@ export const lostWorldsCases: Case[] = [
     verdictLabel: "Confirmed",
     year: "10,000–6,000 BCE",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -68,7 +68,7 @@ export const lostWorldsCases: Case[] = [
     verdictLabel: "Debunked",
     year: "19th century",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const lostWorldsCases: Case[] = [
     verdictLabel: "Legendary",
     year: "16th century",
     confidence: 90,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -96,7 +96,7 @@ export const lostWorldsCases: Case[] = [
     verdictLabel: "Partially Mythologized",
     year: "3rd c. BCE–7th c. CE",
     confidence: 80,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
 ];

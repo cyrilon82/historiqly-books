@@ -13,7 +13,7 @@ export const archaeologicalCases: Case[] = [
     year: "c. 500 BCE–500 CE",
     confidence: 100,
     releaseDate: "2025-01-01",
-    isFree: false,
+    isFree: true,
   },
   {
     id: "archaeological-02",
@@ -26,7 +26,7 @@ export const archaeologicalCases: Case[] = [
     verdictLabel: "Authentic",
     year: "c. 150–100 BCE",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const archaeologicalCases: Case[] = [
     verdictLabel: "Undeciphered",
     year: "15th century",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -54,7 +54,7 @@ export const archaeologicalCases: Case[] = [
     verdictLabel: "Undeciphered",
     year: "c. 1700 BCE",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -68,7 +68,7 @@ export const archaeologicalCases: Case[] = [
     verdictLabel: "Unproven",
     year: "1795–present",
     confidence: 20,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const archaeologicalCases: Case[] = [
     verdictLabel: "Unknown Purpose",
     year: "2nd–4th century CE",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -96,7 +96,7 @@ export const archaeologicalCases: Case[] = [
     verdictLabel: "Disputed",
     year: "Prehistoric?",
     confidence: 40,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
 ];

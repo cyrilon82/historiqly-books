@@ -13,7 +13,7 @@ export const heistsCases: Case[] = [
     year: "1990",
     confidence: 0,
     releaseDate: "2025-01-01",
-    isFree: false,
+    isFree: true,
   },
   {
     id: "heists-02",
@@ -26,7 +26,7 @@ export const heistsCases: Case[] = [
     verdictLabel: "Lost",
     year: "1701–1945",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const heistsCases: Case[] = [
     verdictLabel: "Solved",
     year: "2003",
     confidence: 90,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -54,7 +54,7 @@ export const heistsCases: Case[] = [
     verdictLabel: "Solved",
     year: "1963",
     confidence: 100,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -68,7 +68,7 @@ export const heistsCases: Case[] = [
     verdictLabel: "Lost",
     year: "1511",
     confidence: 0,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const heistsCases: Case[] = [
     verdictLabel: "Unconfirmed",
     year: "1945",
     confidence: 20,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
   {
@@ -96,7 +96,7 @@ export const heistsCases: Case[] = [
     verdictLabel: "Unconfirmed",
     year: "1945",
     confidence: 30,
-    releaseDate: "2025-01-01",
+    releaseDate: "2027-01-01",
     isFree: false,
   },
 ];
