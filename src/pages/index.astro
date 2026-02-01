@@ -1,5 +1,6 @@
 ---
 import SidebarLayout from '../layouts/SidebarLayout.astro';
+import EmailCapture from '../components/EmailCapture.astro';
 ---
 
 <SidebarLayout title="AI Casefiles — Evidence-Based History">
@@ -13,7 +14,7 @@ import SidebarLayout from '../layouts/SidebarLayout.astro';
         theories ranked. No spin. Just evidence.
       </p>
       <div class="hero-cta">
-        <a href="#" class="btn-primary" data-subscription>Launching May 1st</a>
+        <a href="#" class="btn-primary" data-subscription>Launching April 15th</a>
         <a href="/historiqly-books/vol/hoaxes" class="btn-secondary">Preview Vol 1 Free</a>
       </div>
       <p class="hero-note">10 volumes • 200 casefiles • PDF + ePub</p>
@@ -160,10 +161,15 @@ import SidebarLayout from '../layouts/SidebarLayout.astro';
       </div>
     </section>
 
+    <!-- Email Capture -->
+    <section class="email-section">
+      <EmailCapture />
+    </section>
+
     <!-- Final CTA -->
     <section class="final-cta">
       <h2>Start Investigating</h2>
-      <p>Preview Volume 1 free. Full library launches May 1st.</p>
+      <p>Preview Volume 1 free. Full library launches April 15th.</p>
       <div class="final-cta-buttons">
         <a href="/historiqly-books/vol/hoaxes" class="btn-secondary">Preview Free</a>
         <a href="#" class="btn-primary" data-subscription>Get Notified</a>
@@ -576,6 +582,11 @@ import SidebarLayout from '../layouts/SidebarLayout.astro';
     font-size: 0.9375rem;
     line-height: 1.6;
     margin: 0;
+  }
+
+  /* Email Section */
+  .email-section {
+    padding: 2rem 0;
   }
 
   /* Final CTA */
