@@ -1,0 +1,255 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+---
+
+<SidebarLayout title="Vol 1: Hoaxes, Forgeries & Frauds" currentVolume={1}>
+  <div class="volume-page">
+    <div class="volume-header">
+      <span class="badge available">Available Now</span>
+      <h1>Hoaxes, Forgeries & Frauds</h1>
+      <p class="volume-subtitle">Volume 1 of the AI Casefiles Series</p>
+    </div>
+
+    <div class="volume-intro">
+      <p>
+        How do lies become "truth"? In this volume, we put history's most famous frauds through the Evidence Engine. 
+        From forged diaries that fooled international media to scientific hoaxes that deceived experts for decades, 
+        each case reveals how deception works—and how evidence exposes it.
+      </p>
+    </div>
+
+    <div class="cases-section">
+      <h2>5 Deep-Dive Casefiles</h2>
+      <div class="cases-grid">
+        <div class="case-card">
+          <span class="case-num">01</span>
+          <h3>The Hitler Diaries</h3>
+          <p>In 1983, Stern magazine paid millions for Hitler's "secret diaries." The Evidence Engine reveals how greed, ambition, and confirmation bias blinded experts to obvious red flags.</p>
+          <div class="case-meta">
+            <span>📊 Confidence: 100%</span>
+            <span>🔍 Verdict: Confirmed Hoax</span>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <span class="case-num">02</span>
+          <h3>The Piltdown Man</h3>
+          <p>For 40 years, scientists believed they'd found the "missing link." How did a crude forgery fool the world's top paleontologists?</p>
+          <div class="case-meta">
+            <span>📊 Confidence: 100%</span>
+            <span>🔍 Verdict: Scientific Fraud</span>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <span class="case-num">03</span>
+          <h3>The Protocols of Zion</h3>
+          <p>The most dangerous forgery in history. We trace its origins, document its spread, and score the evidence that definitively proves it a fabrication.</p>
+          <div class="case-meta">
+            <span>📊 Confidence: 100%</span>
+            <span>🔍 Verdict: Propaganda Forgery</span>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <span class="case-num">04</span>
+          <h3>The Hughes Autobiography</h3>
+          <p>Clifford Irving convinced publishers he had exclusive access to Howard Hughes. The FBI files, the confession, and the mechanics of a modern con.</p>
+          <div class="case-meta">
+            <span>📊 Confidence: 100%</span>
+            <span>🔍 Verdict: Literary Fraud</span>
+          </div>
+        </div>
+
+        <div class="case-card">
+          <span class="case-num">05</span>
+          <h3>The Cottingley Fairies</h3>
+          <p>Two young girls fooled Arthur Conan Doyle with cardboard cutouts. A case study in wishful thinking and the psychology of belief.</p>
+          <div class="case-meta">
+            <span>📊 Confidence: 100%</span>
+            <span>🔍 Verdict: Photo Manipulation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-section">
+      <div class="pricing-card">
+        <span class="price">$1.99</span>
+        <span class="price-note">Launch Price</span>
+        <ul class="features">
+          <li>✓ 5 complete casefiles (~18,000 words)</li>
+          <li>✓ Evidence Maps with A-D grading</li>
+          <li>✓ Reconstructed timelines</li>
+          <li>✓ Theory Scoreboards (0-100)</li>
+          <li>✓ PDF + ePub formats</li>
+          <li>✓ DRM-free, instant delivery</li>
+        </ul>
+        <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="btn-primary">Get Volume 1 →</a>
+      </div>
+    </div>
+  </div>
+</SidebarLayout>
+
+<style>
+  .volume-page {
+    max-width: 900px;
+  }
+
+  .volume-header {
+    margin-bottom: 2rem;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .badge.available {
+    background: rgba(93, 181, 133, 0.15);
+    color: #5DB585;
+  }
+
+  .volume-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+  }
+
+  .volume-subtitle {
+    color: #a8a8a8;
+    font-size: 1.125rem;
+  }
+
+  .volume-intro {
+    padding: 1.5rem;
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    margin-bottom: 3rem;
+  }
+
+  .volume-intro p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+  }
+
+  .cases-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  .cases-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .case-card {
+    padding: 1.5rem;
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    transition: all 0.2s;
+  }
+
+  .case-card:hover {
+    border-color: #5DB585;
+    background: #161616;
+  }
+
+  .case-num {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background: #161616;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #5DB585;
+    margin-bottom: 0.75rem;
+  }
+
+  .case-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-card p {
+    color: #a8a8a8;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .case-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+    color: #777;
+  }
+
+  .pricing-section {
+    padding: 2rem;
+    background: #111111;
+    border: 1px solid #5DB585;
+    border-radius: 16px;
+  }
+
+  .pricing-card {
+    text-align: center;
+  }
+
+  .price {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #5DB585;
+  }
+
+  .price-note {
+    display: block;
+    color: #a8a8a8;
+    margin-bottom: 1.5rem;
+  }
+
+  .features {
+    list-style: none;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+  }
+
+  .features li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background: #5DB585;
+    color: #0a0a0a;
+    font-weight: 700;
+    font-size: 1.125rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: #6FC494;
+    transform: translateY(-2px);
+  }
+</style>

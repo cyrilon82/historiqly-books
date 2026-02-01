@@ -531,13 +531,140 @@
         </section>
     </main>
 
+        <!-- ======================= -->
+        <!-- All Volumes Section -->
+        <!-- ======================= -->
+        <section class="section-spacer">
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 0.5rem;">The Complete Series</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 2rem;">10 volumes of evidence-based investigations</p>
+            
+            <div class="volumes-grid">
+                <a href="/historiqly-books/vol/hoaxes" class="volume-item available">
+                    <span class="vol-num">1</span>
+                    <span class="vol-name">Hoaxes, Forgeries & Frauds</span>
+                    <span class="vol-status available-tag">Available</span>
+                </a>
+                <a href="/historiqly-books/vol/myths" class="volume-item">
+                    <span class="vol-num">2</span>
+                    <span class="vol-name">Historical Myths Debunked</span>
+                    <span class="vol-status">Soon</span>
+                </a>
+                <a href="/historiqly-books/vol/cold-cases" class="volume-item">
+                    <span class="vol-num">3</span>
+                    <span class="vol-name">Cold Cases Reopened</span>
+                    <span class="vol-status">Soon</span>
+                </a>
+                <a href="/historiqly-books/vol/disappearances" class="volume-item">
+                    <span class="vol-num">4</span>
+                    <span class="vol-name">Famous Disappearances</span>
+                    <span class="vol-status">Soon</span>
+                </a>
+                <a href="/historiqly-books/vol/conspiracies" class="volume-item">
+                    <span class="vol-num">5</span>
+                    <span class="vol-name">Conspiracy Claims</span>
+                    <span class="vol-status">Soon</span>
+                </a>
+                <a href="/historiqly-books/vol/secret-societies" class="volume-item">
+                    <span class="vol-num">6</span>
+                    <span class="vol-name">Secret Societies</span>
+                    <span class="vol-status">Soon</span>
+                </a>
+                <a href="/historiqly-books/vol/declassified" class="volume-item">
+                    <span class="vol-num">7</span>
+                    <span class="vol-name">Declassified Dossiers</span>
+                    <span class="vol-status">Soon</span>
+                </a>
+                <a href="/historiqly-books/vol/unexplained" class="volume-item">
+                    <span class="vol-num">8</span>
+                    <span class="vol-name">Unexplained Phenomena</span>
+                    <span class="vol-status">Soon</span>
+                </a>
+                <a href="/historiqly-books/vol/lost-civilizations" class="volume-item">
+                    <span class="vol-num">9</span>
+                    <span class="vol-name">Lost Civilizations</span>
+                    <span class="vol-status">Soon</span>
+                </a>
+                <a href="/historiqly-books/vol/archaeological" class="volume-item">
+                    <span class="vol-num">10</span>
+                    <span class="vol-name">Archaeological Mysteries</span>
+                    <span class="vol-status">Soon</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
     <!-- ======================= -->
     <!-- Footer -->
     <!-- ======================= -->
     <footer>
-        &copy; 2026 HistoriQly. All rights reserved. <br/>
-        <a href="#">Main Site</a> &middot; <a href="#">Contact</a>
+        &copy; 2026 HistorIQly. All rights reserved. <br/>
+        <a href="https://historiqly.com">Main Site</a> &middot; <a href="mailto:ai@cyril.page">Contact</a>
     </footer>
 
+    <style>
+        .volumes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        @media (max-width: 600px) {
+            .volumes-grid { grid-template-columns: 1fr; }
+        }
+        .volume-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        .volume-item:hover {
+            border-color: var(--accent-color);
+            background: #161616;
+            color: var(--text-color);
+        }
+        .volume-item.available {
+            border-color: var(--accent-color);
+            color: var(--text-color);
+        }
+        .vol-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: #161616;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .volume-item.available .vol-num {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+        .vol-name {
+            flex: 1;
+            font-size: 0.9375rem;
+        }
+        .vol-status {
+            font-size: 0.625rem;
+            padding: 0.25rem 0.5rem;
+            background: #1a1a1a;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .vol-status.available-tag {
+            background: rgba(93, 181, 133, 0.15);
+            color: var(--accent-color);
+        }
+    </style>
 </body>
 </html>

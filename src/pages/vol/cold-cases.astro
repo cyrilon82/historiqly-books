@@ -1,0 +1,72 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+---
+
+<SidebarLayout title="Vol 3: Cold Cases Reopened" currentVolume={3}>
+  <div class="volume-page">
+    <div class="volume-header">
+      <span class="badge coming-soon">Coming Soon</span>
+      <h1>Cold Cases Reopened</h1>
+      <p class="volume-subtitle">Volume 3 of the AI Casefiles Series</p>
+    </div>
+
+    <div class="volume-intro">
+      <p>
+        Decades-old mysteries that still haunt investigators. We apply the Evidence Engine to infamous unsolved crimes, 
+        grading every piece of evidence and scoring the leading theories. Not to "solve" them—but to show what the evidence actually supports.
+      </p>
+    </div>
+
+    <div class="cases-section">
+      <h2>Planned Casefiles</h2>
+      <div class="cases-preview">
+        <div class="case-preview"><span class="case-num">01</span><span>The Somerton Man</span></div>
+        <div class="case-preview"><span class="case-num">02</span><span>The Black Dahlia</span></div>
+        <div class="case-preview"><span class="case-num">03</span><span>The Zodiac Killer Letters</span></div>
+        <div class="case-preview"><span class="case-num">04</span><span>JonBenét Ramsey</span></div>
+        <div class="case-preview"><span class="case-num">05</span><span>The Dyatlov Pass Incident</span></div>
+      </div>
+    </div>
+
+    <div class="notify-section">
+      <h3>Get Notified When Available</h3>
+      <p>Be the first to know when Volume 3 drops.</p>
+      <a href="https://historiqly.lemonsqueezy.com" class="btn-secondary">Join Waitlist →</a>
+    </div>
+
+    <div class="available-now">
+      <p>While you wait, check out:</p>
+      <a href="/historiqly-books/vol/hoaxes" class="vol-link">
+        <span class="vol-badge">Available</span>
+        <span>Vol 1: Hoaxes, Forgeries & Frauds</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</SidebarLayout>
+
+<style>
+  .volume-page { max-width: 900px; }
+  .volume-header { margin-bottom: 2rem; }
+  .badge { display: inline-block; padding: 0.375rem 0.875rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+  .badge.coming-soon { background: rgba(255, 255, 255, 0.08); color: #a8a8a8; }
+  .volume-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 0.5rem; line-height: 1.1; }
+  .volume-subtitle { color: #a8a8a8; font-size: 1.125rem; }
+  .volume-intro { padding: 1.5rem; background: #111111; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; margin-bottom: 3rem; }
+  .volume-intro p { font-size: 1.125rem; line-height: 1.8; color: #e0e0e0; }
+  .cases-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+  .cases-preview { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 3rem; }
+  .case-preview { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: #111111; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; color: #a8a8a8; }
+  .case-num { display: inline-block; padding: 0.25rem 0.5rem; background: #161616; border-radius: 4px; font-size: 0.75rem; font-weight: 700; color: #777; }
+  .notify-section { text-align: center; padding: 3rem 2rem; background: #111111; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; margin-bottom: 2rem; }
+  .notify-section h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  .notify-section p { color: #a8a8a8; margin-bottom: 1.5rem; }
+  .btn-secondary { display: inline-flex; align-items: center; padding: 0.875rem 2rem; border: 2px solid #5DB585; color: #5DB585; font-weight: 600; border-radius: 12px; text-decoration: none; transition: all 0.2s; }
+  .btn-secondary:hover { background: #5DB585; color: #0a0a0a; }
+  .available-now { text-align: center; }
+  .available-now > p { color: #777; margin-bottom: 1rem; }
+  .vol-link { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: rgba(93, 181, 133, 0.08); border: 1px solid rgba(93, 181, 133, 0.3); border-radius: 12px; text-decoration: none; color: #FAFAFA; transition: all 0.2s; }
+  .vol-link:hover { background: rgba(93, 181, 133, 0.15); border-color: #5DB585; }
+  .vol-badge { padding: 0.25rem 0.5rem; background: #5DB585; color: #0a0a0a; font-size: 0.625rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; }
+  .arrow { color: #5DB585; }
+</style>
