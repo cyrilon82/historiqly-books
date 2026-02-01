@@ -7,8 +7,9 @@ import { conspiraciesCases } from "./vol-05-conspiracies";
 import { secretSocietiesCases } from "./vol-06-secret-societies";
 import { declassifiedCases } from "./vol-07-declassified";
 import { unexplainedCases } from "./vol-08-unexplained";
-import { lostCivilizationsCases } from "./vol-09-lost-civilizations";
+import { lostWorldsCases } from "./vol-09-lost-worlds";
 import { archaeologicalCases } from "./vol-10-archaeological";
+import { heistsCases } from "./vol-11-heists";
 
 export const cases: Case[] = [
   ...hoaxesCases,
@@ -19,6 +20,7 @@ export const cases: Case[] = [
   ...secretSocietiesCases,
   ...declassifiedCases,
   ...unexplainedCases,
-  ...lostCivilizationsCases,
+  ...lostWorldsCases,
   ...archaeologicalCases,
+  ...heistsCases,
 ];
