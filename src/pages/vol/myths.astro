@@ -1,5 +1,7 @@
 ---
 import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
+// import SubscriptionModal from '../../components/SubscriptionModal.astro'; // Enable after launch
 ---
 
 <SidebarLayout title="Vol 2: Historical Myths Debunked" currentVolume={2}>
@@ -43,11 +45,7 @@ import SidebarLayout from '../../layouts/SidebarLayout.astro';
       </div>
     </div>
 
-    <div class="notify-section">
-      <h3>Get Notified When Available</h3>
-      <p>Be the first to know when Volume 2 drops.</p>
-      <a href="https://historiqly.lemonsqueezy.com" class="btn-secondary">Join Waitlist →</a>
-    </div>
+    <EmailCapture />
 
     <div class="available-now">
       <p>While you wait, check out:</p>
@@ -145,40 +143,102 @@ import SidebarLayout from '../../layouts/SidebarLayout.astro';
     color: #777;
   }
 
-  .notify-section {
+  .subscribe-section {
     text-align: center;
-    padding: 3rem 2rem;
+    padding: 2.5rem 2rem;
     background: #111111;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     margin-bottom: 2rem;
   }
 
-  .notify-section h3 {
+  .subscribe-section h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
-  .notify-section p {
+  .subscribe-section > p {
     color: #a8a8a8;
     margin-bottom: 1.5rem;
   }
 
-  .btn-secondary {
-    display: inline-flex;
+  .subscribe-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .subscribe-card {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 0.875rem 2rem;
-    border: 2px solid #5DB585;
-    color: #5DB585;
-    font-weight: 600;
+    padding: 1.25rem;
+    background: #161616;
+    border: 1px solid #222;
     border-radius: 12px;
     text-decoration: none;
     transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+    width: 100%;
   }
 
-  .btn-secondary:hover {
+  .subscribe-card:hover {
+    border-color: #5DB585;
+    transform: translateY(-2px);
+  }
+
+  .subscribe-card.featured {
+    border-color: #5DB585;
+    background: rgba(93, 181, 133, 0.05);
+  }
+
+  .save-badge {
+    position: absolute;
+    top: -0.625rem;
+    right: -0.5rem;
+    padding: 0.25rem 0.5rem;
     background: #5DB585;
     color: #0a0a0a;
+    font-size: 0.625rem;
+    font-weight: 700;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .plan-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #a8a8a8;
+    margin-bottom: 0.25rem;
+  }
+
+  .plan-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .plan-price .period {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #777;
+  }
+
+  .plan-desc {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 480px) {
+    .subscribe-options {
+      grid-template-columns: 1fr;
+    }
   }
 
   .available-now {
