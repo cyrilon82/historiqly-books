@@ -1,0 +1,98 @@
+---
+/**
+ * Creates a mouse-following spotlight effect that reveals a hidden
+ * historical texture pattern. Respects prefers-reduced-motion.
+ */
+---
+
+<div class="lantern-spotlight-container">
+  <!-- Hidden texture layer - revealed by spotlight mask -->
+  <div class="lantern-texture-layer" aria-hidden="true">
+    <div class="lantern-texture"></div>
+  </div>
+
+  <!-- Main content layer -->
+  <div class="lantern-content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .lantern-spotlight-container {
+    position: relative;
+  }
+
+  .lantern-texture-layer {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    mask-image: radial-gradient(
+      600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      white 0%,
+      rgba(255, 255, 255, 0.5) 30%,
+      transparent 70%
+    );
+    -webkit-mask-image: radial-gradient(
+      600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      white 0%,
+      rgba(255, 255, 255, 0.5) 30%,
+      transparent 70%
+    );
+  }
+
+  .lantern-texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.13;
+    background-image: url('/historiqly-books/assets/textures/texture-background.png');
+    background-size: 800px 800px;
+    background-repeat: repeat;
+    background-position: 0 0;
+  }
+
+  .lantern-content {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Disable effect for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .lantern-texture-layer {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Initialize lantern spotlight effect
+  function initLanternSpotlight() {
+    const containers = document.querySelectorAll('.lantern-spotlight-container');
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    containers.forEach((container) => {
+      const textureLayer = container.querySelector('.lantern-texture-layer') as HTMLElement;
+      if (!textureLayer) return;
+
+      container.addEventListener('mousemove', (e: Event) => {
+        const mouseEvent = e as MouseEvent;
+        const rect = (container as HTMLElement).getBoundingClientRect();
+        const x = mouseEvent.clientX - rect.left;
+        const y = mouseEvent.clientY - rect.top;
+
+        textureLayer.style.setProperty('--mouse-x', `${x}px`);
+        textureLayer.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
+
+  // Run on initial load
+  initLanternSpotlight();
+
+  // Re-run on Astro page transitions
+  document.addEventListener('astro:page-load', initLanternSpotlight);
+</script>

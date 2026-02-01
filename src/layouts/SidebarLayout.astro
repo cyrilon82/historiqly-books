@@ -2,6 +2,7 @@
 import { volumes, icons } from "../data/volumes";
 import { getVolumeProgress, hasNewCases } from "../lib/cases";
 import LaunchCountdown from "../components/LaunchCountdown.astro";
+import LanternSpotlight from "../components/LanternSpotlight.astro";
 // import SubscriptionModal from "../components/SubscriptionModal.astro"; // Enable after May 1, 2026
 
 interface Props {
@@ -169,7 +170,10 @@ const fullTitle = `${title} | AI Casefiles`;
 
       <!-- Main Content -->
       <main class="main-content">
+        <LanternSpotlight>
         <slot />
+
+        </LanternSpotlight>
 
         <!-- Footer -->
         <footer class="footer">
