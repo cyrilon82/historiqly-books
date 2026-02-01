@@ -72,6 +72,12 @@ import SidebarLayout from '../layouts/SidebarLayout.astro';
     .cta-button:hover {
       transform: scale(1.05);
     }
+    .cta-button.secondary {
+      background: transparent;
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      margin-left: 1rem;
+    }
 
     .two-col-grid {
       display: grid;
@@ -144,6 +150,49 @@ import SidebarLayout from '../layouts/SidebarLayout.astro';
       color: #a0a0a0;
     }
 
+    /* Free Preview Card */
+    .free-preview {
+      background: linear-gradient(135deg, rgba(93, 181, 133, 0.1) 0%, rgba(93, 181, 133, 0.02) 100%);
+      border: 2px solid var(--accent-color);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .free-preview .free-tag {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #0a0a0a;
+      padding: 0.25rem 0.75rem;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .free-preview h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .free-preview p {
+      margin-bottom: 1.5rem;
+    }
+    .free-preview .cases {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .free-preview .case-tag {
+      background: rgba(255,255,255,0.05);
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: #b0b0b0;
+    }
+
     .pricing-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -190,7 +239,13 @@ import SidebarLayout from '../layouts/SidebarLayout.astro';
       font-size: 0.9rem;
       font-weight: 400;
       color: #a0a0a0;
-      margin-left: 0.5rem;
+      margin-left: 0.25rem;
+    }
+    .price-note {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: -0.5rem;
+      margin-bottom: 0.5rem;
     }
     .features-list {
       list-style: none;
@@ -283,6 +338,7 @@ import SidebarLayout from '../layouts/SidebarLayout.astro';
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.2rem; }
       .two-col-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .cta-button.secondary { margin-left: 0; margin-top: 1rem; display: block; }
     }
     @media (max-width: 600px) {
       .hero h1 { font-size: 1.8rem; }
@@ -294,10 +350,11 @@ import SidebarLayout from '../layouts/SidebarLayout.astro';
   </style>
 
   <section class="hero">
-    <div class="tag">New Release</div>
+    <div class="tag">Free Preview Available</div>
     <h1>Stop Reading History.<br/>Start <span class="text-accent">Investigating</span> It.</h1>
     <p>AI Casefiles are a new kind of history book. We use AI to build evidence-based dossiers on history's greatest mysteries, hoaxes, and cold cases.</p>
-    <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="cta-button">Get Vol 1 for $1.99</a>
+    <a href="https://historiqly.lemonsqueezy.com/checkout/buy/vol1-free" class="cta-button">Get Vol 1 Free →</a>
+    <a href="#pricing" class="cta-button secondary">See Plans</a>
   </section>
 
   <section class="two-col-grid section-spacer">
@@ -363,32 +420,54 @@ import SidebarLayout from '../layouts/SidebarLayout.astro';
 
   <hr class="subtle-rule"/>
 
-  <section class="section-spacer">
+  <section class="section-spacer" id="pricing">
     <div class="section-header">
-      <h2>Get Your First Dossier</h2>
-      <p>PDF + ePub, DRM-Free, instant delivery</p>
+      <h2>Start Your Investigation</h2>
+      <p>Try Volume 1 free, then unlock the full library</p>
     </div>
+
+    <!-- Free Preview -->
+    <div class="free-preview">
+      <span class="free-tag">Free Preview</span>
+      <h3>Vol 1: Hoaxes, Forgeries & Frauds</h3>
+      <p>5 complete casefiles - no credit card required</p>
+      <div class="cases">
+        <span class="case-tag">The Hitler Diaries</span>
+        <span class="case-tag">The Piltdown Man</span>
+        <span class="case-tag">The Protocols of Zion</span>
+        <span class="case-tag">The Hughes Autobiography</span>
+        <span class="case-tag">The Cottingley Fairies</span>
+      </div>
+      <a href="https://historiqly.lemonsqueezy.com/checkout/buy/vol1-free" class="cta-button">Download Free →</a>
+    </div>
+
+    <!-- Subscription Plans -->
     <div class="pricing-grid">
       <div class="pricing-card">
-        <h3>Vol 1: Hoaxes, Forgeries & Frauds</h3>
-        <div class="price">$1.99</div>
+        <h3>Monthly</h3>
+        <div class="price">$4.99<span>/mo</span></div>
+        <p class="price-note">Cancel anytime</p>
         <ul class="features-list">
-          <li>The Hitler Diaries</li>
-          <li>The Piltdown Man</li>
-          <li>The Protocols of Zion</li>
-          <li>The Hughes Autobiography</li>
-          <li>The Cottingley Fairies</li>
+          <li>Access to all 10 volumes</li>
+          <li>New casefiles as they drop</li>
+          <li>PDF + ePub formats</li>
+          <li>DRM-free downloads</li>
         </ul>
-        <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="pricing-button primary">Get Volume 1 →</a>
+        <a href="https://historiqly.lemonsqueezy.com/checkout/buy/monthly" class="pricing-button secondary">Start Monthly →</a>
       </div>
       <div class="pricing-card highlight">
-        <div class="pricing-tag">Best Value</div>
-        <h3>The Complete Collection</h3>
-        <div class="price">$24.99 <span>Save 35%</span></div>
+        <div class="pricing-tag">Save 35%</div>
+        <h3>Yearly</h3>
+        <div class="price">$39<span>/yr</span></div>
+        <p class="price-note">Just $3.25/mo</p>
         <ul class="features-list">
-          <li>All 10 volumes (50 casefiles)</li>
+          <li>Access to all 10 volumes</li>
+          <li>New casefiles as they drop</li>
+          <li>PDF + ePub formats</li>
+          <li>DRM-free downloads</li>
+          <li>Bonus: Early access to new cases</li>
         </ul>
-        <a href="https://historiqly.lemonsqueezy.com/buy/complete" class="pricing-button secondary">Get All 10 →</a>
+        <a href="https://historiqly.lemonsqueezy.com/checkout/buy/yearly" class="pricing-button primary">Start Yearly →</a>
       </div>
     </div>
   </section>
@@ -400,6 +479,12 @@ import SidebarLayout from '../layouts/SidebarLayout.astro';
       <h2>FAQ</h2>
     </div>
     <details class="faq-item">
+      <summary>Is Volume 1 really free?</summary>
+      <div class="faq-content">
+        <p>Yes! Download Volume 1 with all 5 casefiles completely free. No credit card, no catch. We want you to experience the Evidence Engine before you subscribe.</p>
+      </div>
+    </details>
+    <details class="faq-item">
       <summary>Is this written by AI?</summary>
       <div class="faq-content">
         <p>The analysis and scoring is performed by our Evidence Engine AI, but the final narrative is written and edited by historians for clarity.</p>
@@ -408,28 +493,28 @@ import SidebarLayout from '../layouts/SidebarLayout.astro';
     <details class="faq-item">
       <summary>What formats are included?</summary>
       <div class="faq-content">
-        <p>You get PDF, ePub, and MOBI files, all DRM-free. Read on any device.</p>
+        <p>You get PDF and ePub files, all DRM-free. Read on any device.</p>
       </div>
     </details>
     <details class="faq-item">
-      <summary>Is this a subscription?</summary>
+      <summary>Can I cancel anytime?</summary>
       <div class="faq-content">
-        <p>No. One-time purchase. You buy the volumes you want, you own them forever.</p>
+        <p>Yes! Cancel your subscription anytime from your account. You'll keep access until the end of your billing period.</p>
       </div>
     </details>
     <details class="faq-item">
       <summary>What's your refund policy?</summary>
       <div class="faq-content">
-        <p>Reply to the download email within 30 days for a full, no-questions-asked refund.</p>
+        <p>If you're not satisfied, email us within 30 days for a full refund. No questions asked.</p>
       </div>
     </details>
   </section>
 
   <section class="section-spacer">
     <div class="final-cta">
-      <h2>Your Investigation Starts Now</h2>
-      <p>Get Volume 1 for just $1.99.</p>
-      <a href="https://historiqly.lemonsqueezy.com/buy/vol1" class="cta-button" style="margin-top: 1rem;">Get the Hoax Dossier →</a>
+      <h2>Start Your First Investigation</h2>
+      <p>Download Volume 1 free. No credit card required.</p>
+      <a href="https://historiqly.lemonsqueezy.com/checkout/buy/vol1-free" class="cta-button" style="margin-top: 1rem;">Get Vol 1 Free →</a>
     </div>
   </section>
 </SidebarLayout>
