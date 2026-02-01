@@ -8,10 +8,10 @@ interface Props {
 const {
   title,
   description = "AI Casefiles - Evidence-based investigations into history's greatest mysteries. Every source graded, every theory scored.",
-  image = "/historiqly-books/logo.png"
+  image = "/logo.png"
 } = Astro.props;
 
-const siteUrl = "https://cyrilon82.github.io/historiqly-books";
+const siteUrl = "https://books.historiqly.com/";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImage = new URL(image, siteUrl).toString();
 ---
@@ -36,10 +36,10 @@ const ogImage = new URL(image, siteUrl).toString();
     <meta name="color-scheme" content="dark" />
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="/historiqly-books/logo.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/historiqly-books/logo.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/historiqly-books/logo.png" />
-    <link rel="apple-touch-icon" href="/historiqly-books/logo.png" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />

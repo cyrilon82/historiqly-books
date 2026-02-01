@@ -15,10 +15,10 @@ const {
   title,
   description = "AI Casefiles - Evidence-based investigations into history's greatest mysteries. Every source graded, every theory scored.",
   currentVolume,
-  image = "/historiqly-books/logo.png"
+  image = "/logo.png"
 } = Astro.props;
 
-const siteUrl = "https://cyrilon82.github.io/historiqly-books";
+const siteUrl = "https://books.historiqly.com/";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImage = new URL(image, siteUrl).toString();
 const fullTitle = `${title} | AI Casefiles`;
@@ -44,10 +44,10 @@ const fullTitle = `${title} | AI Casefiles`;
     <meta name="color-scheme" content="dark" />
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="/historiqly-books/logo.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/historiqly-books/logo.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/historiqly-books/logo.png" />
-    <link rel="apple-touch-icon" href="/historiqly-books/logo.png" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -76,8 +76,8 @@ const fullTitle = `${title} | AI Casefiles`;
     <!-- Top Bar -->
     <header class="top-bar">
       <div class="top-bar-content">
-        <a href="/historiqly-books/" class="logo">
-          <img src="/historiqly-books/logo.png" alt="HistorIQly" class="logo-img" />
+        <a href="/" class="logo">
+          <img src="/logo.png" alt="HistorIQly" class="logo-img" />
           <span class="logo-title">AI Casefiles</span>
         </a>
         <nav class="top-nav">
@@ -86,7 +86,7 @@ const fullTitle = `${title} | AI Casefiles`;
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
           </a>
-          <a href="/historiqly-books/vol/hoaxes" class="btn-primary-sm">Free Preview<span class="soon-badge-nav">Soon</span></a>
+          <a href="/vol/hoaxes" class="btn-primary-sm">Free Preview<span class="soon-badge-nav">Soon</span></a>
         </nav>
         <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
           <span></span>
@@ -114,7 +114,7 @@ const fullTitle = `${title} | AI Casefiles`;
             const hasNew = hasNewCases(vol.slug);
             return (
               <a
-                href={`/historiqly-books/vol/${vol.slug}`}
+                href={`/vol/${vol.slug}`}
                 class:list={["sidebar-link", { active: currentVolume === vol.num, unavailable: !isAvailable }]}
                 title={`${vol.title} - ${progress.released}/${progress.total} available`}
               >
@@ -175,7 +175,7 @@ const fullTitle = `${title} | AI Casefiles`;
         <footer class="footer">
           <div class="footer-content">
             <div class="footer-brand">
-              <img src="/historiqly-books/logo.png" alt="HistorIQly" class="footer-logo" />
+              <img src="/logo.png" alt="HistorIQly" class="footer-logo" />
               <p class="footer-tagline">AI-powered historical investigations</p>
             </div>
             <div class="footer-links">
