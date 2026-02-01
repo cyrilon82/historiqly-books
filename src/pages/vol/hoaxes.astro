@@ -1,450 +1,50 @@
 ---
-import SidebarLayout from "../../layouts/SidebarLayout.astro";
-import CaseCard from "../../components/CaseCard.astro";
-import ProgressIndicator from "../../components/ProgressIndicator.astro";
-import EmailCapture from "../../components/EmailCapture.astro";
-import { getVolume } from "../../data/volumes";
-import {
-  getCasesForVolume,
-  getVolumeProgress,
-  isReleased,
-  isNew,
-  isLocked,
-} from "../../lib/cases";
-
-const volumeSlug = "hoaxes";
-const volume = getVolume(volumeSlug)!;
-const allCases = getCasesForVolume(volumeSlug);
-const progress = getVolumeProgress(volumeSlug);
-
-// For static site, assume non-subscriber view (locked cases show CTA)
-const isSubscriber = false;
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import EmailCapture from '../../components/EmailCapture.astro';
 ---
 
-<SidebarLayout title={`Vol ${volume.num}: ${volume.title}`} currentVolume={volume.num}>
+<SidebarLayout title="Vol 1: Hoaxes, Forgeries & Frauds" currentVolume={1}>
   <div class="volume-page">
-    <!-- Header -->
     <div class="volume-header">
-      <div class="volume-badge">Volume {volume.num} • Free Preview</div>
+      <span class="badge coming-soon">Coming Soon</span>
       <h1>Hoaxes, Forgeries & Frauds</h1>
-      <p class="volume-tagline">{volume.tagline}</p>
-      <div class="progress-wrapper">
-        <ProgressIndicator released={progress.released} total={progress.total} />
-      </div>
+      <p class="volume-subtitle">Volume 1 of the AI Casefiles Series</p>
     </div>
 
-    <!-- Stats -->
-    <div class="stats-row">
-      <div class="stat">
-        <span class="stat-value">{progress.released}</span>
-        <span class="stat-label">Available</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">{progress.total}</span>
-        <span class="stat-label">Total</span>
-      </div>
-      <div class="stat">
-        <span class="stat-value">100%</span>
-        <span class="stat-label">AI-Generated</span>
-      </div>
-    </div>
-
-    <!-- Intro -->
-    <div class="intro-block">
+    <div class="volume-intro">
       <p>
-        In this volume, we put history's most famous frauds through the Evidence Engine.
-        From forged diaries that fooled international media to scientific hoaxes that deceived
-        experts for decades—each case reveals how deception works, why it spreads, and how
+        History's most famous frauds through the Evidence Engine. From forged diaries that fooled international media
+        to scientific hoaxes that deceived experts for decades—each case reveals how deception works and how
         rigorous evidence analysis exposes it.
       </p>
     </div>
 
-    <!-- What's Inside -->
-    <section class="whats-inside">
-      <div class="section-label">What's Inside</div>
-      <div class="inside-grid">
-        <div class="inside-item">
-          <div class="inside-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-          </div>
-          <div class="inside-text">
-            <strong>Evidence Maps</strong>
-            <span>Sources graded A–D</span>
-          </div>
-        </div>
-        <div class="inside-item">
-          <div class="inside-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-          </div>
-          <div class="inside-text">
-            <strong>Timelines</strong>
-            <span>Verified chronology</span>
-          </div>
-        </div>
-        <div class="inside-item">
-          <div class="inside-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
-          </div>
-          <div class="inside-text">
-            <strong>Theory Scores</strong>
-            <span>0–100 confidence</span>
-          </div>
-        </div>
-        <div class="inside-item">
-          <div class="inside-icon">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          </div>
-          <div class="inside-text">
-            <strong>Verdicts</strong>
-            <span>Clear conclusions</span>
-          </div>
-        </div>
+    <div class="cases-section">
+      <h2>Planned Casefiles</h2>
+      <div class="cases-preview">
+        <div class="case-preview"><span class="case-num">01</span><span>The Piltdown Man</span></div>
+        <div class="case-preview"><span class="case-num">02</span><span>The Hitler Diaries</span></div>
+        <div class="case-preview"><span class="case-num">03</span><span>The Cardiff Giant</span></div>
+        <div class="case-preview"><span class="case-num">04</span><span>The Cottingley Fairies</span></div>
+        <div class="case-preview"><span class="case-num">05</span><span>The Protocols of Zion</span></div>
       </div>
-    </section>
+    </div>
 
-    <!-- Cases -->
-    <section class="cases-section">
-      <div class="section-label">{progress.released} Available Casefiles</div>
-
-      {allCases.map((caseData) => {
-        const released = isReleased(caseData);
-        const newCase = isNew(caseData);
-        const locked = isLocked(caseData, isSubscriber);
-
-        return released ? (
-          <CaseCard case={caseData} isLocked={locked} isNew={newCase} />
-        ) : null;
-      })}
-
-      {progress.released < progress.total && (
-        <div class="coming-soon-card">
-          <span class="coming-soon-count">+{progress.total - progress.released} more cases coming</span>
-          <span class="coming-soon-text">New investigations release weekly</span>
-        </div>
-      )}
-    </section>
-
-    <!-- Email Capture -->
-    <section class="email-section">
-      <EmailCapture />
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-      <div class="cta-card">
-        <h3>Want more investigations?</h3>
-        <p>Subscribe to unlock all volumes + get new ones weekly.</p>
-        <div class="cta-pricing">
-          <a href="https://historiqly.lemonsqueezy.com/subscribe/monthly" class="pricing-option">
-            <span class="pricing-amount">$4.99</span>
-            <span class="pricing-period">/month</span>
-          </a>
-          <span class="pricing-or">or</span>
-          <a href="https://historiqly.lemonsqueezy.com/subscribe/yearly" class="pricing-option featured">
-            <span class="pricing-amount">$39</span>
-            <span class="pricing-period">/year</span>
-            <span class="pricing-save">Save 35%</span>
-          </a>
-        </div>
-      </div>
-    </section>
+    <EmailCapture />
   </div>
 </SidebarLayout>
 
 <style>
-  .volume-page {
-    max-width: 700px;
-  }
-
-  .volume-header {
-    margin-bottom: 1.5rem;
-  }
-
-  .volume-badge {
-    display: inline-block;
-    padding: 0.375rem 0.875rem;
-    background: rgba(93, 181, 133, 0.1);
-    border: 1px solid rgba(93, 181, 133, 0.2);
-    border-radius: 100px;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    color: #5DB585;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-  }
-
-  .volume-header h1 {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 800;
-    margin-bottom: 0.5rem;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-
-  .volume-tagline {
-    color: #888;
-    font-size: 1.0625rem;
-    margin: 0 0 1rem;
-  }
-
-  .progress-wrapper {
-    max-width: 200px;
-  }
-
-  /* Stats */
-  .stats-row {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .stat {
-    flex: 1;
-    padding: 1rem;
-    background: #111;
-    border: 1px solid #1a1a1a;
-    border-radius: 10px;
-    text-align: center;
-  }
-
-  .stat-value {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #5DB585;
-  }
-
-  .stat-label {
-    font-size: 0.75rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  /* Intro */
-  .intro-block {
-    padding: 1.5rem;
-    background: #111;
-    border: 1px solid #1a1a1a;
-    border-left: 3px solid #5DB585;
-    border-radius: 0 10px 10px 0;
-    margin-bottom: 2rem;
-  }
-
-  .intro-block p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #ccc;
-    margin: 0;
-  }
-
-  /* What's Inside */
-  .whats-inside {
-    margin-bottom: 2.5rem;
-  }
-
-  .section-label {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #5DB585;
-    margin-bottom: 1rem;
-  }
-
-  .inside-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-
-  .inside-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.875rem 1rem;
-    background: #111;
-    border: 1px solid #1a1a1a;
-    border-radius: 8px;
-  }
-
-  .inside-icon {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(93, 181, 133, 0.1);
-    border-radius: 6px;
-    color: #5DB585;
-    flex-shrink: 0;
-  }
-
-  .inside-icon svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .inside-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.125rem;
-  }
-
-  .inside-text strong {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: #fff;
-  }
-
-  .inside-text span {
-    font-size: 0.6875rem;
-    color: #666;
-  }
-
-  /* Cases */
-  .cases-section {
-    margin-bottom: 2.5rem;
-  }
-
-  .coming-soon-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    background: #0d0d0d;
-    border: 1px dashed rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    text-align: center;
-  }
-
-  .coming-soon-count {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #5DB585;
-    margin-bottom: 0.25rem;
-  }
-
-  .coming-soon-text {
-    font-size: 0.8125rem;
-    color: #666;
-  }
-
-  /* Email Capture Section */
-  .email-section {
-    margin-bottom: 2.5rem;
-  }
-
-  /* CTA Section */
-  .cta-section {
-    margin-bottom: 2rem;
-  }
-
-  .cta-card {
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(93, 181, 133, 0.05) 0%, #111 100%);
-    border: 1px solid rgba(93, 181, 133, 0.2);
-    border-radius: 16px;
-    text-align: center;
-  }
-
-  .cta-card h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.375rem;
-  }
-
-  .cta-card > p {
-    color: #888;
-    margin-bottom: 1.5rem;
-    font-size: 0.9375rem;
-  }
-
-  .cta-pricing {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .pricing-option {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: all 0.2s;
-    min-width: 120px;
-  }
-
-  .pricing-option:hover {
-    border-color: #5DB585;
-    background: #1f1f1f;
-  }
-
-  .pricing-option.featured {
-    border-color: #5DB585;
-    background: rgba(93, 181, 133, 0.1);
-  }
-
-  .pricing-amount {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #fff;
-  }
-
-  .pricing-period {
-    font-size: 0.75rem;
-    color: #888;
-  }
-
-  .pricing-save {
-    font-size: 0.625rem;
-    font-weight: 600;
-    color: #5DB585;
-    text-transform: uppercase;
-    margin-top: 0.25rem;
-  }
-
-  .pricing-or {
-    color: #555;
-    font-size: 0.8125rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 600px) {
-    .stats-row {
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      flex: 1 1 calc(50% - 0.5rem);
-    }
-
-    .stat:last-child {
-      flex: 1 1 100%;
-    }
-
-    .inside-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .cta-pricing {
-      flex-direction: column;
-    }
-
-    .pricing-or {
-      display: none;
-    }
-
-    .pricing-option {
-      width: 100%;
-    }
-  }
+  .volume-page { max-width: 900px; }
+  .volume-header { margin-bottom: 2rem; }
+  .badge { display: inline-block; padding: 0.375rem 0.875rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+  .badge.coming-soon { background: rgba(255, 255, 255, 0.08); color: #a8a8a8; }
+  .volume-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 0.5rem; line-height: 1.1; }
+  .volume-subtitle { color: #a8a8a8; font-size: 1.125rem; }
+  .volume-intro { padding: 1.5rem; background: #111111; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px; margin-bottom: 3rem; }
+  .volume-intro p { font-size: 1.125rem; line-height: 1.8; color: #e0e0e0; }
+  .cases-section h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+  .cases-preview { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 3rem; }
+  .case-preview { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: #111111; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; color: #a8a8a8; }
+  .case-num { display: inline-block; padding: 0.25rem 0.5rem; background: #161616; border-radius: 4px; font-size: 0.75rem; font-weight: 700; color: #777; }
 </style>

@@ -86,7 +86,7 @@ const fullTitle = `${title} | AI Casefiles`;
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
           </a>
-          <a href="/historiqly-books/vol/hoaxes" class="btn-primary-sm">Free Preview</a>
+          <a href="/historiqly-books/vol/hoaxes" class="btn-primary-sm">Free Preview<span class="soon-badge-nav">Soon</span></a>
         </nav>
         <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
           <span></span>
@@ -349,10 +349,25 @@ const fullTitle = `${title} | AI Casefiles`;
     border-radius: 6px;
     text-decoration: none;
     transition: all 0.2s;
+    position: relative;
   }
 
   .btn-primary-sm:hover {
     background: var(--primary-hover);
+  }
+
+  .soon-badge-nav {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    padding: 0.125rem 0.375rem;
+    background: #333;
+    color: #a8a8a8;
+    font-size: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: 1px solid #444;
   }
 
   /* Mobile Menu Button */

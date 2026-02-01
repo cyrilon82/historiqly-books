@@ -35,7 +35,7 @@ import EmailCapture from '../../components/EmailCapture.astro';
     <div class="available-now">
       <p>While you wait:</p>
       <a href="/historiqly-books/vol/hoaxes" class="vol-link">
-        <span class="vol-badge">Available</span>
+        <span class="vol-badge soon">Soon</span>
         <span>Vol 1: Hoaxes, Forgeries & Frauds</span>
         <span class="arrow">→</span>
       </a>
@@ -73,5 +73,6 @@ import EmailCapture from '../../components/EmailCapture.astro';
   .vol-link { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 1.5rem; background: rgba(93, 181, 133, 0.08); border: 1px solid rgba(93, 181, 133, 0.3); border-radius: 12px; text-decoration: none; color: #FAFAFA; transition: all 0.2s; }
   .vol-link:hover { background: rgba(93, 181, 133, 0.15); border-color: #5DB585; }
   .vol-badge { padding: 0.25rem 0.5rem; background: #5DB585; color: #0a0a0a; font-size: 0.625rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; }
+  .vol-badge.soon { background: rgba(255, 255, 255, 0.1); color: #a8a8a8; }
   .arrow { color: #5DB585; }
 </style>

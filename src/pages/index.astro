@@ -7,7 +7,7 @@ import EmailCapture from '../components/EmailCapture.astro';
   <div class="home-page">
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-badge">Vol 1 Free Preview</div>
+      <div class="hero-badge">Launching April 15th</div>
       <h1>History's Greatest Mysteries.<br/><span class="text-accent">Investigated by AI.</span></h1>
       <p class="hero-lead">
         Every casefile runs through our Evidence Engine: sources graded, timelines rebuilt,
@@ -15,7 +15,7 @@ import EmailCapture from '../components/EmailCapture.astro';
       </p>
       <div class="hero-cta">
         <a href="#" class="btn-primary" data-subscription>Launching April 15th</a>
-        <a href="/historiqly-books/vol/hoaxes" class="btn-secondary">Preview Vol 1 Free</a>
+        <a href="/historiqly-books/vol/hoaxes" class="btn-secondary"><span class="soon-badge">Soon</span> Preview Vol 1</a>
       </div>
       <p class="hero-note">10 volumes • 200 casefiles • PDF + ePub</p>
     </section>
@@ -134,7 +134,7 @@ import EmailCapture from '../components/EmailCapture.astro';
       </div>
 
       <div class="free-preview">
-        <p>Not ready to commit? <a href="/historiqly-books/vol/hoaxes">Preview Hoaxes & Frauds free →</a></p>
+        <p>Not ready to commit? <a href="/historiqly-books/vol/hoaxes"><span class="soon-badge">Soon</span> Preview Hoaxes & Frauds →</a></p>
       </div>
     </section>
 
@@ -272,6 +272,18 @@ import EmailCapture from '../components/EmailCapture.astro';
   .btn-secondary:hover {
     border-color: #555;
     background: rgba(255,255,255,0.03);
+  }
+
+  .soon-badge {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #a8a8a8;
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-right: 0.5rem;
   }
 
   /* Value Section */
