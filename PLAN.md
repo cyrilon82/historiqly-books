@@ -4,6 +4,12 @@
 
 ---
 
+## 🚀 Launch Date: May 1, 2026
+
+**Pre-launch focus:** Build @Historiqly X account (3 months)
+
+---
+
 ## 🎯 Product Vision
 
 **AI Casefiles** are living, evidence-based investigations into history's greatest mysteries. Unlike static ebooks, our cases are updated when new evidence emerges - making this a research platform, not just a book.
@@ -126,10 +132,19 @@ Week 4: +1 Vol 4 (Disappearances)
 
 ## 🎣 Funnel
 
-### Pre-Launch
-1. **Build X account (@Historiqly)** - Grow audience before product launch
+### Pre-Launch (Feb - Apr 2026)
+
+**Launch Date: May 1, 2026**
+
+1. **Build X account (@Historiqly)** - 3 months to grow audience
 2. Tease case content, build anticipation
 3. Email waitlist collection
+4. Target: 1,000+ followers, 200+ email list by launch
+
+**Content calendar:**
+- Feb: Establish voice, daily posts, engage history community
+- Mar: Weekly threads (case previews), grow engagement
+- Apr: Launch hype, waitlist push, final case teasers
 
 ### Launch Free Tier
 
