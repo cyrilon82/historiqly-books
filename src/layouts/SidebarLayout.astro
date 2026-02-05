@@ -65,6 +65,20 @@ const fullTitle = `${title} | AI Casefiles`;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "AI Casefiles",
+      url: siteUrl,
+      description: "Evidence-based investigations into history's greatest mysteries.",
+      publisher: {
+        "@type": "Organization",
+        name: "HistorIQly",
+        url: "https://historiqly.com",
+      },
+    })} />
+
     <script is:inline>
       // Apply collapsed state immediately to prevent layout shift
       if (localStorage.getItem('sidebarCollapsed') === 'true') {

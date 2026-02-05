@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://books.historiqly.com/sitemap.xml
