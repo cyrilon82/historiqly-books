@@ -9,47 +9,50 @@ const showSocialProof = subscriberCount > 0;
 ---
 
 <div class="email-capture">
-  <div class="capture-icon">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-      <polyline points="22,6 12,13 2,6"/>
-    </svg>
+  <div class="email-capture-glow"></div>
+  <div class="email-capture-inner">
+    <div class="capture-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+    </div>
+
+    <h3>New investigations drop weekly</h3>
+    <p>Get them in your inbox before anyone else.</p>
+
+    <form class="capture-form" id="emailCaptureForm">
+      <input
+        type="email"
+        name="email"
+        placeholder="your@email.com"
+        required
+        autocomplete="email"
+        class="capture-input"
+      />
+      <button type="submit" class="capture-btn">
+        <span class="btn-text">Notify Me</span>
+        <span class="btn-loading" style="display: none;">
+          <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+          </svg>
+        </span>
+      </button>
+    </form>
+
+    <div class="capture-success" id="captureSuccess" style="display: none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+      <span>You're on the list!</span>
+    </div>
+
+    {showSocialProof && (
+      <p class="social-proof">
+        <span class="proof-count">{subscriberCount.toLocaleString()}+</span> investigators already signed up
+      </p>
+    )}
   </div>
-
-  <h3>New investigations drop weekly</h3>
-  <p>Get them in your inbox before anyone else.</p>
-
-  <form class="capture-form" id="emailCaptureForm">
-    <input
-      type="email"
-      name="email"
-      placeholder="your@email.com"
-      required
-      autocomplete="email"
-      class="capture-input"
-    />
-    <button type="submit" class="capture-btn">
-      <span class="btn-text">Notify Me</span>
-      <span class="btn-loading" style="display: none;">
-        <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
-        </svg>
-      </span>
-    </button>
-  </form>
-
-  <div class="capture-success" id="captureSuccess" style="display: none;">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-      <polyline points="20 6 9 17 4 12"/>
-    </svg>
-    <span>You're on the list!</span>
-  </div>
-
-  {showSocialProof && (
-    <p class="social-proof">
-      <span class="proof-count">{subscriberCount.toLocaleString()}+</span> investigators already signed up
-    </p>
-  )}
 </div>
 
 <script>
@@ -106,22 +109,41 @@ const showSocialProof = subscriberCount > 0;
 
 <style>
   .email-capture {
-    padding: 2rem;
-    background: #111;
-    border: 1px solid #1a1a1a;
-    border-radius: 16px;
+    padding: 2.5rem;
+    background: linear-gradient(180deg, #131313 0%, #0f0f0f 100%);
+    border: 1px solid rgba(93, 181, 133, 0.15);
+    border-radius: 18px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .email-capture-glow {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 200px;
+    background: radial-gradient(ellipse, rgba(93, 181, 133, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .email-capture-inner {
+    position: relative;
+    z-index: 1;
   }
 
   .capture-icon {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 1rem;
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(93, 181, 133, 0.1);
-    border-radius: 12px;
+    background: rgba(93, 181, 133, 0.08);
+    border: 1px solid rgba(93, 181, 133, 0.12);
+    border-radius: 14px;
     color: #5DB585;
   }
 
@@ -131,33 +153,34 @@ const showSocialProof = subscriberCount > 0;
   }
 
   .email-capture h3 {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.375rem;
   }
 
-  .email-capture > p {
-    color: #888;
+  .email-capture > .email-capture-inner > p {
+    color: #777;
     font-size: 0.9375rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
 
   .capture-form {
     display: flex;
     gap: 0.5rem;
-    max-width: 380px;
+    max-width: 400px;
     margin: 0 auto;
   }
 
   .capture-input {
     flex: 1;
     padding: 0.875rem 1rem;
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
     color: #fff;
     font-size: 0.9375rem;
-    transition: border-color 0.2s;
+    font-family: inherit;
+    transition: all 0.25s;
   }
 
   .capture-input::placeholder {
@@ -166,29 +189,34 @@ const showSocialProof = subscriberCount > 0;
 
   .capture-input:focus {
     outline: none;
-    border-color: #5DB585;
+    border-color: rgba(93, 181, 133, 0.4);
+    background: rgba(93, 181, 133, 0.04);
+    box-shadow: 0 0 0 3px rgba(93, 181, 133, 0.08);
   }
 
   .capture-btn {
-    padding: 0.875rem 1.25rem;
+    padding: 0.875rem 1.5rem;
     background: #5DB585;
     color: #0a0a0a;
     font-weight: 700;
     font-size: 0.9375rem;
+    font-family: inherit;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
+    transition: all 0.25s;
     white-space: nowrap;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 100px;
+    min-width: 110px;
+    box-shadow: 0 0 15px rgba(93, 181, 133, 0.1);
   }
 
   .capture-btn:hover:not(:disabled) {
     background: #6FC494;
     transform: translateY(-1px);
+    box-shadow: 0 0 25px rgba(93, 181, 133, 0.2);
   }
 
   .capture-btn:disabled {
@@ -218,13 +246,13 @@ const showSocialProof = subscriberCount > 0;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.875rem;
-    background: rgba(93, 181, 133, 0.1);
+    padding: 1rem;
+    background: rgba(93, 181, 133, 0.08);
     border: 1px solid rgba(93, 181, 133, 0.2);
-    border-radius: 8px;
+    border-radius: 10px;
     color: #5DB585;
     font-weight: 600;
-    max-width: 380px;
+    max-width: 400px;
     margin: 0 auto;
   }
 
@@ -237,7 +265,7 @@ const showSocialProof = subscriberCount > 0;
   .social-proof {
     margin-top: 1rem;
     font-size: 0.8125rem;
-    color: #666;
+    color: #555;
   }
 
   .proof-count {
@@ -246,6 +274,10 @@ const showSocialProof = subscriberCount > 0;
   }
 
   @media (max-width: 480px) {
+    .email-capture {
+      padding: 2rem 1.5rem;
+    }
+
     .capture-form {
       flex-direction: column;
     }

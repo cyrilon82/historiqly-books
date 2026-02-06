@@ -19,7 +19,7 @@
 
     --foreground: #FAFAFA;
     --foreground-muted: #E0E0E0;
-    --border: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.06);
     --border-strong: rgba(255, 255, 255, 0.12);
     --muted: #777;
     --muted-foreground: #a8a8a8;
@@ -53,11 +53,13 @@
     padding: 0;
     background-color: var(--background);
     color: var(--foreground);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
   a {
@@ -68,6 +70,12 @@
 
   a:hover {
     color: var(--primary-hover);
+  }
+
+  /* Selection color */
+  ::selection {
+    background: rgba(93, 181, 133, 0.2);
+    color: #fff;
   }
 }
 

@@ -44,6 +44,11 @@ const fullTitle = `${title} | AI Casefiles`;
     <meta name="theme-color" content="#5DB585" />
     <meta name="color-scheme" content="dark" />
 
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -287,10 +292,12 @@ const fullTitle = `${title} | AI Casefiles`;
   }
 
   body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--background);
     color: var(--foreground);
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* Top Bar - Compact */
@@ -300,8 +307,10 @@ const fullTitle = `${title} | AI Casefiles`;
     left: 0;
     right: 0;
     height: var(--topbar-height);
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     z-index: 100;
   }
 
@@ -757,9 +766,9 @@ const fullTitle = `${title} | AI Casefiles`;
 
   /* Footer */
   .footer {
-    margin-top: 3rem;
-    padding: 2rem 0;
-    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
   }
 
   .footer-content {
