@@ -58,25 +58,34 @@
         .container { width: 90%; max-width: 800px; margin: 0 auto; padding: 5rem 0; }
         #progress-bar { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: var(--color-redacted); z-index: 999; }
         #progress-bar-fill { width: 0%; height: 100%; background-color: var(--color-gold); transition: width 0.1s ease-out; }
-        .chapter { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 100px 0; border-bottom: 1px solid #222; }
+        .chapter {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 100px 0;
+            border-bottom: 1px solid #222;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
         .chapter::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-            opacity: 0.1;
+            background: linear-gradient(rgba(10,10,15,0.7), rgba(10,10,15,0.85));
             z-index: -1;
-            background-image: linear-gradient(to bottom, var(--color-near-black), #00000080), var(--fallback-bg);
         }
-        #chapter-1::before { --fallback-bg: url(images/hero-gravel-pit.jpg); }
-        #chapter-2::before { --fallback-bg: url(images/background-museum.jpg); }
-        #chapter-3::before { --fallback-bg: url(images/background-doubters.jpg); }
-        #chapter-4::before { --fallback-bg: url(images/background-silence.jpg); }
-        #chapter-5::before { --fallback-bg: url(images/background-lab.jpg); }
-        #chapter-6::before { --fallback-bg: url(images/background-lineup.jpg); }
-        #chapter-7::before { --fallback-bg: url(images/background-verdict.jpg); }
+
+
+        #chapter-1, #chapter-2 { background-image: url('images/hero-gravel-pit.png'); }
+        #chapter-3, #chapter-4 { background-image: url('images/bg-establishment.png'); }
+        #chapter-5 { background-image: url('images/bg-silence.png'); }
+        #chapter-6 { background-image: url('images/bg-unraveling.png'); }
+        #chapter-7 { background-image: none; }
+        #chapter-8 { background: linear-gradient(135deg, var(--color-near-black) 70%, #2a220a 150%); }
+
         .narrative-text { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
         .narrative-text.is-visible { opacity: 1; transform: translateY(0); }
         .evidence-reveal { background: var(--color-redacted); padding: 1rem; margin: 2rem 0; border: 1px dashed rgba(255,255,255,0.2); position: relative; perspective: 1000px; }
@@ -98,10 +107,7 @@
         .suspect-card { background: var(--color-deep-navy); border: 1px solid #333; padding: 1.5rem; text-align: center; cursor: crosshair; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
         .suspect-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-color: var(--color-gold); }
         .suspect-portrait { width: 100px; height: 100px; background-color: var(--color-redacted); background-size: cover; background-position: center; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #555; }
-        .suspect-portrait[data-suspect="dawson"] { background-image: linear-gradient(to top, #000000c0, #00000080), url(images/suspect-dawson.jpg); }
-        .suspect-portrait[data-suspect="hinton"] { background-image: linear-gradient(to top, #000000c0, #00000080), url(images/suspect-hinton.jpg); }
-        .suspect-portrait[data-suspect="teilhard"] { background-image: linear-gradient(to top, #000000c0, #00000080), url(images/suspect-teilhard.jpg); }
-        .suspect-portrait[data-suspect="doyle"] { background-image: linear-gradient(to top, #000000c0, #00000080), url(images/suspect-doyle.jpg); }
+        .suspect-portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
         .suspect-card h3 { color: var(--color-fog-white); font-size: 1.2rem; }
         .suspect-card p { font-size: 0.9rem; color: #aaa; margin-bottom: 0; }
         .most-likely-badge { position: absolute; top: 10px; right: 10px; background: var(--color-gold); color: var(--color-near-black); font-family: var(--font-code); font-size: 0.7rem; padding: 3px 6px; border-radius: 3px; opacity: 0; transition: opacity 0.5s ease; }
@@ -301,25 +307,25 @@
             <div class="suspect-lineup-container narrative-text">
                 <div class="suspect-card interactive-element" data-suspect="dawson">
                     <div class="most-likely-badge">Most Likely</div>
-                    <div class="suspect-portrait" data-suspect="dawson"></div>
+                    <div class="suspect-portrait" data-suspect="dawson"><img src="images/suspect-dawson.png" alt="Charles Dawson"></div>
                     <h3>Charles Dawson</h3>
                     <p>The Ambitious Amateur</p>
                 </div>
                 <div class="suspect-card interactive-element" data-suspect="hinton">
                      <div class="most-likely-badge">Most Likely</div>
-                    <div class="suspect-portrait" data-suspect="hinton"></div>
+                    <div class="suspect-portrait" data-suspect="hinton"><img src="images/suspect-hinton.png" alt="Martin Hinton"></div>
                     <h3>Martin Hinton</h3>
                     <p>The Museum Insider</p>
                 </div>
                 <div class="suspect-card interactive-element" data-suspect="teilhard">
                      <div class="most-likely-badge">Most Likely</div>
-                    <div class="suspect-portrait" data-suspect="teilhard"></div>
+                    <div class="suspect-portrait" data-suspect="teilhard"><img src="images/suspect-teilhard.png" alt="Pierre Teilhard de Chardin"></div>
                     <h3>Pierre Teilhard de Chardin</h3>
                     <p>The Convenient Priest</p>
                 </div>
                 <div class="suspect-card interactive-element" data-suspect="doyle">
                      <div class="most-likely-badge">Most Likely</div>
-                    <div class="suspect-portrait" data-suspect="doyle"></div>
+                    <div class="suspect-portrait" data-suspect="doyle"><img src="images/suspect-conan-doyle.png" alt="Arthur Conan Doyle"></div>
                     <h3>Arthur Conan Doyle</h3>
                     <p>The Wildcard Author</p>
                 </div>
