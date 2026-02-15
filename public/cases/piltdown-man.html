@@ -6,12 +6,13 @@
     <title>AI Casefiles by HistorIQly - Case #001: The Piltdown Hoax</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Crimson+Pro:wght@400;600&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Pro:wght@400;600;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-near-black: #0a0a0f;
             --color-deep-navy: #0d1117;
             --color-gold: #c9a84c;
+            --color-gold-soft: #f5d886;
             --color-blood-red: #8b0000;
             --color-evidence-green: #22c55e;
             --color-fog-white: #e8e0d0;
@@ -21,143 +22,839 @@
             --font-body: 'Crimson Pro', serif;
             --font-code: 'Source Code Pro', monospace;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             background-color: var(--color-near-black);
             color: var(--color-fog-white);
             font-family: var(--font-body);
             font-size: 18px;
-            line-height: 1.7;
+            line-height: 1.8;
             overflow-x: hidden;
         }
+
         body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            box-shadow: inset 0 0 190px rgba(0, 0, 0, 0.86);
+            pointer-events: none;
+            z-index: 998;
+        }
+
+        body::after {
             content: "";
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#noiseFilter)"/></svg>');
-            opacity: 0.08;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+            opacity: 0.07;
             pointer-events: none;
             z-index: 1000;
             animation: grain 8s steps(10) infinite;
         }
+
         @keyframes grain {
-          0%, 100% { transform: translate(0, 0); }
-          10% { transform: translate(-5%, -10%); } 20% { transform: translate(-15%, 5%); }
-          30% { transform: translate(7%, -25%); } 40% { transform: translate(-5%, 25%); }
-          50% { transform: translate(-15%, 10%); } 60% { transform: translate(15%, 0%); }
-          70% { transform: translate(0%, 15%); } 80% { transform: translate(3%, 35%); }
-          90% { transform: translate(-10%, 10%); }
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-5%, -10%); }
+            20% { transform: translate(-15%, 5%); }
+            30% { transform: translate(7%, -25%); }
+            40% { transform: translate(-5%, 25%); }
+            50% { transform: translate(-15%, 10%); }
+            60% { transform: translate(15%, 0%); }
+            70% { transform: translate(0%, 15%); }
+            80% { transform: translate(3%, 35%); }
+            90% { transform: translate(-10%, 10%); }
         }
+
+        @keyframes pulseRed {
+            0%, 100% { box-shadow: 0 0 0 rgba(139,0,0,0), 0 0 18px rgba(139,0,0,0.45); }
+            50% { box-shadow: 0 0 0 8px rgba(139,0,0,0.08), 0 0 32px rgba(139,0,0,0.75); }
+        }
+
+        @keyframes floatDown {
+            0%, 100% { transform: translateY(0); opacity: 0.7; }
+            50% { transform: translateY(10px); opacity: 1; }
+        }
+
+        @keyframes revealSweep {
+            from { width: 100%; }
+            to { width: 0; }
+        }
+
         .interactive-element { cursor: crosshair; }
+
         h1, h2, h3 { font-family: var(--font-heading); color: var(--color-gold); text-wrap: balance; }
         p, blockquote { margin-bottom: 1.5rem; }
-        blockquote { border-left: 2px solid var(--color-gold); padding-left: 1rem; font-style: italic; color: #ccc; }
-        .container { width: 90%; max-width: 800px; margin: 0 auto; padding: 5rem 0; }
-        #progress-bar { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: var(--color-redacted); z-index: 999; }
-        #progress-bar-fill { width: 0%; height: 100%; background-color: var(--color-gold); transition: width 0.1s ease-out; }
+
+        blockquote {
+            border-left: 4px solid var(--color-gold);
+            padding-left: 1.25rem;
+            font-style: italic;
+            color: var(--color-gold-soft);
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            line-height: 1.5;
+            margin: 2rem 0;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .keyline {
+            border-left: 3px solid rgba(201, 168, 76, 0.8);
+            padding-left: 1rem;
+            margin-left: 0.2rem;
+        }
+
+        .dropcap::first-letter {
+            float: left;
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            line-height: 0.9;
+            margin-right: 0.55rem;
+            color: var(--color-gold-soft);
+            text-shadow: 0 3px 15px rgba(201, 168, 76, 0.35);
+        }
+
+        .container {
+            width: min(94%, 980px);
+            margin: 0 auto;
+            padding: 5rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255,255,255,0.1);
+            z-index: 1100;
+        }
+
+        #progress-bar-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #8a6a1c, var(--color-gold-soft), #8a6a1c);
+            box-shadow: 0 0 14px rgba(201, 168, 76, 0.9);
+            transition: width 0.1s ease-out;
+        }
+
         .chapter {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            padding: 100px 0;
-            border-bottom: 1px solid #222;
+            padding: 90px 0;
+            border-bottom: 1px solid rgba(201, 168, 76, 0.35);
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
         }
+
         .chapter::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(rgba(10,10,15,0.7), rgba(10,10,15,0.85));
-            z-index: -1;
+            inset: 0;
+            background: linear-gradient(rgba(10,10,15,0.48), rgba(10,10,15,0.58));
+            z-index: 1;
         }
 
+        .chapter::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: min(65vw, 620px);
+            height: 1px;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, transparent, rgba(201,168,76,0.95), transparent);
+            box-shadow: 0 0 12px rgba(201, 168, 76, 0.4);
+            z-index: 3;
+        }
 
-        #chapter-1, #chapter-2 { background-image: url('images/hero-gravel-pit.png'); }
+        #chapter-1 {
+            min-height: 100vh;
+            background-image: url('images/hero-gravel-pit.png');
+        }
+        #chapter-1::before {
+            background: linear-gradient(180deg, rgba(7,7,10,0.35) 0%, rgba(8,8,12,0.45) 55%, rgba(8,8,12,0.62) 100%);
+        }
+
+        #chapter-2 { background-image: url('images/hero-gravel-pit.png'); }
         #chapter-3, #chapter-4 { background-image: url('images/bg-establishment.png'); }
         #chapter-5 { background-image: url('images/bg-silence.png'); }
         #chapter-6 { background-image: url('images/bg-unraveling.png'); }
-        #chapter-7 { background-image: none; }
-        #chapter-8 { background: linear-gradient(135deg, var(--color-near-black) 70%, #2a220a 150%); }
+        #chapter-7 { background-image: linear-gradient(rgba(10,10,15,0.76), rgba(10,10,15,0.84)), url('images/stained-bone-fragments.png'); }
+        #chapter-8 { background: linear-gradient(135deg, var(--color-near-black) 65%, #2f260e 155%); }
 
-        .narrative-text { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .chapter-kicker {
+            font-family: var(--font-code);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(232, 224, 208, 0.72);
+            font-size: 0.82rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        #chapter-1 h1 {
+            font-size: clamp(2.8rem, 10vw, 7.3rem);
+            line-height: 0.92;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #f1dfb2;
+            text-shadow: 0 8px 26px rgba(0,0,0,0.65), 0 0 35px rgba(201, 168, 76, 0.28);
+            margin-bottom: 0.8rem;
+        }
+
+        #chapter-1 h2 {
+            color: rgba(232, 224, 208, 0.92);
+            font-size: clamp(1.2rem, 2.8vw, 2.1rem);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+        }
+
+        .scroll-indicator {
+            margin-top: 2rem;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            color: rgba(232, 224, 208, 0.85);
+            font-family: var(--font-code);
+            font-size: 0.72rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .scroll-indicator .chevron {
+            width: 15px;
+            height: 15px;
+            border-right: 2px solid var(--color-gold);
+            border-bottom: 2px solid var(--color-gold);
+            transform: rotate(45deg);
+            animation: floatDown 1.8s ease-in-out infinite;
+        }
+
+        .narrative-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            background: rgba(10,10,15,0.36);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: clamp(1rem, 2.5vw, 2.2rem);
+            backdrop-filter: blur(2px);
+        }
+
         .narrative-text.is-visible { opacity: 1; transform: translateY(0); }
-        .evidence-reveal { background: var(--color-redacted); padding: 1rem; margin: 2rem 0; border: 1px dashed rgba(255,255,255,0.2); position: relative; perspective: 1000px; }
-        .evidence-card { transition: transform 0.6s; transform-style: preserve-3d; }
+
+        .evidence-reveal {
+            background: rgba(16, 16, 20, 0.86);
+            padding: 1.2rem;
+            margin: 2rem 0;
+            border: 1px dashed rgba(255,255,255,0.3);
+            position: relative;
+            perspective: 1000px;
+            overflow: hidden;
+        }
+
+        .evidence-reveal::before {
+            content: 'CLASSIFIED';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-20deg);
+            font-family: var(--font-code);
+            letter-spacing: 0.22em;
+            font-size: clamp(1.3rem, 3vw, 2.2rem);
+            color: rgba(139, 0, 0, 0.44);
+            border: 3px solid rgba(139, 0, 0, 0.5);
+            padding: 0.45rem 0.95rem;
+            pointer-events: none;
+            transition: opacity 0.6s ease;
+            background: center/contain no-repeat url('images/classified-stamp.png');
+            mix-blend-mode: screen;
+        }
+
+        .evidence-reveal.unfolded::before { opacity: 0; }
+
+        .evidence-card { transition: transform 0.6s; transform-style: preserve-3d; position: relative; }
         .evidence-front, .evidence-back { -webkit-backface-visibility: hidden; backface-visibility: hidden; }
-        .evidence-back { transform: rotateY(180deg); position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: var(--color-deep-navy); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-family: var(--font-code); padding: 1rem;}
+
+        .evidence-front { position: relative; }
+
+        .evidence-front::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(201, 168, 76, 0.25), transparent);
+            width: 100%;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .evidence-reveal.unfolded .evidence-front::after {
+            opacity: 1;
+            animation: revealSweep 0.85s ease-out forwards;
+        }
+
+        .evidence-back {
+            transform: rotateY(180deg);
+            position: absolute;
+            inset: 0;
+            background: var(--color-deep-navy);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: var(--font-code);
+            padding: 1rem;
+        }
+
         .evidence-reveal:hover .evidence-card { transform: rotateY(180deg); }
-        .redacted-text { filter: blur(4px); transition: filter 0.5s ease-in-out; user-select: none; cursor: crosshair; }
-        .redacted-text.declassified { filter: blur(0); user-select: auto; }
-        .declassify-prompt { position: absolute; bottom: 10px; right: 10px; font-family: var(--font-code); font-size: 0.8rem; color: var(--color-gold); opacity: 0.8; cursor: crosshair; }
+
+        .redacted-text {
+            position: relative;
+            color: transparent;
+            transition: color 0.5s ease-in-out;
+            user-select: none;
+            cursor: crosshair;
+            text-shadow: none;
+        }
+
+        .redacted-text::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(10,10,10,0.98) 0,
+                rgba(10,10,10,0.98) 0.9em,
+                rgba(25,25,25,0.98) 0.9em,
+                rgba(25,25,25,0.98) 1.25em
+            );
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .redacted-text.declassified {
+            color: var(--color-fog-white);
+            user-select: auto;
+        }
+
+        .redacted-text.declassified::before {
+            opacity: 0;
+        }
+
+        .declassify-prompt {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-family: var(--font-code);
+            font-size: 0.8rem;
+            color: var(--color-gold-soft);
+            opacity: 0.85;
+            cursor: crosshair;
+        }
+
         .evidence-reveal.unfolded .declassify-prompt { display: none; }
-        .evidence-grade { display: inline-block; padding: 0.2em 0.6em; font-family: var(--font-code); font-weight: 700; border: 1px solid; margin: 0 0.5em; cursor: pointer; transition: all 0.2s ease; }
-        .evidence-grade:hover { transform: scale(1.1); }
+
+        .evidence-grade {
+            display: inline-block;
+            padding: 0.2em 0.7em;
+            font-family: var(--font-code);
+            font-weight: 700;
+            border: 1px solid;
+            margin: 0 0.4em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 999px;
+        }
+
+        .evidence-grade:hover { transform: scale(1.08); }
         .evidence-grade[data-grade="A"] { border-color: var(--color-evidence-green); color: var(--color-evidence-green); }
-        .evidence-grade[data-grade="B"] { border-color: #3b82f6; color: #3b82f6; }
-        .evidence-grade[data-grade="C"] { border-color: #f97316; color: #f97316; }
-        .evidence-grade[data-grade="D"] { border-color: var(--color-blood-red); color: var(--color-blood-red); }
-        .suspect-lineup-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding: 2rem 0; }
-        .suspect-card { background: var(--color-deep-navy); border: 1px solid #333; padding: 1.5rem; text-align: center; cursor: crosshair; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
-        .suspect-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-color: var(--color-gold); }
-        .suspect-portrait { width: 100px; height: 100px; background-color: var(--color-redacted); background-size: cover; background-position: center; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #555; }
-        .suspect-portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-        .suspect-card h3 { color: var(--color-fog-white); font-size: 1.2rem; }
-        .suspect-card p { font-size: 0.9rem; color: #aaa; margin-bottom: 0; }
-        .most-likely-badge { position: absolute; top: 10px; right: 10px; background: var(--color-gold); color: var(--color-near-black); font-family: var(--font-code); font-size: 0.7rem; padding: 3px 6px; border-radius: 3px; opacity: 0; transition: opacity 0.5s ease; }
+        .evidence-grade[data-grade="B"] { border-color: #3b82f6; color: #60a5fa; }
+        .evidence-grade[data-grade="C"] { border-color: #f97316; color: #fb923c; }
+        .evidence-grade[data-grade="D"] { border-color: var(--color-blood-red); color: #ef4444; }
+
+        .suspect-lineup-container {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(210px, 1fr));
+            gap: 1.2rem;
+            padding: 2rem 0;
+        }
+
+        .suspect-card {
+            background: linear-gradient(180deg, rgba(13,17,23,0.96), rgba(9,11,15,0.97));
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 1.1rem;
+            text-align: left;
+            cursor: crosshair;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .suspect-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.45), 0 0 22px rgba(201,168,76,0.35);
+            border-color: var(--color-gold);
+        }
+
+        .suspect-portrait {
+            width: 100%;
+            height: 260px;
+            background-color: var(--color-redacted);
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin: 0 auto 1rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .suspect-portrait::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 38%, transparent 30%, rgba(0,0,0,0.72) 100%);
+        }
+
+        .suspect-portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .suspect-card h3 { color: var(--color-fog-white); font-size: 1.4rem; margin-bottom: 0.35rem; }
+        .suspect-card p { font-size: 0.95rem; color: #b8b5aa; margin-bottom: 0.4rem; }
+        .suspect-role { color: var(--color-gold-soft); font-family: var(--font-code); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; }
+        .suspect-motive { border-top: 1px dashed rgba(201,168,76,0.3); padding-top: 0.6rem; color: #c8c3b3; }
+
+        .most-likely-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--color-gold);
+            color: var(--color-near-black);
+            font-family: var(--font-code);
+            font-size: 0.66rem;
+            padding: 4px 8px;
+            border-radius: 999px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 3;
+        }
+
         .most-likely-badge.visible { opacity: 1; }
-        .dossier-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 100; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-        .dossier-content { background: var(--color-deep-navy); padding: 2rem; border: 1px solid var(--color-gold); width: 90%; max-width: 700px; max-height: 90vh; overflow-y: auto; }
+
+        .dossier-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 1200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .dossier-content {
+            background: var(--color-deep-navy);
+            padding: 2rem;
+            border: 1px solid var(--color-gold);
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 8px;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+        }
+
         #close-dossier { float: right; cursor: pointer; font-size: 1.5rem; line-height: 1; }
+
         #theory-vote { text-align: center; }
-        .vote-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
-        .vote-card { background: var(--color-deep-navy); border: 1px solid #333; padding: 1rem; cursor: crosshair; transition: all 0.3s ease; position: relative; }
-        .vote-card:hover { border-color: var(--color-gold); transform: scale(1.05); }
-        .vote-card.voted { border-color: var(--color-evidence-green); transform: scale(1.05); }
-        .vote-result-bar { position: absolute; bottom: 0; left: 0; height: 5px; background: var(--color-gold); width: 0; transition: width 1s ease-out; }
-        .vote-percentage { position: absolute; bottom: 10px; right: 10px; font-family: var(--font-code); opacity: 0; transition: opacity 0.5s 0.5s ease; }
+
+        .vote-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1.8rem;
+        }
+
+        .vote-card {
+            background: linear-gradient(180deg, rgba(13,17,23,0.95), rgba(10,12,16,0.98));
+            border: 1px solid #3f3f3f;
+            padding: 0.9rem;
+            cursor: crosshair;
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: left;
+            border-radius: 10px;
+            overflow: hidden;
+            min-height: 290px;
+        }
+
+        .vote-card:hover { border-color: var(--color-gold); transform: translateY(-5px) scale(1.01); }
+        .vote-card.voted { border-color: var(--color-evidence-green); }
+
+        .vote-card .vote-portrait {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .vote-result-bar {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 9px;
+            background: linear-gradient(90deg, #9f7e2b, var(--color-gold-soft));
+            width: 0;
+            transition: width 1.4s cubic-bezier(.21,.94,.38,.99);
+            box-shadow: 0 0 10px rgba(201,168,76,0.55);
+        }
+
+        .vote-percentage {
+            position: absolute;
+            bottom: 15px;
+            right: 12px;
+            font-family: var(--font-code);
+            opacity: 0;
+            transition: opacity 0.5s 0.6s ease;
+            color: #f5eddb;
+            font-size: 1rem;
+        }
+
         .vote-card.voted .vote-percentage { opacity: 1; }
-        .actual-answer { margin-top: 2rem; padding: 1rem; background: var(--color-deep-navy); border: 1px solid var(--color-blood-red); display: none; }
-        .timeline-container { width: 100%; overflow-x: auto; padding: 2rem 0; white-space: nowrap; background: #00000033; border-radius: 4px; }
-        .timeline { display: inline-flex; position: relative; padding: 2rem 0; }
-        .timeline::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: #444; transform: translateY(-1px); }
-        .timeline-event { position: relative; display: flex; flex-direction: column; align-items: center; min-width: 150px; }
-        .event-dot { width: 16px; height: 16px; background: var(--color-fog-white); border: 2px solid var(--color-deep-navy); border-radius: 50%; z-index: 1; cursor: pointer; transition: background-color 0.3s; }
-        .timeline-event.active .event-dot { background-color: var(--color-gold); }
-        .event-year { position: absolute; top: calc(50% + 20px); font-family: var(--font-code); font-size: 0.9rem; }
-        .event-details { display: none; position: absolute; bottom: calc(50% + 30px); width: 200px; background: var(--color-deep-navy); border: 1px solid #555; padding: 1rem; white-space: normal; z-index: 2; border-radius: 4px; }
+
+        .actual-answer {
+            margin-top: 2rem;
+            padding: 1.4rem;
+            background: var(--color-deep-navy);
+            border: 1px solid rgba(201,168,76,0.5);
+            display: none;
+            border-radius: 8px;
+            animation: borderPulse 1.1s ease 2;
+            box-shadow: 0 0 25px rgba(201, 168, 76, 0.2);
+            text-align: left;
+        }
+
+        @keyframes borderPulse {
+            0%, 100% { box-shadow: 0 0 5px rgba(201,168,76,0.2); }
+            50% { box-shadow: 0 0 30px rgba(201,168,76,0.65); }
+        }
+
+        .timeline-container {
+            width: 100%;
+            padding: 2rem 0;
+            background: rgba(0,0,0,0.35);
+            border-radius: 8px;
+            overflow: visible;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.7rem;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, rgba(201,168,76,0.1), rgba(201,168,76,0.85), rgba(201,168,76,0.2));
+            border-radius: 2px;
+        }
+
+        .timeline-event {
+            position: relative;
+            min-height: 70px;
+            padding: 0.6rem 0 0.2rem;
+        }
+
+        .event-dot {
+            width: 22px;
+            height: 22px;
+            background: #ddd4c2;
+            border: 2px solid #15181e;
+            border-radius: 50%;
+            position: absolute;
+            left: -2.4rem;
+            top: 0.8rem;
+            z-index: 2;
+            cursor: pointer;
+            box-shadow: 0 0 0 rgba(201,168,76,0);
+            transition: all 0.3s;
+        }
+
+        .timeline-event.active .event-dot {
+            background-color: var(--color-gold);
+            box-shadow: 0 0 14px rgba(201,168,76,0.8);
+        }
+
+        .event-year {
+            font-family: var(--font-code);
+            font-size: 0.95rem;
+            color: var(--color-gold-soft);
+            margin-bottom: 0.35rem;
+        }
+
+        .event-details {
+            display: none;
+            background: rgba(13,17,23,0.95);
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 0.9rem;
+            white-space: normal;
+            border-radius: 6px;
+            max-width: 720px;
+        }
+
         .timeline-event.active .event-details { display: block; }
-        .silence-gap { width: 400px; text-align: center; position: relative; display: flex; align-items: center; justify-content: center; }
-        .silence-gap::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 4px; background: var(--color-blood-red); transform: translateY(-2px); }
-        .silence-label { color: var(--color-blood-red); font-family: var(--font-code); position: relative; z-index: 1; background: var(--color-near-black); padding: 0 10px; }
+
+        .silence-gap {
+            margin: 0.6rem 0;
+            padding: 1rem;
+            border: 2px solid rgba(139,0,0,0.8);
+            border-radius: 8px;
+            position: relative;
+            background:
+                repeating-linear-gradient(-45deg, rgba(139,0,0,0.18), rgba(139,0,0,0.18) 10px, rgba(30,0,0,0.32) 10px, rgba(30,0,0,0.32) 20px),
+                rgba(10,10,15,0.8);
+            animation: pulseRed 2.2s infinite;
+        }
+
+        .silence-label {
+            color: #ff6b6b;
+            font-family: var(--font-code);
+            font-size: clamp(1rem, 2.6vw, 1.4rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
         #dashboard { text-align: center; }
-        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; text-align: left; }
-        .dashboard-metric { background: var(--color-deep-navy); padding: 1.5rem; border-radius: 4px; }
-        .counter { font-size: 3rem; font-family: var(--font-code); color: var(--color-gold); }
-        .evidence-filter { margin: 2rem 0; text-align: center; }
-        .filter-btn { background: transparent; border: 1px solid var(--color-fog-white); color: var(--color-fog-white); padding: 0.5rem 1rem; margin: 0 0.5rem; cursor: pointer; border-radius: 20px; }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.6rem;
+            margin-top: 2rem;
+            text-align: left;
+            align-items: stretch;
+        }
+
+        .dashboard-metric {
+            background: rgba(13,17,23,0.95);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .counter {
+            font-size: clamp(3.2rem, 10vw, 8rem);
+            font-family: var(--font-code);
+            color: var(--color-gold-soft);
+            line-height: 1;
+            text-shadow: 0 0 22px rgba(201,168,76,0.25);
+        }
+
+        .counter-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .ring {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: conic-gradient(var(--color-gold) 0 100%, rgba(255,255,255,0.08) 100%);
+            display: grid;
+            place-items: center;
+            box-shadow: 0 0 30px rgba(201,168,76,0.2);
+        }
+
+        .ring::before {
+            content: '';
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            background: var(--color-deep-navy);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .evidence-filter { margin: 2rem 0; text-align: center; display: flex; flex-wrap: wrap; gap: 0.65rem; justify-content: center; }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--color-fog-white);
+            color: var(--color-fog-white);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 999px;
+            font-family: var(--font-code);
+        }
+
+        .filter-btn[data-filter="A"] { border-color: var(--color-evidence-green); color: var(--color-evidence-green); }
+        .filter-btn[data-filter="B"] { border-color: #60a5fa; color: #60a5fa; }
+        .filter-btn[data-filter="C"] { border-color: #fb923c; color: #fb923c; }
+        .filter-btn[data-filter="D"] { border-color: #ef4444; color: #ef4444; }
         .filter-btn.active { background: var(--color-gold); color: var(--color-near-black); border-color: var(--color-gold); }
-        .evidence-list-item { background: var(--color-deep-navy); margin-bottom: 1rem; padding: 1.2rem; display: block; border-radius: 4px; text-align: left; }
-        .share-btn { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: var(--color-gold); color: var(--color-near-black); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; z-index: 50; }
-        .end-cta { text-align: center; padding: 4rem 2rem; background: var(--color-deep-navy); margin-top: 5rem; border-top: 2px solid var(--color-gold); }
+
+        .evidence-list-item {
+            background: rgba(13,17,23,0.95);
+            margin-bottom: 1rem;
+            padding: 1.2rem;
+            display: block;
+            border-radius: 7px;
+            text-align: left;
+            border-left: 4px solid transparent;
+            position: relative;
+            padding-left: 4.8rem;
+        }
+
+        .evidence-list-item::before {
+            content: attr(data-grade);
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2.3rem;
+            height: 2.3rem;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-family: var(--font-code);
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: 2px solid currentColor;
+        }
+
+        .evidence-list-item[data-grade="A"] { border-left-color: var(--color-evidence-green); color: #d4f8df; }
+        .evidence-list-item[data-grade="B"] { border-left-color: #60a5fa; color: #d7e9ff; }
+        .evidence-list-item[data-grade="C"] { border-left-color: #fb923c; color: #ffe4ca; }
+        .evidence-list-item[data-grade="D"] { border-left-color: #ef4444; color: #ffd7d7; }
+
+        .share-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 52px;
+            height: 52px;
+            background: var(--color-gold);
+            color: var(--color-near-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1050;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+        }
+
+        .end-cta {
+            text-align: center;
+            padding: 5rem 2rem;
+            margin-top: 0;
+            border-top: 2px solid var(--color-gold);
+            position: relative;
+            background: linear-gradient(rgba(10,10,15,0.78), rgba(10,10,15,0.9)), url('images/hinton-trunk.png') center/cover no-repeat;
+        }
+
         .email-capture { margin-top: 1.5rem; display: flex; justify-content: center; }
-        .email-input { padding: 0.8rem; background: var(--color-near-black); border: 1px solid #444; color: var(--color-fog-white); width: 60%; max-width: 300px; border-radius: 4px 0 0 4px; }
-        .subscribe-btn { padding: 0.8rem 1.2rem; background: var(--color-gold); color: var(--color-near-black); border: none; cursor: pointer; border-radius: 0 4px 4px 0; font-weight: bold; }
-        .next-case-teaser { margin-top: 4rem; border: 1px dashed #444; padding: 2rem; border-radius: 4px; }
-        .sound-toggle { position: fixed; bottom: 20px; left: 20px; font-size: 1.5rem; cursor: pointer; z-index: 50; opacity: 0.5; transition: opacity 0.3s ease; }
+
+        .email-input {
+            padding: 0.8rem;
+            background: rgba(10,10,15,0.9);
+            border: 1px solid #615f58;
+            color: var(--color-fog-white);
+            width: 60%;
+            max-width: 300px;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .subscribe-btn {
+            padding: 0.8rem 1.2rem;
+            background: var(--color-gold);
+            color: var(--color-near-black);
+            border: none;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            font-weight: bold;
+        }
+
+        .next-case-teaser {
+            margin-top: 3rem;
+            border: 1px dashed rgba(201,168,76,0.5);
+            padding: 2rem;
+            border-radius: 6px;
+            background: rgba(10,10,15,0.5);
+        }
+
+        .sound-toggle {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1050;
+            opacity: 0.55;
+            transition: opacity 0.3s ease;
+        }
+
         .sound-toggle:hover { opacity: 1; }
         .sound-toggle.active { color: var(--color-gold); }
+
+        @media (max-width: 900px) {
+            .chapter { background-attachment: scroll; }
+            .suspect-lineup-container { grid-template-columns: 1fr 1fr; }
+        }
+
         @media (max-width: 768px) {
             body { font-size: 16px; }
             .container { width: 95%; }
-            .suspect-lineup-container { grid-template-columns: 1fr; }
+            .narrative-text { padding: 1rem; }
+            .suspect-lineup-container {
+                display: flex;
+                overflow-x: auto;
+                gap: 1rem;
+                padding: 1rem 0 1.5rem;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+            .suspect-card {
+                min-width: 78vw;
+                scroll-snap-align: start;
+            }
             .vote-grid { grid-template-columns: 1fr; }
+            .counter-wrap { flex-direction: column; }
+            .ring { width: 110px; height: 110px; }
+            .ring::before { width: 70px; height: 70px; }
         }
     </style>
 </head>
@@ -170,10 +867,12 @@
     <section id="chapter-1" class="chapter">
         <div class="container">
             <div class="narrative-text">
-                <h1>The Piltdown File</h1>
+                <span class="chapter-kicker">Casefile 001 - Opening Scene</span>
+                <h1>THE PILTDOWN FILE</h1>
                 <h2>An Interactive Casefile</h2>
-                <p>I opened the file on a wet morning. The kind of morning when paper curls at the edges and old lies feel fresh again. On the cover: <strong>PILTDOWN MAN</strong>. Inside: forty-one years of fraud, a courtroom worth of scientists, and a jawbone that should never have met the skull beside it.</p>
-                <p>What follows is not a myth. It is evidence. And evidence has a smell. Wet clay. Pipe smoke. Museum dust. Let’s begin where every good crime begins - at the scene.</p>
+                <p class="dropcap keyline">I opened the file on a wet morning. The kind of morning when paper curls at the edges and old lies feel fresh again. On the cover: <strong>PILTDOWN MAN</strong>. Inside: forty-one years of fraud, a courtroom worth of scientists, and a jawbone that should never have met the skull beside it.</p>
+                <p>What follows is not a myth. It is evidence. And evidence has a smell. Wet clay. Pipe smoke. Museum dust. Let's begin where every good crime begins - at the scene.</p>
+                <div class="scroll-indicator" aria-hidden="true"><span>Scroll to enter</span><span class="chevron"></span></div>
             </div>
         </div>
     </section>
@@ -181,12 +880,13 @@
     <section id="chapter-2" class="chapter">
         <div class="container">
             <div class="narrative-text">
+                <span class="chapter-kicker">Chapter 01</span>
                 <h2>1) The Discovery</h2>
-                <p>Sussex, 1912. The gravel pit at Barkham Manor was a wound in the earth. Charles Dawson, an amateur antiquarian, claimed to have found fragments of a skull with a modern-looking vault but a primitive, ape-like jaw. He brought his finds to Arthur Smith Woodward, a paleontologist at the British Museum.</p>
-                <p>Together, they presented *Eoanthropus dawsoni*—Dawson's Dawn-Man. It was hailed as the "missing link," a perfect fit for the theory that human evolution began with the brain. The discovery put England at the center of the paleontological map. A canine tooth found by Pierre Teilhard de Chardin in 1913, and a second site, "Piltdown II," announced by Dawson in 1915, cemented the find's authenticity. Then, in 1916, Dawson died, taking the secret of Piltdown II's exact location with him.</p>
-                <p>The world had its dawn-man. But the bones had started talking.
+                <p class="dropcap">Sussex, 1912. The gravel pit at Barkham Manor was a wound in the earth. Charles Dawson, an amateur antiquarian, claimed to have found fragments of a skull with a modern-looking vault but a primitive, ape-like jaw. He brought his finds to Arthur Smith Woodward, a paleontologist at the British Museum.</p>
+                <p>Together, they presented <em>Eoanthropus dawsoni</em>-Dawson's Dawn-Man. It was hailed as the "missing link," a perfect fit for the theory that human evolution began with the brain. The discovery put England at the center of the paleontological map. A canine tooth found by Pierre Teilhard de Chardin in 1913, and a second site, "Piltdown II," announced by Dawson in 1915, cemented the find's authenticity. Then, in 1916, Dawson died, taking the secret of Piltdown II's exact location with him.</p>
+                <p class="keyline">The world had its dawn-man. But the bones had started talking.
                     <span class="evidence-grade interactive-element" data-grade="A" data-title="Geological Society Announcement (1912)">GRADE A</span>
-                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Dawson’s First Fragment Account (1908)">GRADE B</span>
+                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Dawson's First Fragment Account (1908)">GRADE B</span>
                 </p>
             </div>
         </div>
@@ -195,8 +895,9 @@
     <section id="chapter-3" class="chapter">
         <div class="container">
             <div class="narrative-text">
+                <span class="chapter-kicker">Chapter 02</span>
                 <h2>2) The World That Wanted to Believe</h2>
-                <p>Piltdown arrived as an antidote to Britain's anxiety about falling behind Germany and France in fossil discoveries. It perfectly matched the "brain-first" model of evolution and flattered a nation's sense of prestige. Powerful figures like Henry Fairfield Osborn of the American Museum of Natural History endorsed it "without question," and the hoax became textbook fact.</p>
+                <p class="dropcap">Piltdown arrived as an antidote to Britain's anxiety about falling behind Germany and France in fossil discoveries. It perfectly matched the "brain-first" model of evolution and flattered a nation's sense of prestige. Powerful figures like Henry Fairfield Osborn of the American Museum of Natural History endorsed it "without question," and the hoax became textbook fact.</p>
                 <div class="evidence-reveal interactive-element" id="evidence-1">
                     <div class="evidence-card">
                         <div class="evidence-front">
@@ -209,8 +910,8 @@
                         </div>
                     </div>
                 </div>
-                <p>A lie that flatters powerful institutions will always outlive one that merely deceives individuals. And Piltdown flattered a nation.
-                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Osborn’s Endorsement (1921)">GRADE B</span>
+                <p class="keyline">A lie that flatters powerful institutions will always outlive one that merely deceives individuals. And Piltdown flattered a nation.
+                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Osborn's Endorsement (1921)">GRADE B</span>
                     <span class="evidence-grade interactive-element" data-grade="A" data-title="Later Forensic Confirmation of Composite Nature">GRADE A</span>
                 </p>
             </div>
@@ -220,14 +921,15 @@
     <section id="chapter-4" class="chapter">
         <div class="container">
             <div class="narrative-text">
+                <span class="chapter-kicker">Chapter 03</span>
                 <h2>3) The Doubters Nobody Listened To</h2>
-                <p>Not everyone was convinced. Three key experts raised alarms early on, but were ignored by the scientific establishment.</p>
+                <p class="dropcap">Not everyone was convinced. Three key experts raised alarms early on, but were ignored by the scientific establishment.</p>
                 <p>In 1913, anatomist <strong>David Waterston</strong> declared it was a mismatch of a human skull and an ape mandible. In 1915, French paleontologist <strong>Marcellin Boule</strong> agreed. In 1923, <strong>Franz Weidenreich</strong> called it with remarkable precision: a modern human cranium, an orangutan jaw, with filed-down teeth.</p>
-                <blockquote>"The jaw and skull are from different species." - Waterston’s essential warning, 1913</blockquote>
-                <p>They were right, but their voices were drowned out by the chorus of consensus, patriotism, and professional momentum.
+                <blockquote>"The jaw and skull are from different species." - Waterston's essential warning, 1913</blockquote>
+                <p class="keyline">They were right, but their voices were drowned out by the chorus of consensus, patriotism, and professional momentum.
                     <span class="evidence-grade interactive-element" data-grade="B" data-title="Waterston in Nature (1913)">GRADE B</span>
-                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Boule’s Critique (1915)">GRADE B</span>
-                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Weidenreich’s Correct Analysis (1923)">GRADE B</span>
+                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Boule's Critique (1915)">GRADE B</span>
+                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Weidenreich's Correct Analysis (1923)">GRADE B</span>
                 </p>
             </div>
         </div>
@@ -236,16 +938,16 @@
     <section id="chapter-5" class="chapter">
         <div class="container">
             <div class="narrative-text">
+                <span class="chapter-kicker">Chapter 04</span>
                 <h2>4) The 26-Year Silence</h2>
-                <p>From 1923 to 1949, the case went cold. Piltdown Man was normalized, a fixture in museums and textbooks. The fraud became institutional memory. Critically, after Dawson's death in 1916, no new "Piltdown" fragments were ever found. The silence itself was a clue.</p>
+                <p class="dropcap">From 1923 to 1949, the case went cold. Piltdown Man was normalized, a fixture in museums and textbooks. The fraud became institutional memory. Critically, after Dawson's death in 1916, no new "Piltdown" fragments were ever found. The silence itself was a clue.</p>
                 <p>This interactive timeline shows the key events. Note the long, dramatic gap where the truth lay buried in plain sight.</p>
             </div>
-            <!-- INTERACTIVE TIMELINE -->
             <div class="timeline-container interactive-element narrative-text">
                 <div class="timeline">
                     <div class="timeline-event" data-year="1912">
                         <div class="event-dot"></div><div class="event-year">1912</div>
-                        <div class="event-details">Dawson & Woodward announce *Eoanthropus dawsoni*.</div>
+                        <div class="event-details">Dawson & Woodward announce <em>Eoanthropus dawsoni</em>.</div>
                     </div>
                     <div class="timeline-event" data-year="1913">
                         <div class="event-dot"></div><div class="event-year">1913</div>
@@ -270,11 +972,11 @@
                         <div class="event-dot"></div><div class="event-year">1949</div>
                         <div class="event-details">Kenneth Oakley applies fluorine dating. The results are anomalous.</div>
                     </div>
-                     <div class="timeline-event" data-year="1953">
+                    <div class="timeline-event" data-year="1953">
                         <div class="event-dot"></div><div class="event-year">1953</div>
                         <div class="event-details">The forgery is officially exposed by Oakley, Weiner, and Le Gros Clark.</div>
                     </div>
-                     <div class="timeline-event" data-year="2016">
+                    <div class="timeline-event" data-year="2016">
                         <div class="event-dot"></div><div class="event-year">2016</div>
                         <div class="event-details">Forensic analysis confirms a single forger: Charles Dawson.</div>
                     </div>
@@ -286,9 +988,10 @@
     <section id="chapter-6" class="chapter">
         <div class="container">
             <div class="narrative-text">
+                <span class="chapter-kicker">Chapter 05</span>
                 <h2>5) The Unraveling</h2>
-                <p>In the late 1940s, Kenneth Oakley used fluorine dating to test the bones. The results were damning: the bones were far too young. A full investigation with Joseph Weiner and Wilfrid Le Gros Clark followed.</p>
-                <p>Microscopes revealed file marks on the teeth. Chemical tests showed the bones were artificially stained with potassium dichromate. The cranium was medieval, the jaw was from a modern orangutan. It wasn't a mistake; it was a methodical, creative fabrication.</p>
+                <p class="dropcap">In the late 1940s, Kenneth Oakley used fluorine dating to test the bones. The results were damning: the bones were far too young. A full investigation with Joseph Weiner and Wilfrid Le Gros Clark followed.</p>
+                <p class="keyline">Microscopes revealed file marks on the teeth. Chemical tests showed the bones were artificially stained with potassium dichromate. The cranium was medieval, the jaw was from a modern orangutan. It wasn't a mistake; it was a methodical, creative fabrication.</p>
                  <span class="evidence-grade interactive-element" data-grade="A" data-title="Oakley Fluorine Tests (1949-50)">GRADE A</span>
                  <span class="evidence-grade interactive-element" data-grade="A" data-title="Oakley-Weiner-Le Gros Clark Exposure (1953)">GRADE A</span>
                  <span class="evidence-grade interactive-element" data-grade="A" data-title="Microscopic Filing Marks">GRADE A</span>
@@ -300,57 +1003,64 @@
     <section id="chapter-7" class="chapter">
         <div class="container">
             <div class="narrative-text">
+                <span class="chapter-kicker">Chapter 06</span>
                 <h2>6) The Suspects</h2>
-                <p>The science exposed the trick. But who was the forger? Four names are in the frame.</p>
+                <p class="dropcap">The science exposed the trick. But who was the forger? Four names are in the frame.</p>
             </div>
-            <!-- SUSPECT LINEUP -->
             <div class="suspect-lineup-container narrative-text">
                 <div class="suspect-card interactive-element" data-suspect="dawson">
                     <div class="most-likely-badge">Most Likely</div>
                     <div class="suspect-portrait" data-suspect="dawson"><img src="images/suspect-dawson.png" alt="Charles Dawson"></div>
                     <h3>Charles Dawson</h3>
-                    <p>The Ambitious Amateur</p>
+                    <p class="suspect-role">The Ambitious Amateur</p>
+                    <p class="suspect-motive">Motive: Reputation, institutional legitimacy, and a legacy he could control.</p>
                 </div>
                 <div class="suspect-card interactive-element" data-suspect="hinton">
                      <div class="most-likely-badge">Most Likely</div>
                     <div class="suspect-portrait" data-suspect="hinton"><img src="images/suspect-hinton.png" alt="Martin Hinton"></div>
                     <h3>Martin Hinton</h3>
-                    <p>The Museum Insider</p>
+                    <p class="suspect-role">The Museum Insider</p>
+                    <p class="suspect-motive">Motive: Possible revenge against peers at the British Museum.</p>
                 </div>
                 <div class="suspect-card interactive-element" data-suspect="teilhard">
                      <div class="most-likely-badge">Most Likely</div>
                     <div class="suspect-portrait" data-suspect="teilhard"><img src="images/suspect-teilhard.png" alt="Pierre Teilhard de Chardin"></div>
                     <h3>Pierre Teilhard de Chardin</h3>
-                    <p>The Convenient Priest</p>
+                    <p class="suspect-role">The Convenient Priest</p>
+                    <p class="suspect-motive">Motive: Presence at key moments, but no clear strategic gain.</p>
                 </div>
                 <div class="suspect-card interactive-element" data-suspect="doyle">
                      <div class="most-likely-badge">Most Likely</div>
                     <div class="suspect-portrait" data-suspect="doyle"><img src="images/suspect-conan-doyle.png" alt="Arthur Conan Doyle"></div>
                     <h3>Arthur Conan Doyle</h3>
-                    <p>The Wildcard Author</p>
+                    <p class="suspect-role">The Wildcard Author</p>
+                    <p class="suspect-motive">Motive: Speculated satirical jab at scientific elites - never proven.</p>
                 </div>
             </div>
              <div class="narrative-text">
-                <p>A 2016 forensic analysis pointed to a single forger with a consistent methodology. Based on motive, means, and a pattern of other frauds, one name stands out. But before the final verdict, it's your turn.</p>
+                <p class="keyline">A 2016 forensic analysis pointed to a single forger with a consistent methodology. Based on motive, means, and a pattern of other frauds, one name stands out. But before the final verdict, it's your turn.</p>
             </div>
-            <!-- INTERACTIVE THEORY VOTE -->
             <div id="theory-vote" class="narrative-text">
                 <h2>Who was the Forger?</h2>
                 <p>Based on the evidence, cast your vote. Who was the primary architect of the hoax?</p>
                 <div class="vote-grid">
                     <div class="vote-card interactive-element" data-suspect="dawson">
+                        <img class="vote-portrait" src="images/suspect-dawson.png" alt="Charles Dawson portrait">
                         <h3>Charles Dawson</h3>
                         <div class="vote-result-bar"></div><div class="vote-percentage">0%</div>
                     </div>
                     <div class="vote-card interactive-element" data-suspect="hinton">
+                        <img class="vote-portrait" src="images/suspect-hinton.png" alt="Martin Hinton portrait">
                         <h3>Martin Hinton</h3>
                         <div class="vote-result-bar"></div><div class="vote-percentage">0%</div>
                     </div>
                     <div class="vote-card interactive-element" data-suspect="teilhard">
+                        <img class="vote-portrait" src="images/suspect-teilhard.png" alt="Pierre Teilhard de Chardin portrait">
                         <h3>Pierre Teilhard de Chardin</h3>
                         <div class="vote-result-bar"></div><div class="vote-percentage">0%</div>
                     </div>
                     <div class="vote-card interactive-element" data-suspect="doyle">
+                        <img class="vote-portrait" src="images/suspect-conan-doyle.png" alt="Arthur Conan Doyle portrait">
                         <h3>Arthur Conan Doyle</h3>
                         <div class="vote-result-bar"></div><div class="vote-percentage">0%</div>
                     </div>
@@ -363,16 +1073,18 @@
         </div>
     </section>
 
-    <!-- FINAL VERDICT & DASHBOARD -->
     <section id="chapter-8" class="chapter">
         <div class="container">
-            <!-- EVIDENCE ENGINE DASHBOARD -->
             <div id="dashboard" class="narrative-text">
+                <span class="chapter-kicker">Chapter 07 - Closing Analysis</span>
                 <h2>Evidence Dashboard</h2>
                 <div class="dashboard-grid">
                     <div class="dashboard-metric">
                         <h4>Case Confidence</h4>
-                        <p class="counter" data-target="100">0</p>
+                        <div class="counter-wrap">
+                            <p class="counter" data-target="100">0</p>
+                            <div class="ring" aria-hidden="true"></div>
+                        </div>
                     </div>
                     <div class="dashboard-metric">
                         <h4>Total Evidence Items</h4>
@@ -388,12 +1100,12 @@
                 </div>
                 <div class="evidence-list">
                     <div class="evidence-list-item" data-grade="A"><strong>Geological Society Announcement (1912):</strong> High-impact primary source.</div>
-                    <div class="evidence-list-item" data-grade="B"><strong>Dawson’s First Fragment Account (1908):</strong> Key narrative, but self-reported.</div>
-                    <div class="evidence-list-item" data-grade="B"><strong>Osborn’s Endorsement (1921):</strong> Shows institutional buy-in, not direct evidence.</div>
+                    <div class="evidence-list-item" data-grade="B"><strong>Dawson's First Fragment Account (1908):</strong> Key narrative, but self-reported.</div>
+                    <div class="evidence-list-item" data-grade="B"><strong>Osborn's Endorsement (1921):</strong> Shows institutional buy-in, not direct evidence.</div>
                     <div class="evidence-list-item" data-grade="A"><strong>Later Forensic Confirmation:</strong> Definitive physical proof of composite.</div>
                     <div class="evidence-list-item" data-grade="B"><strong>Waterston in Nature (1913):</strong> Correct, but ignored contemporary account.</div>
-                    <div class="evidence-list-item" data-grade="B"><strong>Boule’s Critique (1915):</strong> Correct, but ignored contemporary account.</div>
-                    <div class="evidence-list-item" data-grade="B"><strong>Weidenreich’s Analysis (1923):</strong> Correct, but ignored contemporary account.</div>
+                    <div class="evidence-list-item" data-grade="B"><strong>Boule's Critique (1915):</strong> Correct, but ignored contemporary account.</div>
+                    <div class="evidence-list-item" data-grade="B"><strong>Weidenreich's Analysis (1923):</strong> Correct, but ignored contemporary account.</div>
                     <div class="evidence-list-item" data-grade="A"><strong>Oakley Fluorine Tests (1949-50):</strong> First chemical proof of fraud.</div>
                     <div class="evidence-list-item" data-grade="A"><strong>Oakley-Weiner-Clark Exposure (1953):</strong> The definitive, multi-pronged exposure.</div>
                     <div class="evidence-list-item" data-grade="A"><strong>Microscopic Filing Marks:</strong> Irrefutable proof of intentional modification.</div>
@@ -477,7 +1189,7 @@
                 if (hasVoted) return;
                 hasVoted = true;
                 
-                const historicVote = { dawson: 82, hinton: 25, teilhard: 15, doyle: 8 }; // Sums > 100 is intentional, represents poll overlap
+                const historicVote = { dawson: 82, hinton: 25, teilhard: 15, doyle: 8 };
                 const realWinner = 'dawson';
 
                 voteCards.forEach(vc => {
