@@ -4,16 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Piltdown File</title>
+    <title>The Piltdown File: The 41-Year Fraud That Fooled Science</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700&family=Source+Code+Pro:wght@400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:wght@700&display=swap');
 
         :root {
-            --cream-bg: #f8f4ec;
-            --dark-text: #1a1a1a;
-            --dark-bg: #0a0a0f;
-            --gold: #c9a473;
-            --muted-gray: #888;
+            --white-bg: #ffffff;
+            --text-color: #333333;
+            --gray-caption: #888888;
         }
 
         html {
@@ -21,98 +19,51 @@
         }
 
         body {
-            font-family: 'Crimson Pro', serif;
-            background-color: var(--cream-bg);
-            color: var(--dark-text);
+            font-family: 'Georgia', 'Crimson Pro', serif;
+            background-color: var(--white-bg);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
             font-size: 20px;
-            line-height: 1.85;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* --- Progress Bar --- */
-        .progress-container {
-            width: 100%;
-            height: 4px;
-            background: transparent;
+        /* --- Minimal Top Bar --- */
+        #top-bar {
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 1001;
-        }
-        .progress-bar {
-            height: 4px;
-            background: var(--gold);
-            width: 0%;
-        }
-
-        /* --- Navigation --- */
-        #navbar {
-            position: sticky;
-            top: 0;
             width: 100%;
             z-index: 1000;
-            transition: background-color 0.3s ease-in-out;
-            background-color: transparent;
-            padding: 15px 0;
-        }
-        #navbar.solid {
-            background-color: var(--dark-bg);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-        .nav-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid #eee;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .nav-title a {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-        }
-        .nav-links {
-            display: flex;
-        }
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 25px;
             font-size: 14px;
+            color: #555;
+        }
+        .top-bar-title {
+            font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
-            position: relative;
-            padding-bottom: 5px;
         }
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--gold);
+        .chapter-indicator {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
-        .hamburger-menu {
-            display: none;
-            cursor: pointer;
-        }
-        .bar {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 5px 0;
-            transition: 0.4s;
+        .chapter-indicator.visible {
+            opacity: 1;
         }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section (Snow Fall style) --- */
         .hero-section {
             height: 100vh;
-            background-image: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.8) 100%), url('images/hero-gravel-pit.png');
+            width: 100vw;
+            background-image: url('images/hero-gravel-pit.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -121,453 +72,320 @@
             align-items: center;
             text-align: center;
             color: #fff;
-            position: relative;
+        }
+        .hero-content {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
         }
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 80px;
+            font-size: 5rem;
             margin: 0;
+            font-weight: 700;
         }
         .hero-content h2 {
-            font-family: 'Crimson Pro', serif;
+            font-family: 'Georgia', 'Crimson Pro', serif;
             font-weight: 400;
-            font-size: 24px;
-            margin: 10px 0 20px;
-        }
-        .casefile-id {
-            font-family: 'Source Code Pro', monospace;
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
-        .scroll-down-arrow {
-            position: absolute;
-            bottom: 30px;
-            color: #fff;
-            animation: bounce 2s infinite;
-        }
-        .scroll-down-arrow svg {
-            width: 30px;
-            height: 30px;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-15px); }
-            60% { transform: translateY(-5px); }
+            font-style: italic;
+            font-size: 1.5rem;
+            margin: 10px 0 0;
         }
 
-        /* --- Chapter Dividers --- */
-        .chapter-divider {
-            height: 60vh;
+        /* --- Full-bleed Image Sections (Chapter Dividers) --- */
+        .full-bleed-image {
+            height: 70vh;
             width: 100vw;
             background-size: cover;
             background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+        }
+
+        /* --- Text Content Sections --- */
+        .text-panel {
+            padding: 10vh 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
-        }
-        .divider-content {
-            background-color: rgba(0,0,0,0.6);
-            padding: 20px 40px;
-        }
-        .divider-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            margin: 0;
-        }
-
-        /* --- Text Panels --- */
-        .text-panel {
-            background-color: var(--cream-bg);
-            padding: 80px 20px;
         }
         .text-content {
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--dark-text);
-        }
-        .text-content h2 {
-             font-family: 'Playfair Display', serif;
-             font-size: 32px;
-             color: var(--dark-text);
-        }
-        .drop-cap {
-            font-family: 'Playfair Display', serif;
-            font-size: 4em;
-            float: left;
-            line-height: 0.8;
-            margin-right: 0.1em;
-            color: var(--gold);
-        }
-        .text-content p:first-of-type::first-letter {
-            /* Fallback for no-span drop-cap */
-        }
-        img.full-width {
-            width: 100vw;
-            max-width: 1200px; /* Or some other max-width */
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-            margin: 40px 0;
-        }
-        img.medium-width {
-            width: 80%;
-            display: block;
-            margin: 40px auto;
-        }
-        img.float-right {
-            width: 280px;
-            float: right;
-            margin-left: 20px;
-            margin-bottom: 10px;
-        }
-        figcaption {
-            font-size: 14px;
-            font-style: italic;
-            color: var(--muted-gray);
-            text-align: center;
-            margin-top: -30px;
-            margin-bottom: 40px;
-        }
-        blockquote {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 28px;
-            text-align: center;
-            margin: 60px auto;
-            max-width: 80%;
-            position: relative;
-            padding: 20px 0;
-        }
-        blockquote::before, blockquote::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background: var(--gold);
-        }
-        blockquote::before { top: 0; }
-        blockquote::after { bottom: 0; }
-        blockquote cite {
-            display: block;
-            font-family: 'Crimson Pro', serif;
-            font-style: normal;
-            font-size: 16px;
-            margin-top: 15px;
-            color: var(--muted-gray);
+            max-width: 620px;
+            width: 100%;
         }
 
-        /* --- Interactive Elements --- */
-        .evidence-box {
-            border-left: 4px solid var(--gold);
-            margin: 40px 0;
-            padding-left: 20px;
-            background-color: #fdfaf3;
+        /* --- Typography --- */
+        .text-content h2.chapter-title {
+            font-family: 'Georgia', 'Crimson Pro', serif;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #999;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .text-content p:first-of-type::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem; /* 5-6 lines tall */
+            float: left;
+            line-height: 0.85;
+            margin-right: 0.1em;
+            padding-top: 0.05em;
+            font-weight: 700;
+        }
+        
+        blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            text-align: center;
+            margin: 3rem auto;
+            max-width: 90%;
+            border: none;
+            padding: 0;
+        }
+        blockquote cite {
+            display: block;
+            font-family: 'Georgia', 'Crimson Pro', serif;
+            font-style: normal;
+            font-size: 1rem;
+            margin-top: 1rem;
+            color: #999;
+        }
+
+        /* --- Inline Images --- */
+        .inline-image {
+            width: 100%;
+            margin: 2.5rem 0;
+        }
+        .inline-image img, .inline-image-small img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .inline-image-small {
+            width: 200px;
+            margin: 1.5rem auto; /* Centered */
+        }
+        .inline-image-small.float-right {
+             float: right;
+             margin: 0 0 1rem 1.5rem;
+        }
+         .inline-image-small.float-left {
+             float: left;
+             margin: 0 1.5rem 1rem 0;
+        }
+        figcaption {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--gray-caption);
+            text-align: left;
+            margin-top: 0.5rem;
+        }
+        .inline-image figcaption, .inline-image-small figcaption {
+             margin-top: 0.5rem;
+             text-align: center;
+        }
+
+
+        /* --- Subtle Interactive Elements --- */
+        .evidence-reveal {
+            margin: 3rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
         .evidence-header {
             cursor: pointer;
-            font-weight: bold;
-            color: var(--gold);
-            padding: 10px 0;
+            font-style: italic;
+            color: #666;
+            text-align: center;
+        }
+        .evidence-header:hover {
+            color: #000;
         }
         .evidence-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-out;
         }
-        
+        .evidence-content p {
+            margin-top: 1.5rem;
+        }
+
         .suspect-vote {
             text-align: center;
-            margin: 60px 0;
+            margin: 4rem 0;
         }
         .suspect-vote h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            margin-bottom: 30px;
+            font-family: 'Georgia', 'Crimson Pro', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #333;
         }
         .suspect-cards {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
+            gap: 1rem;
         }
         .suspect-card {
             cursor: pointer;
             text-align: center;
-            width: 22%;
-            transition: transform 0.2s;
+            width: 120px;
+            border: 2px solid transparent;
+            padding: 10px;
+            transition: background-color 0.2s;
         }
         .suspect-card:hover {
-            transform: translateY(-5px);
+            background-color: #f9f9f9;
+        }
+        .suspect-card.selected {
+             background-color: #f0f0f0;
+             border-color: #ccc;
         }
         .suspect-card img {
-            width: 120px;
-            height: 120px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            border: 4px solid transparent;
-            transition: border-color 0.3s;
-        }
-        .suspect-card.selected img {
-            border-color: var(--gold);
+            filter: grayscale(100%);
         }
         .suspect-card strong {
             display: block;
             margin-top: 10px;
-            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
         }
         .suspect-card span {
-            font-size: 14px;
-            color: var(--muted-gray);
+            font-size: 0.8rem;
+            color: #777;
         }
 
         .verdict-section {
-            text-align: center;
-            margin: 60px 0;
-        }
-        .verdict-ring {
-            width: 150px;
-            height: 150px;
-            border: 5px solid var(--gold);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-        }
-        .verdict-score {
-            font-family: 'Playfair Display', serif;
-            font-size: 60px;
-            color: var(--gold);
+             text-align: center;
+             margin: 4rem 0;
         }
         .verdict-label {
-            font-family: 'Source Code Pro', monospace;
-            margin-top: 15px;
-            font-size: 14px;
-            letter-spacing: 1px;
+             font-size: 0.8rem;
+             text-transform: uppercase;
+             letter-spacing: 2px;
+             color: #999;
+             margin-bottom: 0.5rem;
         }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--dark-bg);
-            color: #fff;
-            padding: 80px 20px;
-            text-align: center;
-        }
-        .footer-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-        .email-capture {
-            margin: 30px 0;
-        }
-        .email-capture input {
-            padding: 15px;
-            width: 300px;
-            border: 1px solid #555;
-            background: #222;
-            color: #fff;
-            font-family: 'Crimson Pro', serif;
-        }
-        .email-capture button {
-            padding: 15px 30px;
-            background: var(--gold);
-            border: none;
-            color: var(--dark-text);
-            cursor: pointer;
-            font-family: 'Crimson Pro', serif;
-            font-weight: bold;
-        }
-        .footer-links a, .footer-links span {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 14px;
-            margin: 0 10px;
-        }
-        .footer-links a:hover {
-            color: var(--gold);
-        }
-
-        /* --- Mobile Responsive --- */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background-color: var(--dark-bg);
-                padding: 20px 0;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-links a {
-                margin: 10px 20px;
-                text-align: center;
-            }
-            .hamburger-menu {
-                display: block;
-            }
-            .hero-content h1 {
-                font-size: 60px;
-            }
-            .hero-content h2 {
-                font-size: 20px;
-            }
-            .suspect-card {
-                width: 45%;
-                margin-bottom: 20px;
-            }
+        .verdict-score {
+             font-family: 'Playfair Display', serif;
+             font-size: 5rem;
+             font-weight: 700;
+             color: #333;
         }
     </style>
 </head>
 <body>
 
-    <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
+    <div id="top-bar">
+        <div class="top-bar-title">AI Casefiles</div>
+        <div id="chapter-indicator" class="chapter-indicator"></div>
     </div>
-
-    <nav id="navbar">
-        <div class="nav-content">
-            <div class="nav-title"><a href="#hero">THE PILTDOWN FILE</a></div>
-            <div class="nav-links">
-                <a href="#chapter-1">I. The Gravel Pit</a>
-                <a href="#chapter-2">II. Dawn's Man</a>
-                <a href="#chapter-3">III. The Empire's Missing Link</a>
-                <a href="#chapter-4">IV. The Dissenters</a>
-                <a href="#chapter-5">V. Forty Years</a>
-                <a href="#chapter-6">VI. The Unmasking</a>
-                <a href="#chapter-7">VII. The Suspects</a>
-            </div>
-            <div class="hamburger-menu">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </div>
-    </nav>
 
     <header id="hero" class="hero-section">
         <div class="hero-content">
-            <h1>THE PILTDOWN FILE</h1>
+            <h1>The Piltdown File</h1>
             <h2>The 41-Year Fraud That Fooled Science</h2>
-            <p class="casefile-id">AI Casefile #001 · Hoaxes, Forgeries & Frauds</p>
         </div>
-        <a href="#chapter-1" class="scroll-down-arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.379l-6.293-6.294-1.414 1.414L12 18.207l7.707-7.707-1.414-1.414z"></path></svg>
-        </a>
     </header>
 
     <main>
-        <!-- Chapter 1 -->
-        <section id="chapter-1" class="chapter-divider" style="background-image: url('images/hero-gravel-pit.png');">
-            <div class="divider-content">
-                <h3>CHAPTER ONE · The Gravel Pit</h3>
-            </div>
-        </section>
+        <!-- Chapter 1: The Gravel Pit -->
+        <div id="chapter-1" class="full-bleed-image" style="background-image: url('images/hero-gravel-pit.png');"></div>
         <section class="text-panel">
             <div class="text-content">
-                <p><span class="drop-cap">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h2 class="chapter-title">I. The Gravel Pit</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <figure class="inline-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Piltdown_excavation.jpg" alt="Workers at the Piltdown gravel pit">
+                    <figcaption>Workers at the Piltdown gravel pit, circa 1912.</figcaption>
+                </figure>
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <!-- IMAGE: Public domain: Piltdown excavation site photo (workers digging), caption: Workers at the Piltdown gravel pit, circa 1912. -->
                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
             </div>
         </section>
 
-        <!-- Chapter 2 -->
-        <section id="chapter-2" class="chapter-divider" style="background-image: url('images/bg-establishment.png');">
-            <div class="divider-content">
-                <h3>CHAPTER TWO · Dawn's Man</h3>
-            </div>
-        </section>
+        <!-- Chapter 2: Dawn's Man -->
+        <div id="chapter-2" class="full-bleed-image" style="background-image: url('images/bg-establishment.png');"></div>
         <section class="text-panel">
             <div class="text-content">
-                <p><span class="drop-cap">N</span>emo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                <h2 class="chapter-title">II. Dawn's Man</h2>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
                 <blockquote>"Ape-like in form, but human in capacity."<cite>— Arthur Smith Woodward</cite></blockquote>
+                 <figure class="inline-image">
+                    <img src="images/piltdown-gang-painting.jpg" alt="A painting of scientists examining the Piltdown skull fragments.">
+                    <figcaption>John Cooke's 1915 painting romanticized the "discovery," placing the men under a portrait of Darwin.</figcaption>
+                </figure>
                 <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                <!-- IMAGE: piltdown-gang-painting.jpg, caption: The Piltdown Gang, John Cooke 1915 -->
             </div>
         </section>
 
-        <!-- Chapter 3 -->
-        <section id="chapter-3" class="chapter-divider" style="background-image: url('images/piltdown-gang-painting.jpg');">
-            <div class="divider-content">
-                <h3>CHAPTER THREE · The Empire's Missing Link</h3>
-            </div>
-        </section>
+        <!-- Chapter 3: The Empire's Missing Link -->
+        <div id="chapter-3" class="full-bleed-image" style="background-image: url('images/piltdown-gang-painting.jpg');"></div>
         <section class="text-panel">
             <div class="text-content">
-                <p><span class="drop-cap">U</span>t enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+                <h2 class="chapter-title">III. The Empire's Missing Link</h2>
+                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
                 <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-                <div class="evidence-box">
-                    <div class="evidence-header">▶ Reveal Evidence</div>
+                <div class="evidence-reveal">
+                    <div class="evidence-header">Reveal a key piece of evidence...</div>
                     <div class="evidence-content">
-                        <p>This is the content of the evidence box. It starts collapsed and expands on click. It might contain images, text, or other media related to the case.</p>
-                        <!-- IMAGE: suspect-teilhard.png, float-right -->
+                        <figure class="inline-image-small float-right">
+                           <img src="images/suspect-teilhard.png" alt="Portrait of Teilhard de Chardin">
+                            <figcaption>Teilhard de Chardin, who found the crucial canine tooth.</figcaption>
+                        </figure>
+                        <p>A young paleontologist and priest, Pierre Teilhard de Chardin, conveniently found the ape-like canine tooth that sealed the skull's status as a "missing link." The find seemed almost too good to be true.</p>
                     </div>
                 </div>
+                 <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
             </div>
         </section>
 
-        <!-- Chapter 4 -->
-        <section id="chapter-4" class="chapter-divider" style="background-image: url('images/filed-teeth.png');">
-            <div class="divider-content">
-                <h3>CHAPTER FOUR · The Dissenters</h3>
-            </div>
-        </section>
+        <!-- Chapter 4: The Dissenters -->
+        <div id="chapter-4" class="full-bleed-image" style="background-image: url('images/filed-teeth.png');"></div>
         <section class="text-panel">
             <div class="text-content">
-                <p><span class="drop-cap">A</span>t vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                <h2 class="chapter-title">IV. The Dissenters</h2>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
                 <p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
             </div>
         </section>
 
-        <!-- Chapter 5 -->
-        <section id="chapter-5" class="chapter-divider" style="background-image: url('images/bg-silence.png');">
-            <div class="divider-content">
-                <h3>CHAPTER FIVE · Forty Years in the Cabinet</h3>
-            </div>
-        </section>
+        <!-- Chapter 5: Forty Years in the Cabinet -->
+        <div id="chapter-5" class="full-bleed-image" style="background-image: url('images/bg-silence.png');"></div>
         <section class="text-panel">
             <div class="text-content">
-                <p><span class="drop-cap">N</span>am libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                 <h2 class="chapter-title">V. Forty Years</h2>
+                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
                 <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
             </div>
         </section>
 
-        <!-- Chapter 6 -->
-        <section id="chapter-6" class="chapter-divider" style="background-image: url('images/bg-unraveling.png');">
-            <div class="divider-content">
-                <h3>CHAPTER SIX · The Unmasking</h3>
-            </div>
-        </section>
+        <!-- Chapter 6: The Unmasking -->
+        <div id="chapter-6" class="full-bleed-image" style="background-image: url('images/bg-unraveling.png');"></div>
         <section class="text-panel">
             <div class="text-content">
-                <p><span class="drop-cap">I</span>taque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                 <h2 class="chapter-title">VI. The Unmasking</h2>
+                <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
                 <div class="verdict-section">
-                    <div class="verdict-ring">
-                        <div class="verdict-score">100</div>
-                    </div>
-                    <div class="verdict-label">CONFIDENCE IN FORGERY</div>
+                    <div class="verdict-label">Confidence in Forgery</div>
+                    <div class="verdict-score">100%</div>
                 </div>
+                 <p>New chemical dating tests in 1953 proved the skull and jaw were from different eras. Microscopic examination revealed the teeth had been artificially filed down and the bones stained to simulate age. The fraud was exposed.</p>
             </div>
         </section>
 
-        <!-- Chapter 7 -->
-        <section id="chapter-7" class="chapter-divider" style="background-image: url('images/stained-bone-fragments.png');">
-            <div class="divider-content">
-                <h3>CHAPTER SEVEN · The Suspects</h3>
-            </div>
-        </section>
+        <!-- Chapter 7: The Suspects -->
+        <div id="chapter-7" class="full-bleed-image" style="background-image: url('images/stained-bone-fragments.png');"></div>
         <section class="text-panel">
             <div class="text-content">
-                <p><span class="drop-cap">H</span>ic ego, si potero, sive intervallata, sive continua, sive senatoria, sive privata, sive forensia, sive domestica, sive acta, sive scripta, sive de vita, sive de genere, sive de amicitia, sive de inimicitiis, sive de honoribus, sive de contumeliis, sive de morte, sive de laudatione eius, omnia conquiram et congeram.</p>
+                 <h2 class="chapter-title">VII. The Suspects</h2>
+                <p>Hic ego, si potero, sive intervallata, sive continua, sive senatoria, sive privata, sive forensia, sive domestica, sive acta, sive scripta, sive de vita, sive de genere, sive de amicitia, sive de inimicitiis, sive de honoribus, sive de contumeliis, sive de morte, sive de laudatione eius, omnia conquiram et congeram.</p>
                 <div class="suspect-vote">
-                    <h4>Who was the forger? Cast your vote.</h4>
+                    <h4>Who was the forger?</h4>
                     <div class="suspect-cards">
                         <div class="suspect-card" data-suspect="dawson">
                             <img src="images/suspect-dawson.png" alt="Charles Dawson">
@@ -587,138 +405,64 @@
                             <span>The Creator of Sherlock</span>
                         </div>
                     </div>
-                    <div class="vote-results" style="display: none;">
-                        <!-- Results will be injected by JS -->
-                    </div>
                 </div>
             </div>
         </section>
-
     </main>
-
-    <footer>
-        <div class="footer-content">
-            <h3>This was Case #001. 219 more investigations await.</h3>
-            <p>Get notified when new cases are declassified.</p>
-            <form class="email-capture">
-                <input type="email" placeholder="Enter your email address" required>
-                <button type="submit">Subscribe</button>
-            </form>
-            <div class="footer-links">
-                <a href="https://books.historiqly.com">Back to HistorIQly Books</a>
-                <span>·</span>
-                <span>AI Casefiles by <a href="https://historiqly.com">HistorIQly</a></span>
-            </div>
-        </div>
-    </footer>
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const navbar = document.getElementById('navbar');
+            const chapterIndicator = document.getElementById('chapter-indicator');
+            const chapters = document.querySelectorAll('.text-panel');
             const heroSection = document.getElementById('hero');
-            const progressBar = document.getElementById('progressBar');
-            const chapterLinks = document.querySelectorAll('.nav-links a');
-            const chapters = document.querySelectorAll('section[id^="chapter-"]');
-            const hamburger = document.querySelector('.hamburger-menu');
-            const navLinks = document.querySelector('.nav-links');
 
-            // Navbar solid/transparent on scroll
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > heroSection.offsetHeight - navbar.offsetHeight) {
-                    navbar.classList.add('solid');
-                } else {
-                    navbar.classList.remove('solid');
-                }
-
-                // Reading progress bar
-                const scrollTop = window.scrollY;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollPercent = (scrollTop / docHeight) * 100;
-                progressBar.style.width = scrollPercent + '%';
-            });
-
-            // Hamburger menu toggle
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-
-            // Intersection Observer for active chapter highlighting
-            const observerOptions = {
-                root: null,
-                rootMargin: '-50% 0px -50% 0px',
-                threshold: 0
-            };
-
+            // Intersection Observer for active chapter title
             const observer = new IntersectionObserver((entries) => {
+                let foundVisible = false;
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        chapterLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active');
-                            }
-                        });
+                    if (entry.isIntersecting && !foundVisible) {
+                        const title = entry.target.querySelector('.chapter-title');
+                        if (title) {
+                            chapterIndicator.textContent = title.textContent;
+                            chapterIndicator.classList.add('visible');
+                            foundVisible = true;
+                        }
                     }
                 });
-            }, observerOptions);
+                if (!foundVisible && window.scrollY < heroSection.offsetHeight) {
+                     chapterIndicator.classList.remove('visible');
+                }
+            }, { rootMargin: "-40% 0px -60% 0px", threshold: 0 });
 
             chapters.forEach(chapter => {
                 observer.observe(chapter);
             });
-
-            // Evidence Box toggle
+            
+             // Evidence Box toggle
             document.querySelectorAll('.evidence-header').forEach(header => {
                 header.addEventListener('click', () => {
                     const content = header.nextElementSibling;
                     if (content.style.maxHeight) {
                         content.style.maxHeight = null;
-                        header.textContent = '▶ Reveal Evidence';
+                        header.textContent = 'Reveal a key piece of evidence...';
                     } else {
                         content.style.maxHeight = content.scrollHeight + "px";
-                        header.textContent = '▼ Hide Evidence';
+                        header.textContent = 'Hide evidence';
                     }
                 });
             });
 
             // Suspect voting
             const suspectCards = document.querySelectorAll('.suspect-card');
-            const voteResults = document.querySelector('.vote-results');
             suspectCards.forEach(card => {
                 card.addEventListener('click', () => {
                     suspectCards.forEach(c => c.classList.remove('selected'));
                     card.classList.add('selected');
-                    // In a real app, you'd save this vote. Here we just show dummy results.
-                    showVoteResults();
                 });
             });
 
-            function showVoteResults() {
-                // Dummy data
-                const results = { dawson: 82, hinton: 15, teilhard: 8, doyle: 5 };
-                let html = '<h4>Results:</h4>';
-                for (const suspect in results) {
-                    html += `<div class="result-bar-container">
-                                <strong>${suspect.charAt(0).toUpperCase() + suspect.slice(1)}</strong>
-                                <div class="result-bar" style="width: ${results[suspect]}%;">${results[suspect]}%</div>
-                           </div>`;
-                }
-                voteResults.innerHTML = html;
-                voteResults.style.display = 'block';
-
-                // Add some basic styling for the results
-                if (!document.getElementById('vote-results-style')) {
-                    const style = document.createElement('style');
-                    style.id = 'vote-results-style';
-                    style.innerHTML = `
-                        .result-bar-container { margin: 10px 0; text-align: left; }
-                        .result-bar { background: var(--gold); color: var(--dark-text); padding: 5px; font-size: 14px; white-space: nowrap; }
-                    `;
-                    document.head.appendChild(style);
-                }
-            }
-
         });
     </script>
+
 </body>
 </html>
