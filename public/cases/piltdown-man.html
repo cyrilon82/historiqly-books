@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Casefile #001 - The Piltdown Man</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0a0a0f; --panel:#11111a; --panel-soft:#171723; --text:#e8e0d0; --muted:#b8ae98; --gold:#c9a84c; --gold-soft:#8c7331; --line:#2a2a36; --a:#22c55e; --b:#3b82f6; --c:#f59e0b; --d:#ef4444; }
+    @page { size: Letter; margin: 1in; }
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Source Sans 3','Source Sans Pro',Arial,sans-serif;font-size:11pt;line-height:1.45}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(circle at 20% 10%,rgba(201,168,76,.05),transparent 30%),radial-gradient(circle at 80% 90%,rgba(201,168,76,.04),transparent 35%),linear-gradient(0deg,rgba(255,255,255,.015),rgba(255,255,255,0));mix-blend-mode:screen}
+    .page{min-height:9in;page-break-after:always;position:relative;padding-top:.1in}.page:last-child{page-break-after:auto}
+    .kicker{text-transform:uppercase;color:var(--gold);font-size:10pt;letter-spacing:.14em;margin-bottom:.15in;font-weight:700}
+    h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.15;margin:0 0 .18in} h1{font-size:34pt} h2{font-size:22pt} h3{font-size:14pt;color:var(--gold)}
+    .muted{color:var(--muted)} .small{font-size:9.6pt}
+    .stamp{position:absolute;top:.15in;right:0;border:2px solid var(--d);color:var(--d);font-weight:800;letter-spacing:.06em;padding:.06in .14in;transform:rotate(-8deg);text-transform:uppercase;opacity:.7}
+    .classification{display:inline-block;border:1px solid var(--gold);background:rgba(201,168,76,.1);color:var(--gold);text-transform:uppercase;letter-spacing:.08em;font-weight:700;padding:.06in .12in;font-size:9.5pt}
+    .confidence{margin-top:.18in;display:inline-flex;align-items:baseline;gap:.08in;border-left:3px solid var(--gold);padding-left:.14in}.confidence .score{font-size:26pt;font-weight:800;color:var(--gold);font-family:'Playfair Display',serif}
+    .panel{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0)),var(--panel);border-radius:12px;padding:.2in}
+    .meta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.16in}.meta-item{border:1px solid var(--line);padding:.12in;background:var(--panel-soft);border-radius:8px}.meta-item .label{text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-size:8.5pt;margin-bottom:.03in}
+    table{width:100%;border-collapse:collapse;margin-top:.14in;font-size:10.5pt} th,td{border-bottom:1px solid var(--line);padding:.08in .05in;vertical-align:top} th{color:var(--gold);text-transform:uppercase;letter-spacing:.06em;font-size:8.8pt;text-align:left}
+    .evidence-grid{display:grid;grid-template-columns:1fr 1fr;gap:.16in;margin-top:.12in}.evidence-card{border:1px solid var(--line);border-left-width:4px;background:var(--panel-soft);border-radius:10px;padding:.14in;break-inside:avoid}
+    .badge{display:inline-flex;align-items:center;gap:.06in;font-size:8.8pt;text-transform:uppercase;letter-spacing:.05em;font-weight:700;border:1px solid currentColor;border-radius:999px;padding:.03in .08in}.icon{display:inline-flex;width:12px;height:12px;align-items:center;justify-content:center;font-size:10px;line-height:1}
+    .grade-a{color:var(--a);border-left-color:var(--a)} .grade-b{color:var(--b);border-left-color:var(--b)} .grade-c{color:var(--c);border-left-color:var(--c)} .grade-d{color:var(--d);border-left-color:var(--d)}
+    .timeline{position:relative;margin-left:.18in;margin-top:.12in;padding-left:.2in;border-left:2px solid var(--gold-soft)} .timeline-item{position:relative;margin-bottom:.15in;padding:.09in .12in;background:var(--panel);border:1px solid var(--line);border-radius:8px}.timeline-item::before{content:"";position:absolute;left:-.28in;top:.18in;width:10px;height:10px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 3px rgba(201,168,76,.2)}
+    .gap-warning{border:1px solid var(--d);color:#ffd0d0;background:rgba(239,68,68,.08);border-radius:8px;padding:.12in;font-weight:600;margin:.12in 0}
+    .theory-card{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:.14in;margin-bottom:.13in}.bar{height:10px;background:#252533;border-radius:999px;overflow:hidden;margin:.06in 0 .08in}.bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--gold-soft),var(--gold))}
+    .cover{display:flex;flex-direction:column;justify-content:space-between;min-height:8.7in;border:1px solid var(--line);border-radius:16px;padding:.35in;background:linear-gradient(145deg,rgba(201,168,76,.06),transparent 40%),repeating-linear-gradient(-45deg,rgba(255,255,255,.015),rgba(255,255,255,.015) 6px,transparent 6px,transparent 12px),var(--panel);position:relative;overflow:hidden}
+    .cover::after{content:"EVIDENCE ENGINE";position:absolute;right:-1.2in;bottom:.55in;font-size:54pt;font-family:'Playfair Display',serif;letter-spacing:.05em;color:rgba(255,255,255,.03);transform:rotate(-90deg)}
+    .tape{position:absolute;top:.2in;left:.2in;width:1.6in;height:.28in;background:rgba(245,222,179,.18);border:1px solid rgba(245,222,179,.26);transform:rotate(-6deg)}
+    .brand{display:flex;justify-content:space-between;color:var(--muted);font-size:10pt;border-top:1px solid var(--line);padding-top:.13in;margin-top:.2in}
+    ul{margin:.06in 0 .02in .18in;padding:0} li{margin-bottom:.05in}
+  </style>
+</head>
+<body>
+  <section class="page">
+    <div class="cover">
+      <div class="tape"></div>
+      <div><div class="kicker">AI Casefiles by HistorIQly</div><div class="muted">Case #001 · Volume 1: Hoaxes, Forgeries & Frauds</div></div>
+      <div>
+        <h1>The Piltdown Man</h1>
+        <p class="small muted">A forensic reconstruction of the most consequential paleoanthropological fraud of the 20th century.</p>
+        <div class="classification">Scientific Fraud (Confirmed)</div>
+        <div class="confidence"><span class="muted">Confidence Score</span><span class="score">100/100</span></div>
+      </div>
+      <div class="brand"><span>HistorIQly Intelligence Unit</span><span>Premium Dossier Edition</span></div>
+      <div class="stamp">Declassified</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Case Briefing</div>
+    <h2>Case #001: The Piltdown Man</h2>
+    <div class="meta-grid">
+      <div class="meta-item"><div class="label">Period</div><div>1912-1953</div></div>
+      <div class="meta-item"><div class="label">Location</div><div>Piltdown, East Sussex, England</div></div>
+      <div class="meta-item"><div class="label">Classification</div><div>Scientific Fraud (Confirmed)</div></div>
+      <div class="meta-item"><div class="label">Case Status</div><div>Closed - Forgery conclusively proven</div></div>
+    </div>
+    <div class="panel" style="margin-top:.16in;">
+      <h3>Executive Summary</h3>
+      <p>In 1912, Charles Dawson and Arthur Smith Woodward announced a "missing link" called <em>Eoanthropus dawsoni</em>. For 41 years, the find shaped evolutionary narratives and academic orthodoxy. In 1953, fluorine dating, microscopy, and chemical analysis proved the specimens were fabricated: a medieval human cranium paired with a modern orangutan jaw, with filed teeth and artificial staining. A 2016 CT/DNA review confirmed a single, consistent forging methodology.</p>
+    </div>
+    <h3 style="margin-top:.18in;">Key Figures</h3>
+    <table>
+      <thead><tr><th>Name</th><th>Role</th><th>Relevance</th></tr></thead>
+      <tbody>
+        <tr><td>Charles Dawson</td><td>Amateur archaeologist, solicitor</td><td>Primary suspect; associated with 38+ fraudulent discoveries</td></tr>
+        <tr><td>Arthur Smith Woodward</td><td>British Museum geologist</td><td>Co-announced Piltdown and defended it for life</td></tr>
+        <tr><td>Arthur Keith</td><td>Anatomist</td><td>Influential voice who eventually accepted Piltdown II claims</td></tr>
+        <tr><td>Pierre Teilhard de Chardin</td><td>Jesuit paleontologist</td><td>Found the controversial canine tooth in 1913</td></tr>
+        <tr><td>Martin A.C. Hinton</td><td>Zoologist</td><td>Alternative suspect due to stained bone trunk discovery</td></tr>
+        <tr><td>Kenneth Oakley</td><td>British Museum scientist</td><td>Applied fluorine dating and helped expose fraud (1949-1953)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Evidence Map</div>
+    <h2>Source Reliability Matrix</h2>
+    <p class="muted">Grade schema: A (primary forensic proof), B (strong secondary), C (circumstantial), D (weak/hearsay).</p>
+    <div class="evidence-grid">
+      <article class="evidence-card grade-a"><span class="badge"><span class="icon">🛡</span>A Grade</span><h3>Fluorine absorption tests (1949-1950)</h3><p>Oakley demonstrated skull and jaw were far younger than Piltdown gravel fossils.</p></article>
+      <article class="evidence-card grade-a"><span class="badge"><span class="icon">🛡</span>A Grade</span><h3>Revised fluorine/nitrogen/uranium tests (1953)</h3><p>Established medieval human cranium + modern orangutan jaw, neither fossilized.</p></article>
+      <article class="evidence-card grade-a"><span class="badge"><span class="icon">🛡</span>A Grade</span><h3>Microscopic tooth analysis</h3><p>Clear artificial filing and pigment application to simulate age and hominin wear.</p></article>
+      <article class="evidence-card grade-a"><span class="badge"><span class="icon">🛡</span>A Grade</span><h3>Chemical staining profile</h3><p>Potassium dichromate and iron staining was superficial, unlike real fossilization.</p></article>
+      <article class="evidence-card grade-a"><span class="badge"><span class="icon">🛡</span>A Grade</span><h3>Royal Society review (2016)</h3><p>CT + DNA + morphology: one orangutan source and one consistent forger methodology.</p></article>
+
+      <article class="evidence-card grade-b"><span class="badge"><span class="icon">●</span>B Grade</span><h3>Waterston objection (1913)</h3><p>Published in <em>Nature</em>: ape mandible and human skull did not belong together.</p></article>
+      <article class="evidence-card grade-b"><span class="badge"><span class="icon">●</span>B Grade</span><h3>Boule assessment (1915)</h3><p>Independent conclusion that skull and jaw were from different species.</p></article>
+      <article class="evidence-card grade-b"><span class="badge"><span class="icon">●</span>B Grade</span><h3>Weidenreich analysis (1923)</h3><p>Correct diagnosis decades early: modern human cranium + orangutan jaw with filed teeth.</p></article>
+      <article class="evidence-card grade-b"><span class="badge"><span class="icon">●</span>B Grade</span><h3>Dawson fraud pattern</h3><p>Posthumous reviews challenged virtually every major Dawson "discovery".</p></article>
+
+      <article class="evidence-card grade-c"><span class="badge"><span class="icon">▲</span>C Grade</span><h3>Teilhard canine find (1913)</h3><p>Convenient discovery at a critical reconstruction gap, but no direct linkage.</p></article>
+      <article class="evidence-card grade-c"><span class="badge"><span class="icon">▲</span>C Grade</span><h3>Conan Doyle hypothesis</h3><p>Motif and proximity arguments exist, but no physical or documentary proof.</p></article>
+
+      <article class="evidence-card grade-d"><span class="badge"><span class="icon">◆</span>D Grade</span><h3>Confession rumors</h3><p>Unverified hearsay and retrospective claims without corroboration.</p></article>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Timeline Reconstruction</div>
+    <h2>Chronology of the Case</h2>
+    <div class="timeline">
+      <div class="timeline-item"><strong>1908</strong> - Workman gives Dawson a skull fragment from Barkham Manor gravel pit. <span class="muted">[B]</span></div>
+      <div class="timeline-item"><strong>1911</strong> - Dawson reports a second cranial fragment. <span class="muted">[B]</span></div>
+      <div class="timeline-item"><strong>Feb 1912</strong> - Dawson presents fragments to A.S. Woodward at British Museum. <span class="muted">[B]</span></div>
+      <div class="timeline-item"><strong>Jun-Sep 1912</strong> - Joint excavation recovers skull pieces, jaw half, tools, fauna. <span class="muted">[B]</span></div>
+      <div class="timeline-item"><strong>18 Dec 1912</strong> - <em>Eoanthropus dawsoni</em> announced to Geological Society. <span class="muted">[A]</span></div>
+      <div class="timeline-item"><strong>1913</strong> - Waterston publishes dissent in <em>Nature</em>. <span class="muted">[B]</span></div>
+      <div class="timeline-item"><strong>Aug 1913</strong> - Teilhard finds canine tooth. <span class="muted">[B]</span></div>
+      <div class="timeline-item"><strong>1915</strong> - Boule rejects specimen unity; Dawson announces Piltdown II. <span class="muted">[B]</span></div>
+      <div class="timeline-item"><strong>Aug 1916</strong> - Dawson dies; Piltdown II location never disclosed. <span class="muted">[A]</span></div>
+      <div class="timeline-item"><strong>1923</strong> - Weidenreich identifies composite forgery correctly. <span class="muted">[B]</span></div>
+      <div class="timeline-item"><strong>1949-1950</strong> - Oakley fluorine tests challenge orthodoxy. <span class="muted">[A]</span></div>
+      <div class="timeline-item"><strong>1953</strong> - Definitive exposure: stained bones, filed teeth, mixed species. <span class="muted">[A]</span></div>
+      <div class="timeline-item"><strong>2016</strong> - Royal Society study supports single forger methodology. <span class="muted">[A]</span></div>
+    </div>
+    <div class="gap-warning">⚠️ GAP WARNING (1923-1949): 26 years with minimal serious re-testing while Piltdown remained textbook orthodoxy.</div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Theory Scoreboard</div>
+    <h2>Competing Explanations</h2>
+
+    <div class="theory-card">
+      <h3>Theory 1: Charles Dawson acted alone</h3>
+      <div><strong>Score: 82/100</strong></div>
+      <div class="bar"><span style="width:82%"></span></div>
+      <p><strong>Supporting:</strong> single-methodology forensics, single orangutan source, Dawson present at every discovery, extensive prior fraud pattern, no post-1916 finds.</p>
+      <p><strong>Against:</strong> sourcing orangutan bones and technical execution details remain partly unresolved.</p>
+      <p class="muted"><strong>Evidence count:</strong> Support 5 | Against 2</p>
+    </div>
+
+    <div class="theory-card">
+      <h3>Theory 2: Martin A.C. Hinton as forger/co-conspirator</h3>
+      <div><strong>Score: 25/100</strong></div>
+      <div class="bar"><span style="width:25%"></span></div>
+      <p><strong>Supporting:</strong> stained/cut bone trunk, museum access, possible institutional grudge.</p>
+      <p><strong>Against:</strong> 2016 evidence indicates one forging signature and no direct match to Piltdown pieces.</p>
+      <p class="muted"><strong>Evidence count:</strong> Support 3 | Against 3</p>
+    </div>
+
+    <div class="theory-card">
+      <h3>Theory 3: Teilhard de Chardin as co-conspirator</h3>
+      <div><strong>Score: 15/100</strong></div>
+      <div class="bar"><span style="width:15%"></span></div>
+      <p><strong>Supporting:</strong> suspiciously convenient canine discovery, timeline coincidence.</p>
+      <p><strong>Against:</strong> no physical link, weak motive, single-forger conclusion conflicts with shared fabrication.</p>
+      <p class="muted"><strong>Evidence count:</strong> Support 2 | Against 3</p>
+    </div>
+
+    <div class="theory-card">
+      <h3>Theory 4: Arthur Conan Doyle as mastermind</h3>
+      <div><strong>Score: 8/100</strong></div>
+      <div class="bar"><span style="width:8%"></span></div>
+      <p><strong>Supporting:</strong> geographic proximity and social-circle speculation.</p>
+      <p><strong>Against:</strong> no hard evidence, no documented operational tie, contradicted by modern forensic profile.</p>
+      <p class="muted"><strong>Evidence count:</strong> Support 1 | Against 3</p>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Final Determination</div>
+    <h2>Verdict</h2>
+    <div class="panel">
+      <div class="classification">Confirmed Scientific Fraud</div>
+      <div class="confidence"><span class="muted">Confidence Score</span><span class="score">100/100</span></div>
+      <h3 style="margin-top:.15in;">Key Findings</h3>
+      <ul>
+        <li>The specimens were fabricated from a medieval human skull and a modern orangutan jaw.</li>
+        <li>Teeth were manually filed to mimic human wear signatures.</li>
+        <li>Bones were chemically stained to imitate age and stratigraphic consistency.</li>
+        <li>2016 high-resolution analyses indicate one coherent forger methodology across all items.</li>
+        <li>The total evidence profile points most strongly to Charles Dawson as principal forger.</li>
+      </ul>
+      <h3>Outstanding Uncertainties</h3>
+      <ul>
+        <li>Exact acquisition channel for orangutan remains is unknown.</li>
+        <li>Potential silent knowledge by contemporaries cannot be fully excluded.</li>
+        <li>No verified confession or supplier documentation has surfaced.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">Appendix</div>
+    <h2>Source Registry</h2>
+    <table>
+      <thead><tr><th>#</th><th>Source</th><th>Grade</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Oakley fluorine tests (1949-50)</td><td>A</td><td>Chemical analysis</td></tr>
+        <tr><td>2</td><td>Oakley, Weiner & Le Gros Clark (1953)</td><td>A</td><td>Chemical + microscopy</td></tr>
+        <tr><td>3</td><td>De Groote et al. Royal Society (2016)</td><td>A</td><td>CT, DNA, spectroscopy</td></tr>
+        <tr><td>4</td><td>Geological Society proceedings (1912)</td><td>A</td><td>Primary record</td></tr>
+        <tr><td>5</td><td>Waterston, Nature (1913)</td><td>B</td><td>Contemporary dissent</td></tr>
+        <tr><td>6</td><td>Boule analysis (1915)</td><td>B</td><td>Comparative anatomy</td></tr>
+        <tr><td>7</td><td>Weidenreich analysis (1923)</td><td>B</td><td>Correct identification</td></tr>
+        <tr><td>8</td><td>Miles Russell biography (2003)</td><td>B</td><td>Fraud inventory</td></tr>
+        <tr><td>9</td><td>Hinton trunk discovery (1970s)</td><td>B</td><td>Physical evidence</td></tr>
+        <tr><td>10</td><td>Gould, The Piltdown Conspiracy (1980)</td><td>C</td><td>Theoretical argument</td></tr>
+        <tr><td>11</td><td>Confession rumors corpus</td><td>D</td><td>Hearsay</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:.18in;">Recommended Reading</h3>
+    <ul>
+      <li>Miles Russell - <em>Piltdown Man: The Secret Life of Charles Dawson</em> (2003)</li>
+      <li>De Groote et al. - Royal Society Open Science (2016)</li>
+      <li>John Evangelist Walsh - <em>Unraveling Piltdown</em> (1996)</li>
+      <li>Science History Institute - "The Problem of Piltdown Man" (2024)</li>
+      <li>Frank Spencer - <em>Piltdown: A Scientific Forgery</em> (1990)</li>
+    </ul>
+    <p class="muted small">Case #001 | Volume 1: Hoaxes, Forgeries & Frauds | AI Casefiles by HistorIQly</p>
+  </section>
+</body>
+</html>
