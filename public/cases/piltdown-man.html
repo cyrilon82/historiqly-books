@@ -1,773 +1,724 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Piltdown File | Historiqly Casefiles</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <title>The Piltdown File</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@700&family=Source+Code+Pro:wght@400&display=swap');
+
         :root {
-            --bg-color: #0a0a0f;
-            --text-color: #e8e0d0;
-            --gold-color: #c9a84c;
-            --muted-text: rgba(232, 224, 208, 0.6);
-            --border-color: rgba(201, 168, 76, 0.3);
-            --grade-a: #2e7d32; /* Green */
-            --grade-b: #1565c0; /* Blue */
-            --grade-c: #ff8f00; /* Amber */
-            --grade-d: #c62828; /* Red */
+            --cream-bg: #f8f4ec;
+            --dark-text: #1a1a1a;
+            --dark-bg: #0a0a0f;
+            --gold: #c9a473;
+            --muted-gray: #888;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
             font-family: 'Crimson Pro', serif;
-            font-size: 20px;
-            line-height: 1.85;
+            background-color: var(--cream-bg);
+            color: var(--dark-text);
             margin: 0;
             padding: 0;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-size: 20px;
+            line-height: 1.85;
         }
 
-        .progress-bar {
+        /* --- Progress Bar --- */
+        .progress-container {
+            width: 100%;
+            height: 4px;
+            background: transparent;
             position: fixed;
             top: 0;
             left: 0;
+            z-index: 1001;
+        }
+        .progress-bar {
+            height: 4px;
+            background: var(--gold);
+            width: 0%;
+        }
+
+        /* --- Navigation --- */
+        #navbar {
+            position: sticky;
+            top: 0;
             width: 100%;
-            height: 3px;
-            background-color: transparent;
             z-index: 1000;
+            transition: background-color 0.3s ease-in-out;
+            background-color: transparent;
+            padding: 15px 0;
         }
-
-        .progress-bar-inner {
-            height: 100%;
-            width: 0;
-            background-color: var(--gold-color);
-            transition: width 0.1s ease-out;
+        #navbar.solid {
+            background-color: var(--dark-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-
-        .hero {
-            height: 100vh;
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .nav-title a {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        .nav-links {
+            display: flex;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
+            height: 2px;
+            background-color: var(--gold);
+        }
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            height: 100vh;
+            background-image: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.8) 100%), url('images/hero-gravel-pit.png');
+            background-size: cover;
+            background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-image: url('images/hero-gravel-pit.png');
-            background-size: cover;
-            background-position: center;
+            color: #fff;
             position: relative;
         }
-        
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 1;
-        }
-
-        .hero-content {
-            z-index: 2;
-            padding: 20px;
-        }
-
-        .hero h1 {
+        .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 6rem;
-            color: var(--gold-color);
+            font-size: 80px;
             margin: 0;
-            line-height: 1.1;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
         }
-
-        .hero h2 {
+        .hero-content h2 {
             font-family: 'Crimson Pro', serif;
-            font-size: 1.5rem;
-            color: var(--text-color);
             font-weight: 400;
-            margin-top: 1rem;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+            font-size: 24px;
+            margin: 10px 0 20px;
         }
-        
-        .scroll-indicator {
+        .casefile-id {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .scroll-down-arrow {
             position: absolute;
             bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            color: var(--text-color);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-        
-        .scroll-indicator::after {
-            content: '↓';
-            display: block;
-            margin-top: 5px;
+            color: #fff;
             animation: bounce 2s infinite;
         }
-
+        .scroll-down-arrow svg {
+            width: 30px;
+            height: 30px;
+        }
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-5px); }
         }
 
-        .content-wrapper {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 100px 20px;
-        }
-
-        .chapter {
-            margin-bottom: 80px;
-        }
-
-        .chapter-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.9rem;
-            color: var(--gold-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0;
-        }
-
-        .chapter-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--text-color);
-            margin-top: 5px;
-            margin-bottom: 40px;
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        #chapter-1 p:first-of-type::first-letter {
-            font-family: 'Playfair Display', serif;
-            float: left;
-            font-size: 6rem;
-            line-height: 0.8;
-            padding-right: 15px;
-            color: var(--gold-color);
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-        }
-
-        .image-container {
-            width: 100%;
-            margin: 60px 0;
-        }
-
-        .image-container.full-width {
-            max-width: none;
+        /* --- Chapter Dividers --- */
+        .chapter-divider {
+            height: 60vh;
             width: 100vw;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+        .divider-content {
+            background-color: rgba(0,0,0,0.6);
+            padding: 20px 40px;
+        }
+        .divider-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        /* --- Text Panels --- */
+        .text-panel {
+            background-color: var(--cream-bg);
+            padding: 80px 20px;
+        }
+        .text-content {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--dark-text);
+        }
+        .text-content h2 {
+             font-family: 'Playfair Display', serif;
+             font-size: 32px;
+             color: var(--dark-text);
+        }
+        .drop-cap {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            float: left;
+            line-height: 0.8;
+            margin-right: 0.1em;
+            color: var(--gold);
+        }
+        .text-content p:first-of-type::first-letter {
+            /* Fallback for no-span drop-cap */
+        }
+        img.full-width {
+            width: 100vw;
+            max-width: 1200px; /* Or some other max-width */
             position: relative;
             left: 50%;
             transform: translateX(-50%);
-            padding: 0;
-        }
-        
-        .image-container.eighty-width {
-            width: 110%;
-            position: relative;
-            left: 50%;
-            transform: translateX(-55%);
-        }
-
-        .image-container img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 8px;
-            display: block;
-        }
-
-        .caption {
-            font-family: 'Crimson Pro', serif;
-            font-style: italic;
-            font-size: 0.9rem;
-            color: var(--muted-text);
-            text-align: center;
-            margin-top: 15px;
-            padding: 0 20px;
-        }
-        
-        .suspect-container {
-            float: right;
-            width: 280px;
-            margin-left: 30px;
-            margin-bottom: 20px;
-        }
-
-        .suspect-container img {
-            width: 100%;
-            border-radius: 8px;
-        }
-
-        .suspect-container .caption {
-            font-size: 0.8rem;
-            text-align: right;
-            padding: 0;
-        }
-        
-        .clear-float {
-            clear: both;
-        }
-
-        .evidence-reveal {
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
             margin: 40px 0;
-            background-color: rgba(201, 168, 76, 0.05);
         }
-
-        .evidence-reveal summary {
-            padding: 15px 20px;
-            cursor: pointer;
-            font-family: 'Playfair Display', serif;
-            color: var(--gold-color);
-            outline: none;
+        img.medium-width {
+            width: 80%;
+            display: block;
+            margin: 40px auto;
         }
-        
-        .evidence-reveal summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .evidence-reveal summary::before {
-            content: '▶ ';
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-
-        .evidence-reveal[open] summary::before {
-            transform: rotate(90deg);
-        }
-
-        .evidence-reveal-content {
-            padding: 0 20px 20px 20px;
-            border-top: 1px solid var(--border-color);
-            margin-top: 10px;
-            font-style: italic;
-            color: var(--muted-text);
-        }
-        
-        .grade {
-            display: inline-block;
-            padding: 1px 8px;
-            border-radius: 12px;
-            font-family: 'Source Code Pro', monospace;
-            font-size: 0.8rem;
-            color: #fff;
-            margin: 0 3px;
-            line-height: 1.2;
-            vertical-align: middle;
-        }
-        .grade-a { background-color: var(--grade-a); }
-        .grade-b { background-color: var(--grade-b); }
-        .grade-c { background-color: var(--grade-c); }
-        .grade-d { background-color: var(--grade-d); }
-        
-        .pull-quote {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 2rem;
-            color: var(--gold-color);
-            margin: 60px 0;
-            padding-left: 30px;
-            border-left: 3px solid var(--gold-color);
-            line-height: 1.5;
-        }
-        
-        .vote-section {
-            text-align: center;
-            margin: 80px 0;
-        }
-        
-        .vote-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-        }
-
-        .vote-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .vote-button {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 8px;
-            width: 120px;
-            transition: background-color 0.3s, border-color 0.3s;
-            position: relative;
-        }
-        
-        .vote-button:hover {
-            background-color: rgba(201, 168, 76, 0.1);
-            border-color: var(--gold-color);
-        }
-        
-        .vote-button img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
+        img.float-right {
+            width: 280px;
+            float: right;
+            margin-left: 20px;
             margin-bottom: 10px;
         }
+        figcaption {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--muted-gray);
+            text-align: center;
+            margin-top: -30px;
+            margin-bottom: 40px;
+        }
+        blockquote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 28px;
+            text-align: center;
+            margin: 60px auto;
+            max-width: 80%;
+            position: relative;
+            padding: 20px 0;
+        }
+        blockquote::before, blockquote::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--gold);
+        }
+        blockquote::before { top: 0; }
+        blockquote::after { bottom: 0; }
+        blockquote cite {
+            display: block;
+            font-family: 'Crimson Pro', serif;
+            font-style: normal;
+            font-size: 16px;
+            margin-top: 15px;
+            color: var(--muted-gray);
+        }
+
+        /* --- Interactive Elements --- */
+        .evidence-box {
+            border-left: 4px solid var(--gold);
+            margin: 40px 0;
+            padding-left: 20px;
+            background-color: #fdfaf3;
+        }
+        .evidence-header {
+            cursor: pointer;
+            font-weight: bold;
+            color: var(--gold);
+            padding: 10px 0;
+        }
+        .evidence-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
         
-        .vote-button .name {
+        .suspect-vote {
+            text-align: center;
+            margin: 60px 0;
+        }
+        .suspect-vote h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .suspect-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .suspect-card {
+            cursor: pointer;
+            text-align: center;
+            width: 22%;
+            transition: transform 0.2s;
+        }
+        .suspect-card:hover {
+            transform: translateY(-5px);
+        }
+        .suspect-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            transition: border-color 0.3s;
+        }
+        .suspect-card.selected img {
+            border-color: var(--gold);
+        }
+        .suspect-card strong {
+            display: block;
+            margin-top: 10px;
             font-family: 'Playfair Display', serif;
         }
-        
-        .vote-result {
-            position: absolute;
-            bottom: -25px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            font-family: 'Source Code Pro', monospace;
-            font-size: 0.9rem;
-            color: var(--muted-text);
-            opacity: 0;
-            transition: opacity 0.5s;
+        .suspect-card span {
+            font-size: 14px;
+            color: var(--muted-gray);
         }
-        
-        .vote-section.voted .vote-button.highlight {
-             border-color: var(--gold-color);
-             box-shadow: 0 0 15px rgba(201, 168, 76, 0.5);
-        }
-        
-        .vote-section.voted .vote-result {
-            opacity: 1;
-        }
-        
+
         .verdict-section {
             text-align: center;
-            margin: 100px 0;
+            margin: 60px 0;
         }
-
-        .confidence-score {
-            width: 200px;
-            height: 200px;
-            border: 2px solid var(--gold-color);
+        .verdict-ring {
+            width: 150px;
+            height: 150px;
+            border: 5px solid var(--gold);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 auto 40px auto;
-            font-family: 'Playfair Display', serif;
-            font-size: 6rem;
-            color: var(--gold-color);
+            margin: 0 auto;
         }
-        
-        .footer {
+        .verdict-score {
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            color: var(--gold);
+        }
+        .verdict-label {
+            font-family: 'Source Code Pro', monospace;
+            margin-top: 15px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-bg);
+            color: #fff;
+            padding: 80px 20px;
             text-align: center;
-            padding: 100px 20px 50px 20px;
-            border-top: 1px solid var(--border-color);
-            margin-top: 100px;
         }
-        
-        .footer p {
-            font-size: 1.2rem;
-            color: var(--muted-text);
-        }
-        
-        .email-capture {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .email-capture input {
-            flex-grow: 1;
-            padding: 15px;
-            border: 1px solid var(--border-color);
-            background: transparent;
-            color: var(--text-color);
-            font-family: 'Crimson Pro', serif;
-            font-size: 1rem;
-            border-radius: 4px 0 0 4px;
-        }
-        
-         .email-capture button {
-            padding: 15px 25px;
-            border: 1px solid var(--gold-color);
-            background: var(--gold-color);
-            color: var(--bg-color);
+        .footer-content h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 0 4px 4px 0;
-         }
-
-        .share-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--gold-color);
-            color: var(--bg-color);
-            border-radius: 50%;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .email-capture {
+            margin: 30px 0;
+        }
+        .email-capture input {
+            padding: 15px;
+            width: 300px;
+            border: 1px solid #555;
+            background: #222;
+            color: #fff;
+            font-family: 'Crimson Pro', serif;
+        }
+        .email-capture button {
+            padding: 15px 30px;
+            background: var(--gold);
             border: none;
+            color: var(--dark-text);
             cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            z-index: 999;
+            font-family: 'Crimson Pro', serif;
+            font-weight: bold;
         }
-        
-        @media (max-width: 768px) {
-            body { font-size: 18px; }
-            .hero h1 { font-size: 3.5rem; }
-            .hero h2 { font-size: 1.2rem; }
-            .content-wrapper { padding: 60px 15px; }
-            .chapter-title { font-size: 2rem; }
-            .suspect-container { float: none; width: 100%; margin-left: 0; margin-bottom: 30px; }
-            .pull-quote { font-size: 1.5rem; }
-            .confidence-score { width: 150px; height: 150px; font-size: 4rem; }
+        .footer-links a, .footer-links span {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0 10px;
+        }
+        .footer-links a:hover {
+            color: var(--gold);
         }
 
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-bg);
+                padding: 20px 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links a {
+                margin: 10px 20px;
+                text-align: center;
+            }
+            .hamburger-menu {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 60px;
+            }
+            .hero-content h2 {
+                font-size: 20px;
+            }
+            .suspect-card {
+                width: 45%;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="progress-bar">
-        <div class="progress-bar-inner"></div>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
     </div>
 
-    <header class="hero">
+    <nav id="navbar">
+        <div class="nav-content">
+            <div class="nav-title"><a href="#hero">THE PILTDOWN FILE</a></div>
+            <div class="nav-links">
+                <a href="#chapter-1">I. The Gravel Pit</a>
+                <a href="#chapter-2">II. Dawn's Man</a>
+                <a href="#chapter-3">III. The Empire's Missing Link</a>
+                <a href="#chapter-4">IV. The Dissenters</a>
+                <a href="#chapter-5">V. Forty Years</a>
+                <a href="#chapter-6">VI. The Unmasking</a>
+                <a href="#chapter-7">VII. The Suspects</a>
+            </div>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section">
         <div class="hero-content">
             <h1>THE PILTDOWN FILE</h1>
-            <h2>AI Casefile #001 — Hoaxes, Forgeries & Frauds</h2>
+            <h2>The 41-Year Fraud That Fooled Science</h2>
+            <p class="casefile-id">AI Casefile #001 · Hoaxes, Forgeries & Frauds</p>
         </div>
-        <div class="scroll-indicator">Scroll</div>
+        <a href="#chapter-1" class="scroll-down-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.379l-6.293-6.294-1.414 1.414L12 18.207l7.707-7.707-1.414-1.414z"></path></svg>
+        </a>
     </header>
 
-    <main class="content-wrapper">
-
-        <section id="chapter-1" class="chapter fade-in">
-            <p class="chapter-number">Chapter One</p>
-            <h3 class="chapter-title">The Discovery</h3>
-            
-            <p>The gravel pit at Barkham Manor was a fresh wound in the ancient Sussex earth. It was a place of toil, not treasure, where men in damp caps worked shovels through flint, clay, and the grey, sucking mud of an English winter. The air, thick with the scent of wet soil and coal smoke, tasted metallic, like old coins brought to the surface.</p>
-            
-            <div class="suspect-container fade-in">
-                <img src="images/suspect-dawson.png" alt="Charles Dawson">
-                <p class="caption">Charles Dawson</p>
+    <main>
+        <!-- Chapter 1 -->
+        <section id="chapter-1" class="chapter-divider" style="background-image: url('images/hero-gravel-pit.png');">
+            <div class="divider-content">
+                <h3>CHAPTER ONE · The Gravel Pit</h3>
             </div>
-            
-            <p>Charles Dawson arrived in this weather not as a man of law, which he was, but as a man entering a church. By trade, he was a solicitor from nearby Uckfield, a respectable profession. By obsession, he was an antiquarian, a collector of things that could turn his name into history. He called himself "the Wizard of Sussex," a title that betrayed a yearning for something more than a provincial life.</p>
-
-            <p>His story of the find began years earlier, in 1908. A workman, he claimed, had handed him a strange, thick piece of skull, dark and heavy, from this very pit. It had the look of immense age. He recognized its potential immediately, but then, the trail went cold. No more bones appeared. There was no full skeleton, no dramatic reveal. Just a fragment and a hunger that gnawed at him.</p>
-
-            <p>By 1911, his search had resumed. He claimed he found another, similar cranial piece among the spoil heaps shoveled out by the workmen. Then, in February 1912, with a small collection of these precious fragments wrapped like contraband, he was on a train to London. His destination: the Natural History Museum in South Kensington. His target: Arthur Smith Woodward, the esteemed Keeper of Geology. Woodward was a serious man, a gatekeeper of reputations, whose endorsement could turn a curious relic into a scientific revolution.</p>
-            <div class="clear-float"></div>
-
-            <p class="fade-in">Woodward saw the pieces and felt the professional voltage. The bones were thick, the shape tantalizingly human but archaic. If these were what Dawson hinted they might be, England had just found what Germany, France, and Holland had been boasting about for decades. Not just another fossil. A beginning. An English Adam. A true missing link.</p>
-
-            <p class="fade-in">That summer, the two men, the amateur and the expert, returned to Piltdown. From June through September, they led a small, hopeful excavation. The work was slow, a painstaking process of trowels, picks, and sieves. They meticulously documented their progress, their anticipation palpable in their notes. They unearthed more fragments: parts of a cranium, ancient animal bones from extinct species like mastodon and steppe bison, and crudely worked flint tools. These associated finds helped build a picture of a truly ancient landscape.</p>
-            
-            <p class="fade-in">And then, they found the piece that changed everything.</p>
-
-            <p class="fade-in">It was the right half of a jawbone, a mandible. It was robustly ape-like in its structure, yet it held two molars worn remarkably flat—a trait associated with the grinding diet of early humans. It was the perfect, paradoxical bridge between ape and man.</p>
-            
-            <div class="image-container eighty-width fade-in">
-                <img src="images/eoanthropus_dawsoni_reconstruction.jpg" alt="The 1912 reconstruction of Eoanthropus dawsoni">
-                <p class="caption">The 1912 reconstruction of *Eoanthropus dawsoni*, showing the modern human-like cranium and the ape-like jaw, as presented by Arthur Smith Woodward.</p>
+        </section>
+        <section class="text-panel">
+            <div class="text-content">
+                <p><span class="drop-cap">L</span>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <!-- IMAGE: Public domain: Piltdown excavation site photo (workers digging), caption: Workers at the Piltdown gravel pit, circa 1912. -->
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
             </div>
-            
-            <p class="fade-in">On the evening of December 18, 1912, Dawson and Woodward stood before the Geological Society of London at Burlington House. The room was a sea of dark suits, starched collars, and expectant faces—the titans of British science. Woodward, with the calm authority of his station, presented the formal reconstruction of the skull. He gave the creature a name: *Eoanthropus dawsoni*. Dawson’s Dawn-Man.</p>
-
-            <p class="fade-in">He described a creature with a modern-looking skull vault, housing a brain estimated at 1,070 cubic centimeters—small for a modern human, but vast for an ape. This advanced cranium was paired with the primitive, animalistic jaw. It was the living embodiment of the dominant theory of the time: that the human evolutionary journey began with the brain first. First the intellect, then the face.</p>
-            
-            <p class="fade-in">And there stood Charles Dawson, the provincial solicitor, the amateur among giants, suddenly at the center of the world map. Had his hand trembled when he first held those stained pieces in the Sussex mud? We can’t prove it. But we know this: he had spent years chasing the recognition of the scientific elite, craving an election to the prestigious Royal Society that had always remained just out of reach. Piltdown was not just a fossil. It was his passport.</p>
         </section>
 
-        <section id="chapter-2" class="chapter fade-in">
-            <p class="chapter-number">Chapter Two</p>
-            <h3 class="chapter-title">The World That Wanted to Believe</h3>
-            <p>To understand how a lie survived for forty-one years, you must leave the muddy gravel pit and enter the mind of an empire. Edwardian and post-Edwardian Britain was not a neutral observer in the search for human origins. Science was an international race, and national prestige was the prize.</p>
-            <p class="fade-in">Piltdown arrived as the perfect antidote. It was a fossil that flattered. It fit the prevailing scientific narrative like a finely tailored suit. At the time, many of the most influential paleoanthropologists, including Woodward and his powerful ally Sir Arthur Keith, championed the "brain-first" model of evolution. This theory held that our defining feature—a large, complex brain—evolved early, while the more brutish, ape-like features of the jaw and face lagged behind. Piltdown, with its large human cranium and primitive ape jaw, was that theory made bone. It was less a discovery and more a confirmation.</p>
-            <p class="fade-in">But science is never just data. It is people, and people carry their ambitions, rivalries, and biases into every laboratory and every dig site. In Britain’s case, there was also a pervasive imperial mythology: the unspoken assumption that the nation's leadership in modern civilization must be mirrored by a deep ancestral pedigree.</p>
-            <p class="fade-in">The hoax was soon reinforced from across the Atlantic. Henry Fairfield Osborn, the powerful and hugely influential president of the American Museum of Natural History, publicly backed Piltdown. After examining the fossils in 1921, he declared that the jaw and skull belonged together "without question." Those two words, coming from a man of his stature, worked to silence nascent doubts with the force of a hammer blow.</p>
-            <p class="fade-in">Osborn, for all his brilliance, was also deeply enmeshed in the ugly racial science of the era, promoting hierarchies that placed Northern Europeans at the apex of human development. Piltdown's big-brained profile provided potent ammunition for these narratives <span class="grade grade-c">C</span>, suggesting that the "advanced" cranial development of Europeans was an ancient trait, setting them apart from other human lineages. The fraud was not just a scientific error; it was a tool that validated social prejudice.</p>
-            <p class="fade-in">In 1915, the story became unassailable. Dawson wrote to Woodward announcing a second find, "Piltdown II," from a field roughly two miles away. The fragments were similar: a piece of thick-walled skull and a molar tooth that resembled those from the original jaw. One strange fossil could be a fluke. Two suggested a population, a species. Even early skeptics were swayed.</p>
-            
-             <details class="evidence-reveal fade-in">
-                <summary>Click to reveal evidence</summary>
-                <div class="evidence-reveal-content">
-                    The "Piltdown II" fossils were the final stroke of genius for the forger. They cemented the find's validity for decades, but Dawson conveniently died in 1916 without ever disclosing their precise location, making them impossible to verify.
-                </div>
-            </details>
-        </section>
-
-        <section id="chapter-3" class="chapter fade-in">
-            <p class="chapter-number">Chapter Three</p>
-            <h3 class="chapter-title">The Doubters Nobody Listened To</h3>
-            <p>Every great deception has its ghosts—the voices of those who saw the truth but were not heard. Piltdown has three who stand out, prophets in a wilderness of belief.</p>
-            
-            <p class="fade-in">The first spoke almost immediately. In 1913, David Waterston, an anatomist at King's College London, argued that the jaw and skull simply could not have come from the same creature. It was, he concluded, a human skull and an ape mandible that had found their way into the same gravel deposit <span class="grade grade-b">B</span>. He was right. And he was ignored.</p>
-            
-            <p class="fade-in">The second ghost came from across the Channel. In 1915, Marcellin Boule, one of Europe’s most respected paleontologists, came to the same conclusion. It was, he stated with French bluntness, a composite of two different species <span class="grade grade-b">B</span>. But in a Britain on the verge of war with Germany, foreign criticism from a scientific rival was easy to dismiss.</p>
-            
-            <p class="fade-in">The third and most prescient ghost arrived in 1923. Franz Weidenreich, a German anatomist, declared it to be a modern human cranium, an orangutan jaw, and—most remarkably—that the teeth had been deliberately filed down to alter their appearance <span class="grade grade-b">B</span>. He had solved the entire crime, thirty years before the official exposure. And again, nothing happened.</p>
-            
-             <div class="image-container eighty-width fade-in">
-                <img src="images/waterston_boule_weidenreich.jpg" alt="The three key dissenters: Waterston, Boule, and Weidenreich">
-                <p class="caption">The three key dissenters: David Waterston, Marcellin Boule, and Franz Weidenreich—the men who saw the truth decades early.</p>
+        <!-- Chapter 2 -->
+        <section id="chapter-2" class="chapter-divider" style="background-image: url('images/bg-establishment.png');">
+            <div class="divider-content">
+                <h3>CHAPTER TWO · Dawn's Man</h3>
             </div>
-            
-            <p class="pull-quote fade-in">Facts alone rarely defeat a cherished consensus. Power structures, not just evidence, determine which facts are allowed to be dangerous.</p>
-
         </section>
-
-        <section id="chapter-4" class="chapter fade-in">
-            <p class="chapter-number">Chapter Four</p>
-            <h3 class="chapter-title">The 26-Year Silence</h3>
-             <p>From 1923 to 1949, the Piltdown case went cold. This was the most dangerous phase of the hoax. Not the initial lie, but its normalization. A forgery hiding in plain sight, wearing the unimpeachable authority of a museum label.</p>
-             <p class="fade-in">Meanwhile, the world of paleoanthropology was changing. New discoveries in Africa and Asia were revealing a very different story of human origins. But instead of ejecting the English fossil, many scientific frameworks simply bent to accommodate it. An old fraud, when left in place, doesn't just sit there; it actively warps the evidence around it.</p>
-             <p class="fade-in">After Dawson’s death in 1916, the Piltdown gravel pits, once a fountain of astonishing finds, fell silent. Nothing more was ever found. If this had been a murder investigation, a detective would have circled that date in red ink. In science, it was filed under coincidence.</p>
-             <details class="evidence-reveal fade-in">
-                <summary>Click to reveal evidence</summary>
-                <div class="evidence-reveal-content">
-                    The complete cessation of finds after Dawson's death is one of the most compelling pieces of circumstantial evidence against him. A genuine fossil bed does not simply run dry the moment its primary excavator passes away.
-                </div>
-            </details>
-        </section>
-
-        <section id="chapter-5" class="chapter fade-in">
-            <p class="chapter-number">Chapter Five</p>
-            <h3 class="chapter-title">The Unraveling</h3>
-            <p>His name was Kenneth Oakley. In the late 1940s, working at the British Museum, Oakley was a pioneer in applying a technique called fluorine dating. Bones from the same geological deposit, of the same age, should have roughly the same amount of fluorine.</p>
-            <p class="fade-in">In 1949, Oakley tested the Piltdown specimens. The results blew the story to pieces. The skull and jaw contained only trace amounts of fluorine. They were young. Shockingly young. <span class="grade grade-a">A</span></p>
-            <p class="fade-in">Oakley joined forces with anatomist Sir Wilfrid Le Gros Clark and anthropologist Joseph Weiner. They refined the dating. The cranium was a medieval-era modern human, perhaps 600 years old. The jaw? A modern orangutan. <span class="grade grade-a">A</span></p>
-            
-            <div class="image-container eighty-width fade-in">
-                <img src="images/filed_teeth.png" alt="Microscopic view of filed teeth">
-                <p class="caption">A microscopic view of the Piltdown molar, showing the artificial scratch marks from filing, which proved deliberate deception.</p>
+        <section class="text-panel">
+            <div class="text-content">
+                <p><span class="drop-cap">N</span>emo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                <blockquote>"Ape-like in form, but human in capacity."<cite>— Arthur Smith Woodward</cite></blockquote>
+                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                <!-- IMAGE: piltdown-gang-painting.jpg, caption: The Piltdown Gang, John Cooke 1915 -->
             </div>
-            
-            <p class="fade-in">Second, they put the teeth under the microscope. Magnification revealed fine scratches and parallel striations across the flat surfaces of the molars. They were the unmistakable marks of a metal file. <span class="grade grade-a">A</span></p>
-            <p class="fade-in">Third, they analyzed the dark, "fossilized" color of the bones. Chemical tests revealed that the rich, ancient-looking patina was a fake. The bones had been artificially stained with an iron solution and potassium dichromate. <span class="grade grade-a">A</span> When they drilled into the bone, the interior was nearly white. Real fossilization penetrates to the core.</p>
-            <p class="fade-in">When the team published their findings in November 1953, the impact was immediate and brutal. The *how* was solved. But that only raised the most explosive question of all: *who*?</p>
         </section>
-        
-        <section id="chapter-6" class="chapter fade-in">
-            <p class="chapter-number">Chapter Six</p>
-            <h3 class="chapter-title">The Suspects</h3>
-            
-             <div class="vote-section fade-in">
-                <h4 class="vote-title">Who was the forger?</h4>
-                <div class="vote-buttons">
-                    <button class="vote-button" data-suspect="dawson">
-                        <img src="images/suspect-dawson.png" alt="Charles Dawson">
-                        <span class="name">Dawson</span>
-                        <span class="vote-result" data-result="dawson"></span>
-                    </button>
-                    <button class="vote-button" data-suspect="hinton">
-                        <img src="images/suspect-hinton.png" alt="Martin Hinton">
-                        <span class="name">Hinton</span>
-                         <span class="vote-result" data-result="hinton"></span>
-                    </button>
-                    <button class="vote-button" data-suspect="teilhard">
-                        <img src="images/suspect-teilhard.png" alt="Teilhard de Chardin">
-                        <span class="name">Teilhard</span>
-                         <span class="vote-result" data-result="teilhard"></span>
-                    </button>
-                    <button class="vote-button" data-suspect="doyle">
-                        <img src="images/suspect-conan-doyle.png" alt="Arthur Conan Doyle">
-                        <span class="name">Conan Doyle</span>
-                         <span class="vote-result" data-result="doyle"></span>
-                    </button>
+
+        <!-- Chapter 3 -->
+        <section id="chapter-3" class="chapter-divider" style="background-image: url('images/piltdown-gang-painting.jpg');">
+            <div class="divider-content">
+                <h3>CHAPTER THREE · The Empire's Missing Link</h3>
+            </div>
+        </section>
+        <section class="text-panel">
+            <div class="text-content">
+                <p><span class="drop-cap">U</span>t enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+                <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+                <div class="evidence-box">
+                    <div class="evidence-header">▶ Reveal Evidence</div>
+                    <div class="evidence-content">
+                        <p>This is the content of the evidence box. It starts collapsed and expands on click. It might contain images, text, or other media related to the case.</p>
+                        <!-- IMAGE: suspect-teilhard.png, float-right -->
+                    </div>
                 </div>
             </div>
-            
-            <div class="suspect-container fade-in">
-                <img src="images/suspect-dawson.png" alt="Charles Dawson">
-                <p class="caption">Charles Dawson</p>
-            </div>
-            <p>First and foremost is Charles Dawson. Posthumous investigations revealed that Dawson was a serial fabricator. At least 38 of his other "discoveries" have been identified as forgeries <span class="grade grade-b">B</span>. He had motive, means, and opportunity. **Likelihood: 82/100.**</p>
-            <div class="clear-float"></div>
-            
-            <div class="suspect-container fade-in">
-                <img src="images/suspect-hinton.png" alt="Martin Hinton">
-                <p class="caption">Martin A.C. Hinton</p>
-            </div>
-            <p>The second suspect represents the "grudge theory." Martin A. C. Hinton was a zoologist at the museum. A trunk bearing his initials was later found containing animal bones stained and carved in a similar manner to the Piltdown forgery <span class="grade grade-b">B</span>. The theory posits he did it to embarrass his superior, Woodward. **Likelihood: 25/100.**</p>
-            <div class="clear-float"></div>
-            
-            <div class="suspect-container fade-in">
-                <img src="images/suspect-teilhard.png" alt="Teilhard de Chardin">
-                <p class="caption">Pierre Teilhard de Chardin</p>
-            </div>
-            <p>The third figure is the French Jesuit priest, Pierre Teilhard de Chardin. His suspicion arises from one moment of incredible convenience: he "found" the missing canine tooth <span class="grade grade-c">C</span>. He may have been a pawn, used by Dawson to "discover" a planted piece of evidence. **Likelihood: 15/100.**</p>
-            <div class="clear-float"></div>
-            
-            <div class="suspect-container fade-in">
-                <img src="images/suspect-conan-doyle.png" alt="Sir Arthur Conan Doyle">
-                <p class="caption">Arthur Conan Doyle</p>
-            </div>
-            <p>The final suspect is the wildcard, the creator of Sherlock Holmes himself, Sir Arthur Conan Doyle. The theory, as entertaining as it is speculative, suggests that Doyle, angered by the scientific establishment's mockery of his belief in spiritualism, planted the fake to make fools of them <span class="grade grade-c">C</span>. There is not a shred of physical evidence. **Likelihood: 8/100.**</p>
-            <div class="clear-float"></div>
-
         </section>
 
-        <section id="chapter-7" class="chapter fade-in">
-            <p class="chapter-number">Chapter Seven</p>
-            <h3 class="chapter-title">The Verdict</h3>
-            
-            <div class="verdict-section fade-in">
-                <div class="confidence-score">100</div>
+        <!-- Chapter 4 -->
+        <section id="chapter-4" class="chapter-divider" style="background-image: url('images/filed-teeth.png');">
+            <div class="divider-content">
+                <h3>CHAPTER FOUR · The Dissenters</h3>
             </div>
-            
-            <p>A 2016 study proved, definitively, that the entire forgery was the work of one man. The jaw came from a single orangutan. The *modus operandi* was consistent across every fraudulent piece. It was a signature. And that signature belonged to Charles Dawson. <span class="grade grade-a">A</span></p>
-
-             <div class="image-container eighty-width fade-in">
-                <img src="images/declassified-stamp.png" alt="Declassified Stamp over Piltdown evidence">
-                <p class="caption">The three key elements of the crime: a photograph of Charles Dawson, a medieval human skull, and the jaw of an orangutan.</p>
-            </div>
-
-            <p class="fade-in">Why does this story still matter? Because the Piltdown hoax is not just about one con man. It is a timeless parable about the seductive power of confirmation bias. The real scandal of Piltdown is not that a fraudster existed; fraudsters are perennial. The scandal is that brilliant people voiced the correct objections in 1913, 1915, and 1923, and were ignored because their truth was inconvenient.</p>
-            <p class="fade-in">If there is one lesson to take from this dusty file, it is this: science is only self-correcting when skepticism is not just tolerated, but actively protected. The next time a spectacular claim arrives that seems to confirm everything we wish to believe, we must be the ones to ask the hard questions. We must be the ones to check the teeth.</p>
         </section>
+        <section class="text-panel">
+            <div class="text-content">
+                <p><span class="drop-cap">A</span>t vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+                <p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 5 -->
+        <section id="chapter-5" class="chapter-divider" style="background-image: url('images/bg-silence.png');">
+            <div class="divider-content">
+                <h3>CHAPTER FIVE · Forty Years in the Cabinet</h3>
+            </div>
+        </section>
+        <section class="text-panel">
+            <div class="text-content">
+                <p><span class="drop-cap">N</span>am libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 6 -->
+        <section id="chapter-6" class="chapter-divider" style="background-image: url('images/bg-unraveling.png');">
+            <div class="divider-content">
+                <h3>CHAPTER SIX · The Unmasking</h3>
+            </div>
+        </section>
+        <section class="text-panel">
+            <div class="text-content">
+                <p><span class="drop-cap">I</span>taque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+                <div class="verdict-section">
+                    <div class="verdict-ring">
+                        <div class="verdict-score">100</div>
+                    </div>
+                    <div class="verdict-label">CONFIDENCE IN FORGERY</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 7 -->
+        <section id="chapter-7" class="chapter-divider" style="background-image: url('images/stained-bone-fragments.png');">
+            <div class="divider-content">
+                <h3>CHAPTER SEVEN · The Suspects</h3>
+            </div>
+        </section>
+        <section class="text-panel">
+            <div class="text-content">
+                <p><span class="drop-cap">H</span>ic ego, si potero, sive intervallata, sive continua, sive senatoria, sive privata, sive forensia, sive domestica, sive acta, sive scripta, sive de vita, sive de genere, sive de amicitia, sive de inimicitiis, sive de honoribus, sive de contumeliis, sive de morte, sive de laudatione eius, omnia conquiram et congeram.</p>
+                <div class="suspect-vote">
+                    <h4>Who was the forger? Cast your vote.</h4>
+                    <div class="suspect-cards">
+                        <div class="suspect-card" data-suspect="dawson">
+                            <img src="images/suspect-dawson.png" alt="Charles Dawson">
+                            <strong>Charles Dawson</strong>
+                            <span>The "Wizard of Sussex"</span>
+                        </div>
+                        <div class="suspect-card" data-suspect="hinton">
+                            <img src="images/suspect-hinton.png" alt="Martin Hinton">
+                            <span>The Disgruntled Curator</span>
+                        </div>
+                        <div class="suspect-card" data-suspect="teilhard">
+                            <img src="images/suspect-teilhard.png" alt="Teilhard de Chardin">
+                            <span>The Jesuit Paleontologist</span>
+                        </div>
+                        <div class="suspect-card" data-suspect="doyle">
+                            <img src="images/suspect-conan-doyle.png" alt="Arthur Conan Doyle">
+                            <span>The Creator of Sherlock</span>
+                        </div>
+                    </div>
+                    <div class="vote-results" style="display: none;">
+                        <!-- Results will be injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
-    
-    <footer class="footer fade-in">
-        <p>This was Case #001. 219 more investigations await.</p>
-        <div class="email-capture">
-            <input type="email" placeholder="Enter your email to get the next casefile">
-            <button>Subscribe</button>
+
+    <footer>
+        <div class="footer-content">
+            <h3>This was Case #001. 219 more investigations await.</h3>
+            <p>Get notified when new cases are declassified.</p>
+            <form class="email-capture">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <div class="footer-links">
+                <a href="https://books.historiqly.com">Back to HistorIQly Books</a>
+                <span>·</span>
+                <span>AI Casefiles by <a href="https://historiqly.com">HistorIQly</a></span>
+            </div>
         </div>
     </footer>
 
-    <button class="share-button" title="Share">&#x27A4;</button>
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Reading Progress Bar
-            const progressBar = document.querySelector('.progress-bar-inner');
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+            const heroSection = document.getElementById('hero');
+            const progressBar = document.getElementById('progressBar');
+            const chapterLinks = document.querySelectorAll('.nav-links a');
+            const chapters = document.querySelectorAll('section[id^="chapter-"]');
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            // Navbar solid/transparent on scroll
             window.addEventListener('scroll', () => {
-                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const progress = (window.pageYOffset / totalHeight) * 100;
-                progressBar.style.width = progress + '%';
+                if (window.scrollY > heroSection.offsetHeight - navbar.offsetHeight) {
+                    navbar.classList.add('solid');
+                } else {
+                    navbar.classList.remove('solid');
+                }
+
+                // Reading progress bar
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.width = scrollPercent + '%';
             });
 
-            // Fade-in on scroll
-            const faders = document.querySelectorAll('.fade-in');
-            const observer = new IntersectionObserver((entries, observer) => {
+            // Hamburger menu toggle
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Intersection Observer for active chapter highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-50% 0px -50% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
+                        const id = entry.target.getAttribute('id');
+                        chapterLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                            }
+                        });
                     }
                 });
-            }, { threshold: 0.1 });
+            }, observerOptions);
 
-            faders.forEach(fader => {
-                observer.observe(fader);
+            chapters.forEach(chapter => {
+                observer.observe(chapter);
             });
-            
-            // Evidence reveal animation
-            const detailsElements = document.querySelectorAll('.evidence-reveal');
-            detailsElements.forEach(details => {
-                details.addEventListener('toggle', function(e) {
-                    if (this.open) {
-                        const content = this.querySelector('.evidence-reveal-content');
-                        content.style.height = 'auto';
-                        const height = content.clientHeight + 'px';
-                        content.style.height = '0px';
-                        setTimeout(() => {
-                           content.style.transition = 'height 0.3s ease';
-                           content.style.height = height;
-                        }, 0);
+
+            // Evidence Box toggle
+            document.querySelectorAll('.evidence-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        header.textContent = '▶ Reveal Evidence';
                     } else {
-                        const content = this.querySelector('.evidence-reveal-content');
-                        content.style.height = '0px';
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        header.textContent = '▼ Hide Evidence';
                     }
                 });
             });
 
-            // Voting Logic
-            const voteSection = document.querySelector('.vote-section');
-            const voteButtons = document.querySelectorAll('.vote-button');
-            const results = {
-                dawson: 82,
-                hinton: 6,
-                teilhard: 4,
-                doyle: 8
-            };
-            
-            voteButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    if (voteSection.classList.contains('voted')) return;
-                    
-                    voteSection.classList.add('voted');
-                    
-                    const selectedSuspect = button.dataset.suspect;
-                    
-                    Object.keys(results).forEach(suspect => {
-                        const resultEl = document.querySelector(`.vote-result[data-result="${suspect}"]`);
-                        resultEl.textContent = `${results[suspect]}%`;
-                    });
-                    
-                    const dawsonButton = document.querySelector('.vote-button[data-suspect="dawson"]');
-                    dawsonButton.classList.add('highlight');
+            // Suspect voting
+            const suspectCards = document.querySelectorAll('.suspect-card');
+            const voteResults = document.querySelector('.vote-results');
+            suspectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    suspectCards.forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                    // In a real app, you'd save this vote. Here we just show dummy results.
+                    showVoteResults();
                 });
             });
 
-            // Share button
-            const shareButton = document.querySelector('.share-button');
-            shareButton.addEventListener('click', () => {
-                if (navigator.share) {
-                    navigator.share({
-                        title: document.title,
-                        text: 'Explore the Piltdown Man hoax, one of the greatest scientific frauds in history.',
-                        url: window.location.href,
-                    }).catch(console.error);
-                } else {
-                    navigator.clipboard.writeText(window.location.href);
-                    alert('Link copied to clipboard!');
+            function showVoteResults() {
+                // Dummy data
+                const results = { dawson: 82, hinton: 15, teilhard: 8, doyle: 5 };
+                let html = '<h4>Results:</h4>';
+                for (const suspect in results) {
+                    html += `<div class="result-bar-container">
+                                <strong>${suspect.charAt(0).toUpperCase() + suspect.slice(1)}</strong>
+                                <div class="result-bar" style="width: ${results[suspect]}%;">${results[suspect]}%</div>
+                           </div>`;
                 }
-            });
+                voteResults.innerHTML = html;
+                voteResults.style.display = 'block';
+
+                // Add some basic styling for the results
+                if (!document.getElementById('vote-results-style')) {
+                    const style = document.createElement('style');
+                    style.id = 'vote-results-style';
+                    style.innerHTML = `
+                        .result-bar-container { margin: 10px 0; text-align: left; }
+                        .result-bar { background: var(--gold); color: var(--dark-text); padding: 5px; font-size: 14px; white-space: nowrap; }
+                    `;
+                    document.head.appendChild(style);
+                }
+            }
+
         });
     </script>
-
 </body>
 </html>
