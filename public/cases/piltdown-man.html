@@ -1,862 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Casefile #001 - The Piltdown Man</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Source+Sans+3:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0908;
-      --panel-bg: #1a1816;
-      --panel-stroke: #3a3632;
-      --text-primary: #e8e0d0;
-      --text-secondary: #a8a090;
-      --gold-primary: #d4af37;
-      --gold-secondary: #a0802f;
-      --grade-a: #22c55e;
-      --grade-b: #3b82f6;
-      --grade-c: #f59e0b;
-      --grade-d: #ef4444;
-      --danger: #ef4444;
-      --font-serif-display: 'EB Garamond', 'Playfair Display', serif;
-      --font-serif-body: 'Crimson Pro', Georgia, serif;
-      --font-sans: 'Source Sans 3', 'Source Sans Pro', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Casefiles by HistorIQly - Case #001: The Piltdown Hoax</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Crimson+Pro:wght@400;600&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-near-black: #0a0a0f;
+            --color-deep-navy: #0d1117;
+            --color-gold: #c9a84c;
+            --color-blood-red: #8b0000;
+            --color-evidence-green: #22c55e;
+            --color-fog-white: #e8e0d0;
+            --color-redacted: #333;
 
-    /* --- Base & Typography --- */
-    *, *::before, *::after { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 2rem;
-    }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text-primary);
-      font-family: var(--font-serif-body);
-      font-size: 13pt;
-      line-height: 1.6;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .main-content {
-      flex-grow: 1;
-      max-width: 800px;
-      padding: 0 2rem;
-    }
-
-    .page {
-      padding: 6rem 0;
-      border-bottom: 1px solid var(--panel-stroke);
-      animation: fadeIn 1s ease-out forwards;
-      animation-timeline: view();
-      animation-range-start: entry 0%;
-      animation-range-end: entry 40%;
-      opacity: 0;
-    }
-    .page:last-child { border-bottom: none; }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h1, h2, h3, h4 {
-      font-family: var(--font-serif-display);
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--text-primary);
-      margin: 0 0 1rem;
-    }
-    h1 { font-size: 4.5rem; font-weight: 800; letter-spacing: -0.02em; }
-    h2 { font-size: 2.5rem; border-bottom: 1px solid var(--panel-stroke); padding-bottom: 0.5rem; margin-bottom: 2rem; }
-    h3 { font-size: 1.5rem; color: var(--gold-primary); }
-    h4 { font-size: 1.2rem; }
-    p { margin: 0 0 1.5rem; max-width: 75ch; }
-    p.small { font-size: 0.9em; }
-    .muted { color: var(--text-secondary); }
-
-    .kicker {
-      font-family: var(--font-sans);
-      text-transform: uppercase;
-      color: var(--gold-primary);
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    blockquote {
-      margin: 2rem 0;
-      padding-left: 1.5rem;
-      border-left: 4px solid var(--gold-primary);
-      font-size: 1.4rem;
-      font-style: italic;
-      color: var(--text-secondary);
-    }
-    
-    hr.decorative {
-      border: 0;
-      height: 1px;
-      background: var(--panel-stroke);
-      position: relative;
-      margin: 3rem 0;
-    }
-    hr.decorative::after {
-      content: '◆';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--bg);
-      padding: 0 0.5rem;
-      color: var(--gold-secondary);
-      font-size: 1.2rem;
-    }
-
-    /* --- Navigation --- */
-    .sidebar-nav {
-      position: sticky;
-      top: 0;
-      align-self: flex-start;
-      padding: 4rem 2rem 0 0;
-      width: 240px;
-      flex-shrink: 0;
-      height: 100vh;
-      overflow-y: auto;
-    }
-    .sidebar-nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .sidebar-nav li a {
-      display: block;
-      padding: 0.5rem 1rem;
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: var(--text-secondary);
-      border-left: 2px solid transparent;
-      transition: all 0.2s ease;
-    }
-    .sidebar-nav li a:hover {
-      color: var(--text-primary);
-      border-left-color: var(--gold-secondary);
-    }
-    .sidebar-nav .brand {
-      font-family: var(--font-serif-display);
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--text-primary);
-      margin-bottom: 1.5rem;
-      padding-left: 1rem;
-    }
-
-    /* --- Cover Page --- */
-    .cover-page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      padding: 2rem;
-      background: radial-gradient(ellipse at 50% 50%, rgba(20, 18, 16, 0.8) 0%, #0a0908 70%), linear-gradient(145deg, var(--panel-bg) 0%, var(--bg) 100%);
-      overflow: hidden;
-      border: 1px solid var(--panel-stroke);
-      box-shadow: 0 0 80px rgba(0,0,0,0.5);
-    }
-    .cover-frame {
-      position: absolute;
-      top: 2rem; right: 2rem; bottom: 2rem; left: 2rem;
-      border: 1px solid var(--gold-secondary);
-      opacity: 0.5;
-      pointer-events: none;
-    }
-    .cover-frame::before, .cover-frame::after {
-      content: '';
-      position: absolute;
-      width: 1.5rem;
-      height: 1.5rem;
-      border-color: var(--gold-primary);
-      border-style: solid;
-    }
-    .cover-frame::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-    .cover-frame::after { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-    .cover-frame .bottom-left, .cover-frame .bottom-right { position: absolute; content: ''; width: 1.5rem; height: 1.5rem; border-color: var(--gold-primary); border-style: solid; }
-    .cover-frame .bottom-left { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
-    .cover-frame .bottom-right { bottom: -1px; right: -1px; border-width: 0 0 2px 2px; }
-    
-    .grain-overlay {
-      position: fixed;
-      inset: 0;
-      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiGAAAAXVBMVEUAAAD//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+ORgD/AAAAHnRSTlMAAQIDBAUGBwgJCgsMDQ4PEBITFRYXGRobHR4fICEiIyQlJic04A4aAAABsklEQVRIx+3W97aCMAwAUBeEcBEUBUEBsb//VRqxySXks3M/e5/n0pM4JRAkvQGSyU8l5fqnAd8QEiCgHhDSYyQS3hQh4SoSjIVICGtRIg4YUSKq/S+yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gMMs8c5vB/yG0gM/8E+MgiA4+gAAAABJRU5ErkJggg==');
-      opacity: 0.1;
-      pointer-events: none;
-      z-index: 10;
-      animation: noise 0.5s steps(2) infinite;
-    }
-    @keyframes noise { from { transform: translate(0, 0); } to { transform: translate(-10px, -10px); } }
-
-    .stamp {
-      position: absolute;
-      top: 5rem;
-      right: 4rem;
-      border: 5px double var(--danger);
-      color: var(--danger);
-      font-family: var(--font-sans);
-      font-weight: 900;
-      font-size: 1.5rem;
-      letter-spacing: .1em;
-      padding: .5rem 1rem;
-      transform: rotate(-10deg);
-      text-transform: uppercase;
-      opacity: 0.7;
-      border-radius: 8px;
-      background: repeating-linear-gradient(45deg, rgba(239,68,68,0.1), rgba(239,68,68,0.1) 1px, transparent 1px, transparent 5px);
-    }
-    .cover-page .kicker { margin-bottom: 1rem; }
-    .cover-page .muted { max-width: 60ch; margin: 2rem auto; }
-    .cover-page .brand-footer {
-      position: absolute;
-      bottom: 2.5rem;
-      left: 2.5rem;
-      right: 2.5rem;
-      display: flex;
-      justify-content: space-between;
-      color: var(--text-secondary);
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding-top: 1rem;
-      border-top: 1px solid var(--panel-stroke);
-    }
-
-    /* --- General Components --- */
-    .panel {
-      border: 1px solid var(--panel-stroke);
-      background: var(--panel-bg);
-      border-radius: 8px;
-      padding: 2rem;
-      margin-top: 2rem;
-      position: relative;
-    }
-    .panel::before, .panel::after { content: ''; position: absolute; width: 8px; height: 8px; border-color: var(--gold-secondary); border-style: solid; opacity: 0.6; }
-    .panel::before { top: 6px; left: 6px; border-width: 1px 0 0 1px; }
-    .panel::after { top: 6px; right: 6px; border-width: 1px 1px 0 0; }
-    .panel .bottom-left, .panel .bottom-right { position: absolute; content: ''; width: 8px; height: 8px; border-color: var(--gold-secondary); border-style: solid; opacity: 0.6; }
-    .panel .bottom-left { bottom: 6px; left: 6px; border-width: 0 0 1px 1px; }
-    .panel .bottom-right { bottom: 6px; right: 6px; border-width: 0 0 1px 2px; }
-
-    .meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    .meta-item {
-      border: 1px solid var(--panel-stroke);
-      padding: 1rem;
-      background: var(--bg);
-      border-radius: 4px;
-    }
-    .meta-item .label {
-      font-family: var(--font-sans);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--text-secondary);
-      font-size: 0.7rem;
-      margin-bottom: 0.25rem;
-    }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 2rem 0;
-      font-size: 0.95em;
-    }
-    th, td {
-      border-bottom: 1px solid var(--panel-stroke);
-      padding: 1rem;
-      text-align: left;
-    }
-    th {
-      font-family: var(--font-sans);
-      color: var(--gold-primary);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-    
-    /* --- Evidence Cards --- */
-    .evidence-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .evidence-card {
-      border: 1px solid var(--panel-stroke);
-      border-left-width: 8px;
-      background: linear-gradient(rgba(255,255,255,0.02), transparent);
-      border-radius: 4px 8px 8px 4px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-    }
-    .grade-a { border-left-color: var(--grade-a); background-color: rgba(34, 197, 94, 0.05); }
-    .grade-b { border-left-color: var(--grade-b); background-color: rgba(59, 130, 246, 0.05); }
-    .grade-c { border-left-color: var(--grade-c); background-color: rgba(245, 158, 11, 0.05); }
-    .grade-d { border-left-color: var(--grade-d); background-color: rgba(239, 68, 68, 0.05); }
-
-    .badge {
-      font-family: var(--font-sans);
-      font-weight: 900;
-      font-size: 1.25rem;
-      letter-spacing: .05em;
-      margin-bottom: 1rem;
-    }
-    .badge-a { color: var(--grade-a); }
-    .badge-b { color: var(--grade-b); }
-    .badge-c { color: var(--grade-c); }
-    .badge-d { color: var(--grade-d); }
-
-    .evidence-card h3 { color: var(--text-primary); font-size: 1.2rem; margin-bottom: 0.5rem; }
-    .evidence-card p { font-size: 1em; line-height: 1.5; margin: 0; color: var(--text-secondary); }
-
-    /* --- Timeline --- */
-    .timeline {
-      position: relative;
-      margin: 3rem 0;
-      padding-left: 3rem;
-      border-left: 2px solid var(--panel-stroke);
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 1rem;
-      padding: 1.5rem;
-      background: var(--panel-bg);
-      border: 1px solid var(--panel-stroke);
-      border-radius: 8px;
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
-    }
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -3rem;
-      top: 2rem;
-      transform: translateY(-50%);
-      width: 14px;
-      height: 14px;
-      background: var(--gold-secondary);
-      border: 2px solid var(--bg);
-      border-radius: 50%;
-      z-index: 1;
-      transition: background-color 0.3s;
-    }
-    .timeline-item:hover::before {
-      background: var(--gold-primary);
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-    }
-    .timeline-date {
-      flex-shrink: 0;
-      font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--gold-primary);
-      background: var(--bg);
-      padding: 0.25rem 0.75rem;
-      border-radius: 4px;
-      border: 1px solid var(--panel-stroke);
-    }
-    .timeline-content { flex-grow: 1; }
-    .timeline-item .muted { font-size: 0.8rem; margin-left: 0.5rem; }
-
-    .gap-warning {
-      border: 2px solid var(--danger);
-      color: #ffd0d0;
-      background: repeating-linear-gradient( -45deg, rgba(239,68,68,.1), rgba(239,68,68,.1) 5px, rgba(239,68,68,.15) 5px, rgba(239,68,68,.15) 10px );
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      font-weight: 600;
-      margin: 2rem 0;
-      animation: pulse-danger 2s infinite;
-    }
-    @keyframes pulse-danger {
-      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
-      70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-    }
-
-    /* --- Theory Scoreboard --- */
-    .theory-card {
-      background: var(--panel-bg);
-      border: 1px solid var(--panel-stroke);
-      border-radius: 8px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-    .theory-card.most-likely::after {
-      content: '👑';
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      font-size: 2rem;
-      color: var(--gold-primary);
-      filter: drop-shadow(0 0 5px var(--gold-primary));
-    }
-    .theory-card h3 { margin-bottom: 0.5rem; }
-    .score-bar-container {
-      position: relative;
-      height: 40px;
-      background: var(--bg);
-      border-radius: 4px;
-      overflow: hidden;
-      margin: 1rem 0;
-      border: 1px solid var(--panel-stroke);
-    }
-    .score-bar {
-      height: 100%;
-      transition: width 0.5s ease-out;
-    }
-    .score-bar-high { background: linear-gradient(90deg, var(--grade-a), #4ade80); }
-    .score-bar-medium { background: linear-gradient(90deg, var(--gold-secondary), var(--gold-primary)); }
-    .score-bar-low { background: linear-gradient(90deg, var(--danger), #f87171); }
-    .score-text {
-      position: absolute;
-      top: 0;
-      left: 1rem;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      font-family: var(--font-sans);
-      font-weight: 900;
-      font-size: 1.2rem;
-      color: #fff;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-    }
-    .theory-card p { font-size: 1em; margin-bottom: 0.5em; }
-
-    /* --- Verdict Page --- */
-    .verdict-panel { text-align: center; }
-    .confidence-score {
-      font-family: var(--font-serif-display);
-      font-weight: 800;
-      font-size: 8rem;
-      line-height: 1;
-      color: var(--gold-primary);
-      text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-      margin: 2rem 0;
-    }
-    .classification {
-      display: inline-block;
-      border: 1px solid var(--gold-primary);
-      background: rgba(212, 175, 55, 0.1);
-      color: var(--gold-primary);
-      font-family: var(--font-sans);
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-weight: 700;
-      padding: .5rem 1rem;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-    
-    .gold-seal {
-      position: relative;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background: radial-gradient(ellipse at center, #c9a84c 0%, #a0802f 100%);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: var(--font-sans);
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-align: center;
-      margin: 2rem auto;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    .gold-seal::before {
-      content: '';
-      position: absolute;
-      top: -5px; left: -5px; right: -5px; bottom: -5px;
-      border: 2px solid var(--gold-primary);
-      border-radius: 50%;
-      background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23D4AF37FF' stroke-width='4' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
-      animation: spin 20s linear infinite;
-    }
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-    .verdict-panel ul {
-      text-align: left;
-      list-style-type: '✔ ';
-      margin: 2rem auto;
-      padding-left: 2rem;
-      max-width: 60ch;
-    }
-    .verdict-panel li {
-      padding-left: 1rem;
-      margin-bottom: 0.75rem;
-    }
-
-    /* --- Footer --- */
-    .site-footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      margin-top: 4rem;
-      border-top: 1px solid var(--panel-stroke);
-    }
-    .site-footer p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
-    .site-footer a {
-      color: var(--gold-primary);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .site-footer a:hover {
-      text-decoration: underline;
-    }
-    
-    /* --- Responsive --- */
-    @media (max-width: 1200px) {
-      .sidebar-nav { display: none; }
-      .main-content { padding: 0 1rem; }
-    }
-    @media (max-width: 768px) {
-      .evidence-grid { grid-template-columns: 1fr; }
-      .timeline { padding-left: 2rem; }
-      .timeline-item::before { left: -2rem; }
-      h1 { font-size: 3rem; }
-      .confidence-score { font-size: 5rem; }
-      .cover-page { padding: 1rem; }
-      .cover-frame { top: 1rem; right: 1rem; bottom: 1rem; left: 1rem; }
-      .stamp { font-size: 1rem; padding: .3rem .6rem; top: 3rem; right: 2rem; }
-    }
-
-    /* --- Print Styles --- */
-    @media print {
-      :root { --bg:#fff; --panel-bg:#f8f8f8; --panel-stroke:#ccc; --text-primary:#000; --text-secondary:#555; --gold-primary:#8B4513; --gold-secondary:#A0522D; }
-      html, body { font-size: 10pt; background: #fff; color: #000; }
-      .sidebar-nav, .site-footer, .cover-page .stamp, hr.decorative, .grain-overlay { display: none; }
-      .page { page-break-after: always; padding: 1in; min-height: 9in; border: none; }
-      .page:last-child { page-break-after: auto; }
-      .main-content { max-width: 100%; padding: 0; }
-      .cover-page { height: 9.5in; justify-content: space-around; background: none; border: 2px solid #000; }
-      h1,h2,h3,h4 { color: #000; }
-      .panel, .evidence-card, .timeline-item, .meta-item, .theory-card { background: #f8f8f8; border-color: #ccc; }
-      .evidence-card { break-inside: avoid; }
-      a { color: #000; text-decoration: none; }
-    }
-  </style>
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Crimson Pro', serif;
+            --font-code: 'Source Code Pro', monospace;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--color-near-black);
+            color: var(--color-fog-white);
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#noiseFilter)"/></svg>');
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 1000;
+            animation: grain 8s steps(10) infinite;
+        }
+        @keyframes grain {
+          0%, 100% { transform: translate(0, 0); }
+          10% { transform: translate(-5%, -10%); } 20% { transform: translate(-15%, 5%); }
+          30% { transform: translate(7%, -25%); } 40% { transform: translate(-5%, 25%); }
+          50% { transform: translate(-15%, 10%); } 60% { transform: translate(15%, 0%); }
+          70% { transform: translate(0%, 15%); } 80% { transform: translate(3%, 35%); }
+          90% { transform: translate(-10%, 10%); }
+        }
+        .interactive-element { cursor: crosshair; }
+        h1, h2, h3 { font-family: var(--font-heading); color: var(--color-gold); text-wrap: balance; }
+        p, blockquote { margin-bottom: 1.5rem; }
+        blockquote { border-left: 2px solid var(--color-gold); padding-left: 1rem; font-style: italic; color: #ccc; }
+        .container { width: 90%; max-width: 800px; margin: 0 auto; padding: 5rem 0; }
+        #progress-bar { position: fixed; top: 0; left: 0; width: 100%; height: 4px; background: var(--color-redacted); z-index: 999; }
+        #progress-bar-fill { width: 0%; height: 100%; background-color: var(--color-gold); transition: width 0.1s ease-out; }
+        .chapter { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 100px 0; border-bottom: 1px solid #222; }
+        .chapter::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            opacity: 0.1;
+            z-index: -1;
+            background-image: linear-gradient(to bottom, var(--color-near-black), #00000080), var(--fallback-bg);
+        }
+        #chapter-1::before { --fallback-bg: url(images/hero-gravel-pit.jpg); }
+        #chapter-2::before { --fallback-bg: url(images/background-museum.jpg); }
+        #chapter-3::before { --fallback-bg: url(images/background-doubters.jpg); }
+        #chapter-4::before { --fallback-bg: url(images/background-silence.jpg); }
+        #chapter-5::before { --fallback-bg: url(images/background-lab.jpg); }
+        #chapter-6::before { --fallback-bg: url(images/background-lineup.jpg); }
+        #chapter-7::before { --fallback-bg: url(images/background-verdict.jpg); }
+        .narrative-text { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .narrative-text.is-visible { opacity: 1; transform: translateY(0); }
+        .evidence-reveal { background: var(--color-redacted); padding: 1rem; margin: 2rem 0; border: 1px dashed rgba(255,255,255,0.2); position: relative; perspective: 1000px; }
+        .evidence-card { transition: transform 0.6s; transform-style: preserve-3d; }
+        .evidence-front, .evidence-back { -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+        .evidence-back { transform: rotateY(180deg); position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: var(--color-deep-navy); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-family: var(--font-code); padding: 1rem;}
+        .evidence-reveal:hover .evidence-card { transform: rotateY(180deg); }
+        .redacted-text { filter: blur(4px); transition: filter 0.5s ease-in-out; user-select: none; cursor: crosshair; }
+        .redacted-text.declassified { filter: blur(0); user-select: auto; }
+        .declassify-prompt { position: absolute; bottom: 10px; right: 10px; font-family: var(--font-code); font-size: 0.8rem; color: var(--color-gold); opacity: 0.8; cursor: crosshair; }
+        .evidence-reveal.unfolded .declassify-prompt { display: none; }
+        .evidence-grade { display: inline-block; padding: 0.2em 0.6em; font-family: var(--font-code); font-weight: 700; border: 1px solid; margin: 0 0.5em; cursor: pointer; transition: all 0.2s ease; }
+        .evidence-grade:hover { transform: scale(1.1); }
+        .evidence-grade[data-grade="A"] { border-color: var(--color-evidence-green); color: var(--color-evidence-green); }
+        .evidence-grade[data-grade="B"] { border-color: #3b82f6; color: #3b82f6; }
+        .evidence-grade[data-grade="C"] { border-color: #f97316; color: #f97316; }
+        .evidence-grade[data-grade="D"] { border-color: var(--color-blood-red); color: var(--color-blood-red); }
+        .suspect-lineup-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding: 2rem 0; }
+        .suspect-card { background: var(--color-deep-navy); border: 1px solid #333; padding: 1.5rem; text-align: center; cursor: crosshair; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; }
+        .suspect-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-color: var(--color-gold); }
+        .suspect-portrait { width: 100px; height: 100px; background-color: var(--color-redacted); background-size: cover; background-position: center; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #555; }
+        .suspect-portrait[data-suspect="dawson"] { background-image: linear-gradient(to top, #000000c0, #00000080), url(images/suspect-dawson.jpg); }
+        .suspect-portrait[data-suspect="hinton"] { background-image: linear-gradient(to top, #000000c0, #00000080), url(images/suspect-hinton.jpg); }
+        .suspect-portrait[data-suspect="teilhard"] { background-image: linear-gradient(to top, #000000c0, #00000080), url(images/suspect-teilhard.jpg); }
+        .suspect-portrait[data-suspect="doyle"] { background-image: linear-gradient(to top, #000000c0, #00000080), url(images/suspect-doyle.jpg); }
+        .suspect-card h3 { color: var(--color-fog-white); font-size: 1.2rem; }
+        .suspect-card p { font-size: 0.9rem; color: #aaa; margin-bottom: 0; }
+        .most-likely-badge { position: absolute; top: 10px; right: 10px; background: var(--color-gold); color: var(--color-near-black); font-family: var(--font-code); font-size: 0.7rem; padding: 3px 6px; border-radius: 3px; opacity: 0; transition: opacity 0.5s ease; }
+        .most-likely-badge.visible { opacity: 1; }
+        .dossier-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 100; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+        .dossier-content { background: var(--color-deep-navy); padding: 2rem; border: 1px solid var(--color-gold); width: 90%; max-width: 700px; max-height: 90vh; overflow-y: auto; }
+        #close-dossier { float: right; cursor: pointer; font-size: 1.5rem; line-height: 1; }
+        #theory-vote { text-align: center; }
+        .vote-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .vote-card { background: var(--color-deep-navy); border: 1px solid #333; padding: 1rem; cursor: crosshair; transition: all 0.3s ease; position: relative; }
+        .vote-card:hover { border-color: var(--color-gold); transform: scale(1.05); }
+        .vote-card.voted { border-color: var(--color-evidence-green); transform: scale(1.05); }
+        .vote-result-bar { position: absolute; bottom: 0; left: 0; height: 5px; background: var(--color-gold); width: 0; transition: width 1s ease-out; }
+        .vote-percentage { position: absolute; bottom: 10px; right: 10px; font-family: var(--font-code); opacity: 0; transition: opacity 0.5s 0.5s ease; }
+        .vote-card.voted .vote-percentage { opacity: 1; }
+        .actual-answer { margin-top: 2rem; padding: 1rem; background: var(--color-deep-navy); border: 1px solid var(--color-blood-red); display: none; }
+        .timeline-container { width: 100%; overflow-x: auto; padding: 2rem 0; white-space: nowrap; background: #00000033; border-radius: 4px; }
+        .timeline { display: inline-flex; position: relative; padding: 2rem 0; }
+        .timeline::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: #444; transform: translateY(-1px); }
+        .timeline-event { position: relative; display: flex; flex-direction: column; align-items: center; min-width: 150px; }
+        .event-dot { width: 16px; height: 16px; background: var(--color-fog-white); border: 2px solid var(--color-deep-navy); border-radius: 50%; z-index: 1; cursor: pointer; transition: background-color 0.3s; }
+        .timeline-event.active .event-dot { background-color: var(--color-gold); }
+        .event-year { position: absolute; top: calc(50% + 20px); font-family: var(--font-code); font-size: 0.9rem; }
+        .event-details { display: none; position: absolute; bottom: calc(50% + 30px); width: 200px; background: var(--color-deep-navy); border: 1px solid #555; padding: 1rem; white-space: normal; z-index: 2; border-radius: 4px; }
+        .timeline-event.active .event-details { display: block; }
+        .silence-gap { width: 400px; text-align: center; position: relative; display: flex; align-items: center; justify-content: center; }
+        .silence-gap::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 4px; background: var(--color-blood-red); transform: translateY(-2px); }
+        .silence-label { color: var(--color-blood-red); font-family: var(--font-code); position: relative; z-index: 1; background: var(--color-near-black); padding: 0 10px; }
+        #dashboard { text-align: center; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; text-align: left; }
+        .dashboard-metric { background: var(--color-deep-navy); padding: 1.5rem; border-radius: 4px; }
+        .counter { font-size: 3rem; font-family: var(--font-code); color: var(--color-gold); }
+        .evidence-filter { margin: 2rem 0; text-align: center; }
+        .filter-btn { background: transparent; border: 1px solid var(--color-fog-white); color: var(--color-fog-white); padding: 0.5rem 1rem; margin: 0 0.5rem; cursor: pointer; border-radius: 20px; }
+        .filter-btn.active { background: var(--color-gold); color: var(--color-near-black); border-color: var(--color-gold); }
+        .evidence-list-item { background: var(--color-deep-navy); margin-bottom: 1rem; padding: 1.2rem; display: block; border-radius: 4px; text-align: left; }
+        .share-btn { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background: var(--color-gold); color: var(--color-near-black); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer; z-index: 50; }
+        .end-cta { text-align: center; padding: 4rem 2rem; background: var(--color-deep-navy); margin-top: 5rem; border-top: 2px solid var(--color-gold); }
+        .email-capture { margin-top: 1.5rem; display: flex; justify-content: center; }
+        .email-input { padding: 0.8rem; background: var(--color-near-black); border: 1px solid #444; color: var(--color-fog-white); width: 60%; max-width: 300px; border-radius: 4px 0 0 4px; }
+        .subscribe-btn { padding: 0.8rem 1.2rem; background: var(--color-gold); color: var(--color-near-black); border: none; cursor: pointer; border-radius: 0 4px 4px 0; font-weight: bold; }
+        .next-case-teaser { margin-top: 4rem; border: 1px dashed #444; padding: 2rem; border-radius: 4px; }
+        .sound-toggle { position: fixed; bottom: 20px; left: 20px; font-size: 1.5rem; cursor: pointer; z-index: 50; opacity: 0.5; transition: opacity 0.3s ease; }
+        .sound-toggle:hover { opacity: 1; }
+        .sound-toggle.active { color: var(--color-gold); }
+        @media (max-width: 768px) {
+            body { font-size: 16px; }
+            .container { width: 95%; }
+            .suspect-lineup-container { grid-template-columns: 1fr; }
+            .vote-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-  <div class="grain-overlay"></div>
 
-  <nav class="sidebar-nav" aria-label="Case Sections">
-    <div class="brand">HistorIQly</div>
-    <ul>
-      <li><a href="#cover">Case Cover</a></li>
-      <li><a href="#briefing">Case Briefing</a></li>
-      <li><a href="#evidence">Evidence Map</a></li>
-      <li><a href="#timeline">Timeline</a></li>
-      <li><a href="#scoreboard">Theory Scoreboard</a></li>
-      <li><a href="#verdict">Final Verdict</a></li>
-      <li><a href="#appendix">Appendix</a></li>
-    </ul>
-  </nav>
+    <div class="sound-toggle" id="sound-toggle">🔊</div>
+    <div class="share-btn" id="share-btn" title="Share this investigation">🔗</div>
+    <div id="progress-bar"><div id="progress-bar-fill"></div></div>
 
-  <main class="main-content">
-    <section id="cover" class="page cover-page">
-      <div class="cover-frame">
-        <div class="bottom-left"></div>
-        <div class="bottom-right"></div>
-      </div>
-      <div class="stamp">Declassified</div>
-      
-      <header>
-        <div class="kicker">AI Casefiles by HistorIQly</div>
-        <p class="muted">Case #001 · Volume 1: Hoaxes, Forgeries & Frauds</p>
-      </header>
-
-      <div class="cover-body">
-        <h1>The Piltdown Man</h1>
-        <p class="small muted" style="max-width: 50ch; margin: 1rem auto 2rem;">A forensic reconstruction of the most consequential paleoanthropological fraud of the 20th century.</p>
-        <div class="classification">Scientific Fraud (Confirmed)</div>
-      </div>
-      
-      <footer class="brand-footer">
-        <span>HistorIQly Intelligence Unit</span>
-        <span>Premium Dossier Edition</span>
-      </footer>
+    <section id="chapter-1" class="chapter">
+        <div class="container">
+            <div class="narrative-text">
+                <h1>The Piltdown File</h1>
+                <h2>An Interactive Casefile</h2>
+                <p>I opened the file on a wet morning. The kind of morning when paper curls at the edges and old lies feel fresh again. On the cover: <strong>PILTDOWN MAN</strong>. Inside: forty-one years of fraud, a courtroom worth of scientists, and a jawbone that should never have met the skull beside it.</p>
+                <p>What follows is not a myth. It is evidence. And evidence has a smell. Wet clay. Pipe smoke. Museum dust. Let’s begin where every good crime begins - at the scene.</p>
+            </div>
+        </div>
     </section>
 
-    <section id="briefing" class="page">
-      <div class="kicker">Case Briefing</div>
-      <h2>Case #001: The Piltdown Man</h2>
-      <div class="meta-grid">
-        <div class="meta-item"><div class="label">Period</div><div>1912-1953</div></div>
-        <div class="meta-item"><div class="label">Location</div><div>Piltdown, East Sussex, England</div></div>
-        <div class="meta-item"><div class="label">Classification</div><div>Scientific Fraud (Confirmed)</div></div>
-        <div class="meta-item"><div class="label">Case Status</div><div>Closed - Forgery Conclusively Proven</div></div>
-      </div>
-      <div class="panel">
-        <div class="bottom-left"></div><div class="bottom-right"></div>
-        <h3>Executive Summary</h3>
-        <p>In 1912, amateur archaeologist Charles Dawson and British Museum geologist Arthur Smith Woodward announced the discovery of a "missing link" hominid, <em>Eoanthropus dawsoni</em>. For 41 years, the "Piltdown Man" profoundly influenced the study of human evolution, steering scientific consensus towards a European origin for humankind. It wasn't until 1953 that a rigorous combination of fluorine dating, microscopy, and chemical analysis exposed the specimen as a deliberate and elaborate fabrication: a medieval human cranium paired with a modern orangutan jaw, its teeth artificially filed and all parts stained to simulate great age. A comprehensive 2016 review using CT scanning and DNA analysis confirmed a single, consistent forging methodology, solidifying the Piltdown Man's legacy as one of science's most audacious hoaxes.</p>
-      </div>
-      <h3 style="margin-top:3rem;">Key Figures</h3>
-      <table>
-        <thead><tr><th>Name</th><th>Role</th><th>Relevance</th></tr></thead>
-        <tbody>
-          <tr><td>Charles Dawson</td><td>Amateur archaeologist, solicitor</td><td>Primary suspect; associated with 38+ fraudulent discoveries.</td></tr>
-          <tr><td>Arthur Smith Woodward</td><td>British Museum geologist</td><td>Co-announced Piltdown and defended it vehemently for life.</td></tr>
-          <tr><td>Arthur Keith</td><td>Anatomist & Anthropologist</td><td>Influential voice who championed and reconstructed the specimen.</td></tr>
-          <tr><td>Pierre Teilhard de Chardin</td><td>Jesuit paleontologist</td><td>Found the controversial canine tooth in 1913, raising suspicions.</td></tr>
-          <tr><td>Martin A.C. Hinton</td><td>Zoologist & Museum Keeper</td><td>Alternative suspect due to a trunk of stained bones found in his effects.</td></tr>
-          <tr><td>Kenneth Oakley</td><td>British Museum scientist</td><td>Applied fluorine dating, a key step in exposing the fraud (1949-1953).</td></tr>
-        </tbody>
-      </table>
+    <section id="chapter-2" class="chapter">
+        <div class="container">
+            <div class="narrative-text">
+                <h2>1) The Discovery</h2>
+                <p>Sussex, 1912. The gravel pit at Barkham Manor was a wound in the earth. Charles Dawson, an amateur antiquarian, claimed to have found fragments of a skull with a modern-looking vault but a primitive, ape-like jaw. He brought his finds to Arthur Smith Woodward, a paleontologist at the British Museum.</p>
+                <p>Together, they presented *Eoanthropus dawsoni*—Dawson's Dawn-Man. It was hailed as the "missing link," a perfect fit for the theory that human evolution began with the brain. The discovery put England at the center of the paleontological map. A canine tooth found by Pierre Teilhard de Chardin in 1913, and a second site, "Piltdown II," announced by Dawson in 1915, cemented the find's authenticity. Then, in 1916, Dawson died, taking the secret of Piltdown II's exact location with him.</p>
+                <p>The world had its dawn-man. But the bones had started talking.
+                    <span class="evidence-grade interactive-element" data-grade="A" data-title="Geological Society Announcement (1912)">GRADE A</span>
+                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Dawson’s First Fragment Account (1908)">GRADE B</span>
+                </p>
+            </div>
+        </div>
     </section>
 
-    <hr class="decorative">
-
-    <section id="evidence" class="page">
-      <div class="kicker">Evidence Map</div>
-      <h2>Source Reliability Matrix</h2>
-      <p class="muted">Evidence is graded on a four-tier scale: A (Forensic Proof), B (Strong Secondary/Contemporary), C (Circumstantial), and D (Weak/Hearsay).</p>
-      <div class="evidence-grid">
-        <article class="evidence-card grade-a">
-          <div class="badge badge-a">A GRADE</div>
-          <h3>Fluorine Absorption (1949-50)</h3>
-          <p>Oakley's initial tests proved the skull and jaw were far younger than associated Piltdown gravel fossils, firing the first definitive shot against orthodoxy.</p>
-        </article>
-        <article class="evidence-card grade-a">
-          <div class="badge badge-a">A GRADE</div>
-          <h3>Full Forensic Suite (1953)</h3>
-          <p>The conclusive exposé. Revised fluorine, nitrogen, and uranium tests established a medieval human cranium combined with a modern orangutan jaw.</p>
-        </article>
-        <article class="evidence-card grade-a">
-          <div class="badge badge-a">A GRADE</div>
-          <h3>Microscopic Analysis</h3>
-          <p>Revealed clear, unmistakable file marks on the molar and canine teeth, artificially creating wear patterns to mimic a human-like diet.</p>
-        </article>
-        <article class="evidence-card grade-a">
-          <div class="badge badge-a">A GRADE</div>
-          <h3>Chemical Staining Profile</h3>
-          <p>Analysis showed the dark coloration was a superficial stain from potassium dichromate and iron salts, not the result of deep fossilization.</p>
-        </article>
-        <article class="evidence-card grade-a">
-          <div class="badge badge-a">A GRADE</div>
-          <h3>Royal Society Review (2016)</h3>
-          <p>Modern analysis using CT scans, DNA sequencing, and spectroscopy confirmed a single orangutan source and a consistent modus operandi for all pieces.</p>
-        </article>
-        <article class="evidence-card grade-b">
-          <div class="badge badge-b">B GRADE</div>
-          <h3>Waterston's Objection (1913)</h3>
-          <p>Published in <em>Nature</em>, this early dissent argued correctly that an ape mandible and a human skull simply did not belong together.</p>
-        </article>
-        <article class="evidence-card grade-b">
-          <div class="badge badge-b">B GRADE</div>
-          <h3>Weidenreich's Diagnosis (1923)</h3>
-          <p>Franz Weidenreich correctly identified the forgery decades before its official exposure: a modern human cranium and an orangutan jaw with filed teeth.</p>
-        </article>
-        <article class="evidence-card grade-b">
-          <div class="badge badge-b">B GRADE</div>
-          <h3>Dawson's Fraud Pattern</h3>
-          <p>Posthumous reviews of Charles Dawson's entire collection challenged the authenticity of virtually every major "discovery" attributed to him.</p>
-        </article>
-        <article class="evidence-card grade-c">
-          <div class="badge badge-c">C GRADE</div>
-          <h3>Teilhard's Canine Find (1913)</h3>
-          <p>The convenient discovery of the ape-like canine tooth at a moment it was critically needed to support the reconstruction remains highly suspicious.</p>
-        </article>
-        <article class="evidence-card grade-c">
-          <div class="badge badge-c">C GRADE</div>
-          <h3>Conan Doyle Hypothesis</h3>
-          <p>Speculation that the 'Sherlock Holmes' author, a spiritualist and neighbor, planted the hoax to mock the scientific establishment. Lacks any hard evidence.</p>
-        </article>
-        <article class="evidence-card grade-d">
-          <div class="badge badge-d">D GRADE</div>
-          <h3>Hinton's Trunk</h3>
-          <p>A trunk belonging to Martin Hinton containing bones stained in a similar manner was found in the 1970s, but the 2016 study found no link to the Piltdown material.</p>
-        </article>
-        <article class="evidence-card grade-d">
-          <div class="badge badge-d">D GRADE</div>
-          <h3>Confession Rumors</h3>
-          <p>Unverified deathbed confessions and third-hand accounts have surfaced over the years but lack any form of concrete corroboration.</p>
-        </article>
-      </div>
+    <section id="chapter-3" class="chapter">
+        <div class="container">
+            <div class="narrative-text">
+                <h2>2) The World That Wanted to Believe</h2>
+                <p>Piltdown arrived as an antidote to Britain's anxiety about falling behind Germany and France in fossil discoveries. It perfectly matched the "brain-first" model of evolution and flattered a nation's sense of prestige. Powerful figures like Henry Fairfield Osborn of the American Museum of Natural History endorsed it "without question," and the hoax became textbook fact.</p>
+                <div class="evidence-reveal interactive-element" id="evidence-1">
+                    <div class="evidence-card">
+                        <div class="evidence-front">
+                            <p class="redacted-text">The Piltdown forgery didn't just fool people; it actively steered research. For decades, other contradictory fossil finds with smaller braincases were dismissed or misinterpreted as evolutionary side-branches to make them fit the Piltdown-centric model of human ancestry.</p>
+                            <div class="declassify-prompt">[CLICK TO DECLASSIFY]</div>
+                        </div>
+                        <div class="evidence-back">
+                            <span>Hidden Context</span>
+                            <p>Piltdown's influence warped the field, delaying a correct understanding of human evolution for 40 years.</p>
+                        </div>
+                    </div>
+                </div>
+                <p>A lie that flatters powerful institutions will always outlive one that merely deceives individuals. And Piltdown flattered a nation.
+                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Osborn’s Endorsement (1921)">GRADE B</span>
+                    <span class="evidence-grade interactive-element" data-grade="A" data-title="Later Forensic Confirmation of Composite Nature">GRADE A</span>
+                </p>
+            </div>
+        </div>
     </section>
     
-    <hr class="decorative">
-
-    <section id="timeline" class="page">
-      <div class="kicker">Timeline Reconstruction</div>
-      <h2>Chronology of the Case</h2>
-      <div class="timeline">
-        <div class="timeline-item"><div class="timeline-date">1908</div><div class="timeline-content">Workman gives Charles Dawson a skull fragment from a gravel pit at Barkham Manor. <span class="muted">[Source: Dawson]</span></div></div>
-        <div class="timeline-item"><div class="timeline-date">1911</div><div class="timeline-content">Dawson reports finding a second, larger cranial fragment from the same site. <span class="muted">[Source: Dawson]</span></div></div>
-        <div class="timeline-item"><div class="timeline-date">Feb 1912</div><div class="timeline-content">Dawson presents his finds to Arthur Smith Woodward at the British Museum, initiating formal study.</div></div>
-        <div class="timeline-item"><div class="timeline-date">Jun-Sep 1912</div><div class="timeline-content">Joint excavations recover more skull pieces, the infamous jawbone half, stone tools, and fossil fauna.</div></div>
-        <div class="timeline-item"><div class="timeline-date">18 Dec 1912</div><div class="timeline-content"><em>Eoanthropus dawsoni</em> ("Dawson's Dawn-Man") is officially announced to the Geological Society of London.</div></div>
-        <div class="timeline-item"><div class="timeline-date">Aug 1913</div><div class="timeline-content">Pierre Teilhard de Chardin finds the crucial canine tooth that appears to confirm the ape-human link.</div></div>
-        <div class="timeline-item"><div class="timeline-date">1915</div><div class="timeline-content">Dawson announces the discovery of a second specimen ("Piltdown II") from a different site, cementing acceptance.</div></div>
-        <div class="timeline-item"><div class="timeline-date">Aug 1916</div><div class="timeline-content">Dawson dies of septicemia; the location of the "Piltdown II" site is never disclosed and remains unknown.</div></div>
-        <div class="gap-warning">⚠️ ORTHODOXY GAP (1916-1949): For over 30 years, Piltdown Man is enshrined in textbooks despite mounting inconsistencies. Minimal re-testing occurs.</div>
-        <div class="timeline-item"><div class="timeline-date">1949-1950</div><div class="timeline-content">Kenneth Oakley applies fluorine dating, delivering the first conclusive scientific proof of a significant age discrepancy.</div></div>
-        <div class="timeline-item"><div class="timeline-date">Nov 1953</div><div class="timeline-content">Definitive exposure. Weiner, Le Gros Clark, and Oakley publish their findings, proving the entire specimen is a composite forgery.</div></div>
-        <div class="timeline-item"><div class="timeline-date">2016</div><div class="timeline-content">A comprehensive Royal Society study confirms a single forger's consistent methodology across all fraudulent pieces.</div></div>
-      </div>
-    </section>
-    
-    <hr class="decorative">
-
-    <section id="scoreboard" class="page">
-      <div class="kicker">Theory Scoreboard</div>
-      <h2>Competing Explanations</h2>
-
-      <div class="theory-card most-likely">
-        <h3>Theory 1: Charles Dawson Acted Alone</h3>
-        <div class="score-bar-container">
-          <div class="score-bar score-bar-high" style="width:82%"></div>
-          <div class="score-text">AI Score: 82/100</div>
+    <section id="chapter-4" class="chapter">
+        <div class="container">
+            <div class="narrative-text">
+                <h2>3) The Doubters Nobody Listened To</h2>
+                <p>Not everyone was convinced. Three key experts raised alarms early on, but were ignored by the scientific establishment.</p>
+                <p>In 1913, anatomist <strong>David Waterston</strong> declared it was a mismatch of a human skull and an ape mandible. In 1915, French paleontologist <strong>Marcellin Boule</strong> agreed. In 1923, <strong>Franz Weidenreich</strong> called it with remarkable precision: a modern human cranium, an orangutan jaw, with filed-down teeth.</p>
+                <blockquote>"The jaw and skull are from different species." - Waterston’s essential warning, 1913</blockquote>
+                <p>They were right, but their voices were drowned out by the chorus of consensus, patriotism, and professional momentum.
+                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Waterston in Nature (1913)">GRADE B</span>
+                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Boule’s Critique (1915)">GRADE B</span>
+                    <span class="evidence-grade interactive-element" data-grade="B" data-title="Weidenreich’s Correct Analysis (1923)">GRADE B</span>
+                </p>
+            </div>
         </div>
-        <p><strong>Supporting:</strong> Single, consistent forger methodology (2016 study), single orangutan source, Dawson present at every discovery, history of 38+ other forgeries, no new finds after his death.</p>
-        <p><strong>Against:</strong> Lacked the apparent technical skill; sourcing of orangutan bones remains partly unresolved.</p>
-      </div>
-
-      <div class="theory-card">
-        <h3>Theory 2: Martin Hinton as Forger/Prankster</h3>
-        <div class="score-bar-container">
-          <div class="score-bar score-bar-medium" style="width:25%"></div>
-          <div class="score-text">AI Score: 25/100</div>
-        </div>
-        <p><strong>Supporting:</strong> The infamous trunk of stained bones, known to hold a grudge against Smith Woodward, had museum access and technical knowledge.</p>
-        <p><strong>Against:</strong> 2016 analysis found Hinton's staining method was different from the Piltdown specimens; no direct link established.</p>
-      </div>
-
-      <div class="theory-card">
-        <h3>Theory 3: Teilhard de Chardin as Co-Conspirator</h3>
-        <div class="score-bar-container">
-          <div class="score-bar score-bar-low" style="width:15%"></div>
-          <div class="score-text">AI Score: 15/100</div>
-        </div>
-        <p><strong>Supporting:</strong> Suspiciously convenient discovery of the canine tooth, early association with Dawson.</p>
-        <p><strong>Against:</strong> Weak motive, evidence for a single forger conflicts with a conspiracy, later expressed doubts about the find.</p>
-      </div>
-
-      <div class="theory-card">
-        <h3>Theory 4: Arthur Conan Doyle as Mastermind</h3>
-        <div class="score-bar-container">
-          <div class="score-bar score-bar-low" style="width:8%"></div>
-          <div class="score-text">AI Score: 8/100</div>
-        </div>
-        <p><strong>Supporting:</strong> Lived near Piltdown, was a vocal spiritualist critical of scientific materialism, had medical training.</p>
-        <p><strong>Against:</strong> Entirely circumstantial. No hard evidence, no documented link to Dawson, contradicted by modern forensic profile.</p>
-      </div>
     </section>
 
-    <hr class="decorative">
-
-    <section id="verdict" class="page">
-      <div class="kicker">Final Determination</div>
-      <h2>Verdict</h2>
-      <div class="panel verdict-panel">
-        <div class="bottom-left"></div><div class="bottom-right"></div>
-        <div class="gold-seal">Case Closed</div>
-        <div class="classification">Confirmed Scientific Fraud</div>
-        <div class="confidence-score">100/100</div>
-        <p class="muted">AI Confidence Score</p>
-        
-        <h3 style="margin-top:2rem;">Key Findings</h3>
-        <ul>
-          <li>The Piltdown Man was a deliberate and skillfully executed forgery, not a genuine fossil.</li>
-          <li>The specimen was a composite of a medieval-era human skull and a modern orangutan mandible.</li>
-          <li>The teeth were manually filed and the bones chemically stained to create a false appearance of antiquity.</li>
-          <li>The 2016 forensic analysis strongly indicates a single forger with a consistent M.O. was responsible.</li>
-          <li>The body of evidence, including motive, opportunity, and a documented pattern of similar academic fraud, points overwhelmingly to Charles Dawson as the principal architect of the hoax.</li>
-        </ul>
-      </div>
+    <section id="chapter-5" class="chapter">
+        <div class="container">
+            <div class="narrative-text">
+                <h2>4) The 26-Year Silence</h2>
+                <p>From 1923 to 1949, the case went cold. Piltdown Man was normalized, a fixture in museums and textbooks. The fraud became institutional memory. Critically, after Dawson's death in 1916, no new "Piltdown" fragments were ever found. The silence itself was a clue.</p>
+                <p>This interactive timeline shows the key events. Note the long, dramatic gap where the truth lay buried in plain sight.</p>
+            </div>
+            <!-- INTERACTIVE TIMELINE -->
+            <div class="timeline-container interactive-element narrative-text">
+                <div class="timeline">
+                    <div class="timeline-event" data-year="1912">
+                        <div class="event-dot"></div><div class="event-year">1912</div>
+                        <div class="event-details">Dawson & Woodward announce *Eoanthropus dawsoni*.</div>
+                    </div>
+                    <div class="timeline-event" data-year="1913">
+                        <div class="event-dot"></div><div class="event-year">1913</div>
+                        <div class="event-details">Teilhard de Chardin finds the canine tooth. Waterston publishes doubts.</div>
+                    </div>
+                    <div class="timeline-event" data-year="1915">
+                        <div class="event-dot"></div><div class="event-year">1915</div>
+                        <div class="event-details">Dawson announces "Piltdown II". Boule raises objections.</div>
+                    </div>
+                    <div class="timeline-event" data-year="1916">
+                        <div class="event-dot"></div><div class="event-year">1916</div>
+                        <div class="event-details">Charles Dawson dies. The discoveries stop.</div>
+                    </div>
+                    <div class="timeline-event" data-year="1923">
+                        <div class="event-dot"></div><div class="event-year">1923</div>
+                        <div class="event-details">Weidenreich correctly identifies the forgery. He is ignored.</div>
+                    </div>
+                    <div class="silence-gap">
+                        <span class="silence-label">26 YEARS OF SILENCE</span>
+                    </div>
+                    <div class="timeline-event" data-year="1949">
+                        <div class="event-dot"></div><div class="event-year">1949</div>
+                        <div class="event-details">Kenneth Oakley applies fluorine dating. The results are anomalous.</div>
+                    </div>
+                     <div class="timeline-event" data-year="1953">
+                        <div class="event-dot"></div><div class="event-year">1953</div>
+                        <div class="event-details">The forgery is officially exposed by Oakley, Weiner, and Le Gros Clark.</div>
+                    </div>
+                     <div class="timeline-event" data-year="2016">
+                        <div class="event-dot"></div><div class="event-year">2016</div>
+                        <div class="event-details">Forensic analysis confirms a single forger: Charles Dawson.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="appendix" class="page">
-      <div class="kicker">Appendix</div>
-      <h2>Source Registry & Reading</h2>
-      <table>
-        <thead><tr><th>#</th><th>Source</th><th>Grade</th><th>Type</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>De Groote et al. Royal Society (2016)</td><td>A</td><td>CT, DNA, Spectroscopy</td></tr>
-          <tr><td>2</td><td>Oakley, Weiner & Le Gros Clark (1953)</td><td>A</td><td>Chemical + Microscopy</td></tr>
-          <tr><td>3</td><td>Oakley fluorine tests (1949-50)</td><td>A</td><td>Chemical Analysis</td></tr>
-          <tr><td>4</td><td>Geological Society proceedings (1912)</td><td>A</td><td>Primary Record</td></tr>
-          <tr><td>5</td><td>Russell, Miles. <em>Piltdown Man: The Secret Life...</em> (2003)</td><td>B</td><td>Fraud Inventory/Biography</td></tr>
-          <tr><td>6</td><td>Weidenreich, Franz. Analysis (1923)</td><td>B</td><td>Correct Identification</td></tr>
-          <tr><td>7</td><td>Waterston, David. <em>Nature</em> (1913)</td><td>B</td><td>Contemporary Dissent</td></tr>
-          <tr><td>8</td><td>Gould, Stephen J. <em>The Piltdown Conspiracy</em> (1980)</td><td>C</td><td>Theoretical Argument</td></tr>
-          <tr><td>9</td><td>Hinton trunk discovery (1970s)</td><td>D</td><td>Unlinked Physical Evidence</td></tr>
-        </tbody>
-      </table>
-
-      <h3 style="margin-top:3rem;">Recommended Reading</h3>
-      <ul style="list-style-type: '» '; padding-left: 2rem; font-size: 1.1em;">
-        <li>De Groote, I. et al. "New genetic and morphological evidence suggests a single hoaxer created Piltdown Man." <em>Royal Society Open Science</em>, 2016.</li>
-        <li>Russell, Miles. <em>Piltdown Man: The Secret Life of Charles Dawson and the World's Greatest Archaeological Hoax</em>. Tempus, 2003.</li>
-        <li>Walsh, John Evangelist. <em>Unraveling Piltdown: The Science, the Fraud, and the Story</em>. Random House, 1996.</li>
-        <li>Spencer, Frank. <em>Piltdown: A Scientific Forgery</em>. Oxford University Press, 1990.</li>
-      </ul>
+    <section id="chapter-6" class="chapter">
+        <div class="container">
+            <div class="narrative-text">
+                <h2>5) The Unraveling</h2>
+                <p>In the late 1940s, Kenneth Oakley used fluorine dating to test the bones. The results were damning: the bones were far too young. A full investigation with Joseph Weiner and Wilfrid Le Gros Clark followed.</p>
+                <p>Microscopes revealed file marks on the teeth. Chemical tests showed the bones were artificially stained with potassium dichromate. The cranium was medieval, the jaw was from a modern orangutan. It wasn't a mistake; it was a methodical, creative fabrication.</p>
+                 <span class="evidence-grade interactive-element" data-grade="A" data-title="Oakley Fluorine Tests (1949-50)">GRADE A</span>
+                 <span class="evidence-grade interactive-element" data-grade="A" data-title="Oakley-Weiner-Le Gros Clark Exposure (1953)">GRADE A</span>
+                 <span class="evidence-grade interactive-element" data-grade="A" data-title="Microscopic Filing Marks">GRADE A</span>
+                 <span class="evidence-grade interactive-element" data-grade="A" data-title="Chemical Staining Analysis">GRADE A</span>
+            </div>
+        </div>
     </section>
-    
-    <footer class="site-footer">
-      <p>AI Casefiles by <a href="https://books.historiqly.com" target="_blank">HistorIQly</a></p>
-      <p class="muted">Case #001 | Volume 1: Hoaxes, Forgeries & Frauds</p>
+
+    <section id="chapter-7" class="chapter">
+        <div class="container">
+            <div class="narrative-text">
+                <h2>6) The Suspects</h2>
+                <p>The science exposed the trick. But who was the forger? Four names are in the frame.</p>
+            </div>
+            <!-- SUSPECT LINEUP -->
+            <div class="suspect-lineup-container narrative-text">
+                <div class="suspect-card interactive-element" data-suspect="dawson">
+                    <div class="most-likely-badge">Most Likely</div>
+                    <div class="suspect-portrait" data-suspect="dawson"></div>
+                    <h3>Charles Dawson</h3>
+                    <p>The Ambitious Amateur</p>
+                </div>
+                <div class="suspect-card interactive-element" data-suspect="hinton">
+                     <div class="most-likely-badge">Most Likely</div>
+                    <div class="suspect-portrait" data-suspect="hinton"></div>
+                    <h3>Martin Hinton</h3>
+                    <p>The Museum Insider</p>
+                </div>
+                <div class="suspect-card interactive-element" data-suspect="teilhard">
+                     <div class="most-likely-badge">Most Likely</div>
+                    <div class="suspect-portrait" data-suspect="teilhard"></div>
+                    <h3>Pierre Teilhard de Chardin</h3>
+                    <p>The Convenient Priest</p>
+                </div>
+                <div class="suspect-card interactive-element" data-suspect="doyle">
+                     <div class="most-likely-badge">Most Likely</div>
+                    <div class="suspect-portrait" data-suspect="doyle"></div>
+                    <h3>Arthur Conan Doyle</h3>
+                    <p>The Wildcard Author</p>
+                </div>
+            </div>
+             <div class="narrative-text">
+                <p>A 2016 forensic analysis pointed to a single forger with a consistent methodology. Based on motive, means, and a pattern of other frauds, one name stands out. But before the final verdict, it's your turn.</p>
+            </div>
+            <!-- INTERACTIVE THEORY VOTE -->
+            <div id="theory-vote" class="narrative-text">
+                <h2>Who was the Forger?</h2>
+                <p>Based on the evidence, cast your vote. Who was the primary architect of the hoax?</p>
+                <div class="vote-grid">
+                    <div class="vote-card interactive-element" data-suspect="dawson">
+                        <h3>Charles Dawson</h3>
+                        <div class="vote-result-bar"></div><div class="vote-percentage">0%</div>
+                    </div>
+                    <div class="vote-card interactive-element" data-suspect="hinton">
+                        <h3>Martin Hinton</h3>
+                        <div class="vote-result-bar"></div><div class="vote-percentage">0%</div>
+                    </div>
+                    <div class="vote-card interactive-element" data-suspect="teilhard">
+                        <h3>Pierre Teilhard de Chardin</h3>
+                        <div class="vote-result-bar"></div><div class="vote-percentage">0%</div>
+                    </div>
+                    <div class="vote-card interactive-element" data-suspect="doyle">
+                        <h3>Arthur Conan Doyle</h3>
+                        <div class="vote-result-bar"></div><div class="vote-percentage">0%</div>
+                    </div>
+                </div>
+                <div class="actual-answer">
+                    <h3>The Verdict</h3>
+                    <p>While theories involving Hinton, Teilhard, and even Conan Doyle have been proposed, modern forensic analysis from 2016 confirmed a single, consistent modus operandi. This, combined with his central role in all discoveries and a history of other antiquarian forgeries, makes <strong>Charles Dawson</strong> the undeniable architect of the Piltdown hoax.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL VERDICT & DASHBOARD -->
+    <section id="chapter-8" class="chapter">
+        <div class="container">
+            <!-- EVIDENCE ENGINE DASHBOARD -->
+            <div id="dashboard" class="narrative-text">
+                <h2>Evidence Dashboard</h2>
+                <div class="dashboard-grid">
+                    <div class="dashboard-metric">
+                        <h4>Case Confidence</h4>
+                        <p class="counter" data-target="100">0</p>
+                    </div>
+                    <div class="dashboard-metric">
+                        <h4>Total Evidence Items</h4>
+                        <p class="counter" data-target="12">0</p>
+                    </div>
+                </div>
+                <div class="evidence-filter">
+                    <button class="filter-btn active" data-filter="all">All (12)</button>
+                    <button class="filter-btn" data-filter="A">A (6)</button>
+                    <button class="filter-btn" data-filter="B">B (5)</button>
+                    <button class="filter-btn" data-filter="C">C (1)</button>
+                    <button class="filter-btn" data-filter="D">D (0)</button>
+                </div>
+                <div class="evidence-list">
+                    <div class="evidence-list-item" data-grade="A"><strong>Geological Society Announcement (1912):</strong> High-impact primary source.</div>
+                    <div class="evidence-list-item" data-grade="B"><strong>Dawson’s First Fragment Account (1908):</strong> Key narrative, but self-reported.</div>
+                    <div class="evidence-list-item" data-grade="B"><strong>Osborn’s Endorsement (1921):</strong> Shows institutional buy-in, not direct evidence.</div>
+                    <div class="evidence-list-item" data-grade="A"><strong>Later Forensic Confirmation:</strong> Definitive physical proof of composite.</div>
+                    <div class="evidence-list-item" data-grade="B"><strong>Waterston in Nature (1913):</strong> Correct, but ignored contemporary account.</div>
+                    <div class="evidence-list-item" data-grade="B"><strong>Boule’s Critique (1915):</strong> Correct, but ignored contemporary account.</div>
+                    <div class="evidence-list-item" data-grade="B"><strong>Weidenreich’s Analysis (1923):</strong> Correct, but ignored contemporary account.</div>
+                    <div class="evidence-list-item" data-grade="A"><strong>Oakley Fluorine Tests (1949-50):</strong> First chemical proof of fraud.</div>
+                    <div class="evidence-list-item" data-grade="A"><strong>Oakley-Weiner-Clark Exposure (1953):</strong> The definitive, multi-pronged exposure.</div>
+                    <div class="evidence-list-item" data-grade="A"><strong>Microscopic Filing Marks:</strong> Irrefutable proof of intentional modification.</div>
+                    <div class="evidence-list-item" data-grade="A"><strong>Chemical Staining Analysis:</strong> Irrefutable proof of artificial aging.</div>
+                    <div class="evidence-list-item" data-grade="C"><strong>Hinton Trunk Discovery:</strong> Circumstantial, not directly linked to Piltdown.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="end-cta">
+        <h2>This was Case #001.</h2>
+        <p>219 more investigations await.</p>
+        <div class="email-capture">
+            <input type="email" class="email-input" placeholder="Enter email for new case alerts">
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+        <div class="next-case-teaser">
+            <h3>Next Case: The Lost Colony of Roanoke</h3>
+            <p>A vanished settlement, a cryptic message, and a mystery that has endured for over 400 years.</p>
+        </div>
     </footer>
-  </main>
+    
+    <div id="dossier-modal" class="dossier-modal">
+        <div class="dossier-content">
+            <span id="close-dossier" class="interactive-element">&times;</span>
+            <h2 id="dossier-name"></h2>
+            <p id="dossier-details"></p>
+        </div>
+    </div>
 
-  <script>
-    // Simple active link highlighting for sidebar
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('section.page');
-      const navLinks = document.querySelectorAll('.sidebar-nav a');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            navLinks.forEach(link => {
-              link.style.borderColor = 'transparent';
-              link.style.color = 'var(--text-secondary)';
-              if (link.getAttribute('href').substring(1) === entry.target.id) {
-                link.style.borderColor = 'var(--gold-primary)';
-                link.style.color = 'var(--text-primary)';
-              }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
             });
-          }
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.narrative-text').forEach(el => observer.observe(el));
+        
+        const progressBarFill = document.getElementById('progress-bar-fill');
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            progressBarFill.style.width = scrollPercent + '%';
         });
-      }, { threshold: 0.5, rootMargin: '-50% 0px -50% 0px' });
 
-      sections.forEach(section => observer.observe(section));
+        document.querySelectorAll('.evidence-reveal .redacted-text').forEach(el => {
+            el.addEventListener('click', () => {
+                el.classList.add('declassified');
+                el.closest('.evidence-reveal').classList.add('unfolded');
+            });
+        });
+        
+        const dossierModal = document.getElementById('dossier-modal');
+        const dossierName = document.getElementById('dossier-name');
+        const dossierDetails = document.getElementById('dossier-details');
+        const suspectData = {
+            dawson: { name: 'Charles Dawson', details: 'The ambitious amateur solicitor who "discovered" all the key fossils. He was present at every critical juncture, and the discoveries mysteriously stopped after his death. A posthumous review of his collection revealed dozens of other fakes or misrepresentations. Motive: Scientific fame and entry into the Royal Society.' },
+            hinton: { name: 'Martin A. C. Hinton', details: 'A museum zoologist who reportedly had a grudge against Arthur Smith Woodward. A trunk with his initials found in the 1970s contained bones artificially stained in a manner similar to the Piltdown fossils. The "grudge" theory suggests he may have planted the fakes to humiliate Woodward.' },
+            teilhard: { name: 'Pierre Teilhard de Chardin', details: 'A young Jesuit priest and aspiring paleontologist who participated in the digs. He found the crucial canine tooth in 1913. Suspicion arises from the convenience of his discovery and some ambiguous statements in his later letters, but a clear motive for masterminding the hoax is lacking.' },
+            doyle: { name: 'Sir Arthur Conan Doyle', details: 'The creator of Sherlock Holmes, who lived near Piltdown. As a fervent spiritualist, he was often in conflict with the scientific establishment. The theory suggests he may have planted the hoax to embarrass the scientists who debunked his spiritualist beliefs. It remains highly speculative with no direct evidence.' }
+        };
+
+        document.querySelectorAll('.suspect-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const suspectKey = card.dataset.suspect;
+                dossierName.textContent = suspectData[suspectKey].name;
+                dossierDetails.textContent = suspectData[suspectKey].details;
+                dossierModal.style.display = 'flex';
+            });
+        });
+        document.getElementById('close-dossier').addEventListener('click', () => dossierModal.style.display = 'none');
+        dossierModal.addEventListener('click', (e) => { if(e.target === dossierModal) dossierModal.style.display = 'none'; });
+
+        const voteCards = document.querySelectorAll('.vote-card');
+        const actualAnswer = document.querySelector('.actual-answer');
+        let hasVoted = false;
+
+        voteCards.forEach(card => {
+            card.addEventListener('click', () => {
+                if (hasVoted) return;
+                hasVoted = true;
+                
+                const historicVote = { dawson: 82, hinton: 25, teilhard: 15, doyle: 8 }; // Sums > 100 is intentional, represents poll overlap
+                const realWinner = 'dawson';
+
+                voteCards.forEach(vc => {
+                    const suspect = vc.dataset.suspect;
+                    const percentage = historicVote[suspect];
+                    vc.querySelector('.vote-result-bar').style.width = percentage + '%';
+                    vc.querySelector('.vote-percentage').textContent = percentage + '%';
+                    vc.classList.add('voted');
+                    if (vc.dataset.suspect === card.dataset.suspect) {
+                        vc.style.borderColor = 'var(--color-evidence-green)';
+                    }
+                });
+                
+                setTimeout(() => {
+                    actualAnswer.style.display = 'block';
+                    actualAnswer.classList.add('is-visible');
+                    const winnerCard = document.querySelector(`.suspect-card[data-suspect="${realWinner}"] .most-likely-badge`);
+                    if(winnerCard) winnerCard.classList.add('visible');
+                }, 1000);
+            });
+        });
+
+        document.querySelectorAll('.timeline-event .event-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                const parentEvent = dot.parentElement;
+                const isActive = parentEvent.classList.contains('active');
+                dot.closest('.timeline').querySelectorAll('.timeline-event').forEach(el => el.classList.remove('active'));
+                if (!isActive) parentEvent.classList.add('active');
+            });
+        });
+
+        const dashboardObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.counter').forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        let current = 0;
+                        const interval = setInterval(() => {
+                            current++;
+                            counter.innerText = current;
+                            if (current >= target) clearInterval(interval);
+                        }, 1500 / target);
+                    });
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        if(document.querySelector('#dashboard')) dashboardObserver.observe(document.querySelector('#dashboard'));
+
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const evidenceItems = document.querySelectorAll('.evidence-list-item');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                evidenceItems.forEach(item => {
+                    item.style.display = (filter === 'all' || item.dataset.grade === filter) ? 'block' : 'none';
+                });
+            });
+        });
+
+        document.getElementById('share-btn').addEventListener('click', () => {
+            navigator.clipboard.writeText(window.location.href).then(() => alert('Investigation link copied!')).catch(() => alert('Copy failed.'));
+        });
+        
+        document.getElementById('sound-toggle').addEventListener('click', (e) => {
+            e.target.classList.toggle('active');
+            alert('Sound toggled. (Audio not implemented).');
+        });
     });
-  </script>
+    </script>
 </body>
 </html>
