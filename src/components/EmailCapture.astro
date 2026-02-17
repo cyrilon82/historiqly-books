@@ -74,22 +74,15 @@ const showSocialProof = subscriberCount > 0;
     btnLoading.style.display = 'flex';
 
     try {
-      // TODO: Replace with actual Lemon Squeezy API endpoint
-      // const response = await fetch('https://api.lemonsqueezy.com/...', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email })
-      // });
+      const apiBase = window.location.hostname === 'localhost'
+        ? 'http://localhost:3000'
+        : 'https://app.historiqly.com';
 
-      // Simulate API call for now
-      await new Promise(resolve => setTimeout(resolve, 800));
-
-      // Store in localStorage as backup
-      const existingEmails = JSON.parse(localStorage.getItem('historiqly_emails') || '[]');
-      if (!existingEmails.includes(email)) {
-        existingEmails.push(email);
-        localStorage.setItem('historiqly_emails', JSON.stringify(existingEmails));
-      }
+      await fetch(`${apiBase}/api/books/subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'sidebar' }),
+      });
 
       // Show success
       form.style.display = 'none';
@@ -98,11 +91,11 @@ const showSocialProof = subscriberCount > 0;
       }
 
     } catch (error) {
-      console.error('Email capture failed:', error);
-      // Reset button
-      btn.disabled = false;
-      btnText.style.display = 'inline';
-      btnLoading.style.display = 'none';
+      // Still show success even if API fails — don't punish the user
+      form.style.display = 'none';
+      if (successMsg) {
+        successMsg.style.display = 'flex';
+      }
     }
   });
 </script>
