@@ -6,11 +6,11 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
 const images = {
   hero: '/cases/images/kujau-painting.jpg',
   kujau: '/cases/images/suspect-kujau.jpg',
-  kujauGallery: '/cases/images/kujau-gallery.jpg',
   trevorRoper: '/cases/images/suspect-trevor-roper.jpg',
+  heidemann: '/cases/images/heidemann.jpg',
   murdoch: '/cases/images/suspect-murdoch.jpg',
   forgedSignature: '/cases/images/forged-signature.jpg',
-  kujauArchive: '/cases/images/kujau-archive.jpg',
+  fhMonogram: '/cases/images/fh-ah-monogram.svg',
 };
 ---
 
@@ -142,8 +142,19 @@ const images = {
 
         <!-- Item 2 -->
         <div class="evidence-card">
-          <div class="evidence-visual">
-            <img src={images.kujauGallery} alt="Konrad Kujau in his Stuttgart gallery" />
+          <div class="evidence-visual uv-visual">
+            <div class="uv-glow-card">
+              <div class="uv-label">UV 365nm</div>
+              <div class="uv-result">BLANKOPHOR<br/><span class="uv-sub">DETECTED</span></div>
+              <div class="uv-bars">
+                <div class="uv-bar" style="height:85%"></div>
+                <div class="uv-bar" style="height:62%"></div>
+                <div class="uv-bar" style="height:94%"></div>
+                <div class="uv-bar" style="height:78%"></div>
+                <div class="uv-bar" style="height:100%"></div>
+              </div>
+              <div class="uv-footer">OPTICAL BRIGHTENER — POST-1954</div>
+            </div>
             <div class="visual-overlay">
                <span class="overlay-label">MATERIAL ANALYSIS</span>
             </div>
@@ -156,8 +167,8 @@ const images = {
 
         <!-- Item 3 -->
         <div class="evidence-card">
-          <div class="evidence-visual">
-            <img src={images.kujauArchive} alt="Kujau's gallery and archive" />
+          <div class="evidence-visual monogram-visual">
+            <img src={images.fhMonogram} alt="FH vs AH — the Gothic initials Kujau stamped on all 62 diary covers" />
             <div class="visual-overlay">
                <span class="overlay-label">THE FH MONOGRAM</span>
             </div>
@@ -249,6 +260,17 @@ const images = {
             <span class="figure-role">The Authenticator</span>
             <h3>Hugh Trevor-Roper</h3>
             <p>Oxford's Regius Professor of History and author of <em>The Last Days of Hitler</em>. Flown to a Swiss bank vault under time pressure, he authenticated the diaries — then publicly reversed himself within days. The humiliation followed him to his grave.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.heidemann} alt="Gerd Heidemann, 2017" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Journalist</span>
+            <h3>Gerd Heidemann</h3>
+            <p>Stern's star reporter and a Nazi memorabilia obsessive who owned Hermann Göring's former yacht. He brokered the diary deal, convinced his editors to pay millions — and embezzled roughly two million Marks from the payments along the way. Sentenced to four years and eight months in prison.</p>
           </div>
         </div>
       </div>
@@ -738,6 +760,88 @@ const images = {
     font-size: 1.1rem;
   }
 
+  /* UV GLOW VISUAL */
+  .uv-visual {
+    background: #050510;
+  }
+
+  .uv-glow-card {
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-height: 280px;
+    justify-content: center;
+  }
+
+  .uv-label {
+    font-family: monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: #7B68EE;
+    text-shadow: 0 0 8px rgba(123, 104, 238, 0.6);
+  }
+
+  .uv-result {
+    font-family: monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #00FFAA;
+    text-align: center;
+    text-shadow: 0 0 12px rgba(0, 255, 170, 0.5);
+    line-height: 1.4;
+  }
+
+  .uv-sub {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #FF4444;
+    text-shadow: 0 0 8px rgba(255, 68, 68, 0.4);
+  }
+
+  .uv-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 60px;
+    margin-top: 0.5rem;
+  }
+
+  .uv-bar {
+    width: 12px;
+    background: linear-gradient(to top, #7B68EE, #00FFAA);
+    border-radius: 2px 2px 0 0;
+    opacity: 0.8;
+    box-shadow: 0 0 6px rgba(123, 104, 238, 0.4);
+  }
+
+  .uv-footer {
+    font-family: monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: #FF4444;
+    text-shadow: 0 0 6px rgba(255, 68, 68, 0.3);
+    margin-top: 0.5rem;
+  }
+
+  /* MONOGRAM VISUAL */
+  .monogram-visual {
+    background: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .monogram-visual img {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    padding: 2rem 0;
+    filter: none;
+  }
+
   /* TIMELINE */
   .timeline-section {
     padding: 6rem 1.5rem;
@@ -843,7 +947,7 @@ const images = {
 
   @media (min-width: 768px) {
     .figures-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
