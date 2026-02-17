@@ -1,14 +1,14 @@
 ---
 import SidebarLayout from '../layouts/SidebarLayout.astro';
 import { book } from '../data/books/piltdown-man';
-import { paidBooks } from '../data/catalog';
+import { catalog } from '../data/catalog';
 import { volumes, icons } from '../data/volumes';
 
 const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
 
-// Group paid books by volume
-const volumeGroups = new Map<number, { name: string; books: typeof paidBooks }>();
-for (const b of paidBooks) {
+// Group all books by volume
+const volumeGroups = new Map<number, { name: string; books: typeof catalog }>();
+for (const b of catalog) {
   if (!volumeGroups.has(b.volumeNum)) {
     volumeGroups.set(b.volumeNum, { name: b.volume, books: [] });
   }
@@ -129,7 +129,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
         </div>
         <div class="bridge-line"></div>
       </div>
-      <p class="bridge-text">First one's on us. Then explore <strong>{paidBooks.length} more</strong> across <strong>{sortedVolumes.length} volumes</strong>.</p>
+      <p class="bridge-text">First one's on us. Then explore <strong>{catalog.length} more</strong> across <strong>{sortedVolumes.length} volumes</strong>.</p>
     </section>
 
     <!-- =============================================

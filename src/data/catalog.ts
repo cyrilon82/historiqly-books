@@ -66,6 +66,7 @@ export const catalog: CatalogBook[] = [
   // Vol. 11: Heists
   { slug: 'gardner-museum-heist', title: 'The Gardner Museum Heist', subtitle: 'The Night They Stole the Impossible', volume: 'Heists', volumeNum: 11 },
   { slug: 'amber-room', title: 'The Amber Room', subtitle: 'The Eighth Wonder of the World That Vanished', volume: 'Heists', volumeNum: 11 },
+  { slug: 'antwerp-diamond-heist', title: 'The Antwerp Diamond Heist', subtitle: 'The Thieves Who Beat Ten Layers of Security', volume: 'Heists', volumeNum: 11 },
 ];
 
 export const paidBooks = catalog.filter((b) => !b.isFree);
