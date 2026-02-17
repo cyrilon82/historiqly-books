@@ -3,6 +3,7 @@ import { volumes, icons } from "../data/volumes";
 import { getVolumeProgress, hasNewCases } from "../lib/cases";
 import LaunchCountdown from "../components/LaunchCountdown.astro";
 import LanternSpotlight from "../components/LanternSpotlight.astro";
+import FreeBookModal from "../components/FreeBookModal.astro";
 // import SubscriptionModal from "../components/SubscriptionModal.astro"; // Enable after May 1, 2026
 
 interface Props {
@@ -10,13 +11,15 @@ interface Props {
   description?: string;
   currentVolume?: number;
   image?: string;
+  maxWidth?: string;
 }
 
 const {
   title,
   description = "AI Casefiles - Evidence-based investigations into history's greatest mysteries. Every source graded, every theory scored.",
   currentVolume,
-  image = "/logo.png"
+  image = "/logo.png",
+  maxWidth = "900px"
 } = Astro.props;
 
 const siteUrl = "https://books.historiqly.com/";
@@ -105,7 +108,7 @@ const fullTitle = `${title} | AI Casefiles`;
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
           </a>
-          <a href="/vol/hoaxes" class="btn-primary-sm">Free Preview<span class="soon-badge-nav">Soon</span></a>
+          <a href="https://historiqly.com" class="btn-primary-sm">HistorIQly HQ</a>
         </nav>
         <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle menu">
           <span></span>
@@ -144,9 +147,7 @@ const fullTitle = `${title} | AI Casefiles`;
                 </span>
                 <span class="vol-info">
                   <span class="vol-title">{vol.title}</span>
-                  {isAvailable && (
-                    <span class="vol-progress">{progress.released}/{progress.total}</span>
-                  )}
+                  <span class="vol-progress">3/7</span>
                 </span>
                 {hasNew && <span class="new-dot" title="New cases this week"></span>}
                 {isAvailable && progress.released >= 3 && <span class="available-badge">Free</span>}
@@ -187,7 +188,7 @@ const fullTitle = `${title} | AI Casefiles`;
       </aside>
 
       <!-- Main Content -->
-      <main class="main-content">
+      <main class="main-content" style={`--content-max-width: ${maxWidth}`}>
         <LanternSpotlight>
         <slot />
 
@@ -260,6 +261,7 @@ const fullTitle = `${title} | AI Casefiles`;
       });
     </script>
 
+    <FreeBookModal />
     <LaunchCountdown />
   </body>
 </html>
@@ -598,7 +600,7 @@ const fullTitle = `${title} | AI Casefiles`;
 
   .main-content > :global(*) {
     width: 100%;
-    max-width: 900px;
+    max-width: var(--content-max-width, 900px);
   }
 
   /* Collapsed Sidebar State */

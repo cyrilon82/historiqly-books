@@ -3,7 +3,7 @@ import type { Volume } from "./types";
 export const volumes: Volume[] = [
   {
     num: 1,
-    title: "Historical Hoaxes & Forgeries",
+    title: "Hoaxes",
     slug: "hoaxes",
     icon: "mask",
     tagline: "History's greatest deceptions, exposed",
@@ -12,7 +12,7 @@ export const volumes: Volume[] = [
   },
   {
     num: 2,
-    title: "Historical Myths Exposed",
+    title: "Myths",
     slug: "myths",
     icon: "scroll",
     tagline: "Separating fact from legend",
@@ -30,7 +30,7 @@ export const volumes: Volume[] = [
   },
   {
     num: 4,
-    title: "Famous Disappearances",
+    title: "Disappearances",
     slug: "disappearances",
     icon: "ghost",
     tagline: "Vanished without a trace",
@@ -39,7 +39,7 @@ export const volumes: Volume[] = [
   },
   {
     num: 5,
-    title: "Conspiracy Theories Investigated",
+    title: "Conspiracies",
     slug: "conspiracies",
     icon: "eye",
     tagline: "Truth behind the theories",
@@ -48,7 +48,7 @@ export const volumes: Volume[] = [
   },
   {
     num: 6,
-    title: "Secret Societies Exposed",
+    title: "Secret Societies",
     slug: "secret-societies",
     icon: "key",
     tagline: "Behind closed doors",
@@ -57,7 +57,7 @@ export const volumes: Volume[] = [
   },
   {
     num: 7,
-    title: "Declassified Operations",
+    title: "Declassified",
     slug: "declassified",
     icon: "folder",
     tagline: "Government secrets revealed",
@@ -66,7 +66,7 @@ export const volumes: Volume[] = [
   },
   {
     num: 8,
-    title: "Unexplained Phenomena",
+    title: "Unexplained",
     slug: "unexplained",
     icon: "ufo",
     tagline: "Phenomena beyond explanation",
@@ -75,7 +75,7 @@ export const volumes: Volume[] = [
   },
   {
     num: 9,
-    title: "Lost Worlds & Forgotten History",
+    title: "Lost Worlds",
     slug: "lost-worlds",
     icon: "pyramid",
     tagline: "Ancient mysteries uncovered",
@@ -84,7 +84,7 @@ export const volumes: Volume[] = [
   },
   {
     num: 10,
-    title: "Archaeological Mysteries",
+    title: "Archaeology",
     slug: "archaeological",
     icon: "compass",
     tagline: "Digging for truth",
@@ -93,7 +93,7 @@ export const volumes: Volume[] = [
   },
   {
     num: 11,
-    title: "Heists & Lost Treasures",
+    title: "Heists",
     slug: "heists",
     icon: "gem",
     tagline: "The hunt for missing fortunes",
