@@ -1,0 +1,1015 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-march-washington-1963.jpg',
+  hoover: '/cases/images/figure-j-edgar-hoover.jpg',
+  mlk: '/cases/images/figure-martin-luther-king.jpg',
+  hampton: '/cases/images/figure-fred-hampton-rally.jpg',
+  church: '/cases/images/figure-frank-church.jpg',
+  fbiLetter: '/cases/images/evidence-fbi-letter-mlk.png',
+  sebergMemo: '/cases/images/evidence-cointelpro-memo-seberg.jpg',
+  churchReport: '/cases/images/evidence-church-committee-report.jpg',
+  mediaOffice: '/cases/images/location-media-pa-fbi-office.jpg',
+};
+---
+
+<SidebarLayout title="COINTELPRO" description="The FBI's Secret War on America" currentVolume={7}>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 07-003</span>
+          <span class="meta-badge alert">STATUS: CONFIRMED</span>
+        </div>
+
+        <h1 class="hero-title">COINTELPRO</h1>
+        <p class="hero-subtitle">The FBI's Secret War on America</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Active</span>
+            <span class="stat-value">1956–1971</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Operations</span>
+            <span class="stat-value text-accent">2,000+</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Exposed</span>
+            <span class="stat-value">1971</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button onclick={`localStorage.setItem('historiqly_purchasing','cointelpro');window.location.href='${stripeUrl}'`} class="btn-buy-primary" id="heroBuyBtn">
+            <span class="btn-buy-text">Buy the Book</span>
+            <span class="btn-buy-price">$2.99</span>
+          </button>
+          <a href="/books/epub/cointelpro.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section">
+      <div class="intro-text">
+        <p class="drop-cap">For fifteen years, the FBI waged a covert war against American citizens. It infiltrated civil rights organizations, forged documents to destroy marriages, sent an anonymous letter urging Martin Luther King Jr. to kill himself, and coordinated a predawn raid that killed a twenty-one-year-old Black Panther chairman in his bed.</p>
+        <p>The program was called COINTELPRO. It was <strong>authorized at the highest levels</strong> of the FBI. And it remained secret until eight ordinary citizens broke into a federal office and stole the proof.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">Duration</span>
+            <h3 class="card-value">15 yrs</h3>
+            <p class="card-desc">From 1956 to 1971, the FBI ran COINTELPRO as a covert domestic intelligence program, targeting American citizens exercising their constitutional rights.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Files Opened</span>
+            <h3 class="card-value text-accent">1M+</h3>
+            <p class="card-desc">Intelligence files on American citizens — antiwar activists, civil rights leaders, feminists, students.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Informants</span>
+            <h3 class="card-value">50,000+</h3>
+            <p class="card-desc">Human informers and infiltrators placed inside political organizations across the country.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Operations</span>
+            <h3 class="card-value">2,340</h3>
+            <p class="card-desc">Documented COINTELPRO operations — disruption, disinformation, psychological warfare, and worse.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.fbiLetter} alt="The anonymous FBI letter sent to Martin Luther King Jr., 1964" />
+            <div class="visual-overlay">
+              <span class="overlay-label">EXHIBIT — FBI "SUICIDE LETTER" TO MLK, 1964</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Suicide Letter</h3>
+            <p>In November 1964, the FBI mailed Martin Luther King Jr. a package containing surveillance recordings and an anonymous letter calling him "an evil, abnormal beast" and urging him to kill himself before receiving the Nobel Peace Prize. The letter was composed by William Sullivan's Domestic Intelligence Division. The full unredacted text was not discovered until 2014.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.sebergMemo} alt="FBI COINTELPRO memo targeting actress Jean Seberg" />
+            <div class="visual-overlay">
+               <span class="overlay-label">EXHIBIT — COINTELPRO NEUTRALIZATION MEMO</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Neutralization Files</h3>
+            <p>Declassified FBI memos reveal the bureaucratic machinery of repression — typed directives ordering agents to "expose, disrupt, misdirect, discredit, or otherwise neutralize" American citizens. This memo targeted actress Jean Seberg for her support of the Black Panther Party. The FBI planted a false pregnancy story that contributed to her mental breakdown and death.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.churchReport} alt="Church Committee Final Report, Book II: Intelligence Activities and the Rights of Americans" />
+            <div class="visual-overlay">
+               <span class="overlay-label">EXHIBIT — CHURCH COMMITTEE FINAL REPORT, 1976</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Church Committee Report</h3>
+            <p>In 1975–76, the Senate Select Committee chaired by Frank Church conducted the most comprehensive congressional investigation of intelligence abuses in American history. The six-volume final report confirmed that the FBI had "violated or ignored the law over long periods of time" and that "too many people have been spied upon by too many Government agencies."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">Fifteen Years of Secret War</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1956</span>
+          <div class="timeline-content">
+            <h4>COINTELPRO Begins</h4>
+            <p>J. Edgar Hoover formally launches COINTELPRO, initially targeting the Communist Party USA. The program authorizes the FBI to disrupt domestic organizations through infiltration, disinformation, and psychological warfare — all without judicial oversight.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1963</span>
+          <div class="timeline-content">
+            <h4>"The Most Dangerous Negro"</h4>
+            <p>After King's "I Have a Dream" speech, FBI official William Sullivan marks him as "the most dangerous Negro of the future in this Nation." The Bureau escalates surveillance, wiretaps, and psychological warfare against the civil rights leader.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1964</span>
+          <div class="timeline-content highlight">
+            <h4>The Suicide Letter</h4>
+            <p>The FBI mails King an anonymous letter with surveillance recordings, urging him to commit suicide before receiving the Nobel Peace Prize. It calls him "an evil, abnormal beast" and warns: "There is but one way out for you."</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">DEC 1969</span>
+          <div class="timeline-content highlight">
+            <h4>Fred Hampton Killed</h4>
+            <p>FBI informant William O'Neal provides floor plans of Hampton's apartment. Fourteen officers raid the home at 4:45 AM, firing over 90 rounds. Hampton, 21, and Mark Clark, 22, are killed. The Panthers fire one shot — a reflexive discharge as Clark is struck.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">MAR 1971</span>
+          <div class="timeline-content">
+            <h4>The Media Break-In</h4>
+            <p>On the night of the Ali-Frazier "Fight of the Century," eight activists break into the FBI's Media, Pennsylvania office and steal over 1,000 classified documents — revealing the word "COINTELPRO" to the public for the first time.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1975</span>
+          <div class="timeline-content">
+            <h4>The Church Committee</h4>
+            <p>The Senate investigation exposes the full scope of COINTELPRO. The committee documents 2,000+ operations, confirms the FBI's campaign against King, and concludes that "governmental officials have violated or ignored the law over long periods of time."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.hoover} alt="J. Edgar Hoover, FBI Director, 1961" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Architect</span>
+            <h3>J. Edgar Hoover</h3>
+            <p>FBI Director for 48 years. The architect and driving force behind COINTELPRO, Hoover personally issued directives ordering agents to "neutralize" civil rights leaders, antiwar activists, and any citizen he deemed subversive. He called the Black Panthers "the greatest threat to the internal security of the country."</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.hampton} alt="Fred Hampton speaking at a rally in Grant Park, Chicago, 1969" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Target</span>
+            <h3>Fred Hampton</h3>
+            <p>Chairman of the Illinois Black Panther Party. At 21, Hampton had built a multiracial "Rainbow Coalition" of the poor that terrified the FBI. An informant provided floor plans of his apartment. He was killed in a predawn raid on December 4, 1969 — shot in his bed after being drugged.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.mlk} alt="Martin Luther King Jr., Nobel Peace Prize portrait, 1964" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The "Messiah"</span>
+            <h3>Martin Luther King Jr.</h3>
+            <p>The FBI's primary target. Hoover feared King as a potential "messiah" who could unify the Black freedom movement. The Bureau subjected him to wiretaps, informant infiltration, and an anonymous letter urging suicide. King was assassinated in Memphis on April 4, 1968.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.church} alt="Senator Frank Church, Chairman of the Church Committee" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Investigator</span>
+            <h3>Frank Church</h3>
+            <p>Democratic Senator from Idaho who chaired the Senate Select Committee on Intelligence Activities (1975–76). The Church Committee's 16-month investigation exposed COINTELPRO, CIA assassination plots, and NSA surveillance — the most comprehensive accounting of intelligence abuses in American history.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.mediaOffice} alt="The FBI's former resident agency in Media, Pennsylvania — site of the 1971 break-in that exposed COINTELPRO" />
+          <div class="image-caption">One Veterans Square, Media, Pennsylvania. The FBI office that eight citizens broke into on March 8, 1971 — exposing COINTELPRO to the world.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Price of Secrecy</h2>
+          <p>COINTELPRO ran for fifteen years. It opened files on over one million Americans. It destroyed organizations, ended careers, and cost lives. And it remained entirely secret until eight ordinary citizens — a physics professor, a cab driver, a social worker — broke into a suburban FBI office and stole the proof.</p>
+          <p>The Church Committee exposed the truth. Congress passed reforms. But the fundamental question remains: <strong>can a democracy survive when its government wages secret war against its own citizens?</strong></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story — from Hoover's first directive to the Church Committee's final report, from the suicide letter to the night of the fight.</p>
+            <button onclick={`localStorage.setItem('historiqly_purchasing','cointelpro');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy" id="ctaBuyBtn">
+              <span class="btn-buy-text">Buy the Book</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+            <a href="/books/epub/cointelpro.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_cointelpro', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_cointelpro') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuy = document.getElementById('heroBuyBtn');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuy) heroBuy.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuy = document.getElementById('ctaBuyBtn');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuy) ctaBuy.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+</script>
+
+<style>
+  /* SWISS TECHNICAL BENTO THEME */
+  :root {
+    --bg-dark: #0a0a0a;
+    --bg-card: #111111;
+    --bg-card-hover: #161616;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --text-primary: #FAFAFA;
+    --text-secondary: #A1A1AA;
+    --accent: #F59E0B;
+    --accent-dim: rgba(245, 158, 11, 0.1);
+
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+  }
+
+  .case-file {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  /* UTILS */
+  .text-accent { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4) grayscale(0.8) contrast(1.2);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 90%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 1.5rem;
+  }
+
+  .case-meta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .meta-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border-color);
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    color: var(--text-secondary);
+  }
+
+  .meta-badge.alert {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .meta-badge.price {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-weight: 800;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    line-height: 0.9;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 4rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-value {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--text-secondary);
+    opacity: 0.7;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--text-secondary) 0%, transparent 100%);
+  }
+
+  /* HERO ACTIONS */
+  .hero-actions {
+    margin-top: 3rem;
+  }
+
+  .btn-buy-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    transition: all 0.25s;
+    box-shadow: 0 4px 24px rgba(245, 158, 11, 0.3), 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-buy-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.45), 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+  }
+
+  .btn-buy-text {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .btn-buy-price {
+    font-size: 1.125rem;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+  }
+
+  .btn-download-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #5DB585 0%, #4a9e70 100%);
+    color: #000;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: var(--font-sans);
+    transition: all 0.25s;
+    box-shadow: 0 4px 24px rgba(93, 181, 133, 0.3), 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-download-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(93, 181, 133, 0.45), 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #6FC494 0%, #5DB585 100%);
+  }
+
+  .cta-buy, .cta-download {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* INTRO */
+  .intro-section {
+    padding: 8rem 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-text p {
+    font-family: var(--font-serif);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .intro-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* BENTO GRID */
+  .bento-section {
+    padding: 2rem 1.5rem 8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, minmax(200px, auto));
+    }
+
+    .large-card {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+
+  .bento-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .bento-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.2);
+    background: var(--bg-card-hover);
+  }
+
+  .card-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .card-value {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  .discovery-card .card-value { font-size: 5rem; font-weight: 700; }
+  .check-card .card-value { font-size: 4rem; }
+
+  .card-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* EVIDENCE */
+  .evidence-section {
+    padding: 4rem 1.5rem;
+    background: #0F0F0F;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  .evidence-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    gap: 4rem;
+  }
+
+  .evidence-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .evidence-card {
+      grid-template-columns: 1fr 1fr;
+    }
+    .evidence-card:nth-child(even) .evidence-visual {
+      order: 2;
+    }
+  }
+
+  .evidence-visual {
+    position: relative;
+    border: 1px solid var(--border-color);
+  }
+
+  .evidence-visual img {
+    width: 100%;
+    display: block;
+    filter: brightness(0.8) contrast(1.1);
+  }
+
+  .visual-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(2px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .overlay-label {
+    font-size: 0.6rem;
+    font-family: monospace;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .evidence-data h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .evidence-data p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 1.1rem;
+  }
+
+  /* TIMELINE */
+  .timeline-section {
+    padding: 6rem 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .timeline {
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border-color);
+    transform: translateX(-50%);
+  }
+
+  .timeline-entry {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  .timeline-year {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-dark);
+    padding: 0.25rem 0.5rem;
+    font-family: monospace;
+    color: var(--accent);
+    font-size: 0.8rem;
+    border: 1px solid var(--border-color);
+    z-index: 2;
+  }
+
+  .timeline-content {
+    width: 45%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  .timeline-entry.left .timeline-content {
+    margin-right: auto;
+    text-align: right;
+  }
+
+  .timeline-entry.right .timeline-content {
+    margin-left: auto;
+    text-align: left;
+  }
+
+  .timeline-content h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .timeline-content.highlight {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  @media (max-width: 768px) {
+    .timeline-line { left: 20px; }
+    .timeline-entry { flex-direction: column; padding-left: 50px; }
+    .timeline-year { left: 0; transform: none; top: -10px; width: 40px; text-align: center; }
+    .timeline-content { width: 100%; text-align: left !important; }
+    .timeline-entry.left .timeline-content, .timeline-entry.right .timeline-content { margin: 0; }
+  }
+
+  /* KEY FIGURES */
+  .figures-section {
+    padding: 6rem 1.5rem;
+    background: #0F0F0F;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .figures-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .figures-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .figure-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .figure-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  .figure-image {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+  }
+
+  .figure-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.6) contrast(1.1) brightness(0.8);
+    transition: filter 0.3s ease;
+  }
+
+  .figure-card:hover .figure-image img {
+    filter: grayscale(0.3) contrast(1.1) brightness(0.9);
+  }
+
+  .figure-info {
+    padding: 1.5rem;
+  }
+
+  .figure-role {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .figure-info h3 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+
+  .figure-info p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* CONCLUSION */
+  .conclusion-section {
+    padding: 6rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .conclusion-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .conclusion-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .conclusion-image img {
+    width: 100%;
+    border-radius: 4px;
+    filter: sepia(0.2) contrast(1.1);
+  }
+
+  .image-caption {
+    margin-top: 1rem;
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.5rem;
+  }
+
+  .conclusion-text h2 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .conclusion-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-box {
+    margin-top: 3rem;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    text-align: center;
+  }
+
+  .cta-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-box p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Drop Cap */
+  .drop-cap:first-letter {
+    font-size: 4rem;
+    float: left;
+    margin-right: 1rem;
+    line-height: 0.8;
+    font-family: var(--font-serif);
+    color: var(--accent);
+  }
+</style>
