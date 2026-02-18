@@ -16,7 +16,7 @@ interface Props {
 
 const {
   title,
-  description = "AI Casefiles - Evidence-based investigations into history's greatest mysteries. Every source graded, every theory scored.",
+  description = "HistorIQly Thrillers — History's darkest mysteries, told as thrillers. Narrative non-fiction you can't put down.",
   currentVolume,
   image = "/logo.png",
   maxWidth = "900px"
@@ -25,7 +25,7 @@ const {
 const siteUrl = "https://books.historiqly.com/";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImage = new URL(image, siteUrl).toString();
-const fullTitle = `${title} | AI Casefiles`;
+const fullTitle = `${title} | HistorIQly Thrillers`;
 ---
 
 <!doctype html>
@@ -39,7 +39,7 @@ const fullTitle = `${title} | AI Casefiles`;
     <meta name="title" content={fullTitle} />
     <meta name="description" content={description} />
     <meta name="keywords" content="history mysteries, cold cases, conspiracies, AI investigation, evidence-based history, historical mysteries, unsolved cases, lost civilizations, secret societies, declassified documents" />
-    <meta name="author" content="AI Casefiles" />
+    <meta name="author" content="HistorIQly Thrillers" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalUrl} />
 
@@ -63,7 +63,7 @@ const fullTitle = `${title} | AI Casefiles`;
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:site_name" content="AI Casefiles" />
+    <meta property="og:site_name" content="HistorIQly Thrillers" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
@@ -77,9 +77,9 @@ const fullTitle = `${title} | AI Casefiles`;
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: "AI Casefiles",
+      name: "HistorIQly Thrillers",
       url: siteUrl,
-      description: "Evidence-based investigations into history's greatest mysteries.",
+      description: "History's darkest mysteries, told as thrillers.",
       publisher: {
         "@type": "Organization",
         name: "HistorIQly",
@@ -100,7 +100,7 @@ const fullTitle = `${title} | AI Casefiles`;
       <div class="top-bar-content">
         <a href="/" class="logo">
           <img src="/logo.png" alt="HistorIQly" class="logo-img" />
-          <span class="logo-title">AI Casefiles</span>
+          <span class="logo-title">HistorIQly Thrillers</span>
         </a>
         <nav class="top-nav">
           <a href="https://x.com/historiqly" class="nav-link nav-icon" target="_blank" rel="noopener" aria-label="Follow on X">
@@ -162,8 +162,8 @@ const fullTitle = `${title} | AI Casefiles`;
               <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
             </svg>
             <div class="external-link-text">
-              <span class="external-link-title">The Witnesses</span>
-              <span class="external-link-desc">Chat with Einstein, Socrates & 140+ minds</span>
+              <span class="external-link-title">Chat</span>
+              <span class="external-link-desc">Talk to Einstein, Socrates & 140+ minds</span>
             </div>
           </a>
           <a href="https://blog.historiqly.com" class="sidebar-external-link" target="_blank" rel="noopener">
@@ -171,7 +171,7 @@ const fullTitle = `${title} | AI Casefiles`;
               <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/>
             </svg>
             <div class="external-link-text">
-              <span class="external-link-title">The Archives</span>
+              <span class="external-link-title">Blog</span>
               <span class="external-link-desc">Cold cases, time travel & Hollywood myths</span>
             </div>
           </a>
@@ -199,11 +199,11 @@ const fullTitle = `${title} | AI Casefiles`;
           <div class="footer-content">
             <div class="footer-brand">
               <img src="/logo.png" alt="HistorIQly" class="footer-logo" />
-              <p class="footer-tagline">AI-powered historical investigations</p>
+              <p class="footer-tagline">History's darkest mysteries, told as thrillers</p>
             </div>
             <div class="footer-links">
-              <a href="https://app.historiqly.com" target="_blank" rel="noopener">The Witnesses</a>
-              <a href="https://blog.historiqly.com" target="_blank" rel="noopener">The Archives</a>
+              <a href="https://app.historiqly.com" target="_blank" rel="noopener">Chat</a>
+              <a href="https://blog.historiqly.com" target="_blank" rel="noopener">Blog</a>
               <a href="https://x.com/historiqly" target="_blank" rel="noopener">Daily Brief</a>
             </div>
             <p class="footer-copyright">&copy; 2025 HistorIQly. All rights reserved.</p>
