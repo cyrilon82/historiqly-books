@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage -->
   <url>
     <loc>https://books.historiqly.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/piltdown-man.jpg</image:loc>
+      <image:title>The Piltdown Men - Free History Ebook</image:title>
+    </image:image>
   </url>
+
+  <!-- Volume Pages -->
   <url>
     <loc>https://books.historiqly.com/vol/hoaxes</loc>
     <changefreq>weekly</changefreq>
@@ -59,5 +67,324 @@
     <loc>https://books.historiqly.com/vol/heists</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Vol 1: Hoaxes - Case Pages -->
+  <url>
+    <loc>https://books.historiqly.com/cases/piltdown-man</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/piltdown-man.jpg</image:loc>
+      <image:title>The Piltdown Men - The 41-Year Fraud That Fooled Science</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/cardiff-giant</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/cardiff-giant.jpg</image:loc>
+      <image:title>The Cardiff Giant - The Cigar Maker Who Fooled America</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/hitler-diaries</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/hitler-diaries.jpg</image:loc>
+      <image:title>The Hitler Diaries - The Forgery That Fooled the World</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vol 2: Myths - Case Pages -->
+  <url>
+    <loc>https://books.historiqly.com/cases/cleopatra-snake-bite</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/cleopatra-snake-bite.jpg</image:loc>
+      <image:title>Cleopatra's Last Breath - The Mystery of the Serpent Queen's Death</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/viking-horned-helmets</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/viking-horned-helmets.jpg</image:loc>
+      <image:title>The Horned Helmet - How an Opera Costume Fooled the World</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/hollywood-pirates</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/hollywood-pirates.jpg</image:loc>
+      <image:title>Hollywood Pirates - Were Pirates Really Like the Movies?</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vol 3: Cold Cases - Case Pages -->
+  <url>
+    <loc>https://books.historiqly.com/cases/jack-the-ripper</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/jack-the-ripper.jpg</image:loc>
+      <image:title>Jack the Ripper - The Autumn of Terror</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/black-dahlia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/black-dahlia.jpg</image:loc>
+      <image:title>The Black Dahlia - Hollywood's Most Haunting Cold Case</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/zodiac-killer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/zodiac-killer.jpg</image:loc>
+      <image:title>The Zodiac Killer - America's Most Elusive Serial Killer</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vol 4: Disappearances - Case Pages -->
+  <url>
+    <loc>https://books.historiqly.com/cases/amelia-earhart</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/amelia-earhart.jpg</image:loc>
+      <image:title>Into the Pacific - The Disappearance of Amelia Earhart</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/db-cooper</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/db-cooper.jpg</image:loc>
+      <image:title>D.B. Cooper - The Man Who Fell Off the Earth</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/mary-celeste</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/mary-celeste.jpg</image:loc>
+      <image:title>The Mary Celeste - The Ghost Ship That Haunted the Atlantic</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vol 5: Conspiracies - Case Pages -->
+  <url>
+    <loc>https://books.historiqly.com/cases/jfk-assassination</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/jfk-assassination.jpg</image:loc>
+      <image:title>November 22, 1963 - The Assassination That Changed America</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/moon-landing-hoax</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/moon-landing-hoax.jpg</image:loc>
+      <image:title>The Moon Landing - The Conspiracy That Would Not Die</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/area-51</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/area-51.jpg</image:loc>
+      <image:title>Area 51 - The Secret Base That Launched a Thousand Conspiracies</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vol 6: Secret Societies - Case Pages -->
+  <url>
+    <loc>https://books.historiqly.com/cases/illuminati</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/illuminati.jpg</image:loc>
+      <image:title>The Illuminati - Nine Years That Conquered the World's Imagination</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/freemasons</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/freemasons.jpg</image:loc>
+      <image:title>The Freemasons - The Builders Who Became a Brotherhood</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/skull-and-bones</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/skull-and-bones.jpg</image:loc>
+      <image:title>Skull and Bones - The Order Behind the Power</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vol 7: Declassified - Case Pages -->
+  <url>
+    <loc>https://books.historiqly.com/cases/mkultra</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/mkultra.jpg</image:loc>
+      <image:title>MKUltra - The CIA's Secret War on the Mind</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/operation-paperclip</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/operation-paperclip.jpg</image:loc>
+      <image:title>Operation Paperclip - The Nazi Scientists Who Built the American Dream</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/cointelpro</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/cointelpro.jpg</image:loc>
+      <image:title>COINTELPRO - The FBI's Secret War on America</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vol 8: Unexplained - Case Pages -->
+  <url>
+    <loc>https://books.historiqly.com/cases/dyatlov-pass</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/dyatlov-pass.jpg</image:loc>
+      <image:title>The Dyatlov Pass Incident - Nine Hikers, One Mountain, No Survivors</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/loch-ness-monster</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/loch-ness-monster.jpg</image:loc>
+      <image:title>The Loch Ness Monster - The Hunt for Scotland's Impossible Creature</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/wow-signal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/wow-signal.jpg</image:loc>
+      <image:title>The Wow! Signal - 72 Seconds from the Edge of Forever</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vol 9: Lost Worlds - Case Pages -->
+  <url>
+    <loc>https://books.historiqly.com/cases/atlantis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/atlantis.jpg</image:loc>
+      <image:title>Atlantis - Deconstructing Plato's Original Myth</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/gobekli-tepe</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/gobekli-tepe.jpg</image:loc>
+      <image:title>Gobekli Tepe - The Temple Built Before Agriculture</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/younger-dryas-impact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/younger-dryas-impact.jpg</image:loc>
+      <image:title>The Younger Dryas Impact - Did a Comet Reset Civilization?</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vol 10: Archaeological Mysteries - Case Pages -->
+  <url>
+    <loc>https://books.historiqly.com/cases/nazca-lines</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/nazca-lines.jpg</image:loc>
+      <image:title>The Nazca Lines - The Desert That Drew Itself</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/voynich-manuscript</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/voynich-manuscript.jpg</image:loc>
+      <image:title>The Book of Nowhere - The Voynich Manuscript</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/antikythera-mechanism</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/antikythera-mechanism.jpg</image:loc>
+      <image:title>The Antikythera Mechanism - The Ancient Computer That Shouldn't Exist</image:title>
+    </image:image>
+  </url>
+
+  <!-- Vol 11: Heists - Case Pages -->
+  <url>
+    <loc>https://books.historiqly.com/cases/gardner-museum-heist</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/gardner-museum-heist.jpg</image:loc>
+      <image:title>The Gardner Museum Heist - The Night They Stole the Impossible</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/amber-room</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/amber-room.jpg</image:loc>
+      <image:title>The Amber Room - The Eighth Wonder of the World That Vanished</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://books.historiqly.com/cases/antwerp-diamond-heist</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://books.historiqly.com/books/covers/antwerp-diamond-heist.jpg</image:loc>
+      <image:title>The Antwerp Diamond Heist - The Thieves Who Beat Ten Layers of Security</image:title>
+    </image:image>
   </url>
 </urlset>

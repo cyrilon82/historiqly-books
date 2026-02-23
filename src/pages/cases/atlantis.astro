@@ -12,7 +12,28 @@ const images = {
 };
 ---
 
-<SidebarLayout title="Atlantis" description="Deconstructing Plato's Original Myth" currentVolume={9}>
+<SidebarLayout
+  title="Atlantis Book — Lost Civilization Mystery"
+  description="Atlantis: Deconstructing Plato's original myth with evidence-based analysis. Non-fiction ebook exploring the lost civilization theory. $2.99 EPUB."
+  currentVolume={9}
+  image="/books/covers/atlantis.jpg"
+  ogType="book"
+  keywords="Atlantis book, Atlantis ebook, lost civilization, Plato Atlantis, ancient mysteries, lost worlds non-fiction, Atlantis evidence, sunken city, Richat Structure"
+  bookSeo={{
+    bookTitle: "Atlantis",
+    subtitle: "Deconstructing Plato's Original Myth",
+    price: "2.99",
+    author: "HistorIQly Thrillers",
+    genre: "Non-Fiction, History, Ancient Mysteries, Lost Civilizations",
+    format: "EBook",
+    keywords: "Atlantis, Plato, lost civilization, ancient mystery",
+  }}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Lost Worlds", url: "/vol/lost-worlds" },
+    { name: "Atlantis", url: "/cases/atlantis" },
+  ]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

@@ -16,7 +16,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Cardiff Giant" description="America's Greatest Archaeological Hoax" currentVolume={1}>
+<SidebarLayout
+  title="Cardiff Giant Book — America's Greatest Hoax"
+  description="The Cardiff Giant: How a cigar maker fooled America with a stone giant. Non-fiction ebook about one of history's most famous hoaxes. $2.99 EPUB."
+  currentVolume={1}
+  image="/books/covers/cardiff-giant.jpg"
+  ogType="book"
+  keywords="Cardiff Giant book, Cardiff Giant ebook, American hoaxes, P.T. Barnum, 19th century fraud, history hoaxes non-fiction"
+  bookSeo={{ bookTitle: "The Cardiff Giant", subtitle: "The Cigar Maker Who Fooled America", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Hoaxes", format: "EBook", keywords: "Cardiff Giant, hoax, American history, fraud" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Hoaxes", url: "/vol/hoaxes" }, { name: "The Cardiff Giant", url: "/cases/cardiff-giant" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

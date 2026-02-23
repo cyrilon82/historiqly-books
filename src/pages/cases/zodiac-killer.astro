@@ -15,7 +15,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Zodiac Killer" description="Northern California's Most Infamous Unsolved Case" currentVolume={3}>
+<SidebarLayout
+  title="Zodiac Killer Book — America's Most Elusive Serial Killer"
+  description="The Zodiac Killer: Investigating America's most elusive serial killer. Non-fiction ebook analyzing ciphers, suspects, and evidence. $2.99 EPUB."
+  currentVolume={3}
+  image="/books/covers/zodiac-killer.jpg"
+  ogType="book"
+  keywords="Zodiac Killer book, Zodiac Killer ebook, Zodiac ciphers, San Francisco serial killer, unsolved murders, true crime non-fiction, cold case investigation"
+  bookSeo={{ bookTitle: "The Zodiac Killer", subtitle: "America's Most Elusive Serial Killer", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, True Crime, Cold Cases, History", format: "EBook", keywords: "Zodiac Killer, serial killer, ciphers, cold case" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Cold Cases", url: "/vol/cold-cases" }, { name: "The Zodiac Killer", url: "/cases/zodiac-killer" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

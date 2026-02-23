@@ -16,7 +16,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Black Dahlia" description="Hollywood's Most Haunting Cold Case" currentVolume={3}>
+<SidebarLayout
+  title="Black Dahlia Book — Hollywood's Cold Case"
+  description="The Black Dahlia: Hollywood's most haunting unsolved murder. Non-fiction ebook investigating the 1947 Elizabeth Short case. $2.99 EPUB."
+  currentVolume={3}
+  image="/books/covers/black-dahlia.jpg"
+  ogType="book"
+  keywords="Black Dahlia book, Black Dahlia ebook, Elizabeth Short murder, Hollywood cold case, 1947 Los Angeles, unsolved murder non-fiction, true crime history"
+  bookSeo={{ bookTitle: "The Black Dahlia", subtitle: "Hollywood's Most Haunting Cold Case", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, True Crime, Cold Cases, History", format: "EBook", keywords: "Black Dahlia, Elizabeth Short, Hollywood murder, cold case" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Cold Cases", url: "/vol/cold-cases" }, { name: "The Black Dahlia", url: "/cases/black-dahlia" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

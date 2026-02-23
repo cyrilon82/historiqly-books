@@ -4,7 +4,21 @@ import { getVolumeProgress, hasNewCases } from "../lib/cases";
 import LaunchCountdown from "../components/LaunchCountdown.astro";
 import LanternSpotlight from "../components/LanternSpotlight.astro";
 import FreeBookModal from "../components/FreeBookModal.astro";
-// import SubscriptionModal from "../components/SubscriptionModal.astro"; // Enable after May 1, 2026
+
+interface BookSeo {
+  bookTitle: string;
+  subtitle: string;
+  price: string;
+  author: string;
+  genre: string;
+  format: string;
+  keywords: string;
+}
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
 
 interface Props {
   title: string;
@@ -12,6 +26,10 @@ interface Props {
   currentVolume?: number;
   image?: string;
   maxWidth?: string;
+  keywords?: string;
+  bookSeo?: BookSeo;
+  breadcrumbs?: BreadcrumbItem[];
+  ogType?: string;
 }
 
 const {
@@ -19,7 +37,11 @@ const {
   description = "HistorIQly Thrillers — History's darkest mysteries, told as thrillers. Narrative non-fiction you can't put down.",
   currentVolume,
   image = "/logo.png",
-  maxWidth = "900px"
+  maxWidth = "900px",
+  keywords = "history mysteries, cold cases, conspiracies, AI investigation, evidence-based history, historical mysteries, unsolved cases, lost civilizations, secret societies, declassified documents, non-fiction ebooks, history books",
+  bookSeo,
+  breadcrumbs,
+  ogType = "website",
 } = Astro.props;
 
 const siteUrl = "https://books.historiqly.com/";
@@ -38,7 +60,7 @@ const fullTitle = `${title} | HistorIQly Thrillers`;
     <title>{fullTitle}</title>
     <meta name="title" content={fullTitle} />
     <meta name="description" content={description} />
-    <meta name="keywords" content="history mysteries, cold cases, conspiracies, AI investigation, evidence-based history, historical mysteries, unsolved cases, lost civilizations, secret societies, declassified documents" />
+    <meta name="keywords" content={keywords} />
     <meta name="author" content="HistorIQly Thrillers" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalUrl} />
@@ -58,13 +80,16 @@ const fullTitle = `${title} | HistorIQly Thrillers`;
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="HistorIQly Thrillers" />
     <meta property="og:locale" content="en_US" />
+    {bookSeo && <meta property="og:book:author" content={bookSeo.author} />}
+    {bookSeo && <meta property="product:price:amount" content={bookSeo.price} />}
+    {bookSeo && <meta property="product:price:currency" content="USD" />}
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -73,7 +98,7 @@ const fullTitle = `${title} | HistorIQly Thrillers`;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- Structured Data -->
+    <!-- Structured Data: Website -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
@@ -86,6 +111,52 @@ const fullTitle = `${title} | HistorIQly Thrillers`;
         url: "https://historiqly.com",
       },
     })} />
+
+    {/* Structured Data: Book (per-page) */}
+    {bookSeo && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Book",
+        name: bookSeo.bookTitle,
+        alternateName: bookSeo.subtitle,
+        author: {
+          "@type": "Organization",
+          name: bookSeo.author,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "HistorIQly",
+          url: "https://historiqly.com",
+        },
+        bookFormat: "https://schema.org/EBook",
+        url: canonicalUrl,
+        image: ogImage,
+        description: description,
+        genre: bookSeo.genre,
+        inLanguage: "en",
+        offers: {
+          "@type": "Offer",
+          price: bookSeo.price,
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          url: canonicalUrl,
+        },
+      })} />
+    )}
+
+    {/* Structured Data: BreadcrumbList */}
+    {breadcrumbs && breadcrumbs.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((crumb, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: crumb.name,
+          item: new URL(crumb.url, siteUrl).toString(),
+        })),
+      })} />
+    )}
 
     <script is:inline>
       // Apply collapsed state immediately to prevent layout shift
@@ -206,7 +277,7 @@ const fullTitle = `${title} | HistorIQly Thrillers`;
               <a href="https://blog.historiqly.com" target="_blank" rel="noopener">Blog</a>
               <a href="https://x.com/historiqly" target="_blank" rel="noopener">Daily Brief</a>
             </div>
-            <p class="footer-copyright">&copy; 2025 HistorIQly. All rights reserved.</p>
+            <p class="footer-copyright">&copy; 2026 HistorIQly. All rights reserved.</p>
           </div>
         </footer>
       </main>

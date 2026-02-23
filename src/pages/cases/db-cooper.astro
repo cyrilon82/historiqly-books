@@ -17,7 +17,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="D.B. Cooper" description="The Man Who Fell Off the Earth" currentVolume={4}>
+<SidebarLayout
+  title="D.B. Cooper Book — The Hijacking Mystery"
+  description="D.B. Cooper: The man who hijacked a plane, parachuted with $200,000, and vanished. Non-fiction ebook about the only unsolved hijacking. $2.99 EPUB."
+  currentVolume={4}
+  image="/books/covers/db-cooper.jpg"
+  ogType="book"
+  keywords="DB Cooper book, D.B. Cooper ebook, plane hijacking mystery, unsolved hijacking, skyjacking 1971, DB Cooper theories, disappearance non-fiction"
+  bookSeo={{ bookTitle: "D.B. Cooper", subtitle: "The Man Who Fell Off the Earth", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Disappearances, True Crime", format: "EBook", keywords: "DB Cooper, hijacking, disappearance, unsolved" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Disappearances", url: "/vol/disappearances" }, { name: "D.B. Cooper", url: "/cases/db-cooper" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

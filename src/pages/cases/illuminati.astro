@@ -14,7 +14,28 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Illuminati" description="Nine Years That Conquered the World's Imagination" currentVolume={6}>
+<SidebarLayout
+  title="Illuminati Book — Secret Society History"
+  description="The Illuminati: The true history of the Bavarian secret society. Non-fiction ebook separating fact from conspiracy theory. Adam Weishaupt's real story. $2.99 EPUB."
+  currentVolume={6}
+  image="/books/covers/illuminati.jpg"
+  ogType="book"
+  keywords="Illuminati book, Illuminati ebook, secret society history, Bavarian Illuminati, Adam Weishaupt, conspiracy theory non-fiction, Illuminati truth, secret societies book, new world order"
+  bookSeo={{
+    bookTitle: "The Illuminati",
+    subtitle: "Nine Years That Conquered the World's Imagination",
+    price: "2.99",
+    author: "HistorIQly Thrillers",
+    genre: "Non-Fiction, History, Secret Societies, Conspiracy",
+    format: "EBook",
+    keywords: "Illuminati, secret society, Bavarian Illuminati, Adam Weishaupt",
+  }}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Secret Societies", url: "/vol/secret-societies" },
+    { name: "The Illuminati", url: "/cases/illuminati" },
+  ]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

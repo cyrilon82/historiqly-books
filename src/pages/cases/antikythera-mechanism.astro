@@ -16,7 +16,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Antikythera Mechanism" description="The Ancient Computer That Shouldn't Exist" currentVolume={10}>
+<SidebarLayout
+  title="Antikythera Mechanism Book — Ancient Computer"
+  description="The Antikythera Mechanism: A 2,000-year-old analog computer found in a shipwreck. Non-fiction ebook about the ancient device that shouldn't exist. $2.99 EPUB."
+  currentVolume={10}
+  image="/books/covers/antikythera-mechanism.jpg"
+  ogType="book"
+  keywords="Antikythera Mechanism book, Antikythera Mechanism ebook, ancient computer, Greek technology, ancient engineering, shipwreck discovery, archaeological mystery non-fiction"
+  bookSeo={{ bookTitle: "The Antikythera Mechanism", subtitle: "The Ancient Computer That Shouldn't Exist", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Archaeology, Technology", format: "EBook", keywords: "Antikythera Mechanism, ancient computer, Greece, shipwreck" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Archaeology", url: "/vol/archaeological" }, { name: "Antikythera Mechanism", url: "/cases/antikythera-mechanism" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

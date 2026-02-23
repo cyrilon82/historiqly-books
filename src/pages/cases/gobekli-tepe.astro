@@ -16,7 +16,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="Göbekli Tepe" description="The Temple Built Before Agriculture" currentVolume={9}>
+<SidebarLayout
+  title="Gobekli Tepe Book — Ancient Temple Mystery"
+  description="Gobekli Tepe: The 12,000-year-old temple built before agriculture. Non-fiction ebook challenging everything we know about ancient civilization. $2.99 EPUB."
+  currentVolume={9}
+  image="/books/covers/gobekli-tepe.jpg"
+  ogType="book"
+  keywords="Gobekli Tepe book, Gobekli Tepe ebook, ancient temple Turkey, pre-agricultural civilization, ancient mysteries, lost civilization non-fiction, oldest temple"
+  bookSeo={{ bookTitle: "Gobekli Tepe", subtitle: "The Temple Built Before Agriculture", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Ancient Mysteries, Archaeology", format: "EBook", keywords: "Gobekli Tepe, ancient temple, archaeology, Turkey" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Lost Worlds", url: "/vol/lost-worlds" }, { name: "Gobekli Tepe", url: "/cases/gobekli-tepe" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

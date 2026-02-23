@@ -14,7 +14,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Amber Room" description="The Eighth Wonder of the World That Vanished" currentVolume={11}>
+<SidebarLayout
+  title="Amber Room Book — Lost Treasure Mystery"
+  description="The Amber Room: The Eighth Wonder of the World that vanished during WWII. Non-fiction ebook about history's greatest lost treasure. $2.99 EPUB."
+  currentVolume={11}
+  image="/books/covers/amber-room.jpg"
+  ogType="book"
+  keywords="Amber Room book, Amber Room ebook, lost treasure WWII, Nazi looted art, Russian treasure, Eighth Wonder, lost art non-fiction"
+  bookSeo={{ bookTitle: "The Amber Room", subtitle: "The Eighth Wonder of the World That Vanished", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Heists, World War II", format: "EBook", keywords: "Amber Room, lost treasure, WWII, Nazi art" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Heists", url: "/vol/heists" }, { name: "The Amber Room", url: "/cases/amber-room" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

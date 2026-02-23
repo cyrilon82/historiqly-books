@@ -16,7 +16,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Antwerp Diamond Heist" description="The Thieves Who Beat Ten Layers of Security" currentVolume={11}>
+<SidebarLayout
+  title="Antwerp Diamond Heist Book — The Perfect Crime"
+  description="The Antwerp Diamond Heist: How thieves beat ten layers of security to steal $100 million in diamonds. Non-fiction ebook. $2.99 EPUB."
+  currentVolume={11}
+  image="/books/covers/antwerp-diamond-heist.jpg"
+  ogType="book"
+  keywords="Antwerp diamond heist book, diamond heist ebook, biggest diamond theft, Belgian heist, perfect crime, diamond vault robbery, heist non-fiction"
+  bookSeo={{ bookTitle: "The Antwerp Diamond Heist", subtitle: "The Thieves Who Beat Ten Layers of Security", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, True Crime, Heists", format: "EBook", keywords: "Antwerp diamond heist, diamond theft, Belgium, heist" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Heists", url: "/vol/heists" }, { name: "Antwerp Diamond Heist", url: "/cases/antwerp-diamond-heist" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

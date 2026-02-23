@@ -14,7 +14,28 @@ const images = {
 };
 ---
 
-<SidebarLayout title="MKUltra" description="The CIA's Secret War on the Mind" currentVolume={7}>
+<SidebarLayout
+  title="MKUltra Book — CIA Mind Control Program"
+  description="MKUltra: The CIA's secret mind control program exposed. Non-fiction ebook about LSD experiments, declassified documents, and government conspiracies. $2.99 EPUB."
+  currentVolume={7}
+  image="/books/covers/mkultra.jpg"
+  ogType="book"
+  keywords="MKUltra book, MKUltra ebook, CIA mind control, MK Ultra LSD experiments, declassified CIA programs, conspiracy non-fiction, government secrets book, mind control program, Sidney Gottlieb, Project MKUltra"
+  bookSeo={{
+    bookTitle: "MKUltra",
+    subtitle: "The CIA's Secret War on the Mind",
+    price: "2.99",
+    author: "HistorIQly Thrillers",
+    genre: "Non-Fiction, History, Conspiracy, Declassified",
+    format: "EBook",
+    keywords: "MKUltra, CIA, mind control, LSD, declassified",
+  }}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Declassified", url: "/vol/declassified" },
+    { name: "MKUltra", url: "/cases/mkultra" },
+  ]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

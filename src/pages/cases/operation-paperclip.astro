@@ -20,7 +20,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="Operation Paperclip" description="The Nazi Scientists Who Built the American Dream" currentVolume={7}>
+<SidebarLayout
+  title="Operation Paperclip Book — Nazi Scientists in America"
+  description="Operation Paperclip: How the US recruited Nazi scientists after WWII. Non-fiction ebook about the declassified program that built NASA. $2.99 EPUB."
+  currentVolume={7}
+  image="/books/covers/operation-paperclip.jpg"
+  ogType="book"
+  keywords="Operation Paperclip book, Operation Paperclip ebook, Nazi scientists America, Wernher von Braun, WWII declassified, Cold War secrets, NASA history non-fiction"
+  bookSeo={{ bookTitle: "Operation Paperclip", subtitle: "The Nazi Scientists Who Built the American Dream", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Declassified, World War II", format: "EBook", keywords: "Operation Paperclip, Nazi scientists, declassified, NASA" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Declassified", url: "/vol/declassified" }, { name: "Operation Paperclip", url: "/cases/operation-paperclip" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

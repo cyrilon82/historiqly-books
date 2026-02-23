@@ -18,7 +18,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Gardner Museum Heist" description="The Night They Stole the Impossible" currentVolume={11}>
+<SidebarLayout
+  title="Gardner Museum Heist Book — Art Theft Mystery"
+  description="The Gardner Museum Heist: The night they stole $500 million in art — and it's still missing. Non-fiction ebook about the biggest unsolved art theft. $2.99 EPUB."
+  currentVolume={11}
+  image="/books/covers/gardner-museum-heist.jpg"
+  ogType="book"
+  keywords="Gardner Museum heist book, Gardner Museum ebook, art theft Boston, stolen art, Isabella Stewart Gardner, unsolved heist, art crime non-fiction"
+  bookSeo={{ bookTitle: "The Gardner Museum Heist", subtitle: "The Night They Stole the Impossible", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, True Crime, Heists, Art History", format: "EBook", keywords: "Gardner Museum, art theft, Boston, heist" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Heists", url: "/vol/heists" }, { name: "Gardner Museum Heist", url: "/cases/gardner-museum-heist" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

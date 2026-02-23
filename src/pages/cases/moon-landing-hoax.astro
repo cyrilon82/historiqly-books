@@ -15,7 +15,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Moon Landing" description="The Conspiracy That Would Not Die" currentVolume={5}>
+<SidebarLayout
+  title="Moon Landing Conspiracy Book — Fact vs Fiction"
+  description="Moon Landing: Examining the conspiracy that would not die. Non-fiction ebook analyzing the evidence for and against the lunar landing. $2.99 EPUB."
+  currentVolume={5}
+  image="/books/covers/moon-landing-hoax.jpg"
+  ogType="book"
+  keywords="moon landing conspiracy book, moon landing hoax ebook, Apollo 11, NASA conspiracy, lunar landing evidence, space race non-fiction, moon landing truth"
+  bookSeo={{ bookTitle: "The Moon Landing", subtitle: "The Conspiracy That Would Not Die", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Conspiracy, Science", format: "EBook", keywords: "Moon landing, conspiracy, Apollo 11, NASA" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Conspiracies", url: "/vol/conspiracies" }, { name: "Moon Landing", url: "/cases/moon-landing-hoax" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

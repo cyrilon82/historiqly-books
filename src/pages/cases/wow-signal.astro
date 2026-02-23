@@ -18,7 +18,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Wow! Signal" description="72 Seconds from the Edge of Forever" currentVolume={8}>
+<SidebarLayout
+  title="Wow Signal Book — SETI Mystery"
+  description="The Wow! Signal: 72 seconds of radio signal from deep space that has never been explained. Non-fiction ebook about the strongest SETI candidate ever. $2.99 EPUB."
+  currentVolume={8}
+  image="/books/covers/wow-signal.jpg"
+  ogType="book"
+  keywords="Wow Signal book, Wow Signal ebook, SETI alien signal, space mystery, Big Ear telescope, extraterrestrial signal, unexplained signals non-fiction"
+  bookSeo={{ bookTitle: "The Wow! Signal", subtitle: "72 Seconds from the Edge of Forever", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, Science, Unexplained, Space", format: "EBook", keywords: "Wow Signal, SETI, space, alien signal" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Unexplained", url: "/vol/unexplained" }, { name: "The Wow! Signal", url: "/cases/wow-signal" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

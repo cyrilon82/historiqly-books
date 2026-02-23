@@ -15,7 +15,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="Skull and Bones" description="The Order Behind the Power" currentVolume={6}>
+<SidebarLayout
+  title="Skull and Bones Book — Yale Secret Society"
+  description="Skull and Bones: Inside Yale's most powerful secret society. Non-fiction ebook about the order that shaped American politics. $2.99 EPUB."
+  currentVolume={6}
+  image="/books/covers/skull-and-bones.jpg"
+  ogType="book"
+  keywords="Skull and Bones book, Skull and Bones ebook, Yale secret society, secret society history, American elite, Skull and Bones members, secret order non-fiction"
+  bookSeo={{ bookTitle: "Skull and Bones", subtitle: "The Order Behind the Power", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Secret Societies", format: "EBook", keywords: "Skull and Bones, Yale, secret society, American elite" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Secret Societies", url: "/vol/secret-societies" }, { name: "Skull and Bones", url: "/cases/skull-and-bones" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

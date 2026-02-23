@@ -17,7 +17,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="Into the Pacific" description="The Disappearance of Amelia Earhart" currentVolume={4}>
+<SidebarLayout
+  title="Amelia Earhart Book — Disappearance Mystery"
+  description="Into the Pacific: The disappearance of Amelia Earhart investigated. Non-fiction ebook examining evidence and theories. $2.99 EPUB."
+  currentVolume={4}
+  image="/books/covers/amelia-earhart.jpg"
+  ogType="book"
+  keywords="Amelia Earhart book, Amelia Earhart disappearance, Amelia Earhart ebook, aviation mystery, Pacific disappearance, Amelia Earhart theories, historical mysteries non-fiction"
+  bookSeo={{ bookTitle: "Into the Pacific", subtitle: "The Disappearance of Amelia Earhart", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Disappearances, Aviation", format: "EBook", keywords: "Amelia Earhart, disappearance, Pacific, aviation" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Disappearances", url: "/vol/disappearances" }, { name: "Amelia Earhart", url: "/cases/amelia-earhart" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

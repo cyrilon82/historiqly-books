@@ -17,7 +17,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="COINTELPRO" description="The FBI's Secret War on America" currentVolume={7}>
+<SidebarLayout
+  title="COINTELPRO Book — FBI Secret War on America"
+  description="COINTELPRO: The FBI's secret counterintelligence program that targeted civil rights leaders. Non-fiction ebook about government surveillance. $2.99 EPUB."
+  currentVolume={7}
+  image="/books/covers/cointelpro.jpg"
+  ogType="book"
+  keywords="COINTELPRO book, COINTELPRO ebook, FBI surveillance, J Edgar Hoover, civil rights, FBI counterintelligence, government surveillance non-fiction, Martin Luther King FBI"
+  bookSeo={{ bookTitle: "COINTELPRO", subtitle: "The FBI's Secret War on America", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Declassified, Civil Rights", format: "EBook", keywords: "COINTELPRO, FBI, counterintelligence, surveillance" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Declassified", url: "/vol/declassified" }, { name: "COINTELPRO", url: "/cases/cointelpro" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

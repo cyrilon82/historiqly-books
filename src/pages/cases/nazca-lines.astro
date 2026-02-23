@@ -17,7 +17,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Nazca Lines" description="The Desert That Drew Itself" currentVolume={10}>
+<SidebarLayout
+  title="Nazca Lines Book — Ancient Desert Mystery"
+  description="The Nazca Lines: Giant ancient drawings visible only from the air. Non-fiction ebook investigating Peru's most baffling archaeological mystery. $2.99 EPUB."
+  currentVolume={10}
+  image="/books/covers/nazca-lines.jpg"
+  ogType="book"
+  keywords="Nazca Lines book, Nazca Lines ebook, Peru ancient mystery, geoglyphs, archaeological mystery, ancient Peru, desert drawings non-fiction"
+  bookSeo={{ bookTitle: "The Nazca Lines", subtitle: "The Desert That Drew Itself", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Archaeology, Ancient Mysteries", format: "EBook", keywords: "Nazca Lines, Peru, geoglyphs, archaeology" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Archaeology", url: "/vol/archaeological" }, { name: "The Nazca Lines", url: "/cases/nazca-lines" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

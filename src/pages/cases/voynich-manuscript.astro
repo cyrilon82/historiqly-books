@@ -15,7 +15,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Book of Nowhere" description="The Voynich Manuscript and the Language That Doesn't Exist" currentVolume={10}>
+<SidebarLayout
+  title="Voynich Manuscript Book — Undeciphered Mystery"
+  description="The Voynich Manuscript: A 600-year-old book written in a language that doesn't exist. Non-fiction ebook about the world's most mysterious manuscript. $2.99 EPUB."
+  currentVolume={10}
+  image="/books/covers/voynich-manuscript.jpg"
+  ogType="book"
+  keywords="Voynich Manuscript book, Voynich Manuscript ebook, undeciphered manuscript, mysterious book, medieval mystery, cryptography history, unsolved codes non-fiction"
+  bookSeo={{ bookTitle: "The Book of Nowhere", subtitle: "The Voynich Manuscript and the Language That Doesn't Exist", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Archaeology, Cryptography", format: "EBook", keywords: "Voynich Manuscript, undeciphered, medieval, cryptography" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Archaeology", url: "/vol/archaeological" }, { name: "Voynich Manuscript", url: "/cases/voynich-manuscript" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

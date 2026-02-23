@@ -15,7 +15,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="Area 51" description="The Secret Base That Launched a Thousand Conspiracies" currentVolume={5}>
+<SidebarLayout
+  title="Area 51 Book — Government Secrets Exposed"
+  description="Area 51: The truth behind America's most secret military base. Non-fiction ebook covering UFO lore, classified aircraft, and government secrecy. $2.99 EPUB."
+  currentVolume={5}
+  image="/books/covers/area-51.jpg"
+  ogType="book"
+  keywords="Area 51 book, Area 51 ebook, secret military base, UFO conspiracy, government secrets, Nevada desert, classified aircraft, Roswell, alien conspiracy non-fiction"
+  bookSeo={{ bookTitle: "Area 51", subtitle: "The Secret Base That Launched a Thousand Conspiracies", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Conspiracy, Military", format: "EBook", keywords: "Area 51, UFO, government secrets, classified" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Conspiracies", url: "/vol/conspiracies" }, { name: "Area 51", url: "/cases/area-51" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

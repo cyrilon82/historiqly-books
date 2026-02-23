@@ -14,7 +14,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Loch Ness Monster" description="The Hunt for Scotland's Impossible Creature" currentVolume={8}>
+<SidebarLayout
+  title="Loch Ness Monster Book — Scotland's Impossible Creature"
+  description="The Loch Ness Monster: The hunt for Scotland's impossible creature. Non-fiction ebook analyzing sightings, evidence, and the science. $2.99 EPUB."
+  currentVolume={8}
+  image="/books/covers/loch-ness-monster.jpg"
+  ogType="book"
+  keywords="Loch Ness Monster book, Nessie ebook, Loch Ness sightings, Scottish mystery, cryptozoology, unexplained creatures, Loch Ness evidence non-fiction"
+  bookSeo={{ bookTitle: "The Loch Ness Monster", subtitle: "The Hunt for Scotland's Impossible Creature", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, Unexplained, Cryptozoology, History", format: "EBook", keywords: "Loch Ness Monster, Nessie, Scotland, cryptozoology" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Unexplained", url: "/vol/unexplained" }, { name: "Loch Ness Monster", url: "/cases/loch-ness-monster" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

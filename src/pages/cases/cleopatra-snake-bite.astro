@@ -15,7 +15,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="Cleopatra's Last Breath" description="The Mystery of the Serpent Queen's Death" currentVolume={2}>
+<SidebarLayout
+  title="Cleopatra Death Book — Snake Bite Myth"
+  description="Cleopatra's Last Breath: Did the Serpent Queen really die by snake bite? Non-fiction ebook examining the evidence behind the myth. $2.99 EPUB."
+  currentVolume={2}
+  image="/books/covers/cleopatra-snake-bite.jpg"
+  ogType="book"
+  keywords="Cleopatra death book, Cleopatra snake bite, Egyptian queen death mystery, ancient history ebook, Cleopatra myth debunked, historical myths non-fiction"
+  bookSeo={{ bookTitle: "Cleopatra's Last Breath", subtitle: "The Mystery of the Serpent Queen's Death", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Ancient History, Myths", format: "EBook", keywords: "Cleopatra, snake bite, Egypt, ancient history" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Myths", url: "/vol/myths" }, { name: "Cleopatra's Last Breath", url: "/cases/cleopatra-snake-bite" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

@@ -21,10 +21,11 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
 ---
 
 <SidebarLayout
-  title="The Piltdown Men — Free History Ebook"
-  description="A 41-year scientific fraud, told as a thriller. Free EPUB download — plus 26 more narrative non-fiction books."
+  title="Non-Fiction History Ebooks — Mysteries, Conspiracies & Cold Cases"
+  description="33 narrative non-fiction ebooks about history's darkest mysteries. MKUltra, Jack the Ripper, Illuminati, Area 51 & more. Free EPUB download + $2.99 books."
   image="/books/covers/piltdown-man.jpg"
   maxWidth="1200px"
+  keywords="history ebooks, non-fiction ebooks, conspiracy books, MKUltra book, cold case books, mystery ebooks, historical mysteries, secret societies books, true crime ebooks, declassified documents, free history ebook"
 >
   <div class="landing">
 
@@ -151,7 +152,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
                 {vol.books.slice(0, 3).map((b) => (
                   <img
                     src={`/books/covers/${b.slug}.jpg`}
-                    alt=""
+                    alt={`${b.title} — ${b.subtitle} | Non-fiction ebook`}
                     class="vol-card-thumb"
                     width="120"
                     height="180"

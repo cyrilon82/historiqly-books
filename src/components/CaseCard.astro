@@ -30,7 +30,7 @@ const caseNum = String(caseData.caseNumber).padStart(2, "0");
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
-          Subscriber Only
+          Coming Soon
         </span>
       ) : (
         <div class={`case-verdict ${caseData.verdictType}`}>
@@ -45,8 +45,7 @@ const caseNum = String(caseData.caseNumber).padStart(2, "0");
   {
     isLocked ? (
       <p class="locked-description">
-        Subscribe to unlock this investigation and get full access to all
-        books.
+        This investigation is not yet available.
       </p>
     ) : (
       <>

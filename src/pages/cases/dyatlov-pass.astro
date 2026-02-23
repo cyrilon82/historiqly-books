@@ -16,7 +16,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Dyatlov Pass Incident" description="Nine Hikers, One Mountain, No Survivors" currentVolume={8}>
+<SidebarLayout
+  title="Dyatlov Pass Book — Unexplained Mystery"
+  description="The Dyatlov Pass Incident: Nine hikers dead on a Siberian mountain. Non-fiction ebook examining the evidence behind one of history's greatest mysteries. $2.99 EPUB."
+  currentVolume={8}
+  image="/books/covers/dyatlov-pass.jpg"
+  ogType="book"
+  keywords="Dyatlov Pass book, Dyatlov Pass ebook, Dyatlov Pass incident, unexplained deaths, Russian mystery, Ural Mountains, unexplained mysteries non-fiction"
+  bookSeo={{ bookTitle: "The Dyatlov Pass Incident", subtitle: "Nine Hikers, One Mountain, No Survivors", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Unexplained, Mystery", format: "EBook", keywords: "Dyatlov Pass, unexplained deaths, Russia, Ural Mountains" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Unexplained", url: "/vol/unexplained" }, { name: "Dyatlov Pass", url: "/cases/dyatlov-pass" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

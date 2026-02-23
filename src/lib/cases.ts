@@ -50,15 +50,10 @@ export function getVolumeProgress(volumeSlug: string): {
 }
 
 /**
- * Get cases accessible to a user based on subscription status
+ * Get all accessible (released) cases for a volume
  */
-export function getAccessibleCases(
-  volumeSlug: string,
-  isSubscriber: boolean
-): Case[] {
-  const releasedCases = getReleasedCasesForVolume(volumeSlug);
-  if (isSubscriber) return releasedCases;
-  return releasedCases.filter((c) => c.isFree);
+export function getAccessibleCases(volumeSlug: string): Case[] {
+  return getReleasedCasesForVolume(volumeSlug);
 }
 
 /**
@@ -83,10 +78,8 @@ export function getFreeCases(volumeSlug: string): Case[] {
 }
 
 /**
- * Check if a case is locked for the current user
+ * Check if a case is locked (not yet released)
  */
-export function isLocked(caseData: Case, isSubscriber: boolean): boolean {
-  if (!isReleased(caseData)) return true;
-  if (isSubscriber) return false;
-  return !caseData.isFree;
+export function isLocked(caseData: Case): boolean {
+  return !isReleased(caseData);
 }

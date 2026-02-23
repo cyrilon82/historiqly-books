@@ -19,7 +19,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Freemasons" description="The Builders Who Became a Brotherhood" currentVolume={6}>
+<SidebarLayout
+  title="Freemasons Book — Secret Brotherhood History"
+  description="The Freemasons: From medieval builders to the world's most famous secret society. Non-fiction ebook exploring Masonic history and rituals. $2.99 EPUB."
+  currentVolume={6}
+  image="/books/covers/freemasons.jpg"
+  ogType="book"
+  keywords="Freemasons book, Freemasonry ebook, Masonic history, secret society, Freemason rituals, Masonic lodge, secret brotherhood non-fiction"
+  bookSeo={{ bookTitle: "The Freemasons", subtitle: "The Builders Who Became a Brotherhood", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Secret Societies", format: "EBook", keywords: "Freemasons, Freemasonry, secret society, Masonic" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Secret Societies", url: "/vol/secret-societies" }, { name: "The Freemasons", url: "/cases/freemasons" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

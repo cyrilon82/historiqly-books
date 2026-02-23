@@ -20,7 +20,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Mary Celeste" description="The Ghost Ship That Haunted the Atlantic" currentVolume={4}>
+<SidebarLayout
+  title="Mary Celeste Book — Ghost Ship Mystery"
+  description="The Mary Celeste: The ghost ship found adrift in the Atlantic with no crew. Non-fiction ebook investigating maritime history's greatest mystery. $2.99 EPUB."
+  currentVolume={4}
+  image="/books/covers/mary-celeste.jpg"
+  ogType="book"
+  keywords="Mary Celeste book, Mary Celeste ebook, ghost ship mystery, maritime disappearance, abandoned ship 1872, nautical mysteries non-fiction"
+  bookSeo={{ bookTitle: "The Mary Celeste", subtitle: "The Ghost Ship That Haunted the Atlantic", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Disappearances, Maritime", format: "EBook", keywords: "Mary Celeste, ghost ship, maritime mystery, disappearance" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Disappearances", url: "/vol/disappearances" }, { name: "The Mary Celeste", url: "/cases/mary-celeste" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

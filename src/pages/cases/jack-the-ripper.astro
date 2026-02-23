@@ -16,7 +16,28 @@ const images = {
 };
 ---
 
-<SidebarLayout title="Jack the Ripper" description="The Autumn of Terror — London, 1888" currentVolume={3}>
+<SidebarLayout
+  title="Jack the Ripper Book — The Autumn of Terror"
+  description="Jack the Ripper: The definitive non-fiction investigation into London's most infamous unsolved murders. Evidence, suspects, and cold case analysis. $2.99 EPUB."
+  currentVolume={3}
+  image="/books/covers/jack-the-ripper.jpg"
+  ogType="book"
+  keywords="Jack the Ripper book, Jack the Ripper ebook, Whitechapel murders, Victorian cold case, unsolved murders London 1888, true crime non-fiction, serial killer history, cold case investigation"
+  bookSeo={{
+    bookTitle: "Jack the Ripper",
+    subtitle: "The Autumn of Terror",
+    price: "2.99",
+    author: "HistorIQly Thrillers",
+    genre: "Non-Fiction, True Crime, Cold Cases, History",
+    format: "EBook",
+    keywords: "Jack the Ripper, Whitechapel, cold case, Victorian London",
+  }}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Cold Cases", url: "/vol/cold-cases" },
+    { name: "Jack the Ripper", url: "/cases/jack-the-ripper" },
+  ]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

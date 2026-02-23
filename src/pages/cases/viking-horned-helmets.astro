@@ -15,7 +15,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Horned Helmet" description="How an Opera Costume Fooled the World" currentVolume={2}>
+<SidebarLayout
+  title="Viking Horned Helmets Book — Myth Debunked"
+  description="The Horned Helmet: Did Vikings really wear horned helmets? Non-fiction ebook tracing how an opera costume rewrote history. $2.99 EPUB."
+  currentVolume={2}
+  image="/books/covers/viking-horned-helmets.jpg"
+  ogType="book"
+  keywords="Viking horned helmets book, Viking myths ebook, Norse history, Wagner opera, historical myths debunked, Viking fact fiction non-fiction"
+  bookSeo={{ bookTitle: "The Horned Helmet", subtitle: "How an Opera Costume Fooled the World", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Myths, Norse", format: "EBook", keywords: "Viking helmets, Norse myths, horned helmet, historical myth" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Myths", url: "/vol/myths" }, { name: "The Horned Helmet", url: "/cases/viking-horned-helmets" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

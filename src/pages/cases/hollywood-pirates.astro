@@ -16,7 +16,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="Hollywood Pirates" description="Were Pirates Really Like the Movies?" currentVolume={2}>
+<SidebarLayout
+  title="Hollywood Pirates Book — Pirate Myths Debunked"
+  description="Hollywood Pirates: Were real pirates like the movies? Non-fiction ebook separating pirate fact from fiction. $2.99 EPUB."
+  currentVolume={2}
+  image="/books/covers/hollywood-pirates.jpg"
+  ogType="book"
+  keywords="pirate myths book, Hollywood pirates ebook, real pirates history, pirate fact fiction, golden age piracy, pirate history non-fiction"
+  bookSeo={{ bookTitle: "Hollywood Pirates", subtitle: "Were Pirates Really Like the Movies?", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Myths, Maritime", format: "EBook", keywords: "pirates, pirate myths, golden age piracy, Hollywood" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Myths", url: "/vol/myths" }, { name: "Hollywood Pirates", url: "/cases/hollywood-pirates" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

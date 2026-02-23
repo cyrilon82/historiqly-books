@@ -14,7 +14,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The Hitler Diaries" description="The Forgery That Fooled the World" currentVolume={1}>
+<SidebarLayout
+  title="Hitler Diaries Book — The Forgery That Fooled the World"
+  description="The Hitler Diaries: The stunning forgery that duped journalists worldwide. Non-fiction ebook about the biggest media fraud in history. $2.99 EPUB."
+  currentVolume={1}
+  image="/books/covers/hitler-diaries.jpg"
+  ogType="book"
+  keywords="Hitler Diaries book, Hitler Diaries ebook, Konrad Kujau forgery, media fraud history, World War 2 hoax, historical forgery non-fiction"
+  bookSeo={{ bookTitle: "The Hitler Diaries", subtitle: "The Forgery That Fooled the World", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Hoaxes, World War II", format: "EBook", keywords: "Hitler Diaries, forgery, Konrad Kujau, media fraud" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Hoaxes", url: "/vol/hoaxes" }, { name: "The Hitler Diaries", url: "/cases/hitler-diaries" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->

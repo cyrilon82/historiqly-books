@@ -29,7 +29,16 @@ const images = {
 };
 ---
 
-<SidebarLayout title="The JFK Assassination" description="The Assassination That Changed America" currentVolume={5}>
+<SidebarLayout
+  title="JFK Assassination Book — November 22, 1963"
+  description="JFK Assassination: The definitive non-fiction investigation into the Kennedy assassination. Evidence analysis, conspiracy theories examined. $2.99 EPUB."
+  currentVolume={5}
+  image="/books/covers/jfk-assassination.jpg"
+  ogType="book"
+  keywords="JFK assassination book, Kennedy assassination ebook, JFK conspiracy, November 22 1963, Lee Harvey Oswald, Warren Commission, Dealey Plaza, true crime non-fiction"
+  bookSeo={{ bookTitle: "November 22, 1963", subtitle: "The Assassination That Changed America", price: "2.99", author: "HistorIQly Thrillers", genre: "Non-Fiction, History, Conspiracy, True Crime", format: "EBook", keywords: "JFK, Kennedy, assassination, conspiracy" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Conspiracies", url: "/vol/conspiracies" }, { name: "JFK Assassination", url: "/cases/jfk-assassination" }]}
+>
   <article class="case-file">
 
     <!-- HERO SECTION -->
