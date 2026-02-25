@@ -299,7 +299,7 @@ const epubChapters = [
       <p><strong>1784 (June 22)</strong> — Karl Theodor, Elector of Bavaria, issues the first edict banning all secret societies not authorised by law.</p>
       <p><strong>1785 (March 2)</strong> — Second edict specifically names and bans the Illuminati. Weishaupt flees to Gotha, where Duke Ernest II of Saxe-Gotha-Altenburg gives him refuge.</p>
       <p><strong>1786 (October)</strong> — Police raid the home of Xavier von Zwack in Landshut, seizing the order's internal correspondence, membership lists, cipher keys, and instructions.</p>
-      <p><strong>1787</strong> — The Bavarian government publishes the seized documents as <em>Einige Originalschriften des Illuminatenordens</em>. A third edict threatens death for membership. The order effectively ceases to exist.</p>
+      <p><strong>1787</strong> — The Bavarian government publishes the seized documents as <em>Einige Originalschriften des Illuminatenordens</em>. A third edict threatens death for recruiting. The order effectively ceases to exist.</p>
       <p><strong>1789 (July 14)</strong> — The French Revolution begins with the storming of the Bastille. The Illuminati have been defunct for two years.</p>
       <p><strong>1797</strong> — Augustin Barruel publishes <em>Mémoires pour servir à l'histoire du Jacobinisme</em>. John Robison publishes <em>Proofs of a Conspiracy</em>. Both blame the Illuminati for the French Revolution.</p>
       <p><strong>1798</strong> — George Washington writes a letter acknowledging the Illuminati scare but expressing doubt that they infiltrated American lodges.</p>
