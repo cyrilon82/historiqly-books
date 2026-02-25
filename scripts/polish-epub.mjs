@@ -216,7 +216,9 @@ figcaption {
 }
 `;
 
-const COVER_XHTML = `<?xml version="1.0" encoding="UTF-8"?>
+function makeCoverXhtml(bookTitle) {
+  const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  return `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="en" lang="en">
 <head>
@@ -226,14 +228,17 @@ const COVER_XHTML = `<?xml version="1.0" encoding="UTF-8"?>
 </head>
 <body epub:type="cover">
   <div class="cover-page">
-    <img src="cover.jpg" alt="The Piltdown Men — Book Cover" />
+    <img src="cover.jpg" alt="${esc(bookTitle)} — Book Cover" />
   </div>
 </body>
 </html>`;
+}
 
 // Map chapter filenames to their epub:type
-function getEpubType(filename) {
-  if (filename.includes('The-Piltdown-Men')) return 'titlepage';
+function getEpubType(filename, html) {
+  // Detect title page by content (class="title-page") or being the first file (0_)
+  if (html && html.includes('class="title-page"')) return 'titlepage';
+  if (/^0_/.test(filename)) return 'titlepage';
   if (filename.includes('Epigraph')) return 'epigraph';
   if (filename.includes('Timeline')) return 'backmatter';
   if (filename.includes('About-This-Book')) return 'backmatter';
@@ -295,12 +300,19 @@ export async function polishEpub(inputPath, outputPath) {
 
   console.log('  Polishing EPUB...');
 
+  // ── 0. Extract book title from OPF metadata ──
+  const opfRaw = zip.getEntry('OEBPS/content.opf')?.getData().toString('utf-8') || '';
+  const titleMatch = opfRaw.match(/<dc:title>([^<]+)<\/dc:title>/);
+  const bookTitle = titleMatch
+    ? decodeHtmlEntities(titleMatch[1]).replace(/:.+$/, '').trim()  // Use short title (before colon)
+    : 'Book';
+
   // ── 1. Replace CSS ──
   zip.updateFile('OEBPS/style.css', Buffer.from(IMPROVED_CSS, 'utf-8'));
   console.log('    ✓ Updated CSS (dark mode, typography, figure styles)');
 
   // ── 2. Add cover.xhtml ──
-  zip.addFile('OEBPS/cover.xhtml', Buffer.from(COVER_XHTML, 'utf-8'));
+  zip.addFile('OEBPS/cover.xhtml', Buffer.from(makeCoverXhtml(bookTitle), 'utf-8'));
   console.log('    ✓ Added cover.xhtml');
 
   // ── 2.1 Normalize cover image filename for broader thumbnail compatibility ──
@@ -377,7 +389,7 @@ export async function polishEpub(inputPath, outputPath) {
 
     let html = entry.getData().toString('utf-8');
     const filename = entry.entryName.split('/').pop();
-    const epubType = getEpubType(filename);
+    const epubType = getEpubType(filename, html);
     if (!firstChapterHref && epubType === 'chapter') {
       firstChapterHref = filename;
     }
@@ -432,7 +444,7 @@ export async function polishEpub(inputPath, outputPath) {
     chapterCount++;
   }
   console.log(`    ✓ Processed ${chapterCount} content files (semantic markup, removed duplicate headings)`);
-  const startReadingHref = firstChapterHref || '0_The-Piltdown-Men.xhtml';
+  const startReadingHref = firstChapterHref || '0_' + bookTitle.replace(/[^a-zA-Z0-9]+/g, '-') + '.xhtml';
 
   // ── 5. Update toc.xhtml with landmarks ──
   const tocEntry = zip.getEntry('OEBPS/toc.xhtml');
@@ -532,25 +544,12 @@ export async function polishEpub(inputPath, outputPath) {
       );
     }
 
-    // Add subject metadata before closing </metadata>
-    if (!opf.includes('<dc:subject>')) {
-      opf = opf.replace(
-        '</metadata>',
-        `    <dc:subject>History</dc:subject>
-        <dc:subject>Science</dc:subject>
-        <dc:subject>True Crime</dc:subject>
-        <dc:subject>Hoaxes</dc:subject>
-    </metadata>`
-      );
-    }
-
-    // Add series metadata (EPUB 3 collection)
+    // Add series metadata (EPUB 3 collection) if not already present
     if (!opf.includes('belongs-to-collection')) {
       opf = opf.replace(
         '</metadata>',
         `    <meta property="belongs-to-collection" id="series">HistorIQly Books</meta>
         <meta refines="#series" property="collection-type">series</meta>
-        <meta refines="#series" property="group-position">1</meta>
     </metadata>`
       );
     }
