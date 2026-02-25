@@ -1,5 +1,5 @@
 import { EPub } from 'epub-gen-memory';
-import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'fs';
+import { writeFileSync, mkdirSync, readFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { generateCover } from './generate-cover.mjs';
@@ -338,18 +338,14 @@ async function build() {
     mkdirSync(COVER_DIR, { recursive: true });
     const coverPath = resolve(COVER_DIR, `${book.slug}.jpg`);
 
-    if (!existsSync(coverPath)) {
-      await generateCover({
-        backgroundImage: resolve(IMG_DIR, 'evidence-minerval-seal.png'),
-        title: 'The\nIlluminati',
-        subtitle: book.subtitle,
-        series: book.series,
-        author: book.author,
-        outputPath: coverPath,
-      });
-    } else {
-      console.log(`  Using existing cover: ${coverPath}`);
-    }
+    await generateCover({
+      backgroundImage: resolve(IMG_DIR, 'atmosphere-ingolstadt-kreuztor.jpg'),
+      title: 'The\nIlluminati',
+      subtitle: book.subtitle,
+      series: book.series,
+      author: book.author,
+      outputPath: coverPath,
+    });
 
     // epub-gen-memory fetches string covers as URLs (which fails for local paths),
     // so we pass a File object with the image data
