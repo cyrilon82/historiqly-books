@@ -12,7 +12,7 @@ const COVER_DIR = resolve(ROOT, 'public/books/covers');
 
 // --- BOOK DATA ---
 const book = {
-  title: 'The Illuminati',
+  title: 'The Bavarian Illuminati',
   subtitle: 'Nine Years That Conquered the World\'s Imagination',
   author: 'HistorIQly',
   series: 'Vol. 6: Secret Societies',
@@ -340,7 +340,7 @@ async function build() {
 
     await generateCover({
       backgroundImage: resolve(IMG_DIR, 'atmosphere-ingolstadt-kreuztor.jpg'),
-      title: 'The\nIlluminati',
+      title: 'The Bavarian\nIlluminati',
       subtitle: book.subtitle,
       series: book.series,
       author: book.author,

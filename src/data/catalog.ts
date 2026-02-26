@@ -39,7 +39,7 @@ export const catalog: CatalogBook[] = [
   { slug: 'area-51', title: 'Area 51', subtitle: 'The Secret Base That Launched a Thousand Conspiracies', volume: 'Conspiracies', volumeNum: 5 },
 
   // Vol. 6: Secret Societies
-  { slug: 'illuminati', title: 'The Illuminati', subtitle: "Nine Years That Conquered the World's Imagination", volume: 'Secret Societies', volumeNum: 6 },
+  { slug: 'illuminati', title: 'The Bavarian Illuminati', subtitle: "Nine Years That Conquered the World's Imagination", volume: 'Secret Societies', volumeNum: 6 },
   { slug: 'freemasons', title: 'The Freemasons', subtitle: 'The Builders Who Became a Brotherhood', volume: 'Secret Societies', volumeNum: 6 },
   { slug: 'skull-and-bones', title: 'Skull and Bones', subtitle: 'The Order Behind the Power', volume: 'Secret Societies', volumeNum: 6 },
 

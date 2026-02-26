@@ -1,5 +1,5 @@
 export const book = {
-  title: 'The Illuminati',
+  title: 'The Bavarian Illuminati',
   subtitle: 'Nine Years That Conquered the World\'s Imagination',
   author: 'HistorIQly',
   series: 'Vol. 6: Secret Societies',

@@ -5,7 +5,7 @@ export const secretSocietiesCases: Case[] = [
     id: "secret-societies-01",
     volumeSlug: "secret-societies",
     caseNumber: 1,
-    title: "The Illuminati",
+    title: "The Bavarian Illuminati",
     description:
       "Founded in 1776, the Bavarian Illuminati lasted only a decade. We separate historical fact from modern conspiracy fiction.",
     verdictType: "secret_society",
