@@ -285,12 +285,12 @@ const epubChapters = [
       <p><strong>September 2002</strong> — The hidden camera captures the vault combination. The King of Keys duplicates the foot-long vault key from video footage.</p>
       <p><strong>Early February 2003</strong> — Pre-heist sabotage: magnetic lock screws are partially removed during business hours; hairspray is sprayed on the thermal-motion sensor.</p>
       <p><strong>15–16 February 2003</strong> — <strong>THE HEIST.</strong> Over Valentine's Day weekend, the crew enters through a neighbouring building, defeats all ten security layers, and breaks into 109 of 189 safe deposit boxes. They escape with over $100 million in diamonds, gold, cash, and jewelry.</p>
-      <p><strong>17 February 2003 (Monday)</strong> — The heist is discovered when the Diamond Centre opens for business. Pietro Tavano dumps garbage bags containing evidence near the E19 motorway. Shopkeeper August Van Camp finds the bags and calls police.</p>
+      <p><strong>17 February 2003 (Monday)</strong> — The heist is discovered when the Diamond Centre opens for business. Notarbartolo and Pietro Tavano dump garbage bags containing evidence near the E19 motorway. Shopkeeper August Van Camp finds the bags and calls police.</p>
       <p><strong>21 February 2003</strong> — Notarbartolo is arrested by Antwerp's Diamond Detective Squad when he returns to the Diamond Centre. Italian police find 17 polished diamonds in his Turin safe.</p>
       <p><strong>2005</strong> — Trial in Antwerp. Notarbartolo sentenced to 10 years; D'Onorio and Tavano each receive 5 years. All ordered to pay 4.5 million euros in damages.</p>
       <p><strong>2007</strong> — Ferdinando Finotto arrested; later sentenced to 5 years.</p>
       <p><strong>March 2009</strong> — Joshua Davis publishes landmark <em>Wired</em> magazine article based on prison interviews with Notarbartolo. Notarbartolo released on parole.</p>
-      <p><strong>2009</strong> — Scott Andrew Selby and Greg Campbell publish <em>Flawless</em>, the definitive book on the heist.</p>
+      <p><strong>2010</strong> — Scott Andrew Selby and Greg Campbell publish <em>Flawless</em>, the definitive book on the heist.</p>
       <p><strong>2013</strong> — Notarbartolo re-arrested at Charles de Gaulle Airport in Paris; returned to prison.</p>
       <p><strong>2017</strong> — Notarbartolo released after completing his sentence.</p>
       <p><strong>2022</strong> — Ferdinando Finotto dies.</p>
@@ -305,7 +305,7 @@ const epubChapters = [
       <p><strong>${book.title}</strong> is a dramatised historical narrative based on documented events. The chronology, key figures, and factual framework are grounded in primary sources and historical scholarship; dialogue and some scene detail are imaginatively reconstructed to bring the story to life.</p>
       <p class="separator">***</p>
       <p><strong>Further Reading</strong></p>
-      <p>Selby, Scott Andrew & Campbell, Greg — <em>Flawless: Inside the Largest Diamond Heist in History</em>, Union Square Press, 2009</p>
+      <p>Selby, Scott Andrew & Campbell, Greg — <em>Flawless: Inside the Largest Diamond Heist in History</em>, Union Square Press, 2010</p>
       <p>Davis, Joshua — "The Untold Story of the World's Biggest Diamond Heist," <em>Wired</em>, March 2009</p>
       <p>Netflix — <em>Stolen: Heist of the Century</em> (documentary series), August 2025</p>
       <p class="separator">***</p>
