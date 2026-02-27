@@ -18,8 +18,9 @@ pnpm-debug.log*
 .env
 .env.production
 
-# generated books
-public/books/
+# generated epub files (but not covers)
+public/books/*.epub
+public/books/**/*.epub
 
 # macOS-specific files
 .DS_Store

@@ -45,7 +45,7 @@ const images = {
 
       <div class="hero-content">
         <div class="case-meta">
-          <span class="meta-badge preview">FREE</span>
+          <span class="meta-badge price">$2.99</span>
           <span class="meta-badge">CASE 01-360 BCE</span>
           <span class="meta-badge alert">STATUS: MYTHOLOGICAL</span>
         </div>
@@ -69,13 +69,9 @@ const images = {
         </div>
 
         <div class="hero-actions">
-          <a href="/books/#book" class="btn-hero-action">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span>Get Free EPUB</span>
+          <a href="https://www.amazon.com/dp/B0GQ4XF4CX" target="_blank" rel="noopener" class="btn-buy-primary">
+            <span class="btn-buy-text">Buy on Kindle</span>
+            <span class="btn-buy-price">$2.99</span>
           </a>
         </div>
       </div>
@@ -274,15 +270,11 @@ const images = {
           <p>The real Atlantis is not on the ocean floor. It exists where it has always existed — in the pages of a philosopher who understood that the most powerful truths are sometimes the ones you have to <strong>invent</strong>.</p>
 
           <div class="cta-box">
-            <h3>Get the Full Book — Free</h3>
+            <h3>Get the Full Book</h3>
             <p>8 chapters. The complete story of Plato's invention, the believers who took it literally, and the real drowned cities that may have inspired it.</p>
-            <a href="/books/#book" class="btn-download">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-              Get Free EPUB
+            <a href="https://www.amazon.com/dp/B0GQ4XF4CX" target="_blank" rel="noopener" class="btn-buy-primary cta-buy">
+              <span class="btn-buy-text">Buy on Kindle</span>
+              <span class="btn-buy-price">$2.99</span>
             </a>
           </div>
         </div>
@@ -382,10 +374,11 @@ const images = {
     background: var(--accent-dim);
   }
 
-  .meta-badge.preview {
-    border-color: rgba(255, 255, 255, 0.4);
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+  .meta-badge.price {
+    border-color: #F59E0B;
+    background: rgba(245, 158, 11, 0.1);
+    color: #F59E0B;
+    font-weight: 800;
   }
 
   .hero-title {
@@ -464,30 +457,49 @@ const images = {
     margin-top: 3rem;
   }
 
-  .btn-hero-action {
+  /* PRIMARY BUY BUTTON */
+  .btn-buy-primary {
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
+    gap: 1rem;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+    color: #000;
     text-decoration: none;
-    font-family: var(--font-ui);
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: 4px;
-    backdrop-filter: blur(4px);
-    transition: all 0.2s;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    font-family: var(--font-sans);
+    transition: all 0.25s;
+    box-shadow: 0 4px 24px rgba(245, 158, 11, 0.3), 0 2px 8px rgba(0, 0, 0, 0.3);
   }
 
-  .btn-hero-action:hover {
-    background: var(--accent);
-    color: var(--bg-dark);
-    border-color: var(--accent);
-    transform: translateY(-2px);
+  .btn-buy-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(245, 158, 11, 0.45), 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+  }
+
+  .btn-buy-text {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .btn-buy-price {
+    font-size: 1.125rem;
+    font-weight: 800;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+  }
+
+  .cta-buy {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
   }
 
   /* INTRO */
@@ -891,25 +903,6 @@ const images = {
     margin-bottom: 2rem;
   }
 
-  .btn-download {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: var(--accent);
-    color: #000;
-    padding: 1rem 2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: transform 0.2s;
-  }
-
-  .btn-download:hover {
-    transform: translateY(-2px);
-    background: #D97706;
-  }
 
   /* Drop Cap */
   .drop-cap:first-letter {

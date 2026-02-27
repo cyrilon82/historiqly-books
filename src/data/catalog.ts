@@ -10,7 +10,22 @@ export interface CatalogBook {
   volume: string;
   volumeNum: number;
   isFree?: boolean;
+  asin?: string;
 }
+
+/** Amazon ASIN lookup by slug */
+export const kindleAsins: Record<string, string> = {
+  'area-51': 'B0GQ8T2KLK',
+  'mkultra': 'B0GQ3QJWZY',
+  'antwerp-diamond-heist': 'B0GQ82SFX7',
+  'amber-room': 'B0GGWV1C83',
+  'amelia-earhart': 'B0GQ397VTF',
+  'illuminati': 'B0GQ5H5N22',
+  'atlantis': 'B0GQ4XF4CX',
+  'gardner-museum-heist': 'B0GQ3KCGJY',
+  'jack-the-ripper': 'B0GQ3DLZKT',
+  'antikythera-mechanism': 'B0GQ8DS8Q7',
+};
 
 export const catalog: CatalogBook[] = [
   // Vol. 1: Hoaxes
