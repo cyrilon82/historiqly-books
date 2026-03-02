@@ -25,6 +25,7 @@ export const kindleAsins: Record<string, string> = {
   'gardner-museum-heist': 'B0GQ3KCGJY',
   'jack-the-ripper': 'B0GQ3DLZKT',
   'antikythera-mechanism': 'B0GQ8DS8Q7',
+  'hitler-diaries': 'B0GHPVR1MX',
 };
 
 export const catalog: CatalogBook[] = [
