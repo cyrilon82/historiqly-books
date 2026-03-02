@@ -43,7 +43,7 @@ const images = {
   hattoriHanzo: imgFileUrl('suspect-hattori-hanzo.jpg'),
   jiraiya: imgFileUrl('ninja-jiraiya-kabuki-print.jpg'),
   goemon: imgFileUrl('ninja-goemon-execution.jpg'),
-  igaMap: imgFileUrl('ninja-iga-province-map.png'),
+  igaMap: imgFileUrl('ninja-iga-province-map.svg'),
   yoshitoshi27: imgFileUrl('ninja-yoshitoshi-moon-27.jpg'),
   yoshitoshi72: imgFileUrl('ninja-yoshitoshi-moon-72.jpg'),
   igaCostume: imgFileUrl('ninja-iga-museum-costume.jpg'),
