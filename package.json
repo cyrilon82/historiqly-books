@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "build:epub:donation-of-constantine": "node scripts/build-epub-donation-of-constantine.mjs",
+    "build:epub:gladiator-thumbs-down": "node scripts/build-epub-gladiator-thumbs-down.mjs",
+    "build:epub:dark-ages": "node scripts/build-epub-dark-ages.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

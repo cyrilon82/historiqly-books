@@ -13,7 +13,7 @@ export const archaeologicalCases: Case[] = [
     year: "c. 500 BCE–500 CE",
     confidence: 100,
     releaseDate: "2025-01-01",
-    isFree: true,
+    isFree: false,
   },
   {
     id: "archaeological-02",
@@ -26,7 +26,7 @@ export const archaeologicalCases: Case[] = [
     verdictLabel: "Authentic",
     year: "c. 150–100 BCE",
     confidence: 100,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const archaeologicalCases: Case[] = [
     verdictLabel: "Undeciphered",
     year: "15th century",
     confidence: 0,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {

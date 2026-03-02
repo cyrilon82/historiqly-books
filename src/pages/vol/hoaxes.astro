@@ -35,12 +35,12 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
       </div>
       <div class="cases-preview">
         <div class="case-preview"><span class="case-num">01</span><span class="case-title">The Piltdown Man</span><div class="case-btns"><a href="/cases/piltdown-man" class="btn-read">Read Case</a><a href="#" data-free-book class="btn-free-sm">Free</a></div></div>
-        <div class="case-preview"><span class="case-num">02</span><span class="case-title">The Cardiff Giant</span><div class="case-btns"><a href="/cases/cardiff-giant" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
-        <div class="case-preview"><span class="case-num">03</span><span class="case-title">The Hitler Diaries</span><div class="case-btns"><a href="/cases/hitler-diaries" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
-        <div class="case-preview"><span class="case-num">04</span><span class="case-title">The Cottingley Fairies</span></div>
-        <div class="case-preview"><span class="case-num">05</span><span class="case-title">The Shroud of Turin</span></div>
-        <div class="case-preview"><span class="case-num">06</span><span class="case-title">Han van Meegeren's Vermeers</span></div>
-        <div class="case-preview"><span class="case-num">07</span><span class="case-title">The Donation of Constantine</span></div>
+        <div class="case-preview"><span class="case-num">02</span><span class="case-title">The Cardiff Giant</span><div class="case-btns"><a href="/cases/cardiff-giant" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','cardiff-giant');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="cardiff-giantBuyPill">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQS29P1Y" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a><a href="/books/epub/cardiff-giant.epub" class="btn-free-sm" id="cardiff-giantDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">03</span><span class="case-title">The Hitler Diaries</span><div class="case-btns"><a href="/cases/hitler-diaries" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','hitler-diaries');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="hitler-diariesBuyPill">Buy $2.99</button><a href="/books/epub/hitler-diaries.epub" class="btn-free-sm" id="hitler-diariesDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">04</span><span class="case-title">The Cottingley Fairies</span><div class="case-btns"><a href="/cases/cottingley-fairies" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','cottingley-fairies');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="cottingley-fairiesBuyPill">Buy $2.99</button><a href="/books/epub/cottingley-fairies.epub" class="btn-free-sm" id="cottingley-fairiesDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">05</span><span class="case-title">Han van Meegeren's Vermeers</span><div class="case-btns"><a href="/cases/han-van-meegeren" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','han-van-meegeren');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="han-van-meegerenBuyPill">Buy $2.99</button><a href="/books/epub/han-van-meegeren.epub" class="btn-free-sm" id="han-van-meegerenDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">06</span><span class="case-title">The Donation of Constantine</span><div class="case-btns"><a href="/cases/donation-of-constantine" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','donation-of-constantine');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="donation-of-constantineBuyPill">Buy $2.99</button><a href="/books/epub/donation-of-constantine.epub" class="btn-free-sm" id="donation-of-constantineDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">07</span><span class="case-title">The Shroud of Turin</span><div class="case-btns"><a href="/cases/shroud-of-turin" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','shroud-of-turin');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="shroud-of-turinBuyPill">Buy $2.99</button><a href="/books/epub/shroud-of-turin.epub" class="btn-free-sm" id="shroud-of-turinDownloadPill" style="display:none;" download>Download</a></div></div>
       </div>
     </div>
 
@@ -49,6 +49,18 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
     </div>
   </div>
 </SidebarLayout>
+
+<script>
+  // Purchase detection for paid books
+  ['cardiff-giant', 'hitler-diaries', 'cottingley-fairies', 'han-van-meegeren', 'donation-of-constantine', 'shroud-of-turin'].forEach(slug => {
+    if (localStorage.getItem(`historiqly_purchased_${slug}`) === 'true') {
+      const buyPill = document.getElementById(`${slug}BuyPill`);
+      const downloadPill = document.getElementById(`${slug}DownloadPill`);
+      if (buyPill) buyPill.style.display = 'none';
+      if (downloadPill) downloadPill.style.display = 'inline-flex';
+    }
+  });
+</script>
 
 <style>
   .volume-page {
@@ -291,4 +303,7 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
       padding: 0.2rem 0.375rem;
     }
   }
+
+  .btn-kindle-sm { display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.55); color: #F59E0B; font-weight: 700; font-size: 0.6875rem; border-radius: 6px; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .btn-kindle-sm:hover { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.5); color: #F59E0B; }
 </style>

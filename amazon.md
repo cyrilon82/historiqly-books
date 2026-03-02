@@ -45,7 +45,7 @@ Track what's been completed for each book's Amazon listing.
 | The Black Dahlia | Vol. 3: Cold Cases | | | |
 | The Cardiff Giant | Vol. 1: Hoaxes | | | |
 | Cleopatra's Last Breath | Vol. 2: Myths | | | |
-| COINTELPRO | Vol. 7: Declassified | | | |
+| COINTELPRO | Vol. 7: Declassified | ✅ | ✅ | |
 | D.B. Cooper | Vol. 4: Disappearances | | | |
 | The Dyatlov Pass Incident | Vol. 8: Unexplained | | | |
 | The Freemasons | Vol. 6: Secret Societies | | | |

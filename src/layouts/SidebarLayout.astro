@@ -1,6 +1,6 @@
 ---
 import { volumes, icons } from "../data/volumes";
-import { getVolumeProgress, hasNewCases } from "../lib/cases";
+import { getVolumeProgress, hasNewCases, getFreeCases } from "../lib/cases";
 import LaunchCountdown from "../components/LaunchCountdown.astro";
 import LanternSpotlight from "../components/LanternSpotlight.astro";
 import FreeBookModal from "../components/FreeBookModal.astro";
@@ -205,6 +205,7 @@ const fullTitle = `${title} | HistorIQly Thrillers`;
             const progress = getVolumeProgress(vol.slug);
             const isAvailable = progress.released > 0;
             const hasNew = hasNewCases(vol.slug);
+            const hasFree = getFreeCases(vol.slug).length > 0;
             return (
               <a
                 href={`/vol/${vol.slug}`}
@@ -218,10 +219,10 @@ const fullTitle = `${title} | HistorIQly Thrillers`;
                 </span>
                 <span class="vol-info">
                   <span class="vol-title">{vol.title}</span>
-                  <span class="vol-progress">3/7</span>
+                  <span class="vol-progress">{progress.released}/{progress.total}</span>
                 </span>
                 {hasNew && <span class="new-dot" title="New cases this week"></span>}
-                {isAvailable && progress.released >= 3 && <span class="available-badge">Free</span>}
+                {hasFree && <span class="available-badge">Free</span>}
               </a>
             );
           })}

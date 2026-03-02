@@ -13,7 +13,7 @@ export const secretSocietiesCases: Case[] = [
     year: "1776–1785",
     confidence: 90,
     releaseDate: "2025-01-01",
-    isFree: true,
+    isFree: false,
   },
   {
     id: "secret-societies-02",
@@ -26,7 +26,7 @@ export const secretSocietiesCases: Case[] = [
     verdictLabel: "Historical Analysis",
     year: "1600s–present",
     confidence: 85,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const secretSocietiesCases: Case[] = [
     verdictLabel: "Historical Analysis",
     year: "1832–present",
     confidence: 75,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {

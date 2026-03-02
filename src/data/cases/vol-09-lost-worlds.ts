@@ -13,7 +13,7 @@ export const lostWorldsCases: Case[] = [
     year: "c. 360 BCE",
     confidence: 95,
     releaseDate: "2025-01-01",
-    isFree: true,
+    isFree: false,
   },
   {
     id: "lost-worlds-02",
@@ -26,7 +26,7 @@ export const lostWorldsCases: Case[] = [
     verdictLabel: "Authentic",
     year: "c. 9600 BCE",
     confidence: 100,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const lostWorldsCases: Case[] = [
     verdictLabel: "Debated",
     year: "c. 10,800 BCE",
     confidence: 40,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {

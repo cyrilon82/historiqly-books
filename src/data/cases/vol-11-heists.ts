@@ -13,7 +13,7 @@ export const heistsCases: Case[] = [
     year: "1990",
     confidence: 0,
     releaseDate: "2025-01-01",
-    isFree: true,
+    isFree: false,
   },
   {
     id: "heists-02",
@@ -26,7 +26,7 @@ export const heistsCases: Case[] = [
     verdictLabel: "Lost",
     year: "1701–1945",
     confidence: 0,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const heistsCases: Case[] = [
     verdictLabel: "Solved",
     year: "2003",
     confidence: 90,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {

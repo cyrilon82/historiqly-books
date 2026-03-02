@@ -54,7 +54,7 @@ export const hoaxesCases: Case[] = [
     verdictLabel: "Confirmed Hoax",
     year: "1917–1983",
     confidence: 100,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
@@ -68,7 +68,7 @@ export const hoaxesCases: Case[] = [
     verdictLabel: "Disputed",
     year: "Medieval–present",
     confidence: 65,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const hoaxesCases: Case[] = [
     verdictLabel: "Confirmed Hoax",
     year: "1930s–1940s",
     confidence: 100,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
@@ -96,7 +96,7 @@ export const hoaxesCases: Case[] = [
     verdictLabel: "Confirmed Hoax",
     year: "8th century",
     confidence: 100,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
 ];

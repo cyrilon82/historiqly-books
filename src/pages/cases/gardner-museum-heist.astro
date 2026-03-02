@@ -63,10 +63,15 @@ const images = {
         </div>
 
         <div class="hero-actions">
-          <a href="https://www.amazon.com/dp/B0GQ3KCGJY" target="_blank" rel="noopener" class="btn-buy-primary" id="heroBuyBtn">
-            <span class="btn-buy-text">Buy on Kindle</span>
-            <span class="btn-buy-price">$2.99</span>
-          </a>
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','gardner-museum-heist');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+            <a href="https://www.amazon.com/dp/B0GQ3KCGJY" target="_blank" rel="noopener" class="btn-buy-kindle">
+              Buy on Kindle →
+            </a>
+          </div>
           <a href="/books/gardner-museum-heist.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -282,10 +287,15 @@ const images = {
           <div class="cta-box" id="ctaBox">
             <h3 id="ctaTitle">Get the Full Book</h3>
             <p>The complete story of the heist, the investigation, and the masterpieces that vanished.</p>
-            <a href="https://www.amazon.com/dp/B0GQ3KCGJY" target="_blank" rel="noopener" class="btn-buy-primary cta-buy" id="ctaBuyBtn">
-              <span class="btn-buy-text">Buy on Kindle</span>
-              <span class="btn-buy-price">$2.99</span>
-            </a>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','gardner-museum-heist');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+              <a href="https://www.amazon.com/dp/B0GQ3KCGJY" target="_blank" rel="noopener" class="btn-buy-kindle cta-kindle">
+                Buy on Kindle →
+              </a>
+            </div>
             <a href="/books/gardner-museum-heist.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -315,16 +325,16 @@ const images = {
 
   if (hasPurchased) {
     // Hero buttons
-    const heroBuy = document.getElementById('heroBuyBtn');
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
     const heroDownload = document.getElementById('heroDownloadBtn');
-    if (heroBuy) heroBuy.style.display = 'none';
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
     if (heroDownload) heroDownload.style.display = 'inline-flex';
 
     // CTA buttons
-    const ctaBuy = document.getElementById('ctaBuyBtn');
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
     const ctaDownload = document.getElementById('ctaDownloadBtn');
     const ctaTitle = document.getElementById('ctaTitle');
-    if (ctaBuy) ctaBuy.style.display = 'none';
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
     if (ctaDownload) ctaDownload.style.display = 'inline-flex';
     if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
   }
@@ -992,5 +1002,53 @@ const images = {
     line-height: 0.8;
     font-family: var(--font-serif);
     color: var(--accent);
+  }
+
+  /* DUAL PLATFORM BUY OPTIONS */
+  .buy-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-buy-kindle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.75rem;
+    background: transparent;
+    color: rgba(245, 158, 11, 0.85);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: all 0.25s;
+    white-space: nowrap;
+  }
+
+  .btn-buy-kindle:hover {
+    background: rgba(245, 158, 11, 0.08);
+    border-color: rgba(245, 158, 11, 0.6);
+    color: #F59E0B;
+    transform: translateY(-2px);
+  }
+
+  .cta-buy-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cta-kindle {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 </style>

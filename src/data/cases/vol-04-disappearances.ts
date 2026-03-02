@@ -13,7 +13,7 @@ export const disappearancesCases: Case[] = [
     year: "1937",
     confidence: 0,
     releaseDate: "2025-01-01",
-    isFree: true,
+    isFree: false,
   },
   {
     id: "disappearances-02",
@@ -26,7 +26,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Fate Unknown",
     year: "1971",
     confidence: 0,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Fate Unknown",
     year: "1872",
     confidence: 0,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {

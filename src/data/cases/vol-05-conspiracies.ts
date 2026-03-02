@@ -13,7 +13,7 @@ export const conspiraciesCases: Case[] = [
     year: "1963",
     confidence: 50,
     releaseDate: "2025-01-01",
-    isFree: true,
+    isFree: false,
   },
   {
     id: "conspiracies-02",
@@ -26,7 +26,7 @@ export const conspiraciesCases: Case[] = [
     verdictLabel: "Conspiracy Debunked",
     year: "1969",
     confidence: 100,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
@@ -40,7 +40,7 @@ export const conspiraciesCases: Case[] = [
     verdictLabel: "Partially Explained",
     year: "1950s–present",
     confidence: 70,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
