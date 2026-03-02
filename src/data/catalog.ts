@@ -33,10 +33,19 @@ export const catalog: CatalogBook[] = [
   { slug: 'cardiff-giant', title: 'The Cardiff Giant', subtitle: 'The Cigar Maker Who Fooled America', volume: 'Hoaxes', volumeNum: 1 },
   { slug: 'hitler-diaries', title: 'The Hitler Diaries', subtitle: 'The Forgery That Fooled the World', volume: 'Hoaxes', volumeNum: 1 },
 
+  { slug: 'cottingley-fairies', title: 'The Cottingley Fairies', subtitle: 'Two Girls, Five Photographs, and a Nation That Wanted to Believe', volume: 'Hoaxes', volumeNum: 1 },
+  { slug: 'shroud-of-turin', title: 'The Shroud of Turin', subtitle: 'The Most Studied Cloth in Human History', volume: 'Hoaxes', volumeNum: 1 },
+  { slug: 'han-van-meegeren', title: "Han van Meegeren's Vermeers", subtitle: 'The Forger Who Fooled the Nazis', volume: 'Hoaxes', volumeNum: 1 },
+  { slug: 'donation-of-constantine', title: 'The Donation of Constantine', subtitle: 'The Forgery That Ruled the Medieval World', volume: 'Hoaxes', volumeNum: 1 },
+
   // Vol. 2: Myths
   { slug: 'cleopatra-snake-bite', title: "Cleopatra's Last Breath", subtitle: "The Mystery of the Serpent Queen's Death", volume: 'Myths', volumeNum: 2 },
   { slug: 'viking-horned-helmets', title: 'The Horned Helmet', subtitle: 'How an Opera Costume Fooled the World', volume: 'Myths', volumeNum: 2 },
   { slug: 'hollywood-pirates', title: 'Hollywood Pirates', subtitle: 'Were Pirates Really Like the Movies?', volume: 'Myths', volumeNum: 2 },
+  { slug: 'ninjas', title: 'Were Ninjas Real?', subtitle: "The Truth Behind History's Most Mythologised Spies", volume: 'Myths', volumeNum: 2 },
+  { slug: 'dark-ages', title: 'The Dark Ages', subtitle: 'The Most Persistent Myth in History', volume: 'Myths', volumeNum: 2 },
+  { slug: 'iron-maiden', title: 'The Iron Maiden', subtitle: 'The Torture Device That Never Was', volume: 'Myths', volumeNum: 2 },
+  { slug: 'gladiator-thumbs-down', title: "The Gladiator's Thumb", subtitle: 'How a Painting Rewrote Roman History', volume: 'Myths', volumeNum: 2 },
 
   // Vol. 3: Cold Cases
   { slug: 'jack-the-ripper', title: 'Jack the Ripper', subtitle: 'The Autumn of Terror', volume: 'Cold Cases', volumeNum: 3 },

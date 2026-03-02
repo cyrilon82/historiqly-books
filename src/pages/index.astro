@@ -1,7 +1,7 @@
 ---
 import SidebarLayout from '../layouts/SidebarLayout.astro';
 import { book } from '../data/books/piltdown-man';
-import { catalog } from '../data/catalog';
+import { catalog, paidBooks } from '../data/catalog';
 import { volumes, icons } from '../data/volumes';
 
 const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
@@ -22,7 +22,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
 
 <SidebarLayout
   title="Non-Fiction History Ebooks — Mysteries, Conspiracies & Cold Cases"
-  description="33 narrative non-fiction ebooks about history's darkest mysteries. MKUltra, Jack the Ripper, Illuminati, Area 51 & more. Free EPUB download + $2.99 books."
+  description={`${catalog.length} narrative non-fiction ebooks about history's darkest mysteries. MKUltra, Jack the Ripper, Illuminati, Area 51 & more. Free EPUB download + $2.99 books.`}
   image="/books/covers/piltdown-man.jpg"
   maxWidth="1200px"
   keywords="history ebooks, non-fiction ebooks, conspiracy books, MKUltra book, cold case books, mystery ebooks, historical mysteries, secret societies books, true crime ebooks, declassified documents, free history ebook"
@@ -130,7 +130,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
         </div>
         <div class="bridge-line"></div>
       </div>
-      <p class="bridge-text">First one's on us. Then explore <strong>{catalog.length} more</strong> across <strong>{sortedVolumes.length} volumes</strong>.</p>
+      <p class="bridge-text">First one's on us. Then explore <strong>{paidBooks.length} more</strong> across <strong>{sortedVolumes.length} volumes</strong>.</p>
     </section>
 
     <!-- =============================================
