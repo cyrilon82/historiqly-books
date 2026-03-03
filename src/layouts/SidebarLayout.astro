@@ -204,7 +204,6 @@ const fullTitle = `${title} | HistorIQly Thrillers`;
           {volumes.map((vol) => {
             const progress = getVolumeProgress(vol.slug);
             const isAvailable = progress.released > 0;
-            const hasNew = hasNewCases(vol.slug);
             const hasFree = getFreeCases(vol.slug).length > 0;
             return (
               <a
@@ -221,7 +220,6 @@ const fullTitle = `${title} | HistorIQly Thrillers`;
                   <span class="vol-title">{vol.title}</span>
                   <span class="vol-progress">{progress.released}/{progress.total}</span>
                 </span>
-                {hasNew && <span class="new-dot" title="New cases this week"></span>}
                 {hasFree && <span class="available-badge">Free</span>}
               </a>
             );

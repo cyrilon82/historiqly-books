@@ -16,7 +16,11 @@
     "build:epub:princes-in-the-tower": "node scripts/build-epub-princes-in-the-tower.mjs",
     "build:epub:mh370": "node scripts/build-epub-mh370.mjs",
     "build:epub:jimmy-hoffa": "node scripts/build-epub-jimmy-hoffa.mjs",
-    "build:epub:roanoke-colony": "node scripts/build-epub-roanoke-colony.mjs"
+    "build:epub:roanoke-colony": "node scripts/build-epub-roanoke-colony.mjs",
+    "build:epub:roswell": "node scripts/build-epub-roswell.mjs",
+    "build:epub:philadelphia-experiment": "node scripts/build-epub-philadelphia-experiment.mjs",
+    "build:epub:princess-diana-death": "node scripts/build-epub-princess-diana-death.mjs",
+    "build:epub:bermuda-triangle": "node scripts/build-epub-bermuda-triangle.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

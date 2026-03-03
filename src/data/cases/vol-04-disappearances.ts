@@ -68,7 +68,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Fate Unknown",
     year: "1590",
     confidence: 0,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Presumed Dead",
     year: "1483",
     confidence: 70,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
@@ -96,13 +96,13 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Presumed Dead",
     year: "1975",
     confidence: 90,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
-    id: "disappearances-08",
+    id: "disappearances-09",
     volumeSlug: "disappearances",
-    caseNumber: 8,
+    caseNumber: 9,
     title: "The Man in the Iron Mask",
     description:
       "A prisoner held for 34 years, his face always hidden behind a mask. His identity died with him—but theories abound.",

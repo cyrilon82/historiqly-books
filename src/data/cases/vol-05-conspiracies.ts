@@ -54,7 +54,7 @@ export const conspiraciesCases: Case[] = [
     verdictLabel: "Explained",
     year: "1947",
     confidence: 85,
-    releaseDate: "2027-01-01",
+    releaseDate: "2026-03-03",
     isFree: false,
   },
   {
@@ -65,10 +65,10 @@ export const conspiraciesCases: Case[] = [
     description:
       "A tragic accident or an assassination by the royal establishment? We examine the evidence and conspiracy theories.",
     verdictType: "conspiracy",
-    verdictLabel: "Accident Confirmed",
+    verdictLabel: "Unlawful Killing",
     year: "1997",
     confidence: 90,
-    releaseDate: "2027-01-01",
+    releaseDate: "2026-03-03",
     isFree: false,
   },
   {
@@ -82,7 +82,7 @@ export const conspiraciesCases: Case[] = [
     verdictLabel: "Conspiracy Debunked",
     year: "1943",
     confidence: 95,
-    releaseDate: "2027-01-01",
+    releaseDate: "2026-03-03",
     isFree: false,
   },
   {
@@ -96,7 +96,7 @@ export const conspiraciesCases: Case[] = [
     verdictLabel: "Myth Debunked",
     year: "20th century",
     confidence: 95,
-    releaseDate: "2027-01-01",
+    releaseDate: "2026-03-03",
     isFree: false,
   },
 ];

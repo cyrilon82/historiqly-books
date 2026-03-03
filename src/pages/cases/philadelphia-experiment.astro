@@ -1,0 +1,1004 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/uss-eldridge-at-sea.jpg',
+  shipyard: '/cases/images/philadelphia-naval-shipyard-1943.jpg',
+  engstrom: '/cases/images/uss-engstrom-philadelphia.jpg',
+  einstein: '/cases/images/albert-einstein-portrait.jpg',
+  transfer: '/cases/images/uss-eldridge-transfer-greece.jpg',
+  eldridge: '/cases/images/hero-uss-eldridge.jpg',
+};
+---
+
+<SidebarLayout
+  title="The Philadelphia Experiment — The Invisible Ship That Never Was"
+  description="The Philadelphia Experiment: Did the Navy teleport a warship in 1943? Non-fiction ebook investigating the origins, claims, and debunking of this enduring military conspiracy. $2.99 EPUB."
+  currentVolume={5}
+  image="/books/covers/philadelphia-experiment.jpg"
+  ogType="book"
+  keywords="Philadelphia Experiment book, USS Eldridge, Navy invisibility experiment, Carlos Allende, Morris Jessup, Varo Edition, conspiracy theory, degaussing, teleportation, military conspiracy"
+  bookSeo={{
+    bookTitle: "The Philadelphia Experiment",
+    subtitle: "The Invisible Ship That Never Was",
+    price: "2.99",
+    author: "HistorIQly Thrillers",
+    genre: "Non-Fiction, History, Conspiracy, Military",
+    format: "EBook",
+    keywords: "Philadelphia Experiment, USS Eldridge, Navy conspiracy, Carlos Allende, Morris Jessup",
+  }}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Conspiracies", url: "/vol/conspiracies" },
+    { name: "The Philadelphia Experiment", url: "/cases/philadelphia-experiment" },
+  ]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 05-1943</span>
+          <span class="meta-badge alert">STATUS: DEBUNKED</span>
+        </div>
+
+        <h1 class="hero-title">The Philadelphia Experiment</h1>
+        <p class="hero-subtitle">The Invisible Ship That Never Was</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Alleged Date</span>
+            <span class="stat-value">1943</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">First Claim</span>
+            <span class="stat-value">1956</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Credibility</span>
+            <span class="stat-value text-accent">Zero</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','philadelphia-experiment');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy the Book</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/philadelphia-experiment.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section">
+      <div class="intro-text">
+        <p class="drop-cap">In 1943, the U.S. Navy allegedly rendered a destroyer escort invisible and teleported it two hundred miles — with catastrophic consequences for the crew. For seven decades, the Philadelphia Experiment has captivated conspiracy theorists worldwide.</p>
+        <p>But the entire legend traces back to <strong>one man</strong>, <strong>two letters</strong>, and <strong>zero evidence</strong>.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Ship</span>
+            <h3 class="card-value">DE-173</h3>
+            <p class="card-desc">USS Eldridge — a Cannon-class destroyer escort commissioned August 27, 1943. Her deck logs prove she was never in Philadelphia during the alleged experiment.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Witnesses</span>
+            <h3 class="card-value text-accent">1</h3>
+            <p class="card-desc">Carlos Allende — the sole source. A troubled merchant mariner who later admitted the hoax.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Varo Copies</span>
+            <h3 class="card-value">127</h3>
+            <p class="card-desc">Annotated copies of Jessup's book printed by ONR — personal curiosity, not official endorsement.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Navy Statement</span>
+            <h3 class="card-value">"Never"</h3>
+            <p class="card-desc">"ONR has never conducted investigations on radar invisibility, either in 1943 or at any other time."</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.shipyard} alt="Destroyer escort at the Philadelphia Naval Shipyard, 1943" />
+            <div class="visual-overlay">
+              <span class="overlay-label">PHILADELPHIA NAVAL SHIPYARD</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Shipyard</h3>
+            <p>The Philadelphia Naval Shipyard was one of the busiest in the nation during WWII. Carlos Allende claimed to have witnessed the Eldridge vanish from its berth here — but the ship's deck logs prove it was never at this facility during the alleged period. The Eldridge was in Bermuda and New York.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.engstrom} alt="USS Engstrom at Philadelphia Naval Shipyard, 1943" />
+            <div class="visual-overlay">
+               <span class="overlay-label">USS ENGSTROM (DE-50)</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Degaussing</h3>
+            <p>The USS Engstrom, docked near where the Eldridge would have been, carried classified degaussing equipment — cables wrapped around the hull to neutralise magnetic signatures and protect against mines. The eerie glow of electrical corona discharge may have been the seed of the "invisibility" story.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.transfer} alt="USS Eldridge being transferred to Greece, 1951" />
+            <div class="visual-overlay">
+               <span class="overlay-label">TRANSFERRED TO GREECE 1951</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Ship's Fate</h3>
+            <p>In 1951, the Eldridge was transferred to Greece and renamed HS Leon. Greek naval personnel maintained the ship for decades and found nothing unusual. Before scrapping in 1999, researchers examined the hull — no secret compartments, no exotic equipment, no anomalies of any kind.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">From Hoax to Legend</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1943</span>
+          <div class="timeline-content">
+            <h4>The Alleged Experiment</h4>
+            <p>The USS Eldridge is supposedly made invisible and teleported from Philadelphia to Norfolk. Deck logs show the ship was actually near Bermuda and New York.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1956</span>
+          <div class="timeline-content">
+            <h4>Allende's Letters</h4>
+            <p>Carlos Allende writes to Morris Jessup claiming to have witnessed the experiment. He provides no evidence, no witnesses, and no verifiable details.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1959</span>
+          <div class="timeline-content">
+            <h4>Jessup's Death</h4>
+            <p>Morris Jessup is found dead of carbon monoxide poisoning in Coral Gables, Florida. Conspiracy theorists allege murder; evidence points to suicide.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1979</span>
+          <div class="timeline-content">
+            <h4>The Bestseller</h4>
+            <p>Berlitz and Moore publish <em>The Philadelphia Experiment: Project Invisibility</em>, bringing the story to millions for the first time.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1984</span>
+          <div class="timeline-content highlight">
+            <h4>The Movie</h4>
+            <p>The Philadelphia Experiment becomes a feature film, cementing the legend in popular culture. Time travel elements are added to the original story.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section">
+      <div class="section-header">
+        <span class="section-label">Key Figures</span>
+        <h2 class="section-title">The Hoaxer & The Physicist</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.eldridge} alt="USS Eldridge — the ship at the centre of the legend" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Sole Source, 1925–1994</span>
+            <h3>Carlos Allende</h3>
+            <p>Born Carl Meredith Allen, this troubled merchant mariner was the only person who ever claimed to witness the experiment. He admitted it was a hoax in 1969, then retracted the confession. His family confirmed a history of erratic behaviour.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.einstein} alt="Albert Einstein" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">Unwitting Icon</span>
+            <h3>Albert Einstein</h3>
+            <p>Einstein's Unified Field Theory was cited as the basis for the experiment, but he never completed it. He did consult for the Navy during WWII — on conventional explosives, not electromagnetic invisibility. There is no evidence linking him to any such experiment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.hero} alt="USS Eldridge at sea" />
+          <div class="image-caption">USS Eldridge (DE-173) — a conventional destroyer escort, not a secret experiment.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Ship Was Never Invisible</h2>
+          <p>No evidence. One unreliable witness. A ship that was never in Philadelphia. Crew members who denied everything. And a Navy that categorically states it never happened.</p>
+          <p>The Philadelphia Experiment is a masterclass in how a single fabrication can become an unshakeable legend — growing from two letters into books, films, and an entire mythology spanning eight decades.</p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>10 chapters. The complete investigation — from Carlos Allende's letters to the Montauk Project and beyond.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','philadelphia-experiment');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy the Book</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/philadelphia-experiment.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_philadelphia-experiment', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_philadelphia-experiment') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+</script>
+
+<style>
+  /* SWISS TECHNICAL BENTO THEME */
+  :root {
+    --bg-dark: #0a0a0a;
+    --bg-card: #111111;
+    --bg-card-hover: #161616;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --text-primary: #FAFAFA;
+    --text-secondary: #A1A1AA;
+    --accent: #3B82F6; /* Blue for Navy / military vibe */
+    --accent-dim: rgba(59, 130, 246, 0.1);
+
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+  }
+
+  .case-file {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  /* UTILS */
+  .text-accent { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.3) grayscale(0.6) contrast(1.2);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 90%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 1.5rem;
+  }
+
+  .case-meta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .meta-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border-color);
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    color: var(--text-secondary);
+  }
+
+  .meta-badge.alert {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  .meta-badge.price {
+    border-color: rgba(245, 158, 11, 0.5);
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    font-weight: 800;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 0.9;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 4rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-value {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    z-index: 10;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: var(--text-secondary);
+    opacity: 0.7;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--text-secondary) 0%, transparent 100%);
+  }
+
+  /* HERO ACTIONS */
+  .hero-actions {
+    margin-top: 3rem;
+  }
+
+  .btn-buy-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border: none;
+    color: #000;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-buy-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+  }
+
+  .btn-buy-price {
+    background: rgba(0,0,0,0.15);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-weight: 800;
+  }
+
+  .btn-download-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-download-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+  }
+
+  /* INTRO */
+  .intro-section {
+    padding: 8rem 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-text p {
+    font-family: var(--font-serif);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .intro-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* BENTO GRID */
+  .bento-section {
+    padding: 2rem 1.5rem 8rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, minmax(200px, auto));
+    }
+    .large-card {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+
+  .bento-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .bento-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.2);
+    background: var(--bg-card-hover);
+  }
+
+  .card-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .card-value {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+  }
+
+  .discovery-card .card-value { font-size: 5rem; font-weight: 700; }
+  .check-card .card-value { font-size: 4rem; }
+
+  .card-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* EVIDENCE */
+  .evidence-section {
+    padding: 4rem 1.5rem;
+    background: #0F0F0F;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  .evidence-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    gap: 4rem;
+  }
+
+  .evidence-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .evidence-card {
+      grid-template-columns: 1fr 1fr;
+    }
+    .evidence-card:nth-child(even) .evidence-visual {
+      order: 2;
+    }
+  }
+
+  .evidence-visual {
+    position: relative;
+    border: 1px solid var(--border-color);
+  }
+
+  .evidence-visual img {
+    width: 100%;
+    display: block;
+    filter: brightness(0.8) contrast(1.1);
+  }
+
+  .visual-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(2px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .overlay-label {
+    font-size: 0.6rem;
+    font-family: monospace;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .evidence-data h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .evidence-data p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 1.1rem;
+  }
+
+  /* TIMELINE */
+  .timeline-section {
+    padding: 6rem 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .timeline {
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border-color);
+    transform: translateX(-50%);
+  }
+
+  .timeline-entry {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
+
+  .timeline-year {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-dark);
+    padding: 0.25rem 0.5rem;
+    font-family: monospace;
+    color: var(--accent);
+    font-size: 0.8rem;
+    border: 1px solid var(--border-color);
+    z-index: 2;
+  }
+
+  .timeline-content {
+    width: 45%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  .timeline-entry.left .timeline-content {
+    margin-right: auto;
+    text-align: right;
+  }
+
+  .timeline-entry.right .timeline-content {
+    margin-left: auto;
+    text-align: left;
+  }
+
+  .timeline-content h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .timeline-content.highlight {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  @media (max-width: 768px) {
+    .timeline-line { left: 20px; }
+    .timeline-entry { flex-direction: column; padding-left: 50px; }
+    .timeline-year { left: 0; transform: none; top: -10px; width: 40px; text-align: center; }
+    .timeline-content { width: 100%; text-align: left !important; }
+    .timeline-entry.left .timeline-content, .timeline-entry.right .timeline-content { margin: 0; }
+  }
+
+  /* KEY FIGURES */
+  .figures-section {
+    padding: 6rem 1.5rem;
+    background: #0F0F0F;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .figures-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .figures-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .figure-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+
+  .figure-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  .figure-image {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+  }
+
+  .figure-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.6) contrast(1.1) brightness(0.8);
+  }
+
+  .figure-info {
+    padding: 1.5rem;
+  }
+
+  .figure-info h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .figure-role {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .figure-info p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* CONCLUSION */
+  .conclusion-section {
+    padding: 6rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .conclusion-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .conclusion-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .conclusion-image img {
+    width: 100%;
+    border-radius: 4px;
+    filter: sepia(0.2) contrast(1.1);
+  }
+
+  .image-caption {
+    margin-top: 1rem;
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.5rem;
+  }
+
+  .conclusion-text h2 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .conclusion-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-box {
+    margin-top: 3rem;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    text-align: center;
+  }
+
+  .cta-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-box p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buy, .cta-download {
+    margin-top: 0.5rem;
+  }
+
+  /* Drop Cap */
+  .drop-cap:first-letter {
+    font-size: 4rem;
+    float: left;
+    margin-right: 1rem;
+    line-height: 0.8;
+    font-family: var(--font-serif);
+    color: var(--accent);
+  }
+
+  /* DUAL PLATFORM BUY OPTIONS */
+  .buy-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-buy-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+</style>
