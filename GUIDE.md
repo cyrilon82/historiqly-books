@@ -4,6 +4,57 @@ Step-by-step guide to adding a new case to HistorIQly Books — from research to
 
 ---
 
+## MANDATORY WORD COUNT REQUIREMENT
+
+**Every book MUST contain 12,000–16,000 words of chapter content.**
+
+This is the single most important requirement. A book that falls short is not publishable.
+
+| Requirement | Minimum | Target | Maximum |
+|-------------|---------|--------|---------|
+| **Total book word count** | **12,000** | **14,000** | **16,000** |
+| **Chapters** | **8** | **10** | **12** |
+| **Words per chapter** | **1,500** | **1,600** | **2,000** |
+
+### How to count words
+
+After writing `src/data/books/{slug}.ts`, count words by stripping HTML tags:
+
+```bash
+node -e "
+  const {book} = await import('./src/data/books/{slug}.ts');
+  const text = book.chapters.map(c => c.content.replace(/<[^>]*>/g, ' ')).join(' ');
+  const words = text.split(/\s+/).filter(Boolean).length;
+  console.log('Total words:', words);
+  console.log('Chapters:', book.chapters.length);
+  console.log('Avg per chapter:', Math.round(words / book.chapters.length));
+  if (words < 12000) console.error('FAIL: Book is too short. Minimum is 12,000 words. Add more content.');
+  if (words > 16000) console.warn('WARNING: Book is long. Consider trimming to stay under 16,000 words.');
+"
+```
+
+**If the word count is below 12,000: DO NOT proceed to the EPUB build step. Go back and expand the chapters until the minimum is met.**
+
+### What 1,500+ words per chapter looks like
+
+Each chapter should have **20–30 paragraphs** of **2–4 sentences each**. A chapter that is only 10 paragraphs or less is too short.
+
+Good chapter structure (1,500–2,000 words):
+- **Opening scene** (3–4 paragraphs): Set the scene with sensory details, time, place, atmosphere
+- **Context/background** (4–5 paragraphs): Historical context, what led to this moment
+- **Main narrative** (8–12 paragraphs): The core events of this chapter, told in detail with dialogue, descriptions, and analysis
+- **Consequences/transition** (3–4 paragraphs): What happened as a result, bridge to next chapter
+
+### Common mistakes that produce short books
+
+- Writing summary paragraphs instead of narrative scenes — expand every event into a scene
+- Listing facts instead of telling stories — turn bullet points into paragraphs
+- Skipping sensory details — describe what people saw, heard, felt, smelled
+- Rushing through events — slow down, one event per paragraph minimum
+- Writing 1-sentence paragraphs — each paragraph should be 2–4 sentences
+
+---
+
 ## Project Structure
 
 ```
@@ -58,30 +109,44 @@ historiqly-books/
 
 For an AI assistant doing this work, here's the exact sequence:
 
-1. **Research** the topic (web search, gather facts, timeline, key figures)
+1. **Research** the topic deeply (web search, gather facts, timeline, key figures — enough for 12,000–16,000 words)
 2. **Download images** from Wikimedia Commons (public domain)
-3. **Write book content** → `src/data/books/{slug}.ts`
-4. **Create EPUB build script** → `scripts/build-epub-{slug}.mjs`
-5. **Build the EPUB** → `npm run build:epub:{slug}`
-6. **Create the web case page** → `src/pages/cases/{slug}.astro`
-7. **Create Stripe product + payment link** (CLI)
-8. **Add env variables** for dev/prod Stripe URLs
-9. **Update volume page** → `src/pages/vol/hoaxes.astro`
-10. **Update package.json** build commands
-11. **Build and test** → `npm run build`
+3. **Write book content** → `src/data/books/{slug}.ts` — **8–12 chapters, 1,500–2,000 words each**
+4. **Verify word count** → run the word count script (see top of this guide) — **MUST be 12,000–16,000 words**
+5. **Create EPUB build script** → `scripts/build-epub-{slug}.mjs`
+6. **Build the EPUB** → `npm run build:epub:{slug}`
+7. **Create the web case page** → `src/pages/cases/{slug}.astro`
+8. **Create Stripe product + payment link** (CLI)
+9. **Add env variables** for dev/prod Stripe URLs
+10. **Update volume page** → `src/pages/vol/hoaxes.astro`
+11. **Update package.json** build commands
+12. **Build and test** → `npm run build`
 
 ---
 
-## Step 1 — Research
+## Step 1 — Research (Gather Enough for 12,000–16,000 Words)
 
-Use web search to gather:
-- **Full chronological history** of the event
-- **Key people** involved (names, roles, dates)
-- **Physical details** (measurements, locations, costs)
-- **The exposure/resolution** — how and when it was discovered/debunked
-- **Current status** — where artifacts are now, what happened to the people
+**You need DEEP research to write a 12,000–16,000 word book.** Surface-level Wikipedia summaries will produce a 6,000 word book. You must dig deeper.
 
-Aim for enough material to write 8 chapters of ~1,500–2,000 words each.
+Use web search to gather ALL of the following. Each bullet should yield multiple paragraphs of content:
+
+- **Full chronological history** of the event — not just key dates, but what happened day by day, week by week. Who did what, when, and why?
+- **Key people** involved — full biographical backgrounds, motivations, relationships, what happened to them before AND after
+- **Physical details** — measurements, locations, weather, costs, distances, descriptions of places and objects
+- **The investigation/process** — who investigated, what methods they used, what they found, what they missed, false leads
+- **The exposure/resolution** — how and when it was discovered/debunked, the reaction, the fallout
+- **Cultural context** — what was happening in the world at the time? How did society react? Media coverage?
+- **Competing theories** — what alternative explanations exist? What evidence supports or contradicts each?
+- **Legacy and aftermath** — where artifacts are now, what happened to the people, modern re-examinations, recent developments
+- **Atmospheric details** — descriptions of locations, buildings, landscapes, weather conditions for scene-setting
+- **Direct quotes** — from witnesses, investigators, suspects, journalists, court proceedings
+
+**Research checklist:**
+- [ ] Read at least 5–10 different sources (not just Wikipedia)
+- [ ] Gather enough material for 8–12 distinct chapter topics
+- [ ] Have at least 3–5 named people to write about in detail
+- [ ] Have a clear chronological timeline with 15+ events
+- [ ] Have enough detail to write SCENES, not just summaries
 
 ---
 
@@ -131,7 +196,9 @@ onondaga-giant-engraving.jpg      # Historical illustration
 
 ---
 
-## Step 3 — Write the Book Content
+## Step 3 — Write the Book Content (12,000–16,000 Words Total)
+
+**This is the most important step. The book MUST be 12,000–16,000 words.**
 
 Create `src/data/books/{slug}.ts`:
 
@@ -151,17 +218,87 @@ export const book = {
       content: `<p>Chapter content in HTML.</p>
 <p>Use &lt;p&gt;, &lt;em&gt;, &lt;strong&gt; only.</p>`,
     },
-    // ... 7-8 chapters total
+    // ... 8-12 chapters total
   ],
 };
 ```
 
-**Content rules:**
+### Word count requirements (NON-NEGOTIABLE)
+
+| Rule | Requirement |
+|------|-------------|
+| **Total word count** | **12,000–16,000 words** (count after stripping HTML tags) |
+| **Number of chapters** | **8–12 chapters** |
+| **Words per chapter** | **1,500–2,000 words each** (NEVER under 1,500) |
+| **Paragraphs per chapter** | **20–30 paragraphs minimum** |
+| **Sentences per paragraph** | **2–4 sentences** (no single-sentence paragraphs) |
+
+### How to write a 1,500+ word chapter
+
+**DO THIS** — Write narrative scenes with detail:
+```html
+<p>The morning of March 15, 1922, dawned gray and bitter over the Bavarian countryside.
+A thin layer of frost clung to the farmhouse windows, and the chimney — which had been
+sending up a steady plume of smoke for as long as anyone could remember — stood cold and
+silent against the pewter sky. It was this absence, this break in the daily rhythm of the
+farm, that first caught the attention of the postman as he trudged up the muddy path with
+a handful of letters.</p>
+
+<p>He paused at the gate, stamping his boots against the cold. The farm dog, usually a
+fierce barker, was nowhere to be seen. The front door stood slightly ajar, which was
+unusual for a household as private as this one. He called out a greeting, his voice
+carrying across the empty yard, but received no answer. After a moment's hesitation, he
+left the letters wedged in the door frame and continued on his route, making a mental
+note to mention the oddity to the neighbors.</p>
+```
+
+**DO NOT DO THIS** — Summary writing produces short chapters:
+```html
+<p>On March 15, 1922, the postman noticed the farm seemed abandoned.</p>
+<p>He left the letters and moved on.</p>
+```
+
+The first example is ~170 words for 2 paragraphs. The second is ~20 words. You need 20–30 paragraphs like the first example to reach 1,500+ words per chapter.
+
+### Writing style guide
+
+- **Narrative non-fiction**: Tell it like a story, not an encyclopedia entry
+- **Scene-setting**: Open every chapter with a vivid scene — time, place, weather, atmosphere
+- **Show, don't tell**: Instead of "he was nervous," write "his hands trembled as he reached for the door handle"
+- **Sensory detail**: What did people see, hear, smell, feel? What did the room look like?
+- **Pacing**: Slow down for important moments. One major event can fill 3–5 paragraphs
+- **Context**: Explain WHY things mattered, not just WHAT happened
+- **Transitions**: End each chapter with a hook that pulls the reader into the next
+- **Dialogue and quotes**: Use direct quotes from historical sources where available
+- **Analysis**: Don't just report — interpret, compare, connect dots
+
+### Chapter planning template
+
+Before writing, plan your 8–12 chapters. Each chapter needs a clear focus:
+
+| Chapter | Focus | Key Events | Target Words |
+|---------|-------|------------|--------------|
+| One | Scene-setting, introduce the mystery | Opening discovery, initial reactions | 1,500–2,000 |
+| Two | Background/context | Historical setting, key people introduced | 1,500–2,000 |
+| Three | The scheme/crime unfolds | Detailed account of events | 1,500–2,000 |
+| Four | Deeper into the story | Complications, new characters | 1,500–2,000 |
+| Five | The investigation begins | Who investigated, what they found | 1,500–2,000 |
+| Six | Turning point | Key discovery, confrontation, or revelation | 1,500–2,000 |
+| Seven | Fallout and consequences | Reactions, trials, aftermath | 1,500–2,000 |
+| Eight | Legacy and modern perspective | What happened since, enduring mysteries | 1,500–2,000 |
+| Nine (optional) | Competing theories | Alternative explanations, debate | 1,500–2,000 |
+| Ten (optional) | Cultural impact | How this case changed society, law, science | 1,500–2,000 |
+
+### Content rules
+
 - Each chapter is HTML inside a backtick template literal
 - Use only `<p>`, `<em>`, `<strong>` — no divs, no classes, no inline styles
-- Aim for 1,500–2,000 words per chapter
-- 8 chapters is the sweet spot (Cardiff Giant has 8)
-- Write as narrative non-fiction — tell it like a story, not an encyclopedia entry
+- Chapter numbers are written out: 'One', 'Two', 'Three', etc.
+- Write as narrative non-fiction — immersive, detailed, story-driven
+
+### After writing: VERIFY WORD COUNT
+
+**Do not skip this step.** Run the word count check from the top of this guide. If any chapter is under 1,500 words, expand it before proceeding. If the total is under 12,000 words, add more detail to existing chapters or add additional chapters.
 
 ---
 
@@ -202,9 +339,11 @@ const chapterImages = {
 
 ```bash
 npm run build:epub:{slug}
-# Output: public/books/{slug}.epub (~1-2MB)
+# Output: public/books/{slug}.epub (~1-3MB)
 # Cover: public/books/covers/{slug}.jpg (1600x2400)
 ```
+
+**After building, verify the EPUB is substantial.** A 12,000–16,000 word book typically produces a 1–3MB EPUB file.
 
 ---
 
@@ -453,9 +592,13 @@ No backend needed. No webhooks. No auth. One Stripe Payment Link for all books.
 ## Checklist for a New Case
 
 ### Research & Content
-- [ ] Research the topic thoroughly (history, people, timeline, evidence)
+- [ ] Research the topic thoroughly — at least 5–10 sources, not just Wikipedia
+- [ ] Gather enough material for 8–12 chapters of detailed narrative
 - [ ] Download 7-10 public domain images from Wikimedia Commons
-- [ ] Write `src/data/books/{slug}.ts` with 8 chapters
+- [ ] Write `src/data/books/{slug}.ts` with 8–12 chapters
+- [ ] **VERIFY: Each chapter is 1,500–2,000 words (20–30 paragraphs)**
+- [ ] **VERIFY: Total word count is 12,000–16,000 words (run the word count script)**
+- [ ] If word count is under 12,000: expand chapters with more detail, scenes, and analysis
 
 ### EPUB
 - [ ] Create `scripts/build-epub-{slug}.mjs` (duplicate from cardiff)

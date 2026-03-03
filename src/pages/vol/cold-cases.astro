@@ -30,16 +30,18 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
     <div class="cases-section" id="cases">
       <div class="cases-header">
         <h2>Cases</h2>
-        <span class="cases-count">7 cases</span>
+        <span class="cases-count">9 cases</span>
       </div>
       <div class="cases-preview">
         <div class="case-preview"><span class="case-num">01</span><span class="case-title">Jack the Ripper</span><div class="case-btns"><a href="/cases/jack-the-ripper" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQ3DLZKT" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
         <div class="case-preview"><span class="case-num">02</span><span class="case-title">The Black Dahlia</span><div class="case-btns"><a href="/cases/black-dahlia" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQS2M81G" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
         <div class="case-preview"><span class="case-num">03</span><span class="case-title">The Zodiac Killer</span><div class="case-btns"><a href="/cases/zodiac-killer" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
-        <div class="case-preview"><span class="case-num">04</span><span class="case-title">The Somerton Man</span></div>
-        <div class="case-preview"><span class="case-num">05</span><span class="case-title">The Hinterkaifeck Murders</span></div>
-        <div class="case-preview"><span class="case-num">06</span><span class="case-title">The Cleveland Torso Murders</span></div>
-        <div class="case-preview"><span class="case-num">07</span><span class="case-title">The Isdal Woman</span></div>
+        <div class="case-preview"><span class="case-num">04</span><span class="case-title">The Somerton Man</span><div class="case-btns"><a href="/cases/somerton-man" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','somerton-man');window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
+        <div class="case-preview"><span class="case-num">05</span><span class="case-title">The Hinterkaifeck Murders</span><div class="case-btns"><a href="/cases/hinterkaifeck-murders" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','hinterkaifeck-murders');window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
+        <div class="case-preview"><span class="case-num">06</span><span class="case-title">The Cleveland Torso Murders</span><div class="case-btns"><a href="/cases/cleveland-torso-murders" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','cleveland-torso-murders');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="cleveland-torso-murdersBuyPill">Buy $2.99</button><a href="/books/cleveland-torso-murders.epub" class="btn-free-sm" id="cleveland-torso-murdersDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">07</span><span class="case-title">The Isdal Woman</span><div class="case-btns"><a href="/cases/isdal-woman" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
+        <div class="case-preview"><span class="case-num">08</span><span class="case-title">The Princes in the Tower</span><div class="case-btns"><a href="/cases/princes-in-the-tower" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','princes-in-the-tower');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="princes-in-the-towerBuyPill">Buy $2.99</button><a href="/books/princes-in-the-tower.epub" class="btn-free-sm" id="princes-in-the-towerDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">09</span><span class="case-title">Jimmy Hoffa</span><div class="case-btns"><a href="/cases/jimmy-hoffa" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','jimmy-hoffa');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="jimmy-hoffaBuyPill">Buy $2.99</button><a href="/books/jimmy-hoffa.epub" class="btn-free-sm" id="jimmy-hoffaDownloadPill" style="display:none;" download>Download</a></div></div>
       </div>
     </div>
 
@@ -100,4 +102,17 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
 
   .btn-kindle-sm { display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: rgba(245, 158, 11, 0.06); border: 1px solid rgba(245, 158, 11, 0.55); color: #F59E0B; font-weight: 700; font-size: 0.6875rem; border-radius: 6px; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
   .btn-kindle-sm:hover { background: rgba(245, 158, 11, 0.08); border-color: rgba(245, 158, 11, 0.5); color: #F59E0B; }
+  .btn-free-sm { display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; background: linear-gradient(135deg, #5DB585 0%, #4A9E72 100%); color: #000; font-weight: 700; font-size: 0.6875rem; border-radius: 6px; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+  .btn-free-sm:hover { background: linear-gradient(135deg, #6FC494 0%, #5DB585 100%); box-shadow: 0 2px 8px rgba(93, 181, 133, 0.3); }
 </style>
+
+<script>
+  ['cleveland-torso-murders', 'princes-in-the-tower', 'jimmy-hoffa'].forEach(slug => {
+    if (localStorage.getItem(`historiqly_purchased_${slug}`) === 'true') {
+      const buyPill = document.getElementById(`${slug}BuyPill`);
+      const downloadPill = document.getElementById(`${slug}DownloadPill`);
+      if (buyPill) buyPill.style.display = 'none';
+      if (downloadPill) downloadPill.style.display = 'inline-flex';
+    }
+  });
+</script>

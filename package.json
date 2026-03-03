@@ -8,7 +8,15 @@
     "preview": "astro preview",
     "build:epub:donation-of-constantine": "node scripts/build-epub-donation-of-constantine.mjs",
     "build:epub:gladiator-thumbs-down": "node scripts/build-epub-gladiator-thumbs-down.mjs",
-    "build:epub:dark-ages": "node scripts/build-epub-dark-ages.mjs"
+    "build:epub:dark-ages": "node scripts/build-epub-dark-ages.mjs",
+    "build:epub:isdal-woman": "node scripts/build-epub-isdal-woman.mjs",
+    "build:epub:somerton-man": "node scripts/build-epub-somerton-man.mjs",
+    "build:epub:hinterkaifeck-murders": "node scripts/build-epub-hinterkaifeck-murders.mjs",
+    "build:epub:cleveland-torso-murders": "node scripts/build-epub-cleveland-torso-murders.mjs",
+    "build:epub:princes-in-the-tower": "node scripts/build-epub-princes-in-the-tower.mjs",
+    "build:epub:mh370": "node scripts/build-epub-mh370.mjs",
+    "build:epub:jimmy-hoffa": "node scripts/build-epub-jimmy-hoffa.mjs",
+    "build:epub:roanoke-colony": "node scripts/build-epub-roanoke-colony.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

@@ -54,7 +54,7 @@ export const disappearancesCases: Case[] = [
     verdictLabel: "Fate Unknown",
     year: "2014",
     confidence: 0,
-    releaseDate: "2027-01-01",
+    releaseDate: "2025-01-01",
     isFree: false,
   },
   {
