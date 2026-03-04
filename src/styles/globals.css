@@ -8,10 +8,10 @@
 @layer base {
   :root {
     /* Brand green (CTA) */
-    --primary: #5DB585;
-    --primary-dim: rgba(93, 181, 133, 0.08);
-    --primary-hover: #6FC494;
-    --primary-glow: rgba(93, 181, 133, 0.25);
+    --primary: #967E67;
+    --primary-dim: rgba(150, 126, 103, 0.08);
+    --primary-hover: #A68E78;
+    --primary-glow: rgba(150, 126, 103, 0.25);
 
     /* Gold accent system */
     --gold: #e3ab71;
@@ -128,7 +128,7 @@
   align-items: center;
   justify-content: center;
   padding: 0.875rem 2rem;
-  background: linear-gradient(180deg, #4a8b5e 0%, #3a6b4a 100%);
+  background: linear-gradient(180deg, #6a5848 0%, #4e4235 100%);
   color: #fff;
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-weight: 700;
@@ -142,7 +142,7 @@
   position: relative;
   overflow: hidden;
   box-shadow:
-    inset 0 0 0 3px rgba(58, 107, 74, 0.6),
+    inset 0 0 0 3px rgba(78, 66, 53, 0.6),
     inset 0 0 0 4px rgba(227, 171, 113, 0.15),
     0 0 20px rgba(227, 171, 113, 0.15),
     0 8px 24px rgba(0, 0, 0, 0.4);
@@ -176,7 +176,7 @@
   transform: translateY(-2px);
   border-color: rgba(227, 171, 113, 0.55);
   box-shadow:
-    inset 0 0 0 3px rgba(58, 107, 74, 0.5),
+    inset 0 0 0 3px rgba(78, 66, 53, 0.5),
     inset 0 0 0 4px rgba(227, 171, 113, 0.25),
     0 0 36px rgba(227, 171, 113, 0.3),
     0 12px 30px rgba(0, 0, 0, 0.5);
@@ -480,7 +480,7 @@
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 2rem;
-  background: linear-gradient(180deg, #4a8b5e 0%, #3a6b4a 100%);
+  background: linear-gradient(180deg, #6a5848 0%, #4e4235 100%);
   color: #fff;
   border: 1px solid rgba(227, 171, 113, 0.25);
   border-radius: 3px;
@@ -490,7 +490,7 @@
   position: relative;
   overflow: hidden;
   box-shadow:
-    inset 0 0 0 3px rgba(58, 107, 74, 0.5),
+    inset 0 0 0 3px rgba(78, 66, 53, 0.5),
     inset 0 0 0 4px rgba(227, 171, 113, 0.08),
     0 0 16px rgba(227, 171, 113, 0.08),
     0 6px 20px rgba(0, 0, 0, 0.3);
@@ -522,7 +522,7 @@
   transform: translateY(-2px);
   border-color: rgba(227, 171, 113, 0.45);
   box-shadow:
-    inset 0 0 0 3px rgba(58, 107, 74, 0.4),
+    inset 0 0 0 3px rgba(78, 66, 53, 0.4),
     inset 0 0 0 4px rgba(227, 171, 113, 0.15),
     0 0 30px rgba(227, 171, 113, 0.2),
     0 10px 28px rgba(0, 0, 0, 0.4);
@@ -552,10 +552,10 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2.5rem;
-  background: linear-gradient(180deg, #5DB585 0%, #4a9e70 100%);
+  background: linear-gradient(180deg, #967E67 0%, #7a6655 100%);
   color: #fff;
   text-decoration: none;
-  border: 1px solid rgba(93, 181, 133, 0.35);
+  border: 1px solid rgba(150, 126, 103, 0.35);
   border-radius: 3px;
   font-size: 1rem;
   font-weight: 700;
@@ -565,21 +565,21 @@
   transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
   position: relative;
   box-shadow:
-    inset 0 0 0 3px rgba(93, 181, 133, 0.3),
+    inset 0 0 0 3px rgba(150, 126, 103, 0.3),
     inset 0 0 0 4px rgba(227, 171, 113, 0.1),
-    0 0 20px rgba(93, 181, 133, 0.15),
+    0 0 20px rgba(150, 126, 103, 0.15),
     0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .case-file .btn-download-primary:hover {
   transform: translateY(-2px);
-  border-color: rgba(93, 181, 133, 0.55);
+  border-color: rgba(150, 126, 103, 0.55);
   box-shadow:
-    inset 0 0 0 3px rgba(93, 181, 133, 0.2),
+    inset 0 0 0 3px rgba(150, 126, 103, 0.2),
     inset 0 0 0 4px rgba(227, 171, 113, 0.15),
-    0 0 36px rgba(93, 181, 133, 0.25),
+    0 0 36px rgba(150, 126, 103, 0.25),
     0 12px 30px rgba(0, 0, 0, 0.5);
-  background: linear-gradient(180deg, #6FC494 0%, #5DB585 100%);
+  background: linear-gradient(180deg, #A68E78 0%, #967E67 100%);
 }
 
 .case-file .cta-buy,
