@@ -179,8 +179,8 @@
 
   .modal-content {
     background: #111;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
+    border: 1px solid rgba(227, 171, 113, 0.1);
+    border-radius: 4px;
     padding: 2.5rem;
     max-width: 480px;
     width: 100%;
@@ -209,7 +209,7 @@
 
   .modal-close:hover {
     color: #fff;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(227, 171, 113, 0.1);
   }
 
   /* Header with cover + title */
@@ -227,7 +227,7 @@
   .modal-cover img {
     width: 100px;
     height: auto;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   }
 
@@ -241,12 +241,12 @@
     align-items: center;
     gap: 0.4rem;
     padding: 0.25rem 0.65rem;
-    background: rgba(93, 181, 133, 0.1);
-    border: 1px solid rgba(93, 181, 133, 0.3);
+    background: rgba(227, 171, 113, 0.1);
+    border: 1px solid rgba(227, 171, 113, 0.3);
     border-radius: 100px;
     font-size: 0.625rem;
     font-weight: 700;
-    color: #5DB585;
+    color: var(--gold, #e3ab71);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 0.5rem;
@@ -256,9 +256,9 @@
   .badge-dot {
     width: 5px;
     height: 5px;
-    background: #5DB585;
+    background: var(--gold, #e3ab71);
     border-radius: 50%;
-    box-shadow: 0 0 6px #5DB585;
+    box-shadow: 0 0 6px var(--gold, #e3ab71);
     animation: pulse-dot 2s ease-in-out infinite;
   }
 
@@ -290,7 +290,7 @@
     padding: 0.75rem 1rem;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 10px;
+    border-radius: 4px;
     margin-bottom: 1.5rem;
     justify-content: center;
   }
@@ -320,7 +320,7 @@
   .stat-divider {
     width: 1px;
     height: 22px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(227, 171, 113, 0.1);
   }
 
   /* Form */
@@ -329,8 +329,8 @@
     gap: 0.75rem;
     background: rgba(0, 0, 0, 0.3);
     padding: 0.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    border: 1px solid rgba(227, 171, 113, 0.08);
   }
 
   .form-input {
@@ -348,26 +348,26 @@
 
   .form-btn {
     padding: 0.75rem 1.5rem;
-    background: #5DB585;
-    color: #0a0a0a;
+    background: var(--gold, #e3ab71);
+    color: #0f0c08;
     font-weight: 700;
     font-size: 0.95rem;
     font-family: inherit;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s;
     white-space: nowrap;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(93, 181, 133, 0.2);
+    box-shadow: 0 4px 15px rgba(227, 171, 113, 0.2);
   }
 
   .form-btn:hover:not(:disabled) {
     background: #6FC494;
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(93, 181, 133, 0.3);
+    box-shadow: 0 6px 20px rgba(227, 171, 113, 0.3);
   }
 
   .form-btn:disabled { opacity: 0.8; cursor: not-allowed; }
@@ -391,20 +391,20 @@
     gap: 0.6rem;
     width: 100%;
     padding: 1rem;
-    background: #5DB585;
-    color: #0a0a0a;
+    background: var(--gold, #e3ab71);
+    color: #0f0c08;
     font-weight: 700;
     font-size: 1rem;
-    border-radius: 10px;
+    border-radius: 4px;
     text-decoration: none;
     transition: all 0.25s;
-    box-shadow: 0 0 25px rgba(93, 181, 133, 0.2);
+    box-shadow: 0 0 25px rgba(227, 171, 113, 0.2);
   }
 
   .download-btn:hover {
     background: #6FC494;
     transform: translateY(-2px);
-    box-shadow: 0 5px 35px rgba(93, 181, 133, 0.3);
+    box-shadow: 0 5px 35px rgba(227, 171, 113, 0.3);
   }
 
   .download-note {

@@ -328,7 +328,7 @@ const epubChapters = [
       <p>Junkelmann, Marcus — <em>Das Spiel mit dem Tod: So kämpften Roms Gladiatoren</em>, Philipp von Zabern, 2000</p>
       <p>Grout, James — "Pollice Verso," <em>Encyclopaedia Romana</em>, University of Chicago Penelope Project</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

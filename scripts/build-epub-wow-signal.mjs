@@ -315,7 +315,7 @@ const epubChapters = [
       <p>Mendez, Abel et al. — "Arecibo Wow! I: An Astrophysical Explanation for the Wow! Signal," <em>arXiv</em>, 2024</p>
       <p>Drake, Frank &amp; Sobel, Dava — <em>Is Anyone Out There? The Scientific Search for Extraterrestrial Intelligence</em>, Delacorte Press, 1992</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

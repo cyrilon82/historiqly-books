@@ -319,7 +319,7 @@ const epubChapters = [
       <p>Castleden, Rodney — <em>Atlantis Destroyed</em>, Routledge, 1998</p>
       <p>Nesselrath, Heinz-Günther — "Where the Lord of the Sea Grants Passage to Sailors through the Deep-Blue Mere No More: The Greeks and the Western Seas," <em>Greece & Rome</em>, 2005</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

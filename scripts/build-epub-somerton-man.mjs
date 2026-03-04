@@ -315,7 +315,7 @@ const epubChapters = [
       <p>Dash, Mike — "The Body on Somerton Beach," <em>Smithsonian Magazine</em>, 2011</p>
       <p>South Australia Police — Case files, State Records of South Australia</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

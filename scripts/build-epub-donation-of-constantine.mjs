@@ -314,7 +314,7 @@ const epubChapters = [
       <p>Morrison, Karl F. — "The Donation of Constantine as a Source for the Papal Diplomatic Chancery," <em>Traditio</em>, 1960</p>
       <p>Bowersock, G.W. — <em>Fiction as History: Nero to Julian</em>, University of California Press, 1994</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

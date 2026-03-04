@@ -323,7 +323,7 @@ const epubChapters = [
       <p>Russell, Thaddeus — <em>Out of the Jungle: Jimmy Hoffa and the Remaking of the American Working Class</em>, Temple University Press, 2003</p>
       <p>FBI HOFFEX Memo — Available through the FBI Vault (vault.fbi.gov)</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

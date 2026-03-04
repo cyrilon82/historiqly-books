@@ -298,7 +298,7 @@ const epubChapters = [
       <p>Garrow, David J. — <em>The FBI and Martin Luther King, Jr.: From "Solo" to Memphis</em>, W.W. Norton, 1981</p>
       <p>U.S. Senate — <em>Intelligence Activities and the Rights of Americans: Book II, Final Report of the Church Committee</em>, 1976</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

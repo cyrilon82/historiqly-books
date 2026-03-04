@@ -1,0 +1,33 @@
+---
+interface Props {
+  size?: number;
+}
+const { size = 32 } = Astro.props;
+---
+
+<svg class="corner-ornament top-left" viewBox="0 0 40 40" fill="none" aria-hidden="true" style={`width:${size}px;height:${size}px`}>
+  <path d="M2 38V8C2 4.68629 4.68629 2 8 2H38" stroke="currentColor" stroke-width="1.5" />
+  <path d="M2 28V14C2 7.37258 7.37258 2 14 2H28" stroke="currentColor" stroke-width="0.75" opacity="0.5" />
+  <circle cx="2" cy="38" r="2" fill="currentColor" />
+  <circle cx="38" cy="2" r="2" fill="currentColor" />
+  <path d="M8 2L2 8" stroke="currentColor" stroke-width="0.75" opacity="0.6" />
+</svg>
+<svg class="corner-ornament top-right" viewBox="0 0 40 40" fill="none" aria-hidden="true" style={`width:${size}px;height:${size}px`}>
+  <path d="M38 38V8C38 4.68629 35.3137 2 32 2H2" stroke="currentColor" stroke-width="1.5" />
+  <path d="M38 28V14C38 7.37258 32.6274 2 26 2H12" stroke="currentColor" stroke-width="0.75" opacity="0.5" />
+  <circle cx="38" cy="38" r="2" fill="currentColor" />
+  <circle cx="2" cy="2" r="2" fill="currentColor" />
+  <path d="M32 2L38 8" stroke="currentColor" stroke-width="0.75" opacity="0.6" />
+</svg>
+<svg class="corner-ornament bottom-left" viewBox="0 0 40 40" fill="none" aria-hidden="true" style={`width:${size}px;height:${size}px`}>
+  <path d="M2 2V32C2 35.3137 4.68629 38 8 38H38" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="2" cy="2" r="2" fill="currentColor" />
+  <circle cx="38" cy="38" r="2" fill="currentColor" />
+  <path d="M2 32L8 38" stroke="currentColor" stroke-width="0.75" opacity="0.6" />
+</svg>
+<svg class="corner-ornament bottom-right" viewBox="0 0 40 40" fill="none" aria-hidden="true" style={`width:${size}px;height:${size}px`}>
+  <path d="M38 2V32C38 35.3137 35.3137 38 32 38H2" stroke="currentColor" stroke-width="1.5" />
+  <circle cx="38" cy="2" r="2" fill="currentColor" />
+  <circle cx="2" cy="38" r="2" fill="currentColor" />
+  <path d="M38 32L32 38" stroke="currentColor" stroke-width="0.75" opacity="0.6" />
+</svg>

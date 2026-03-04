@@ -293,7 +293,7 @@ const epubChapters = [
       <p>Langley, Philippa — <em>The Princes in the Tower: Solving History's Greatest Cold Case</em>, Bantam, 2023</p>
       <p>Mancini, Dominic — <em>The Usurpation of Richard the Third</em>, ed. C.A.J. Armstrong, Oxford University Press, 1969</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

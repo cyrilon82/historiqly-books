@@ -315,7 +315,7 @@ const epubChapters = [
       <p>Morton, Andrew — <em>Diana: Her True Story</em>, Michael O'Mara Books, 1992</p>
       <p>Spencer, Charles — Funeral Eulogy, September 6, 1997</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

@@ -316,7 +316,7 @@ const epubChapters = [
       <p>Montemurro, Marcelo A. & Zanette, Damián H. — "Keywords and Co-Occurrence Patterns in the Voynich Manuscript," <em>PLOS ONE</em>, 2013</p>
       <p>Beinecke Rare Book & Manuscript Library — "Voynich Manuscript (MS 408)," Yale University Digital Collections</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

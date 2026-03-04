@@ -53,8 +53,6 @@ export const catalog: CatalogBook[] = [
   { slug: 'black-dahlia', title: 'The Black Dahlia', subtitle: "Hollywood's Most Haunting Cold Case", volume: 'Cold Cases', volumeNum: 3 },
   { slug: 'zodiac-killer', title: 'The Zodiac Killer', subtitle: "America's Most Elusive Serial Killer", volume: 'Cold Cases', volumeNum: 3 },
   { slug: 'isdal-woman', title: 'The Isdal Woman', subtitle: 'Nine Identities, One Burned Body', volume: 'Cold Cases', volumeNum: 3 },
-  { slug: 'princes-in-the-tower', title: 'The Princes in the Tower', subtitle: 'The Royal Mystery That Haunts England', volume: 'Cold Cases', volumeNum: 3 },
-  { slug: 'jimmy-hoffa', title: 'Jimmy Hoffa', subtitle: 'The Most Powerful Man Who Ever Vanished', volume: 'Cold Cases', volumeNum: 3 },
 
   // Vol. 4: Disappearances
   { slug: 'amelia-earhart', title: 'Into the Pacific', subtitle: 'The Disappearance of Amelia Earhart', volume: 'Disappearances', volumeNum: 4 },
@@ -62,6 +60,8 @@ export const catalog: CatalogBook[] = [
   { slug: 'mary-celeste', title: 'The Mary Celeste', subtitle: 'The Ghost Ship That Haunted the Atlantic', volume: 'Disappearances', volumeNum: 4 },
   { slug: 'mh370', title: 'Malaysia Airlines Flight 370', subtitle: 'The Plane That Vanished from the Digital Age', volume: 'Disappearances', volumeNum: 4 },
   { slug: 'roanoke-colony', title: 'The Lost Colony of Roanoke', subtitle: 'The Disappearance That Haunts America', volume: 'Disappearances', volumeNum: 4 },
+  { slug: 'princes-in-the-tower', title: 'The Princes in the Tower', subtitle: 'The Royal Mystery That Haunts England', volume: 'Disappearances', volumeNum: 4 },
+  { slug: 'jimmy-hoffa', title: 'Jimmy Hoffa', subtitle: 'The Most Powerful Man Who Ever Vanished', volume: 'Disappearances', volumeNum: 4 },
 
   // Vol. 5: Conspiracies
   { slug: 'jfk-assassination', title: 'November 22, 1963', subtitle: 'The Assassination That Changed America', volume: 'Conspiracies', volumeNum: 5 },

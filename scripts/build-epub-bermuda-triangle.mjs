@@ -301,7 +301,7 @@ const epubChapters = [
       <p>British Ministry of Civil Aviation — Report on Star Tiger (G-AHNP) and Star Ariel (G-AGRE)</p>
       <p>NTSB — Marine Accident Report: Sinking of US Cargo Vessel SS El Faro, 2017</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

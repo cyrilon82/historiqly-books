@@ -325,7 +325,7 @@ const epubChapters = [
       <p>Schmidt, Klaus — <em>Göbekli Tepe: A Stone Age Sanctuary in South-Eastern Anatolia</em>, ex oriente, 2012</p>
       <p>Bretz, J Harlen — "The Channeled Scablands of the Columbia Plateau," <em>Journal of Geology</em>, 1923</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://historiqly.com/books">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

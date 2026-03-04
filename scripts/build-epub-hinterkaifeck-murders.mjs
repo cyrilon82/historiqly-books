@@ -309,7 +309,7 @@ const epubChapters = [
       <p>Bavarian State Archives — Hinterkaifeck Investigation Files</p>
       <p>Fürstenfeldbruck Police Academy — Cold Case Analysis Report, 2007</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

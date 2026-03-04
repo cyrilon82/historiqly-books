@@ -307,7 +307,7 @@ const epubChapters = [
       <p>Trevor-Roper, Hugh — <em>The Last Days of Hitler</em>, Macmillan, 1947</p>
       <p>Domarus, Max — <em>Hitler: Speeches and Proclamations, 1932–1945</em>, Bolchazy-Carducci, 1990</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

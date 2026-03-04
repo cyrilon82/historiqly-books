@@ -22,7 +22,7 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
         <span class="pulse-ring"></span>
       </div>
       <h2>Investigation in Progress</h2>
-      <p class="tagline">We're deep in the archives, writing thrillers across 10 volumes.</p>
+      <p class="tagline">We're deep in the archives, writing mysteries across 10 volumes.</p>
     </div>
 
     <div class="countdown-section">
@@ -167,9 +167,9 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
   }
 
   .modal-content {
-    background: linear-gradient(180deg, #141414 0%, #0a0a0a 100%);
-    border: 1px solid rgba(93, 181, 133, 0.2);
-    border-radius: 20px;
+    background: linear-gradient(180deg, #1a1815 0%, #0f0c08 100%);
+    border: 1px solid rgba(227, 171, 113, 0.15);
+    border-radius: 4px;
     padding: 2rem 1.5rem;
     max-width: 400px;
     width: calc(100% - 2rem);
@@ -201,7 +201,7 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
 
   .modal-close:hover {
     color: #fff;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(227, 171, 113, 0.1);
   }
 
   .modal-header {
@@ -221,7 +221,7 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
   }
 
   .investigating-icon svg {
-    color: #5DB585;
+    color: var(--gold, #e3ab71);
     animation: search 3s ease-in-out infinite;
   }
 
@@ -233,7 +233,7 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
   .pulse-ring {
     position: absolute;
     inset: 0;
-    border: 2px solid #5DB585;
+    border: 2px solid var(--gold, #e3ab71);
     border-radius: 50%;
     animation: pulse-ring 2s ease-out infinite;
   }
@@ -258,9 +258,9 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
   }
 
   .countdown-section {
-    background: rgba(93, 181, 133, 0.05);
-    border: 1px solid rgba(93, 181, 133, 0.15);
-    border-radius: 12px;
+    background: rgba(227, 171, 113, 0.05);
+    border: 1px solid rgba(227, 171, 113, 0.15);
+    border-radius: 4px;
     padding: 1rem 1.25rem;
     margin-bottom: 1.25rem;
   }
@@ -269,7 +269,7 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
     font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #5DB585;
+    color: var(--gold, #e3ab71);
     margin: 0 0 0.75rem;
     font-weight: 600;
   }
@@ -334,9 +334,9 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
     justify-content: space-between;
     width: 100%;
     padding: 0.75rem 1rem;
-    background: #1a1a1a;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
+    background: #1a1815;
+    border: 1px solid rgba(227, 171, 113, 0.12);
+    border-radius: 4px;
     color: #fff;
     font-weight: 600;
     font-size: 0.875rem;
@@ -345,15 +345,15 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
   }
 
   .preview-btn:hover {
-    border-color: #5DB585;
-    background: rgba(93, 181, 133, 0.05);
+    border-color: var(--gold, #e3ab71);
+    background: rgba(227, 171, 113, 0.05);
   }
 
   .free-tag {
     font-size: 0.625rem;
     padding: 0.2rem 0.4rem;
-    background: #5DB585;
-    color: #0a0a0a;
+    background: var(--gold, #e3ab71);
+    color: #0f0c08;
     border-radius: 4px;
     font-weight: 700;
     text-transform: uppercase;
@@ -361,7 +361,7 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
 
   .notify-section {
     padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(227, 171, 113, 0.08);
   }
 
   .notify-section p {
@@ -376,8 +376,8 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
     gap: 0.5rem;
     padding: 0.5rem 1rem;
     background: transparent;
-    border: 1px solid #333;
-    border-radius: 6px;
+    border: 1px solid rgba(227, 171, 113, 0.2);
+    border-radius: 3px;
     color: #ccc;
     font-size: 0.8125rem;
     font-weight: 600;
@@ -386,8 +386,8 @@ const LAUNCH_DATE = new Date('2026-04-15T00:00:00');
   }
 
   .follow-btn:hover {
-    border-color: #5DB585;
-    color: #5DB585;
+    border-color: var(--gold, #e3ab71);
+    color: var(--gold, #e3ab71);
   }
 
   @media (max-width: 480px) {

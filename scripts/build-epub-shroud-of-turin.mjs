@@ -318,7 +318,7 @@ const epubChapters = [
       <p>De Caro, Liberato et al. — "X-ray Dating of a Turin Shroud's Linen Sample," <em>Heritage</em> 5(2), 2022</p>
       <p>Damon, P.E. et al. — "Radiocarbon Dating of the Shroud of Turin," <em>Nature</em> 337, 611–615, 1989</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

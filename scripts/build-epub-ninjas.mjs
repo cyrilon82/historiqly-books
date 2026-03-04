@@ -328,7 +328,7 @@ const epubChapters = [
       <p class="separator">***</p>
       <p><em>Image credits: Woodblock prints by Tsukioka Yoshitoshi (1839–1892) and Utagawa Kunisada (1786–1865) from public domain sources via Wikimedia Commons. Photograph of the Iga-ryu Ninja Museum via Wikimedia Commons. Historical portrait of Hattori Hanzō from public domain sources.</em></p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

@@ -311,7 +311,7 @@ const epubChapters = [
       <p>Fay, Charles Edey — <em>The Story of the Mary Celeste</em>, Dover, 1942</p>
       <p>Sella, Andrea — "Solved: The Mystery of the Mary Celeste," UCL News, May 2006</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

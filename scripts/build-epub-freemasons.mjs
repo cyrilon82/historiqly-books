@@ -329,7 +329,7 @@ const epubChapters = [
       <p>Pike, Albert — <em>Morals and Dogma of the Ancient and Accepted Scottish Rite of Freemasonry</em>, 1871</p>
       <p>Anderson, James — <em>The Constitutions of the Free-Masons</em>, 1723</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

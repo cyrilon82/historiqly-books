@@ -318,7 +318,7 @@ const epubChapters = [
       <p>Cordingly, David — <em>Under the Black Flag: The Romance and Reality of Life Among the Pirates</em>, Random House, 1995</p>
       <p>Konstam, Angus — <em>The History of Pirates</em>, Lyons Press, 2002</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

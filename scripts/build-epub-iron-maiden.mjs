@@ -297,7 +297,7 @@ const epubChapters = [
       <p>Innocent IV — <em>Ad extirpanda</em> (papal bull), 1252 — Authorizing torture in Inquisition proceedings; primary source for documented medieval judicial torture</p>
       <p>Schmidt, Ferdinand and Michel, A. — "Iron Maiden, Nuremberg Castle / Eiserne Jungfrau," albumen silver print, August 11, 1894. J. Paul Getty Museum, accession no. 84.XD.1157.1161 (CC0 public domain)</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

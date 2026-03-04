@@ -4,7 +4,7 @@ export const book = {
   author: 'HistorIQly',
   series: 'Vol. 1: Hoaxes',
   slug: 'piltdown-man',
-  description: 'In 1912, a skull was found in a Sussex gravel pit that rewrote the story of human evolution. It took 41 years to discover it was a fraud. This is the full story — told as a thriller.',
+  description: 'In 1912, a skull was found in a Sussex gravel pit that rewrote the story of human evolution. It took 41 years to discover it was a fraud. This is the full story — told as a mystery.',
   cover: '/cases/images/hero-gravel-pit.jpg',
   chapters: [
     {

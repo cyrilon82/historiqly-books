@@ -327,7 +327,7 @@ const epubChapters = [
       <p>Gies, Frances &amp; Joseph — <em>Cathedral, Forge and Waterwheel: Technology and Invention in the Middle Ages</em>, HarperCollins, 1994</p>
       <p>Herlihy, David — <em>Medieval Culture and Society</em>, Harper &amp; Row, 1968</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

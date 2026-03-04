@@ -309,7 +309,7 @@ const epubChapters = [
       <p>Davis, Joshua — "The Untold Story of the World's Biggest Diamond Heist," <em>Wired</em>, March 2009</p>
       <p>Netflix — <em>Stolen: Heist of the Century</em> (documentary series), August 2025</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

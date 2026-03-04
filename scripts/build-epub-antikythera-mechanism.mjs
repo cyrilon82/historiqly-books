@@ -326,7 +326,7 @@ const epubChapters = [
       <p>Marchant, Jo — <em>Decoding the Heavens: A 2,000-Year-Old Computer and the Century-Long Search to Discover Its Secrets</em>, Da Capo Press, 2009</p>
       <p>Jones, Alexander — <em>A Portable Cosmos: Revealing the Antikythera Mechanism, Scientific Wonder of the Ancient World</em>, Oxford University Press, 2017</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

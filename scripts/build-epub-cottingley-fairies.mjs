@@ -322,7 +322,7 @@ const epubChapters = [
       <p>Lynch, Christine — <em>Reflections on the Cottingley Fairies: Frances Griffiths in Her Own Words</em>, 2009</p>
       <p>National Science and Media Museum, Bradford — collection includes the original cameras, prints, and correspondence</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

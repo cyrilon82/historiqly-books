@@ -36,31 +36,88 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
       <div class="hero-glow"></div>
 
       <div class="hero-inner">
-        <div class="hero-cover">
+        <!-- Corner ornaments -->
+        <svg class="hero-corner top-left" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M2 38V8C2 4.68629 4.68629 2 8 2H38" stroke="currentColor" stroke-width="1.5" />
+          <path d="M2 28V14C2 7.37258 7.37258 2 14 2H28" stroke="currentColor" stroke-width="0.75" opacity="0.5" />
+          <circle cx="2" cy="38" r="2" fill="currentColor" />
+          <circle cx="38" cy="2" r="2" fill="currentColor" />
+          <path d="M8 2L2 8" stroke="currentColor" stroke-width="0.75" opacity="0.6" />
+        </svg>
+        <svg class="hero-corner top-right" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M38 38V8C38 4.68629 35.3137 2 32 2H2" stroke="currentColor" stroke-width="1.5" />
+          <path d="M38 28V14C38 7.37258 32.6274 2 26 2H12" stroke="currentColor" stroke-width="0.75" opacity="0.5" />
+          <circle cx="38" cy="38" r="2" fill="currentColor" />
+          <circle cx="2" cy="2" r="2" fill="currentColor" />
+          <path d="M32 2L38 8" stroke="currentColor" stroke-width="0.75" opacity="0.6" />
+        </svg>
+        <svg class="hero-corner bottom-left" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M2 2V32C2 35.3137 4.68629 38 8 38H38" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="2" cy="2" r="2" fill="currentColor" />
+          <circle cx="38" cy="38" r="2" fill="currentColor" />
+          <path d="M2 32L8 38" stroke="currentColor" stroke-width="0.75" opacity="0.6" />
+        </svg>
+        <svg class="hero-corner bottom-right" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M38 2V32C38 35.3137 35.3137 38 32 38H2" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="38" cy="2" r="2" fill="currentColor" />
+          <circle cx="2" cy="38" r="2" fill="currentColor" />
+          <path d="M38 32L32 38" stroke="currentColor" stroke-width="0.75" opacity="0.6" />
+        </svg>
+
+        <div class="hero-cover fade-in">
           <div class="cover-wrapper">
-            <img
-              src="/books/covers/piltdown-man.jpg"
-              alt="The Piltdown Men book cover"
-              width="480"
-              height="720"
-              loading="eager"
-            />
-            <div class="cover-shine"></div>
+            <div class="book-scene">
+              <div class="book-inner">
+                <img
+                  src="/books/covers/piltdown-man.jpg"
+                  alt="The Piltdown Men book cover"
+                  width="480"
+                  height="720"
+                  loading="eager"
+                />
+                <div class="cover-shine"></div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="hero-text">
-          <span class="series-badge">
+          <span class="series-badge fade-in" style="transition-delay: 80ms">
+            <svg class="badge-flourish" viewBox="0 0 24 12" fill="none" aria-hidden="true">
+              <path d="M22 6H8C4.69 6 2 4.21 2 2" stroke="currentColor" stroke-width="0.75" />
+              <circle cx="2" cy="2" r="1.5" fill="currentColor" />
+              <circle cx="22" cy="6" r="1" fill="currentColor" opacity="0.6" />
+            </svg>
             <span class="badge-dot"></span>
             Free Book
+            <svg class="badge-flourish flipped" viewBox="0 0 24 12" fill="none" aria-hidden="true">
+              <path d="M22 6H8C4.69 6 2 4.21 2 2" stroke="currentColor" stroke-width="0.75" />
+              <circle cx="2" cy="2" r="1.5" fill="currentColor" />
+              <circle cx="22" cy="6" r="1" fill="currentColor" opacity="0.6" />
+            </svg>
           </span>
 
-          <h1>The Piltdown<br/>Men</h1>
-          <p class="hero-subtitle">{book.subtitle}</p>
+          <!-- Headline rule -->
+          <div class="headline-rule fade-in" style="transition-delay: 140ms">
+            <svg class="rule-star" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 2L9.5 6.5L14 8L9.5 9.5L8 14L6.5 9.5L2 8L6.5 6.5Z" />
+            </svg>
+            <span class="rule-line"></span>
+            <svg class="rule-diamond" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+              <path d="M6 1L8.5 6L6 11L3.5 6Z" />
+            </svg>
+            <span class="rule-line"></span>
+            <svg class="rule-star" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="M8 2L9.5 6.5L14 8L9.5 9.5L8 14L6.5 9.5L2 8L6.5 6.5Z" />
+            </svg>
+          </div>
 
-          <p class="hero-desc">{book.description}</p>
+          <h1 class="fade-in" style="transition-delay: 180ms">The Piltdown<br/><span class="title-shimmer">Men</span></h1>
+          <p class="hero-subtitle fade-in" style="transition-delay: 220ms">{book.subtitle}</p>
 
-          <div class="hero-stats">
+          <p class="hero-desc fade-in" style="transition-delay: 260ms">{book.description}</p>
+
+          <div class="hero-stats fade-in" style="transition-delay: 300ms">
             <div class="stat">
               <span class="stat-value">1912</span>
               <span class="stat-label">Discovered</span>
@@ -78,7 +135,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
           </div>
 
           <!-- Email form -->
-          <div class="hero-form-wrapper" id="formWrapper">
+          <div class="hero-form-wrapper fade-in" style="transition-delay: 340ms" id="formWrapper">
             <form id="freeBookForm">
               <input
                 type="email"
@@ -110,7 +167,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
             <p class="download-note">DRM-free. Reads on any device.</p>
           </div>
 
-          <a href="/cases/piltdown-man" class="hero-preview-link">
+          <a href="/cases/piltdown-man" class="hero-preview-link fade-in" style="transition-delay: 380ms">
             or read the case file online →
           </a>
         </div>
@@ -120,17 +177,15 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     <!-- =============================================
          TRANSITION — Bridge to catalog
          ============================================= -->
-    <section class="bridge">
+    <section class="bridge fade-in">
       <div class="bridge-divider">
-        <div class="bridge-line"></div>
-        <div class="bridge-icon">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2L2 9l2 12h16l2-12L12 2zm0 3.5L17.5 9h-11L12 5.5z"/>
-          </svg>
-        </div>
-        <div class="bridge-line"></div>
+        <span class="bridge-line"></span>
+        <svg class="bridge-glyph" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="M8 2L9.5 6.5L14 8L9.5 9.5L8 14L6.5 9.5L2 8L6.5 6.5Z" />
+        </svg>
+        <span class="bridge-line"></span>
       </div>
-      <p class="bridge-text">First one's on us. Then explore <strong>{paidBooks.length} more</strong> across <strong>{sortedVolumes.length} volumes</strong>.</p>
+      <p class="bridge-text">First one's on us. Then explore <strong>{paidBooks.length} more</strong> across <strong>{sortedVolumes.length} volumes</strong> — from Cold War secrets to ancient civilizations.</p>
     </section>
 
     <!-- =============================================
@@ -153,46 +208,217 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     </section>
 
     <!-- =============================================
+         VALUE PROPOSITION — Why these books
+         ============================================= -->
+    <section class="value-props fade-in">
+      <div class="value-grid">
+        <div class="value-item">
+          <div class="value-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <h3 class="value-title">Told as stories</h3>
+          <p class="value-desc">Not Wikipedia summaries. Each book reads like a mystery novel — with characters, tension, and twists.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </div>
+          <h3 class="value-title">Deeply researched</h3>
+          <p class="value-desc">Primary sources, declassified documents, and expert analysis. Every claim is backed up.</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3 class="value-title">45 min reads</h3>
+          <p class="value-desc">Short enough for a single sitting. Deep enough to change what you thought you knew.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
          CATALOG — Volume cards
          ============================================= -->
     <section class="catalog">
-      <div class="catalog-header">
+      <div class="catalog-header fade-in">
+        <!-- Decorative rule above heading -->
+        <div class="catalog-rule">
+          <svg class="rule-star" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 2L9.5 6.5L14 8L9.5 9.5L8 14L6.5 9.5L2 8L6.5 6.5Z" />
+          </svg>
+          <span class="rule-line"></span>
+          <svg class="rule-diamond" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+            <path d="M6 1L8.5 6L6 11L3.5 6Z" />
+          </svg>
+          <span class="rule-line"></span>
+          <svg class="rule-star" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 2L9.5 6.5L14 8L9.5 9.5L8 14L6.5 9.5L2 8L6.5 6.5Z" />
+          </svg>
+        </div>
         <h2>The Collection</h2>
         <p class="catalog-lead">Narrative non-fiction. Each book is a deep-dive into one of history's strangest stories. <strong>$2.99 each</strong> on Amazon Kindle.</p>
       </div>
 
       <div class="vol-grid">
-        {sortedVolumes.map(([num, vol]) => {
+        {sortedVolumes.map(([num, vol], i) => {
           const meta = volumeLookup.get(num);
           if (!meta) return null;
           return (
-            <a href={`/vol/${meta.slug}`} class="vol-card fade-in">
+            <a href={`/vol/${meta.slug}`} class="vol-card fade-in" style={`transition-delay: ${i * 100 + 100}ms`}>
+              {/* Corner ornaments */}
+              <svg class="card-corner top-left" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path d="M2 38V8C2 4.68629 4.68629 2 8 2H38" stroke="currentColor" stroke-width="1.5" />
+                <path d="M2 28V14C2 7.37258 7.37258 2 14 2H28" stroke="currentColor" stroke-width="0.75" opacity="0.5" />
+                <circle cx="2" cy="38" r="2" fill="currentColor" />
+                <circle cx="38" cy="2" r="2" fill="currentColor" />
+              </svg>
+              <svg class="card-corner top-right" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path d="M38 38V8C38 4.68629 35.3137 2 32 2H2" stroke="currentColor" stroke-width="1.5" />
+                <path d="M38 28V14C38 7.37258 32.6274 2 26 2H12" stroke="currentColor" stroke-width="0.75" opacity="0.5" />
+                <circle cx="38" cy="38" r="2" fill="currentColor" />
+                <circle cx="2" cy="2" r="2" fill="currentColor" />
+              </svg>
+              <svg class="card-corner bottom-left" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path d="M2 2V32C2 35.3137 4.68629 38 8 38H38" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="2" cy="2" r="2" fill="currentColor" />
+                <circle cx="38" cy="38" r="2" fill="currentColor" />
+              </svg>
+              <svg class="card-corner bottom-right" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path d="M38 2V32C38 35.3137 35.3137 38 32 38H2" stroke="currentColor" stroke-width="1.5" />
+                <circle cx="38" cy="2" r="2" fill="currentColor" />
+                <circle cx="2" cy="38" r="2" fill="currentColor" />
+              </svg>
+
               <div class="vol-card-covers">
                 {vol.books.slice(0, 3).map((b) => (
-                  <img
-                    src={`/books/covers/${b.slug}.jpg`}
-                    alt={`${b.title} — ${b.subtitle} | Non-fiction ebook`}
-                    class="vol-card-thumb"
-                    width="120"
-                    height="180"
-                    loading="lazy"
-                  />
+                  <div class="vol-book-scene">
+                    <div class="vol-book-inner">
+                      <img
+                        src={`/books/covers/${b.slug}.jpg`}
+                        alt={`${b.title} — ${b.subtitle} | Non-fiction ebook`}
+                        class="vol-card-thumb"
+                        width="120"
+                        height="180"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
                 ))}
               </div>
               <div class="vol-card-body">
+                {/* Card divider */}
+                <div class="card-divider">
+                  <span class="divider-line"></span>
+                  <svg class="divider-glyph" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path d="M8 2L9.5 6.5L14 8L9.5 9.5L8 14L6.5 9.5L2 8L6.5 6.5Z" />
+                  </svg>
+                  <span class="divider-line"></span>
+                </div>
                 <div class="vol-card-meta">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="vol-card-icon" set:html={icons[meta.icon]} />
                   <span class="vol-card-num">Vol. {num}</span>
                 </div>
                 <h3 class="vol-card-title">{vol.name}</h3>
                 <p class="vol-card-tagline">{meta.tagline}</p>
-                <span class="vol-card-cta">{vol.books.length} {vol.books.length === 1 ? 'book' : 'books'} →</span>
+                <span class="vol-card-cta">
+                  {meta.totalCases} {meta.totalCases === 1 ? 'case' : 'cases'}
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
               </div>
             </a>
           );
         })}
       </div>
     </section>
+
+    <!-- =============================================
+         BOTTOM CTA — Final conversion
+         ============================================= -->
+    <section class="bottom-cta fade-in">
+      <div class="bottom-cta-inner">
+        <svg class="bottom-cta-corner top-left" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M2 38V8C2 4.68629 4.68629 2 8 2H38" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="2" cy="38" r="2" fill="currentColor" />
+          <circle cx="38" cy="2" r="2" fill="currentColor" />
+        </svg>
+        <svg class="bottom-cta-corner top-right" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M38 38V8C38 4.68629 35.3137 2 32 2H2" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="38" cy="38" r="2" fill="currentColor" />
+          <circle cx="2" cy="2" r="2" fill="currentColor" />
+        </svg>
+        <svg class="bottom-cta-corner bottom-left" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M2 2V32C2 35.3137 4.68629 38 8 38H38" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="2" cy="2" r="2" fill="currentColor" />
+          <circle cx="38" cy="38" r="2" fill="currentColor" />
+        </svg>
+        <svg class="bottom-cta-corner bottom-right" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M38 2V32C38 35.3137 35.3137 38 32 38H2" stroke="currentColor" stroke-width="1.5" />
+          <circle cx="38" cy="2" r="2" fill="currentColor" />
+          <circle cx="2" cy="38" r="2" fill="currentColor" />
+        </svg>
+
+        <div class="bottom-cta-rule">
+          <svg class="rule-star" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 2L9.5 6.5L14 8L9.5 9.5L8 14L6.5 9.5L2 8L6.5 6.5Z" />
+          </svg>
+          <span class="rule-line"></span>
+          <svg class="rule-diamond" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+            <path d="M6 1L8.5 6L6 11L3.5 6Z" />
+          </svg>
+          <span class="rule-line"></span>
+          <svg class="rule-star" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 2L9.5 6.5L14 8L9.5 9.5L8 14L6.5 9.5L2 8L6.5 6.5Z" />
+          </svg>
+        </div>
+        <h2 class="bottom-cta-title">Start with a free mystery</h2>
+        <p class="bottom-cta-desc">Download <em>The Piltdown Men</em> — the 41-year fraud that fooled science. No payment needed.</p>
+        <div class="bottom-cta-actions" id="bottomCtaWrapper">
+          <form id="bottomFreeBookForm" class="bottom-cta-form">
+            <input
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+              autocomplete="email"
+              class="form-input"
+            />
+            <button type="submit" class="form-btn">
+              <span class="btn-text">Get Free Book</span>
+              <span class="btn-loading" style="display: none;">
+                <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"/>
+                </svg>
+              </span>
+            </button>
+          </form>
+        </div>
+        <div class="bottom-cta-download" id="bottomDownloadState" style="display: none;">
+          <a href="/books/piltdown-man.epub" class="download-btn" download="The-Piltdown-Men.epub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+            </svg>
+            Download Free EPUB
+          </a>
+        </div>
+        <p class="bottom-cta-note">Free DRM-free EPUB. Reads on any device.</p>
+      </div>
+    </section>
+
+    <!-- Floating ambient glyph -->
+    <div class="ambient-glyph" aria-hidden="true">
+      <svg viewBox="0 0 16 16" fill="currentColor">
+        <path d="M8 2L9.5 6.5L14 8L9.5 9.5L8 14L6.5 9.5L2 8L6.5 6.5Z" />
+      </svg>
+    </div>
 
   </div>
 </SidebarLayout>
@@ -244,7 +470,57 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     }
   });
 
-  // Scroll fade-in animation
+  // Bottom CTA form
+  const bottomFormWrapper = document.getElementById('bottomCtaWrapper');
+  const bottomDownloadState = document.getElementById('bottomDownloadState');
+  const bottomForm = document.getElementById('bottomFreeBookForm') as HTMLFormElement;
+
+  // Returning visitor — show download on bottom CTA too
+  if (localStorage.getItem('historiqly_free_book_claimed') === 'true') {
+    if (bottomFormWrapper) bottomFormWrapper.style.display = 'none';
+    if (bottomDownloadState) bottomDownloadState.style.display = 'block';
+  }
+
+  bottomForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(bottomForm);
+    const email = formData.get('email') as string;
+    const btn = bottomForm.querySelector('.form-btn') as HTMLButtonElement;
+    const btnText = btn.querySelector('.btn-text') as HTMLElement;
+    const btnLoading = btn.querySelector('.btn-loading') as HTMLElement;
+
+    btn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'flex';
+
+    try {
+      const apiBase = window.location.hostname === 'localhost'
+        ? 'http://localhost:3000'
+        : 'https://app.historiqly.com';
+
+      await fetch(`${apiBase}/api/books/subscribe`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'free-book' }),
+      });
+
+      localStorage.setItem('historiqly_free_book_claimed', 'true');
+
+      // Update both CTAs
+      if (formWrapper) formWrapper.style.display = 'none';
+      if (downloadState) downloadState.style.display = 'block';
+      if (bottomFormWrapper) bottomFormWrapper.style.display = 'none';
+      if (bottomDownloadState) bottomDownloadState.style.display = 'block';
+    } catch (error) {
+      localStorage.setItem('historiqly_free_book_claimed', 'true');
+      if (formWrapper) formWrapper.style.display = 'none';
+      if (downloadState) downloadState.style.display = 'block';
+      if (bottomFormWrapper) bottomFormWrapper.style.display = 'none';
+      if (bottomDownloadState) bottomDownloadState.style.display = 'block';
+    }
+  });
+
+  // Scroll fade-in animation with stagger
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -262,6 +538,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
+    position: relative;
   }
 
   /* ============================================
@@ -272,7 +549,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     position: relative;
     width: 100%;
     margin-bottom: 3rem;
-    overflow: hidden;
+    overflow: clip;
   }
 
   .hero-glow {
@@ -281,35 +558,65 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     left: 50%;
     transform: translateX(-50%);
     width: 120%;
-    height: 600px;
-    background: radial-gradient(ellipse at center, rgba(93, 181, 133, 0.15) 0%, transparent 60%);
+    height: 400px;
+    background: radial-gradient(ellipse at center, rgba(227, 171, 113, 0.1) 0%, transparent 60%);
     pointer-events: none;
     filter: blur(80px);
     z-index: 0;
-    opacity: 0.6;
-    animation: glow-pulse 8s ease-in-out infinite alternate;
-  }
-
-  @keyframes glow-pulse {
-    0% { opacity: 0.5; transform: translateX(-50%) scale(1); }
-    100% { opacity: 0.8; transform: translateX(-50%) scale(1.1); }
+    animation: glow-breathe 8s ease-in-out infinite;
   }
 
   .hero-inner {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 4rem;
+    grid-template-columns: 200px 1fr;
+    gap: 2.5rem;
     align-items: center;
     position: relative;
     z-index: 1;
-    background: rgba(20, 20, 20, 0.6);
+    max-width: 780px;
+    margin: 0 auto;
+    background: rgba(26, 24, 21, 0.6);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 32px;
-    padding: 3rem;
-    box-shadow: 
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(227, 171, 113, 0.15);
+    border-radius: 4px;
+    padding: 2rem 2.5rem;
+    box-shadow:
+      inset 0 0 0 3px rgba(15, 12, 8, 0.8),
+      inset 0 0 0 4px rgba(227, 171, 113, 0.08),
       0 4px 30px rgba(0,0,0,0.3),
-      inset 0 0 0 1px rgba(255,255,255,0.05);
+      0 0 80px rgba(227, 171, 113, 0.04);
+  }
+
+  /* Inner connecting border */
+  .hero-inner::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(227, 171, 113, 0.05);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  /* ── Hero Corner Ornaments ── */
+  .hero-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    color: rgba(227, 171, 113, 0.25);
+    z-index: 2;
+    pointer-events: none;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+    transition: color 0.4s ease;
+  }
+
+  .hero-corner.top-left     { top: -1px; left: -1px; }
+  .hero-corner.top-right    { top: -1px; right: -1px; }
+  .hero-corner.bottom-left  { bottom: -1px; left: -1px; }
+  .hero-corner.bottom-right { bottom: -1px; right: -1px; }
+
+  .hero-inner:hover .hero-corner {
+    color: rgba(227, 171, 113, 0.4);
   }
 
   /* Cover */
@@ -321,47 +628,129 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
 
   .cover-wrapper {
     position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6);
-    transition: transform 0.3s ease;
-    max-width: 280px;
+    max-width: 200px;
     width: 100%;
-    animation: float 6s ease-in-out infinite;
+    perspective: 460px;
+    perspective-origin: 50% 40%;
+    transform-style: preserve-3d;
   }
 
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+  /* Floor shadow beneath the book */
+  .cover-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    width: 95%;
+    height: 36px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.25) 45%, transparent 75%);
+    border-radius: 50%;
+    filter: blur(6px);
+    z-index: -1;
+    pointer-events: none;
   }
 
-  .cover-wrapper:hover {
-    animation-play-state: paused;
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7);
+  /* 3D book setup */
+  .book-scene {
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(-30deg) rotateX(3deg);
+    transition:
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .cover-wrapper img {
-    display: block;
+  .cover-wrapper:hover .book-scene {
+    transform: rotateY(-14deg) rotateX(1.5deg);
+  }
+
+  /* The 3D book body — all faces are children/pseudo-elements */
+  .book-inner {
+    position: relative;
+    transform-style: preserve-3d;
+    --book-depth: 32px;
+    --page-offset: calc(var(--book-depth) / 2);
+    --book-radius: 4px;
+  }
+
+  /* Page edges */
+  .book-inner::before {
+    content: '';
+    position: absolute;
+    left: calc(100% - var(--page-offset));
+    top: 2px;
+    width: var(--book-depth);
+    height: calc(100% - 4px);
+    transform: rotateY(90deg);
+    background:
+      repeating-linear-gradient(90deg,
+        #ede5d8 0px, #ede5d8 2px,
+        #e0d7c9 2px, #e0d7c9 4px
+      );
+    border-radius: 0 var(--book-radius) var(--book-radius) 0;
+    box-shadow:
+      inset 0 0 12px rgba(0, 0, 0, 0.25),
+      0 0 12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Back cover */
+  .book-inner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(calc(var(--book-depth) / -2));
+    background: linear-gradient(145deg, #2f2417 0%, #1a130c 55%, #0f0c08 100%);
+    border-radius: 0 var(--book-radius) var(--book-radius) 0;
+    box-shadow:
+      -12px 0 38px rgba(0, 0, 0, 0.55),
+      -4px 0 12px rgba(0, 0, 0, 0.35);
+    backface-visibility: hidden;
+  }
+
+  /* Front cover image — pushed forward */
+  .book-inner > img {
     width: 100%;
     height: auto;
-    aspect-ratio: 2 / 3;
-    object-fit: cover;
+    display: block;
+    border-radius: 0 var(--book-radius) var(--book-radius) 0;
+    position: relative;
+    transform: translateZ(calc(var(--book-depth) / 2));
+    box-shadow:
+      2px 4px 10px rgba(0, 0, 0, 0.55),
+      12px 16px 34px rgba(0, 0, 0, 0.45),
+      20px 28px 60px rgba(0, 0, 0, 0.35);
+    backface-visibility: hidden;
   }
 
+  /* Lighting / reflection overlay — shifts on hover */
   .cover-shine {
     position: absolute;
     inset: 0;
+    transform: translateZ(calc(var(--book-depth) / 2));
     background: linear-gradient(
-      115deg,
-      transparent 40%,
-      rgba(255, 255, 255, 0.1) 45%,
-      rgba(255, 255, 255, 0.2) 50%,
-      rgba(255, 255, 255, 0.1) 55%,
-      transparent 60%
+      110deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.04) 20%,
+      rgba(255,255,255,0.15) 38%,
+      rgba(255,255,255,0.25) 43%,
+      rgba(255,255,255,0.06) 50%,
+      rgba(0,0,0,0.1) 58%,
+      rgba(0,0,0,0.18) 75%,
+      rgba(0,0,0,0.06) 100%
     );
+    background-size: 200% 200%;
+    background-position: 0% 50%;
     pointer-events: none;
-    mix-blend-mode: overlay;
+    border-radius: 0 var(--book-radius) var(--book-radius) 0;
+    transition: background-position 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .cover-wrapper:hover .cover-shine {
+    background-position: 100% 50%;
   }
 
   /* Text */
@@ -374,26 +763,41 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.35rem 0.85rem;
-    background: rgba(93, 181, 133, 0.1);
-    border: 1px solid rgba(93, 181, 133, 0.3);
-    border-radius: 100px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #5DB585;
+    padding: 0.4rem 1.1rem;
+    background: rgba(227, 171, 113, 0.04);
+    border: 1px solid rgba(227, 171, 113, 0.28);
+    border-radius: 3px;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--gold);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
     width: fit-content;
-    box-shadow: 0 0 15px rgba(93, 181, 133, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow:
+      inset 0 0 0 3px rgba(12, 10, 6, 0.9),
+      inset 0 0 0 4px rgba(227, 171, 113, 0.12);
+  }
+
+  .badge-flourish {
+    width: 22px;
+    height: 10px;
+    color: rgba(227, 171, 113, 0.4);
+    flex-shrink: 0;
+  }
+
+  .badge-flourish.flipped {
+    transform: scaleX(-1);
   }
 
   .badge-dot {
     width: 6px;
     height: 6px;
-    background: #5DB585;
+    background: var(--primary);
     border-radius: 50%;
-    box-shadow: 0 0 8px #5DB585;
+    box-shadow: 0 0 8px rgba(93, 181, 133, 0.4);
     animation: pulse-dot 2s ease-in-out infinite;
   }
 
@@ -402,31 +806,86 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     50% { opacity: 1; transform: scale(1.2); }
   }
 
+  /* Headline rule */
+  .headline-rule {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 320px;
+    margin-bottom: 0.5rem;
+  }
+
+  .rule-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(227, 171, 113, 0.35) 30%,
+      rgba(227, 171, 113, 0.35) 70%,
+      transparent
+    );
+  }
+
+  .rule-star {
+    width: 10px;
+    height: 10px;
+    color: rgba(227, 171, 113, 0.45);
+    flex-shrink: 0;
+  }
+
+  .rule-diamond {
+    width: 8px;
+    height: 8px;
+    color: rgba(227, 171, 113, 0.35);
+    flex-shrink: 0;
+  }
+
   .hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
     font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1.05;
-    margin-bottom: 0.75rem;
-    background: linear-gradient(180deg, #fff 0%, #a0a0a0 100%);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    color: var(--foreground);
+    text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  }
+
+  /* Shimmer on title word */
+  .title-shimmer {
+    display: inline-block;
+    background: linear-gradient(
+      90deg,
+      #e3ab71 0%,
+      #fff8ee 25%,
+      #f3e3c6 50%,
+      #fff8ee 75%,
+      #e3ab71 100%
+    );
+    background-size: 200% auto;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+    animation: shimmer-text 3s ease-in-out infinite;
+    filter: drop-shadow(0 4px 20px rgba(227, 171, 113, 0.45));
   }
 
   .hero-subtitle {
-    font-size: 1.35rem;
-    color: #888;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    color: rgba(227, 171, 113, 0.7);
     font-style: italic;
-    margin-bottom: 1.25rem;
-    letter-spacing: 0.01em;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
   }
 
   .hero-desc {
-    font-size: 1.15rem;
-    color: #b0b0b0;
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
+    font-size: 0.9rem;
+    color: var(--foreground-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
     max-width: 640px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -439,14 +898,17 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
   .hero-stats {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    padding: 0.75rem 1.25rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding: 0.5rem 1rem;
+    background: rgba(26, 24, 21, 0.5);
+    border: 1px solid rgba(227, 171, 113, 0.12);
+    border-radius: 3px;
     width: fit-content;
     backdrop-filter: blur(5px);
+    box-shadow:
+      inset 0 0 0 2px rgba(15, 12, 8, 0.8),
+      inset 0 0 0 3px rgba(227, 171, 113, 0.06);
   }
 
   .stat {
@@ -456,29 +918,31 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
   }
 
   .stat-value {
-    font-size: 1.1rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.95rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--foreground);
     line-height: 1;
   }
 
   .stat-label {
-    font-size: 0.6rem;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 0.55rem;
     font-weight: 600;
-    color: #666;
+    color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
   }
 
   .stat-divider {
     width: 1px;
     height: 24px;
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(180deg, transparent, rgba(227, 171, 113, 0.2), transparent);
   }
 
   /* Hero form */
   .hero-form-wrapper {
-    max-width: 480px;
+    max-width: 420px;
     position: relative;
     z-index: 2;
   }
@@ -487,15 +951,18 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     display: flex;
     gap: 0.75rem;
     position: relative;
-    background: rgba(0,0,0,0.3);
+    background: rgba(15, 12, 8, 0.5);
     padding: 0.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 3px;
+    border: 1px solid rgba(227, 171, 113, 0.12);
+    box-shadow:
+      inset 0 0 0 2px rgba(15, 12, 8, 0.8),
+      inset 0 0 0 3px rgba(227, 171, 113, 0.05);
   }
 
   .form-input {
     flex: 1;
-    padding: 0.75rem 1rem;
+    padding: 0.6rem 0.85rem;
     background: transparent;
     border: none;
     color: #fff;
@@ -503,7 +970,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     font-family: inherit;
     transition: all 0.2s ease;
   }
-  
+
   .form-input::placeholder { color: #555; }
 
   .form-input:focus {
@@ -511,28 +978,50 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
   }
 
   .form-btn {
-    padding: 0.75rem 1.5rem;
-    background: #5DB585;
-    color: #0a0a0a;
+    padding: 0.6rem 1.25rem;
+    background: linear-gradient(180deg, #4a8b5e 0%, #3a6b4a 100%);
+    color: #fff;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
     font-weight: 700;
-    font-size: 0.95rem;
-    font-family: inherit;
-    border: none;
-    border-radius: 8px;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid rgba(227, 171, 113, 0.3);
+    border-radius: 3px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     white-space: nowrap;
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: auto;
-    box-shadow: 0 4px 15px rgba(93, 181, 133, 0.2);
+    position: relative;
+    box-shadow:
+      inset 0 0 0 2px rgba(58, 107, 74, 0.5),
+      inset 0 0 0 3px rgba(227, 171, 113, 0.12),
+      0 0 16px rgba(227, 171, 113, 0.15);
+  }
+
+  /* Corner dots on form button */
+  .form-btn::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(227, 171, 113, 0.4) 1px, transparent 1px),
+      radial-gradient(circle at 100% 0%, rgba(227, 171, 113, 0.4) 1px, transparent 1px),
+      radial-gradient(circle at 0% 100%, rgba(227, 171, 113, 0.4) 1px, transparent 1px),
+      radial-gradient(circle at 100% 100%, rgba(227, 171, 113, 0.4) 1px, transparent 1px);
+    pointer-events: none;
   }
 
   .form-btn:hover:not(:disabled) {
-    background: #6fc494;
+    border-color: rgba(227, 171, 113, 0.5);
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(93, 181, 133, 0.3);
+    box-shadow:
+      inset 0 0 0 2px rgba(58, 107, 74, 0.4),
+      inset 0 0 0 3px rgba(227, 171, 113, 0.2),
+      0 0 28px rgba(227, 171, 113, 0.25);
   }
 
   .form-btn:disabled { opacity: 0.8; cursor: not-allowed; }
@@ -545,7 +1034,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
 
   .form-note {
     font-size: 0.75rem;
-    color: #666;
+    color: var(--muted);
     margin-top: 0.75rem;
     padding-left: 0.5rem;
   }
@@ -553,7 +1042,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
   /* Preview link */
   .hero-preview-link {
     font-size: 0.875rem;
-    color: #666;
+    color: var(--muted);
     margin-top: 1rem;
     display: inline-block;
     padding-left: 0.5rem;
@@ -561,7 +1050,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
   }
 
   .hero-preview-link:hover {
-    color: #5DB585;
+    color: var(--gold);
   }
 
   /* Download state */
@@ -569,26 +1058,49 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    padding: 1rem 2rem;
-    background: #5DB585;
-    color: #0a0a0a;
+    padding: 0.85rem 2rem;
+    background: linear-gradient(180deg, #4a8b5e 0%, #3a6b4a 100%);
+    color: #fff;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
     font-weight: 700;
-    font-size: 1rem;
-    border-radius: 12px;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: 1px solid rgba(227, 171, 113, 0.35);
+    border-radius: 3px;
     text-decoration: none;
-    transition: all 0.25s;
-    box-shadow: 0 0 25px rgba(93, 181, 133, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    box-shadow:
+      inset 0 0 0 2px rgba(58, 107, 74, 0.5),
+      inset 0 0 0 3px rgba(227, 171, 113, 0.12),
+      0 0 20px rgba(227, 171, 113, 0.15);
+  }
+
+  .download-btn::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(227, 171, 113, 0.4) 1.5px, transparent 1.5px),
+      radial-gradient(circle at 100% 0%, rgba(227, 171, 113, 0.4) 1.5px, transparent 1.5px),
+      radial-gradient(circle at 0% 100%, rgba(227, 171, 113, 0.4) 1.5px, transparent 1.5px),
+      radial-gradient(circle at 100% 100%, rgba(227, 171, 113, 0.4) 1.5px, transparent 1.5px);
+    pointer-events: none;
   }
 
   .download-btn:hover {
-    background: #6FC494;
+    border-color: rgba(227, 171, 113, 0.55);
     transform: translateY(-2px);
-    box-shadow: 0 5px 35px rgba(93, 181, 133, 0.3);
+    box-shadow:
+      inset 0 0 0 2px rgba(58, 107, 74, 0.4),
+      inset 0 0 0 3px rgba(227, 171, 113, 0.2),
+      0 0 36px rgba(227, 171, 113, 0.25);
   }
 
   .download-note {
     font-size: 0.75rem;
-    color: #666;
+    color: var(--muted);
     margin-top: 0.75rem;
   }
 
@@ -605,44 +1117,85 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
   .bridge-divider {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
     margin: 0 auto 1rem;
-    max-width: 140px;
-    opacity: 0.6;
+    max-width: 200px;
   }
 
   .bridge-line {
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(93, 181, 133, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(227, 171, 113, 0.35));
   }
 
-  .bridge-icon {
-    color: #5DB585;
-    opacity: 0.4;
-    display: flex;
-    align-items: center;
+  .bridge-line:last-child {
+    background: linear-gradient(90deg, rgba(227, 171, 113, 0.35), transparent);
+  }
+
+  .bridge-glyph {
+    width: 14px;
+    height: 14px;
+    color: rgba(227, 171, 113, 0.45);
+    flex-shrink: 0;
+    animation: slow-rotate 20s linear infinite;
   }
 
   .bridge-text {
-    font-size: 1.125rem;
-    color: #888;
+    font-size: 1.05rem;
+    color: var(--muted-foreground);
     letter-spacing: -0.01em;
   }
 
   .bridge-text strong {
-    color: #fff;
+    color: var(--foreground);
     font-weight: 600;
-    text-shadow: 0 0 20px rgba(93, 181, 133, 0.2);
   }
 
   /* ============================================
      KINDLE BANNER
      ============================================ */
   .kindle-banner { margin-bottom: 2.5rem; }
-  .kindle-link { display: flex; align-items: center; gap: 1.25rem; padding: 1.25rem 2rem; background: linear-gradient(135deg, rgba(255, 153, 0, 0.08) 0%, rgba(255, 153, 0, 0.03) 100%); border: 1px solid rgba(255, 153, 0, 0.2); border-radius: 16px; text-decoration: none; color: inherit; transition: all 0.3s ease; }
-  .kindle-link:hover { background: linear-gradient(135deg, rgba(255, 153, 0, 0.12) 0%, rgba(255, 153, 0, 0.06) 100%); border-color: rgba(255, 153, 0, 0.4); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 153, 0, 0.1); }
-  .kindle-icon { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: rgba(255, 153, 0, 0.12); border-radius: 12px; color: #FF9900; flex-shrink: 0; }
+
+  .kindle-link {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 2rem;
+    background: linear-gradient(135deg, rgba(255, 153, 0, 0.06) 0%, rgba(255, 153, 0, 0.02) 100%);
+    border: 1px solid rgba(255, 153, 0, 0.18);
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    box-shadow:
+      inset 0 0 0 3px rgba(15, 12, 8, 0.8),
+      inset 0 0 0 4px rgba(255, 153, 0, 0.06);
+  }
+
+  .kindle-link:hover {
+    background: linear-gradient(135deg, rgba(255, 153, 0, 0.1) 0%, rgba(255, 153, 0, 0.04) 100%);
+    border-color: rgba(255, 153, 0, 0.35);
+    transform: translateY(-2px);
+    box-shadow:
+      inset 0 0 0 3px rgba(15, 12, 8, 0.7),
+      inset 0 0 0 4px rgba(255, 153, 0, 0.1),
+      0 8px 24px rgba(255, 153, 0, 0.08);
+  }
+
+  .kindle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 153, 0, 0.1);
+    border-radius: 4px;
+    color: #FF9900;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 153, 0, 0.15);
+  }
+
   .kindle-text { display: flex; flex-direction: column; gap: 0.2rem; flex: 1; }
   .kindle-label { font-size: 1rem; font-weight: 700; color: #fff; }
   .kindle-desc { font-size: 0.8125rem; color: #888; }
@@ -664,24 +1217,58 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     margin-right: auto;
   }
 
+  .catalog-rule {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 280px;
+    margin: 0 auto 0.75rem;
+  }
+
+  .catalog-rule .rule-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(227, 171, 113, 0.3) 30%,
+      rgba(227, 171, 113, 0.3) 70%,
+      transparent
+    );
+  }
+
+  .catalog-rule .rule-star {
+    width: 10px;
+    height: 10px;
+    color: rgba(227, 171, 113, 0.4);
+    flex-shrink: 0;
+  }
+
+  .catalog-rule .rule-diamond {
+    width: 8px;
+    height: 8px;
+    color: rgba(227, 171, 113, 0.3);
+    flex-shrink: 0;
+  }
+
   .catalog-header h2 {
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 2.5rem;
     font-weight: 800;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     margin-bottom: 1rem;
-    background: linear-gradient(180deg, #fff 0%, #aaa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--foreground);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
   }
 
   .catalog-lead {
-    font-size: 1.1rem;
-    color: #888;
+    font-size: 1.05rem;
+    color: var(--muted-foreground);
     line-height: 1.6;
   }
 
   .catalog-lead strong {
-    color: #fff;
+    color: var(--gold);
     font-weight: 600;
   }
 
@@ -694,126 +1281,252 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     gap: 2rem;
   }
 
-  @media (min-width: 1400px) {
-    .vol-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
 
   .vol-card {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    overflow: hidden;
+    background: rgba(26, 24, 21, 0.5);
+    border: 1px solid rgba(227, 171, 113, 0.1);
+    border-radius: 4px;
+    overflow: clip;
     text-decoration: none;
     color: inherit;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: relative;
     height: 100%;
   }
 
+  /* Inner border */
   .vol-card::before {
     content: '';
     position: absolute;
-    inset: 0;
-    border-radius: 20px;
-    padding: 1px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.1), transparent); 
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
+    inset: 5px;
+    border: 1px solid rgba(227, 171, 113, 0.04);
+    border-radius: 2px;
     pointer-events: none;
-    opacity: 0.5;
-    transition: opacity 0.4s ease;
+    z-index: 5;
+    transition: border-color 0.45s ease;
   }
 
   .vol-card:hover {
-    background: rgba(255, 255, 255, 0.06);
-    transform: translateY(-8px);
-    box-shadow: 
-      0 20px 40px -5px rgba(0,0,0,0.4),
-      0 0 0 1px rgba(93, 181, 133, 0.2);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(227, 171, 113, 0.3);
+    box-shadow:
+      0 24px 48px -8px rgba(0,0,0,0.5),
+      0 0 40px rgba(227, 171, 113, 0.08),
+      0 0 80px rgba(227, 171, 113, 0.04);
   }
 
   .vol-card:hover::before {
-    opacity: 1;
-    background: linear-gradient(180deg, rgba(93, 181, 133, 0.3), transparent);
+    border-color: rgba(227, 171, 113, 0.12);
   }
 
-  /* Fanned book covers */
+
+  /* ── Card Corner Ornaments ── */
+  .card-corner {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    color: rgba(227, 171, 113, 0.15);
+    z-index: 6;
+    pointer-events: none;
+    transition: color 0.45s ease, filter 0.45s ease;
+  }
+
+  .card-corner.top-left { top: 0; left: 0; }
+  .card-corner.top-right { top: 0; right: 0; }
+  .card-corner.bottom-left { bottom: 0; left: 0; }
+  .card-corner.bottom-right { bottom: 0; right: 0; }
+
+  .vol-card:hover .card-corner {
+    color: rgba(227, 171, 113, 0.45);
+    filter: drop-shadow(0 0 4px rgba(227, 171, 113, 0.15));
+  }
+
+  /* Fanned book covers with 3D spine + pages */
   .vol-card-covers {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2.5rem 0 2rem;
     height: 180px;
-    perspective: 1000px;
     position: relative;
   }
-  
+
   .vol-card-covers::after {
     content: '';
     position: absolute;
-    bottom: 2rem;
+    bottom: 1.8rem;
     left: 50%;
     transform: translateX(-50%);
-    width: 60%;
-    height: 20px;
+    width: 55%;
+    height: 16px;
     background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 70%);
-    filter: blur(5px);
+    filter: blur(4px);
     z-index: 0;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
   }
 
   .vol-card:hover .vol-card-covers::after {
     opacity: 1;
   }
 
+  .vol-book-scene {
+    display: inline-block;
+    margin: 0 -10px;
+    transform-origin: bottom center;
+    perspective: 420px;
+    perspective-origin: 50% 40%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .vol-book-inner {
+    position: relative;
+    transform-style: preserve-3d;
+    --vol-book-depth: 16px;
+    --vol-page-offset: calc(var(--vol-book-depth) / 2);
+    --vol-book-radius: 3px;
+    transform: rotateY(-30deg) rotateX(3deg);
+    transition:
+      transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* Page edges — side thickness */
+  .vol-book-inner::before {
+    content: '';
+    position: absolute;
+    left: calc(100% - var(--vol-page-offset));
+    top: 1px;
+    width: var(--vol-book-depth);
+    height: calc(100% - 2px);
+    transform: rotateY(90deg);
+    background:
+      repeating-linear-gradient(90deg,
+        #ede5d8 0px, #ede5d8 2px,
+        #e0d7c9 2px, #e0d7c9 3px
+      );
+    border-radius: 0 var(--vol-book-radius) var(--vol-book-radius) 0;
+    box-shadow:
+      inset 0 0 8px rgba(0, 0, 0, 0.2),
+      0 0 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Back cover */
+  .vol-book-inner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateZ(calc(var(--vol-book-depth) / -2));
+    background: linear-gradient(145deg, #2f2417 0%, #1a130c 55%, #0f0c08 100%);
+    border-radius: 0 var(--vol-book-radius) var(--vol-book-radius) 0;
+    box-shadow:
+      -8px 0 22px rgba(0, 0, 0, 0.45),
+      -3px 0 8px rgba(0, 0, 0, 0.25);
+    backface-visibility: hidden;
+  }
+
   .vol-card-thumb {
     width: 80px;
     height: 120px;
     object-fit: cover;
-    border-radius: 6px;
-    box-shadow: -4px 6px 15px rgba(0,0,0,0.5);
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-    margin: 0 -10px;
-    transform-origin: bottom center;
+    border-radius: 0 var(--vol-book-radius) var(--vol-book-radius) 0;
+    display: block;
     position: relative;
+    transform: translateZ(calc(var(--vol-book-depth) / 2));
+    box-shadow:
+      2px 2px 8px rgba(0, 0, 0, 0.5),
+      6px 8px 18px rgba(0, 0, 0, 0.35);
+    backface-visibility: hidden;
   }
 
-  .vol-card-thumb:nth-child(1) {
+  /* Fanned positions */
+  .vol-book-scene:nth-child(1) {
     transform: rotate(-8deg) translateY(6px);
     z-index: 1;
-    filter: brightness(0.8);
   }
 
-  .vol-card-thumb:nth-child(2) {
+  .vol-book-scene:nth-child(1) .vol-card-thumb {
+    filter: brightness(0.8);
+    transition: filter 0.4s ease;
+  }
+
+  .vol-book-scene:nth-child(2) {
     transform: translateY(-4px) scale(1.1);
     z-index: 2;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.6);
   }
 
-  .vol-card-thumb:nth-child(3) {
+  .vol-book-scene:nth-child(3) {
     transform: rotate(8deg) translateY(6px);
     z-index: 1;
+  }
+
+  .vol-book-scene:nth-child(3) .vol-card-thumb {
     filter: brightness(0.8);
+    transition: filter 0.4s ease;
   }
 
-  .vol-card:hover .vol-card-thumb:nth-child(1) {
-    transform: rotate(-12deg) translateY(2px) translateX(-15px);
+  .vol-card:hover .vol-book-scene:nth-child(1) {
+    transform: rotate(-14deg) translateY(0px) translateX(-18px);
+  }
+
+  .vol-card:hover .vol-book-scene:nth-child(1) .vol-card-thumb {
     filter: brightness(1);
   }
 
-  .vol-card:hover .vol-card-thumb:nth-child(2) {
-    transform: translateY(-12px) scale(1.15);
+  .vol-card:hover .vol-book-scene:nth-child(2) {
+    transform: translateY(-14px) scale(1.18);
   }
 
-  .vol-card:hover .vol-card-thumb:nth-child(3) {
-    transform: rotate(12deg) translateY(2px) translateX(15px);
+  .vol-card:hover .vol-book-scene:nth-child(3) {
+    transform: rotate(14deg) translateY(0px) translateX(18px);
+  }
+
+  .vol-card:hover .vol-book-scene:nth-child(3) .vol-card-thumb {
     filter: brightness(1);
+  }
+
+  /* ── Card Divider ── */
+  .card-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(227, 171, 113, 0.2));
+  }
+
+  .divider-line:last-child {
+    background: linear-gradient(90deg, rgba(227, 171, 113, 0.2), transparent);
+  }
+
+  .divider-glyph {
+    width: 8px;
+    height: 8px;
+    color: rgba(227, 171, 113, 0.35);
+    flex-shrink: 0;
+    animation: slow-rotate 30s linear infinite;
+  }
+
+  .vol-card:hover .divider-glyph {
+    color: rgba(227, 171, 113, 0.65);
+  }
+
+  .vol-card:hover .divider-line {
+    background: linear-gradient(90deg, transparent, rgba(227, 171, 113, 0.4));
+  }
+
+  .vol-card:hover .divider-line:last-child {
+    background: linear-gradient(90deg, rgba(227, 171, 113, 0.4), transparent);
   }
 
   /* Card body */
@@ -830,44 +1543,54 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     margin-bottom: 0.5rem;
-    padding: 0.25rem 0.6rem;
-    background: rgba(0,0,0,0.2);
-    border-radius: 100px;
   }
 
   .vol-card-icon {
     width: 14px;
     height: 14px;
-    color: #5DB585;
-    opacity: 0.9;
+    color: var(--gold);
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+
+  .vol-card:hover .vol-card-icon {
+    opacity: 1;
   }
 
   .vol-card-num {
-    font-size: 0.65rem;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 0.6rem;
     font-weight: 700;
-    color: #5DB585;
+    color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+  }
+
+  .vol-card:hover .vol-card-num {
+    opacity: 1;
   }
 
   .vol-card-title {
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: 1.25rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--foreground);
     margin-bottom: 0.4rem;
     line-height: 1.2;
     transition: color 0.3s;
   }
 
   .vol-card:hover .vol-card-title {
-    color: #5DB585;
+    color: var(--gold-light);
   }
 
   .vol-card-tagline {
-    font-size: 0.875rem;
-    color: #888;
+    font-size: 0.85rem;
+    color: var(--muted-foreground);
     font-style: italic;
     margin-bottom: 1.25rem;
     line-height: 1.4;
@@ -875,29 +1598,280 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
   }
 
   .vol-card-cta {
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: #fff;
-    background: rgba(255,255,255,0.08);
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: all 0.2s;
-    display: flex;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: rgba(227, 171, 113, 0.06);
+    border: 1px solid rgba(227, 171, 113, 0.15);
+    padding: 0.45rem 0.85rem;
+    border-radius: 3px;
+    transition: all 0.3s;
+    display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
+    position: relative;
+  }
+
+  /* Corner dots on CTA badge */
+  .vol-card-cta::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background:
+      radial-gradient(circle at 0% 0%, rgba(227, 171, 113, 0.3) 1px, transparent 1px),
+      radial-gradient(circle at 100% 0%, rgba(227, 171, 113, 0.3) 1px, transparent 1px),
+      radial-gradient(circle at 0% 100%, rgba(227, 171, 113, 0.3) 1px, transparent 1px),
+      radial-gradient(circle at 100% 100%, rgba(227, 171, 113, 0.3) 1px, transparent 1px);
+    pointer-events: none;
+  }
+
+  .vol-card-cta svg {
+    transition: transform 0.3s ease;
   }
 
   .vol-card:hover .vol-card-cta {
-    background: #5DB585;
-    color: #0a0a0a;
-    transform: translateY(2px);
+    background: rgba(227, 171, 113, 0.12);
+    border-color: rgba(227, 171, 113, 0.35);
+    color: var(--gold-light);
+    box-shadow: 0 0 16px rgba(227, 171, 113, 0.1);
   }
 
-  /* Fade-in animation */
+  .vol-card:hover .vol-card-cta svg {
+    transform: translateX(3px);
+  }
+
+  /* ============================================
+     VALUE PROPOSITIONS
+     ============================================ */
+  .value-props {
+    padding: 0.5rem 0 2.5rem;
+  }
+
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .value-item {
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+    background: rgba(26, 24, 21, 0.4);
+    border: 1px solid rgba(227, 171, 113, 0.08);
+    border-radius: 4px;
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+  }
+
+  .value-item::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(227, 171, 113, 0.03);
+    border-radius: 2px;
+    pointer-events: none;
+    transition: border-color 0.35s ease;
+  }
+
+  .value-item:hover {
+    border-color: rgba(227, 171, 113, 0.2);
+    background: rgba(26, 24, 21, 0.6);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3), 0 0 40px rgba(227, 171, 113, 0.04);
+  }
+
+  .value-item:hover::before {
+    border-color: rgba(227, 171, 113, 0.08);
+  }
+
+  .value-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(227, 171, 113, 0.06);
+    border: 1px solid rgba(227, 171, 113, 0.12);
+    border-radius: 4px;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .value-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .value-desc {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+  }
+
+  /* ============================================
+     BOTTOM CTA
+     ============================================ */
+  .bottom-cta {
+    padding: 0 0 4rem;
+  }
+
+  .bottom-cta-inner {
+    text-align: center;
+    padding: 3rem 2.5rem;
+    background: rgba(26, 24, 21, 0.6);
+    border: 1px solid rgba(227, 171, 113, 0.15);
+    border-radius: 4px;
+    position: relative;
+    backdrop-filter: blur(20px);
+    box-shadow:
+      inset 0 0 0 3px rgba(15, 12, 8, 0.8),
+      inset 0 0 0 4px rgba(227, 171, 113, 0.08),
+      0 4px 30px rgba(0,0,0,0.3),
+      0 0 80px rgba(227, 171, 113, 0.04);
+  }
+
+  .bottom-cta-inner::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(227, 171, 113, 0.05);
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  .bottom-cta-corner {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    color: rgba(227, 171, 113, 0.25);
+    z-index: 2;
+    pointer-events: none;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+  }
+
+  .bottom-cta-corner.top-left { top: -1px; left: -1px; }
+  .bottom-cta-corner.top-right { top: -1px; right: -1px; }
+  .bottom-cta-corner.bottom-left { bottom: -1px; left: -1px; }
+  .bottom-cta-corner.bottom-right { bottom: -1px; right: -1px; }
+
+  .bottom-cta-rule {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 200px;
+    margin: 0 auto 1.25rem;
+  }
+
+  .bottom-cta-rule .rule-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(227, 171, 113, 0.35) 30%,
+      rgba(227, 171, 113, 0.35) 70%,
+      transparent
+    );
+  }
+
+  .bottom-cta-rule .rule-star {
+    width: 10px;
+    height: 10px;
+    color: rgba(227, 171, 113, 0.45);
+    flex-shrink: 0;
+  }
+
+  .bottom-cta-rule .rule-diamond {
+    width: 8px;
+    height: 8px;
+    color: rgba(227, 171, 113, 0.35);
+    flex-shrink: 0;
+  }
+
+  .bottom-cta-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--foreground);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+
+  .bottom-cta-desc {
+    font-size: 1.05rem;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bottom-cta-desc em {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .bottom-cta-form {
+    display: flex;
+    gap: 0.75rem;
+    max-width: 420px;
+    margin: 0 auto;
+    position: relative;
+    background: rgba(15, 12, 8, 0.5);
+    padding: 0.5rem;
+    border-radius: 3px;
+    border: 1px solid rgba(227, 171, 113, 0.12);
+    box-shadow:
+      inset 0 0 0 2px rgba(15, 12, 8, 0.8),
+      inset 0 0 0 3px rgba(227, 171, 113, 0.05);
+  }
+
+  .bottom-cta-download {
+    display: flex;
+    justify-content: center;
+  }
+
+  .bottom-cta-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── Ambient Glyph ── */
+  .ambient-glyph {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.06;
+  }
+
+  .ambient-glyph svg {
+    width: 80px;
+    height: 80px;
+    color: var(--gold);
+    animation: slow-rotate 90s linear infinite;
+  }
+
+  /* ── Fade-in animation ── */
   .fade-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+      transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .fade-in.visible {
@@ -920,6 +1894,16 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
       padding: 1.5rem;
     }
 
+    .hero-corner {
+      width: 28px;
+      height: 28px;
+      color: rgba(227, 171, 113, 0.15);
+    }
+
+    .hero-inner::after {
+      display: none;
+    }
+
     .hero-cover {
       order: -1;
       margin-bottom: 0.5rem;
@@ -928,11 +1912,20 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     .cover-wrapper {
       max-width: 140px;
       margin: 0 auto;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+      perspective: 420px;
+    }
+
+    .book-inner {
+      --book-depth: 24px;
+      --book-radius: 3px;
     }
 
     .hero-text {
       align-items: center;
+    }
+
+    .headline-rule {
+      max-width: 200px;
     }
 
     .series-badge,
@@ -942,7 +1935,7 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
       margin-left: auto;
       margin-right: auto;
     }
-    
+
     .hero-desc {
       -webkit-line-clamp: 4;
     }
@@ -964,6 +1957,41 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
 
     .kindle-link { flex-wrap: wrap; padding: 1rem 1.25rem; gap: 0.75rem; }
     .kindle-arrow { width: 100%; text-align: center; padding-top: 0.5rem; border-top: 1px solid rgba(255, 153, 0, 0.1); }
+
+    .value-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .value-item {
+      padding: 1.25rem 1rem;
+    }
+
+    .bottom-cta-inner {
+      padding: 2rem 1.5rem;
+    }
+
+    .bottom-cta-title {
+      font-size: 1.5rem;
+    }
+
+    .bottom-cta-corner {
+      width: 24px;
+      height: 24px;
+    }
+
+    .bottom-cta-inner::after {
+      display: none;
+    }
+
+    .ambient-glyph {
+      display: none;
+    }
+
+    /* Disable sibling dimming on mobile */
+    .vol-grid:hover .vol-card:not(:hover) {
+      filter: none;
+    }
   }
 
   @media (max-width: 540px) {
@@ -988,6 +2016,15 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
       height: 81px;
     }
 
+    .vol-book-scene {
+      perspective: 400px;
+    }
+
+    .vol-book-inner {
+      --vol-book-depth: 12px;
+      --vol-book-radius: 2px;
+    }
+
     .vol-card-title {
       font-size: 0.875rem;
     }
@@ -995,5 +2032,20 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     .vol-card-tagline {
       display: none;
     }
+
+    .card-corner {
+      width: 18px;
+      height: 18px;
+    }
+
+    .card-divider {
+      display: none;
+    }
+
+    .bottom-cta-form {
+      flex-direction: column;
+    }
+
+    .bottom-cta-form .form-btn { width: 100%; }
   }
 </style>

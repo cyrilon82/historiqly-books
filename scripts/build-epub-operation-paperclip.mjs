@@ -383,7 +383,7 @@ const epubChapters = [
       <p>Piszkiewicz, Dennis — <em>The Nazi Rocketeers: Dreams of Space and Crimes of War</em>, Praeger, 1995</p>
       <p>Bower, Tom — <em>The Paperclip Conspiracy: The Hunt for the Nazi Scientists</em>, Little, Brown, 1987</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

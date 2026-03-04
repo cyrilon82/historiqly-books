@@ -317,7 +317,7 @@ const epubChapters = [
       <p>National Museum of Denmark — "Helmets" (Viking Age collection)</p>
       <p>Price, Neil — <em>The Children of Ash and Elm: A History of the Vikings</em>, Basic Books, 2020</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

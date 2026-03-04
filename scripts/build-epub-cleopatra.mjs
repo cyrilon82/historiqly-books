@@ -328,7 +328,7 @@ const epubChapters = [
       <p>Brown, Pat — <em>The Murder of Cleopatra: History's Greatest Cold Case</em>, Prometheus Books, 2013</p>
       <p>Tsoucalas, Gregory & Sgantzos, Markos — "Toxicology and snakes in Ptolemaic Egyptian dynasty," <em>Toxicology Reports</em>, 2021</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

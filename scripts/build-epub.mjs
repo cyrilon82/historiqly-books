@@ -18,7 +18,7 @@ const book = {
   series: 'Vol. 1: Hoaxes',
   slug: 'piltdown-man',
   description:
-    'In 1912, a skull was found in a Sussex gravel pit that rewrote the story of human evolution. It took 41 years to discover it was a fraud. This is the full story — told as a thriller.',
+    'In 1912, a skull was found in a Sussex gravel pit that rewrote the story of human evolution. It took 41 years to discover it was a fraud. This is the full story — told as a mystery.',
 };
 
 // --- IMAGE PATHS (file:// URLs for epub-gen-memory) ---
@@ -348,7 +348,7 @@ const epubChapters = [
       <p>De Groote, I. et al. — "New genetic and morphological evidence suggests a single hoaxer created 'Piltdown man'," <em>Royal Society Open Science</em>, 2016</p>
       <p>Walsh, J. E. — <em>Unraveling Piltdown</em>, Random House, 1996</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

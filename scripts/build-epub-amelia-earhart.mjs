@@ -326,7 +326,7 @@ const epubChapters = [
       <p>Gillespie, Ric — <em>Finding Amelia: The True Story of the Earhart Disappearance</em>, Naval Institute Press, 2006</p>
       <p>Earhart, Amelia — <em>Last Flight</em>, compiled by George Palmer Putnam, Harcourt Brace, 1937</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

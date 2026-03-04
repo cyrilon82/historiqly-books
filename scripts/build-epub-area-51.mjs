@@ -311,7 +311,7 @@ const epubChapters = [
       <p>CIA — "The Central Intelligence Agency and Overhead Reconnaissance: The U-2 and OXCART Programs, 1954–1974" (declassified June 2013)</p>
       <p>National Security Archive, George Washington University — nsarchive.gwu.edu</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

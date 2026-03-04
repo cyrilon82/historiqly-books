@@ -284,7 +284,7 @@ const epubChapters = [
       <p>Rumbelow, Donald — <em>The Complete Jack the Ripper</em>, Penguin, 1975/2004</p>
       <p>Rubenhold, Hallie — <em>The Five: The Untold Lives of the Women Killed by Jack the Ripper</em>, Doubleday, 2019</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

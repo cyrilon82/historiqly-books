@@ -323,7 +323,7 @@ const epubChapters = [
       <p>Millegan, Kris (ed.) — <em>Fleshing Out Skull & Bones: Investigations into America's Most Powerful Secret Society</em>, Trine Day, 2003</p>
       <p>Rosenbaum, Ron — "The Last Secrets of Skull and Bones," <em>Esquire</em>, 1977</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

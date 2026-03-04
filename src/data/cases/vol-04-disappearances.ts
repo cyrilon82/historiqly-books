@@ -77,7 +77,7 @@ export const disappearancesCases: Case[] = [
     caseNumber: 6,
     title: "The Princes in the Tower",
     description:
-      "Two young princes imprisoned by their uncle Richard III, never seen again. Did he murder them to claim the throne?",
+      "Two boys vanished inside the Tower of London in 1483. Their uncle seized the crown. Five centuries later, no one knows what happened to them.",
     verdictType: "disappearance",
     verdictLabel: "Presumed Dead",
     year: "1483",
@@ -91,26 +91,12 @@ export const disappearancesCases: Case[] = [
     caseNumber: 7,
     title: "Jimmy Hoffa",
     description:
-      "The powerful Teamsters boss vanished in 1975. Decades of searches and mob theories have never found his body.",
+      "The most powerful labor leader in America vanished from a restaurant parking lot in 1975. Fifty years later, his body has never been found.",
     verdictType: "disappearance",
     verdictLabel: "Presumed Dead",
     year: "1975",
     confidence: 90,
     releaseDate: "2025-01-01",
-    isFree: false,
-  },
-  {
-    id: "disappearances-09",
-    volumeSlug: "disappearances",
-    caseNumber: 9,
-    title: "The Man in the Iron Mask",
-    description:
-      "A prisoner held for 34 years, his face always hidden behind a mask. His identity died with him—but theories abound.",
-    verdictType: "disappearance",
-    verdictLabel: "Identity Unknown",
-    year: "1669–1703",
-    confidence: 0,
-    releaseDate: "2027-01-01",
     isFree: false,
   },
 ];

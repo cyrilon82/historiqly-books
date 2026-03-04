@@ -323,7 +323,7 @@ const epubChapters = [
       <p>Melanson, Terry — <em>Perfectibilists: The 18th Century Bavarian Order of the Illuminati</em>, Trine Day, 2009</p>
       <p>Bieberstein, Johannes Rogalla von — <em>Die These von der Verschwörung 1776–1945</em>, Herbert Lang, 1976</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

@@ -335,7 +335,7 @@ const epubChapters = [
       <p>Horn, James — <em>A Kingdom Strange: The Brief and Tragic History of the Lost Colony of Roanoke</em>, Basic Books, 2010</p>
       <p>First Colony Foundation — Archaeological reports and research archive, firstcolonyfoundation.org</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

@@ -297,7 +297,7 @@ const epubChapters = [
       <p>Nichols, Preston & Moon, Peter — <em>The Montauk Project: Experiments in Time</em>, Sky Books, 1992</p>
       <p>Naval History and Heritage Command — <em>Philadelphia Experiment</em>, official statement (online)</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

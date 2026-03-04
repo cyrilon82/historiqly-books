@@ -338,7 +338,7 @@ const epubChapters = [
       <p>U.S. Senate — <em>Project MKULTRA, The CIA's Program of Research in Behavioral Modification</em>, Joint Hearing, 95th Congress, 1977</p>
       <p>Albarelli, H.P. Jr. — <em>A Terrible Mistake: The Murder of Frank Olson and the CIA's Secret Cold War Experiments</em>, Trine Day, 2009</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

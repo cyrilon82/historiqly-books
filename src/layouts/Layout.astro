@@ -7,7 +7,7 @@ interface Props {
 
 const {
   title,
-  description = "HistorIQly Thrillers — History's darkest mysteries, told as thrillers. Narrative non-fiction you can't put down.",
+  description = "HistorIQly Mysteries — History's darkest mysteries, told as gripping mysteries. Narrative non-fiction you can't put down.",
   image = "/logo.png"
 } = Astro.props;
 
@@ -27,7 +27,7 @@ const ogImage = new URL(image, siteUrl).toString();
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="keywords" content="history mysteries, cold cases, conspiracies, AI investigation, evidence-based history, historical mysteries, unsolved cases, lost civilizations, secret societies, declassified documents, non-fiction ebooks, history books, true crime ebooks" />
-    <meta name="author" content="HistorIQly Thrillers" />
+    <meta name="author" content="HistorIQly Mysteries" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalUrl} />
 
@@ -46,7 +46,7 @@ const ogImage = new URL(image, siteUrl).toString();
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:site_name" content="HistorIQly Thrillers" />
+    <meta property="og:site_name" content="HistorIQly Mysteries" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
@@ -60,9 +60,9 @@ const ogImage = new URL(image, siteUrl).toString();
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: "HistorIQly Thrillers",
+      name: "HistorIQly Mysteries",
       url: siteUrl,
-      description: "History's darkest mysteries, told as thrillers.",
+      description: "History's darkest mysteries, told as gripping mysteries.",
       publisher: {
         "@type": "Organization",
         name: "HistorIQly",

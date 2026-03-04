@@ -316,7 +316,7 @@ const epubChapters = [
       <p>Badal, James Jessen — <em>Hell's Wasteland: The Pennsylvania Torso Murders</em>, Kent State University Press, 2012</p>
       <p>Encyclopedia of Cleveland History — "Torso Murders," Case Western Reserve University</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

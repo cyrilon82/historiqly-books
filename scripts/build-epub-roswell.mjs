@@ -282,7 +282,7 @@ const epubChapters = [
       <p>Carey, Thomas & Schmitt, Donald — <em>Witness to Roswell</em>, New Page Books, 2009</p>
       <p>US Air Force — <em>The Roswell Report: Fact versus Fiction in the New Mexico Desert</em>, 1994</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,

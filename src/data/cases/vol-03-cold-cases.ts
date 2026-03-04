@@ -99,32 +99,4 @@ export const coldCasesCases: Case[] = [
     releaseDate: "2025-01-01",
     isFree: false,
   },
-  {
-    id: "cold-cases-08",
-    volumeSlug: "cold-cases",
-    caseNumber: 8,
-    title: "The Princes in the Tower",
-    description:
-      "Two boys vanished inside the Tower of London in 1483. Their uncle seized the crown. Five centuries later, no one knows what happened to them.",
-    verdictType: "cold_case",
-    verdictLabel: "Unsolved",
-    year: "1483",
-    confidence: 0,
-    releaseDate: "2025-01-01",
-    isFree: false,
-  },
-  {
-    id: "cold-cases-09",
-    volumeSlug: "cold-cases",
-    caseNumber: 9,
-    title: "Jimmy Hoffa",
-    description:
-      "The most powerful labor leader in America vanished from a restaurant parking lot in 1975. Fifty years later, his body has never been found.",
-    verdictType: "cold_case",
-    verdictLabel: "Unsolved",
-    year: "1975",
-    confidence: 0,
-    releaseDate: "2025-01-01",
-    isFree: false,
-  },
 ];

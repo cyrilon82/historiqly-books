@@ -291,7 +291,7 @@ const epubChapters = [
       <p>McKnight, Gerald D. — <em>Breach of Trust: How the Warren Commission Failed the Nation and Why</em>, University Press of Kansas, 2005</p>
       <p>Shenon, Philip — <em>A Cruel and Shocking Act: The Secret History of the Kennedy Assassination</em>, Henry Holt, 2013</p>
       <p class="separator">***</p>
-      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told like a thriller.</p>
+      <p>This book is part of <strong>${book.series}</strong> in the HistorIQly Books series — real history, told as a mystery.</p>
       <p>Visit <a href="https://books.historiqly.com">books.historiqly.com</a> for more stories.</p>
       <p class="end-mark">&bull; &bull; &bull;</p>
     `,
