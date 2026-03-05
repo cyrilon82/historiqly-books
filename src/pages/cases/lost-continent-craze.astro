@@ -1,0 +1,347 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-lemuria-map-scott-elliot.jpg',
+  haeckelMap: '/cases/images/haeckel-lemuria-migration.jpg',
+  blavatsky: '/cases/images/suspect-helena-blavatsky.jpg',
+  scottElliot: '/cases/images/scott-elliot-lemuria-1930.webp',
+  churchwardMap: '/cases/images/churchward-mu-map.jpg',
+  lePlongeon: '/cases/images/suspect-le-plongeon-chichen-itza.jpg',
+  wegener: '/cases/images/wegener-fossil-map.png',
+  moai: '/cases/images/easter-island-moai-mana-expedition.jpg',
+};
+---
+
+<SidebarLayout
+  title="The Lost Continent Craze — Lemuria, Mu & Pseudoscience"
+  description="The Lost Continent Craze: Lemuria, Mu & the Science of Imaginary Worlds. How a zoologist's hypothesis about lemurs became one of history's most persistent pseudoscientific myths. $2.99 EPUB."
+  currentVolume={9}
+  image="/books/covers/lost-continent-craze.jpg"
+  ogType="book"
+  keywords="Lemuria book, lost continent, Mu, pseudoscience, Blavatsky, Churchward, Haeckel, plate tectonics, land bridge, lost civilization"
+  bookSeo={{
+    bookTitle: "The Lost Continent Craze",
+    subtitle: "Lemuria, Mu & the Science of Imaginary Worlds",
+    price: "2.99",
+    author: "HistorIQly Mysteries",
+    genre: "Non-Fiction, History, Pseudoscience, Lost Worlds",
+    format: "EBook",
+    keywords: "Lemuria, Mu, lost continent, Blavatsky, Churchward, plate tectonics",
+  }}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Lost Worlds", url: "/vol/lost-worlds" },
+    { name: "The Lost Continent Craze", url: "/cases/lost-continent-craze" },
+  ]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 05 — 1864–1968</span>
+          <span class="meta-badge alert">STATUS: DEBUNKED</span>
+        </div>
+
+        <h1 class="hero-title">The Lost Continent Craze</h1>
+        <p class="hero-subtitle">Lemuria, Mu & the Science of Imaginary Worlds</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">First Proposed</span>
+            <span class="stat-value">1864</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Key Figures</span>
+            <span class="stat-value">6</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Debunked</span>
+            <span class="stat-value text-accent">1968</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','lost-continent-craze');window.location.href='${stripeUrl}'`} class="btn-buy-primary" id="heroBuyBtn">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+            <a href="/books/lost-continent-craze.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+              <span>Download Your Book</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">In 1864, a British zoologist puzzled by lemurs proposed a sunken continent in the Indian Ocean. Within decades, that modest hypothesis had been hijacked by mystics, racists, and pseudoscientists who turned it into a lost paradise, a cradle of giants, and a drowned Pacific civilization.</p>
+        <p>This is the story of how <strong>a scientific idea became an unkillable myth</strong> — and how plate tectonics finally put it to rest.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">Origin</span>
+            <h3 class="card-value">1864</h3>
+            <p class="card-desc">Philip Sclater proposed 'Lemuria' as a sunken Indian Ocean landmass to explain why lemurs lived in both Madagascar and India — a perfectly respectable Victorian hypothesis.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Mystics</span>
+            <h3 class="card-value text-accent">Blavatsky</h3>
+            <p class="card-desc">Helena Blavatsky transformed Lemuria into the home of a 'Third Root Race' of telepathic, egg-laying giants — a vision that influenced Theosophy for a century.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Pacific Version</span>
+            <h3 class="card-value">Mu</h3>
+            <p class="card-desc">James Churchward claimed to have decoded ancient tablets describing a Pacific continent that sank 12,000 years ago — a story built on fabricated evidence.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Debunked</span>
+            <h3 class="card-value">1968</h3>
+            <p class="card-desc">Plate tectonics proved that ocean floors are young basalt — continents cannot sink. The question that inspired Lemuria was answered by continental drift.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.haeckelMap} alt="Haeckel's 1870 migration map showing twelve races originating from Lemuria" />
+            <div class="visual-overlay">
+              <span class="overlay-label">PSEUDOSCIENCE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Migration Map</h3>
+            <p>Haeckel's famous 1870 map showed twelve human races migrating from Lemuria — a racial hierarchy dressed as science. It was widely reproduced and influenced generations.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.churchwardMap} alt="Churchward's map of the lost continent of Mu in the Pacific Ocean" />
+            <div class="visual-overlay">
+               <span class="overlay-label">FABRICATED</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Tablets of Mu</h3>
+            <p>Churchward claimed that secret clay tablets in an Indian temple described a Pacific continent. No scholar has ever seen these tablets. No temple has claimed to possess them.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.wegener} alt="Wegener's map showing matching fossils across continents as evidence for continental drift" />
+            <div class="visual-overlay">
+               <span class="overlay-label">THE ANSWER</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Continental Drift</h3>
+            <p>Alfred Wegener proposed in 1912 that the continents themselves had moved — not sunk. His theory was rejected for decades before plate tectonics proved him right in the 1960s.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">From Hypothesis to Myth</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1864</span>
+          <div class="timeline-content">
+            <h4>Sclater's Hypothesis</h4>
+            <p>Philip Sclater proposes 'Lemuria' in a zoological paper — a sunken Indian Ocean continent to explain lemur distribution across Madagascar and India.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1888</span>
+          <div class="timeline-content">
+            <h4>Blavatsky's Secret Doctrine</h4>
+            <p>Helena Blavatsky publishes The Secret Doctrine, placing a 'Third Root Race' of giants on Lemuria. The continent enters occult mythology.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1926</span>
+          <div class="timeline-content highlight">
+            <h4>Churchward's Mu</h4>
+            <p>James Churchward publishes The Lost Continent of Mu, claiming to decode ancient tablets describing a Pacific civilization. The myth reaches its peak.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1968</span>
+          <div class="timeline-content">
+            <h4>Plate Tectonics</h4>
+            <p>The theory of plate tectonics achieves scientific consensus, proving that ocean floors cannot support sunken continents. Lemuria and Mu are debunked.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Key Figures</span>
+        <h2 class="section-title">The Cast</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.blavatsky} alt="Helena Blavatsky, co-founder of the Theosophical Society" />
+          </div>
+          <div class="figure-info">
+            <h3>Helena Blavatsky</h3>
+            <span class="figure-role">Theosophical Society, 1831–1891</span>
+            <p>Co-founder of the Theosophical Society who transformed a zoological hypothesis into an occult mythology of root races and telepathic giants on a lost continent.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.lePlongeon} alt="Augustus Le Plongeon at Chichen Itza" />
+          </div>
+          <div class="figure-info">
+            <h3>Augustus Le Plongeon</h3>
+            <span class="figure-role">Archaeologist & Fantasist, 1826–1908</span>
+            <p>French-American archaeologist who mistranslated Maya texts at Chichen Itza and introduced the name 'Mu' — which James Churchward would later relocate to the Pacific.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.scottElliot} alt="Scott-Elliot's map of Lemuria drawn from clairvoyant investigation" />
+          <div class="image-caption">Scott-Elliot's map of Lemuria — drawn from 'clairvoyant investigation,' not evidence.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Continent That Won't Sink</h2>
+          <p>Lemuria began as good science — a hypothesis to explain a genuine biogeographic puzzle. But it was <em>hijacked</em> by mystics, racists, and pseudoscientists who saw in it what they wanted to see: <strong>a lost paradise, a racial origin myth, a drowned civilization</strong>.</p>
+          <p>Plate tectonics answered the original question: the continents moved, not sank. But the myth persists — in New Age bookshops, on conspiracy websites, in Tamil nationalist politics. Some ideas, once born, refuse to die.</p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>10 chapters. The complete story of Lemuria and Mu — from Sclater's lemurs to Blavatsky's giants to Churchward's tablets to the triumph of plate tectonics.</p>
+            <div class="buy-options cta-buy-options">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','lost-continent-craze');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy" id="ctaBuyBtn">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+              <a href="/books/lost-continent-craze.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+                <span>Download Your Book</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+
+  // Purchase detection
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_lost-continent-craze', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_lost-continent-craze') === 'true';
+
+  if (hasPurchased) {
+    const heroBuy = document.getElementById('heroBuyBtn');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuy) heroBuy.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    const ctaBuy = document.getElementById('ctaBuyBtn');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuy) ctaBuy.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+</script>

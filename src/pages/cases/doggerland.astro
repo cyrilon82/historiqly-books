@@ -1,0 +1,347 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-doggerbank-chart.jpg',
+  mapProgression: '/cases/images/doggerland-map-progression.png',
+  mammoth: '/cases/images/woolly-mammoth-skeleton.jpg',
+  storegga: '/cases/images/storegga-tsunami-deposits.jpg',
+  krijn: '/cases/images/krijn-neanderthal-skull-fragment.jpg',
+  palaeolandscape: '/cases/images/doggerland-palaeolandscape-map.png',
+  antlerHeaddress: '/cases/images/star-carr-antler-headdress.jpg',
+  clementReid: '/cases/images/clement-reid-doggerbank-map.jpg',
+};
+---
+
+<SidebarLayout
+  title="Doggerland Book — Europe's Sunken Land"
+  description="Doggerland: Europe's Real Sunken Land. The true story of the vast landmass beneath the North Sea — home to Mesolithic hunters, drowned by rising seas and a catastrophic tsunami. $2.99 EPUB."
+  currentVolume={9}
+  image="/books/covers/doggerland.jpg"
+  ogType="book"
+  keywords="Doggerland book, Doggerland ebook, North Sea, sunken land, Mesolithic, Storegga tsunami, lost world, submerged landscape, archaeology"
+  bookSeo={{
+    bookTitle: "Doggerland",
+    subtitle: "Europe's Real Sunken Land",
+    price: "2.99",
+    author: "HistorIQly Mysteries",
+    genre: "Non-Fiction, History, Archaeology, Lost Worlds",
+    format: "EBook",
+    keywords: "Doggerland, North Sea, Mesolithic, Storegga, sunken land",
+  }}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Lost Worlds", url: "/vol/lost-worlds" },
+    { name: "Doggerland", url: "/cases/doggerland" },
+  ]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 04 — c. 18,000–5,000 BCE</span>
+          <span class="meta-badge alert">STATUS: SUBMERGED</span>
+        </div>
+
+        <h1 class="hero-title">Doggerland</h1>
+        <p class="hero-subtitle">Europe's Real Sunken Land</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Area</span>
+            <span class="stat-value">46,620 km²</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Submerged</span>
+            <span class="stat-value">c. 6500 BCE</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Artefacts</span>
+            <span class="stat-value text-accent">2,000+</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','doggerland');window.location.href='${stripeUrl}'`} class="btn-buy-primary" id="heroBuyBtn">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+            <a href="/books/doggerland.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+              <span>Download Your Book</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">Beneath the grey waves of the North Sea lies the remains of a lost world. Not a myth. Not a legend. A real landmass — larger than the Netherlands and Belgium combined — that once connected Britain to Europe, teeming with forests, rivers, mammoths, and human communities.</p>
+        <p>It was drowned by rising seas and shattered by one of the largest tsunamis in geological history. Eight thousand years later, <strong>scientists are pulling its secrets from the seabed</strong>.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Land</span>
+            <h3 class="card-value">46,620 km²</h3>
+            <p class="card-desc">Doggerland stretched from eastern England to Denmark, the Netherlands, and northern Germany — an area larger than many modern European countries, with hills, rivers, marshes, and dense forests.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Inhabitants</span>
+            <h3 class="card-value text-accent">Thousands</h3>
+            <p class="card-desc">Mesolithic hunter-gatherers lived, fished, and hunted across Doggerland for millennia — possibly Europe's most densely populated region.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Storegga Tsunami</span>
+            <h3 class="card-value">25m waves</h3>
+            <p class="card-desc">A catastrophic submarine landslide off Norway around 6,200 BCE triggered waves the height of an eight-storey building.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Recoveries</span>
+            <h3 class="card-value">2,000+</h3>
+            <p class="card-desc">Stone tools, bone harpoons, mammoth bones, a Neanderthal skull — all hauled from the North Sea by fishing trawlers and research vessels.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.mammoth} alt="Woolly mammoth skeleton at the Field Museum" />
+            <div class="visual-overlay">
+              <span class="overlay-label">MEGAFAUNA</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Bones from the Deep</h3>
+            <p>Mammoth tusks, rhinoceros femurs, cave lion teeth — the North Sea floor is an enormous, disordered natural history museum. Fishing trawlers have been hauling up Pleistocene bones for over a century.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.storegga} alt="Storegga tsunami deposits at Montrose basin, Scotland" />
+            <div class="visual-overlay">
+               <span class="overlay-label">TSUNAMI EVIDENCE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Sand in the Peat</h3>
+            <p>Layers of marine sand sandwiched between terrestrial peat — the geological fingerprint of the Storegga tsunami. Found up to 80 kilometres inland in Scotland, driven there by waves that surged across the low-lying landscape.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.palaeolandscape} alt="Doggerland landscape features mapped by the North Sea Palaeolandscapes Project" />
+            <div class="visual-overlay">
+               <span class="overlay-label">SEISMIC MAPPING</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Invisible Map</h3>
+            <p>Using oil company seismic data, scientists have mapped 25,000 km² of submerged rivers, lakes, and coastlines — the topography of a world unseen for eight thousand years.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">The Drowning of a World</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">~18,000 BCE</span>
+          <div class="timeline-content">
+            <h4>Ice Retreats</h4>
+            <p>As the Last Glacial Maximum ends, Doggerland emerges as habitable tundra — home to mammoths, woolly rhinos, and cave lions.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">~10,000 BCE</span>
+          <div class="timeline-content">
+            <h4>The Golden Age</h4>
+            <p>Temperate forests cover Doggerland. Mesolithic hunter-gatherers fish its rivers, hunt its forests, and build settlements along its coastlines.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">~6,200 BCE</span>
+          <div class="timeline-content highlight">
+            <h4>The Great Wave</h4>
+            <p>The Storegga Slide — 3,500 km³ of submarine debris — triggers a massive tsunami. Waves up to 25 metres devastate the remaining Doggerland islands.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1931</span>
+          <div class="timeline-content">
+            <h4>The Colinda Harpoon</h4>
+            <p>A fishing trawler hauls up a barbed antler harpoon, roughly 12,000 years old, from the North Sea — the first clear evidence of human habitation on the submerged landscape.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Key Figures</span>
+        <h2 class="section-title">The Pioneers</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.antlerHeaddress} alt="Mesolithic antler headdress from Star Carr" />
+          </div>
+          <div class="figure-info">
+            <h3>Bryony Coles</h3>
+            <span class="figure-role">Named Doggerland, 1998</span>
+            <p>Professor emeritus at the University of Exeter who published the seminal 1998 paper that gave the drowned landscape its name and reframed it as a homeland, not merely a land bridge.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.krijn} alt="Neanderthal skull fragment of Krijn" />
+          </div>
+          <div class="figure-info">
+            <h3>Vincent Gaffney</h3>
+            <span class="figure-role">University of Bradford</span>
+            <p>Landscape archaeologist who spent two decades mapping Doggerland using oil company seismic data. Principal investigator of Europe's Lost Frontiers, the largest directed archaeological research project in Europe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.mapProgression} alt="Three-stage map showing the progressive flooding of Doggerland" />
+          <div class="image-caption">The drowning of Doggerland — from continent to islands to nothing.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Warning Beneath the Waves</h2>
+          <p>Doggerland is not Atlantis. It is something far more unsettling — a <em>real</em> lost world, drowned by the same force that threatens coastlines today: <strong>rising seas driven by a warming climate</strong>.</p>
+          <p>190 million people currently live on land projected to be underwater by 2100. The story of Doggerland is not just about the past. It is a warning about the future.</p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>10 chapters. The complete story of the land beneath the North Sea — from Ice Age megafauna to the Storegga tsunami to the scientists racing to map it before it's lost forever.</p>
+            <div class="buy-options cta-buy-options">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','doggerland');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy" id="ctaBuyBtn">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+              <a href="/books/doggerland.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+                <span>Download Your Book</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+
+  // Purchase detection
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_doggerland', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_doggerland') === 'true';
+
+  if (hasPurchased) {
+    const heroBuy = document.getElementById('heroBuyBtn');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuy) heroBuy.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    const ctaBuy = document.getElementById('ctaBuyBtn');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuy) ctaBuy.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+</script>

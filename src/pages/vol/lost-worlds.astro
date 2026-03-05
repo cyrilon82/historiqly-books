@@ -56,10 +56,10 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
         <div class="case-preview"><span class="case-num">01</span><span class="case-title">Atlantis: Deconstructing Plato's Original Myth</span><div class="case-btns"><a href="/cases/atlantis" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQ4XF4CX" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
         <div class="case-preview"><span class="case-num">02</span><span class="case-title">Göbekli Tepe: The Temple Built Before Agriculture</span><div class="case-btns"><a href="/cases/gobekli-tepe" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQSRZ8HL" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
         <div class="case-preview"><span class="case-num">03</span><span class="case-title">The Younger Dryas Impact: Did a Comet Reset Civilization?</span><div class="case-btns"><a href="/cases/younger-dryas-impact" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
-        <div class="case-preview"><span class="case-num">04</span><span class="case-title">Doggerland: Europe's Real Sunken Land</span></div>
-        <div class="case-preview"><span class="case-num">05</span><span class="case-title">The Lost Continent Craze: Lemuria, Mu & Pseudoscience</span></div>
-        <div class="case-preview"><span class="case-num">06</span><span class="case-title">El Dorado: The City of Gold That Drove Men Mad</span></div>
-        <div class="case-preview"><span class="case-num">07</span><span class="case-title">The Library of Alexandria: What Was Really Lost?</span></div>
+        <div class="case-preview"><span class="case-num">04</span><span class="case-title">Doggerland: Europe's Real Sunken Land</span><div class="case-btns"><a href="/cases/doggerland" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','doggerland');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="doggerlandBuyPill">Buy $2.99</button><a href="/books/doggerland.epub" class="btn-free-sm" id="doggerlandDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">05</span><span class="case-title">The Lost Continent Craze: Lemuria, Mu & Pseudoscience</span><div class="case-btns"><a href="/cases/lost-continent-craze" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','lost-continent-craze');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="lost-continent-crazeBuyPill">Buy $2.99</button><a href="/books/lost-continent-craze.epub" class="btn-free-sm" id="lost-continent-crazeDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">06</span><span class="case-title">El Dorado: The City of Gold That Drove Men Mad</span><div class="case-btns"><a href="/cases/el-dorado" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','el-dorado');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="el-doradoBuyPill">Buy $2.99</button><a href="/books/el-dorado.epub" class="btn-free-sm" id="el-doradoDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">07</span><span class="case-title">The Library of Alexandria: What Was Really Lost?</span><div class="case-btns"><a href="/cases/library-of-alexandria" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','library-of-alexandria');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="library-of-alexandriaBuyPill">Buy $2.99</button><a href="/books/library-of-alexandria.epub" class="btn-free-sm" id="library-of-alexandriaDownloadPill" style="display:none;" download>Download</a></div></div>
       </div>
     </div>
 
@@ -75,6 +75,17 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
     </div>
   </div>
 </SidebarLayout>
+
+<script>
+  ['doggerland', 'lost-continent-craze', 'el-dorado', 'library-of-alexandria'].forEach(slug => {
+    if (localStorage.getItem(`historiqly_purchased_${slug}`) === 'true') {
+      const buyPill = document.getElementById(`${slug}BuyPill`);
+      const downloadPill = document.getElementById(`${slug}DownloadPill`);
+      if (buyPill) buyPill.style.display = 'none';
+      if (downloadPill) downloadPill.style.display = 'inline-flex';
+    }
+  });
+</script>
 
 <style>
   .volume-page { max-width: 820px; margin: 0 auto; }

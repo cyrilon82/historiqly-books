@@ -1,0 +1,355 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-library-of-alexandria-von-corven.jpg',
+  burning: '/cases/images/burning-library-alexandria-391.jpg',
+  ptolemy: '/cases/images/ptolemy-ii-vincenzo-camuccini.jpg',
+  hypatia: '/cases/images/hypatia-julius-kronberg-1889.jpg',
+  eratosthenes: '/cases/images/eratosthenes-measurement-earth.jpg',
+  pharos: '/cases/images/pharos-lighthouse-thiersch.png',
+  serapeum: '/cases/images/serapeum-alexandria-ruins.jpg',
+  bibliotheca: '/cases/images/bibliotheca-alexandrina-modern.jpg',
+};
+---
+
+<SidebarLayout
+  title="The Library of Alexandria — What Was Really Lost?"
+  description="The Library of Alexandria: the greatest library the ancient world ever built, the scholars who made it extraordinary, and the centuries-long decline that erased it from the earth. $2.99 EPUB."
+  currentVolume={9}
+  image="/books/covers/library-of-alexandria.jpg"
+  ogType="book"
+  keywords="Library of Alexandria book, ancient library, Ptolemy, Mouseion, Eratosthenes, Hypatia, Serapeum, lost knowledge, Alexandria Egypt, ancient scholars"
+  bookSeo={{ bookTitle: "The Library of Alexandria", subtitle: "What Was Really Lost?", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Lost Worlds", format: "EBook", keywords: "Library of Alexandria, Mouseion, Ptolemy, Eratosthenes, Hypatia, ancient knowledge" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Lost Worlds", url: "/vol/lost-worlds" }, { name: "Library of Alexandria", url: "/cases/library-of-alexandria" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 07-LOST</span>
+          <span class="meta-badge alert">STATUS: PARTIALLY MYTHOLOGIZED</span>
+        </div>
+
+        <h1 class="hero-title">The Library of Alexandria</h1>
+        <p class="hero-subtitle">What Was Really Lost?</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Founded</span>
+            <span class="stat-value">c. 295 BCE</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Collection</span>
+            <span class="stat-value">400,000+</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Decline</span>
+            <span class="stat-value text-accent">~500 Years</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','library-of-alexandria');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/library-of-alexandria.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">Around 295 BCE, a Macedonian king ordered his advisor to build the greatest library the world had ever seen. The result was an institution that held up to half a million scrolls, employed the finest minds of the ancient world, and attempted something unprecedented: to gather all human knowledge under a single roof. Then, over five centuries, it vanished.</p>
+        <p>The popular myth says it burned in a single catastrophic fire. The truth is far more complicated — and far more tragic.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Collection</span>
+            <h3 class="card-value">490,000 Scrolls</h3>
+            <p class="card-desc">The largest estimate for the main library's holdings. Ships entering the harbour were required to surrender any scrolls on board — originals kept, copies returned.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Head Librarians</span>
+            <h3 class="card-value text-accent">6 Named</h3>
+            <p class="card-desc">Zenodotus, Apollonius, Eratosthenes, Aristophanes, Apollonius "Eidographos," and Aristarchus.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Plays Lost</span>
+            <h3 class="card-value">~1,100+</h3>
+            <p class="card-desc">Of ~1,200 plays by the great tragedians and Aristophanes, only 44 survive today.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">The Heist</span>
+            <h3 class="card-value">15 Talents</h3>
+            <p class="card-desc">The deposit Ptolemy III paid Athens for the original manuscripts of Aeschylus, Sophocles, and Euripides. He kept the originals and forfeited the deposit.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.pharos} alt="Reconstruction of the Pharos Lighthouse of Alexandria by Hermann Thiersch, 1909" />
+            <div class="visual-overlay">
+              <span class="overlay-label">THE PHAROS LIGHTHOUSE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The City</h3>
+            <p>Alexandria was the largest city in the ancient Mediterranean — half a million people from across three continents. The Pharos lighthouse rose 100 metres above the harbour. The Mouseion complex occupied an entire quarter, with lecture halls, gardens, laboratories, and the library stacks.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.burning} alt="The Burning of the Library at Alexandria in 391 AD, 19th-century illustration" />
+            <div class="visual-overlay">
+               <span class="overlay-label">THE DESTRUCTION, 391 CE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Myth</h3>
+            <p>The popular story: a single fire destroyed all knowledge. The reality: at least four distinct episodes of damage over 500 years — Caesar's harbour fire (48 BCE), Aurelian's siege (272 CE), Theophilus' destruction of the Serapeum (391 CE), and centuries of slow neglect.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.serapeum} alt="Ruins of the Serapeum of Alexandria, with Pompey's Pillar" />
+            <div class="visual-overlay">
+               <span class="overlay-label">SERAPEUM RUINS, TODAY</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Daughter Library</h3>
+            <p>The Serapeum housed 42,800 scrolls in a public collection — the world's first public library. When Patriarch Theophilus ordered it demolished in 391 CE, the historian Orosius later found its bookcases empty: "pillaged by our own men in our own time."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">Five Centuries of Decline</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">c. 295 BCE</span>
+          <div class="timeline-content">
+            <h4>The Founding</h4>
+            <p>Ptolemy I commissions Demetrius of Phalerum to build the Mouseion and its library. The mission: acquire a copy of every book ever written in the Greek language.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">c. 245 BCE</span>
+          <div class="timeline-content highlight">
+            <h4>The Golden Age</h4>
+            <p>Eratosthenes becomes head librarian and calculates the Earth's circumference. Callimachus creates the Pinakes — the world's first subject catalogue, in 120 volumes.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">48 BCE</span>
+          <div class="timeline-content">
+            <h4>Caesar's Fire</h4>
+            <p>Julius Caesar sets fire to the Egyptian fleet. The flames spread to dockside warehouses, destroying an estimated 40,000 scrolls. The library itself likely survives.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">272 CE</span>
+          <div class="timeline-content">
+            <h4>The Bruchion Falls</h4>
+            <p>Emperor Aurelian's siege devastates the royal quarter. The Bruchion — home to the Mouseion for 500 years — is destroyed and never rebuilt.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">391 CE</span>
+          <div class="timeline-content">
+            <h4>The Serapeum Destroyed</h4>
+            <p>Patriarch Theophilus orders the Serapeum demolished. The last known repository of the library's collection is gone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.eratosthenes} alt="Diagram of Eratosthenes' method for measuring the circumference of the Earth" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Head Librarian</span>
+            <h3>Eratosthenes</h3>
+            <p>Third head librarian of Alexandria. Calculated the Earth's circumference using a stick, a well, and geometry — accurate to within a few per cent. Also devised the leap year, created the first map grid, and was nicknamed "Beta" because he was second-best at everything.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.hypatia} alt="Hypatia by Julius Kronberg, 1889" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Last Scholar</span>
+            <h3>Hypatia</h3>
+            <p>The last great philosopher of the Alexandrian tradition. She taught mathematics and Neoplatonic philosophy to Christian and pagan students alike. Murdered by a mob in 415 CE — a killing that symbolized the end of Alexandria's intellectual legacy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.bibliotheca} alt="The Bibliotheca Alexandrina, the modern Library of Alexandria, opened 2002" />
+          <div class="image-caption">The Bibliotheca Alexandrina, designed by Snøhetta, opened 2002.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Relay Station</h2>
+          <p>The Library of Alexandria was never just a vault. It was a relay station — an engine for copying, cataloguing, and transmitting knowledge. When the relay failed, the knowledge faded. Not all at once. Not in a fire. But steadily, silently, one uncopied scroll at a time.</p>
+          <p>In 2002, the Bibliotheca Alexandrina opened on the waterfront, near the site of the original. During the 2011 revolution, citizens formed a human chain around it. The ancient memory flickered back to life.</p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the greatest library the ancient world ever built — from Ptolemy's obsession to Hypatia's murder to the myth that won't die.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','library-of-alexandria');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/library-of-alexandria.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_library-of-alexandria', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_library-of-alexandria') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

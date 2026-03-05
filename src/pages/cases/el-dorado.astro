@@ -1,0 +1,355 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-muisca-raft-gold.jpg',
+  lake: '/cases/images/el-dorado-lake-guatavita.jpg',
+  tunjo: '/cases/images/el-dorado-muisca-tunjo.jpg',
+  orellana: '/cases/images/el-dorado-orellana-amazon.jpg',
+  aguirre: '/cases/images/el-dorado-aguirre.jpg',
+  raleigh: '/cases/images/el-dorado-raleigh-portrait.jpg',
+  map: '/cases/images/el-dorado-parime-map.jpg',
+  lidar: '/cases/images/el-dorado-lidar-amazon.jpg',
+};
+---
+
+<SidebarLayout
+  title="El Dorado — The City of Gold That Drove Men Mad"
+  description="El Dorado: The true story of the golden myth that consumed empires. From the Muisca ceremony at Lake Guatavita to Raleigh's execution. $2.99 EPUB."
+  currentVolume={9}
+  image="/books/covers/el-dorado.jpg"
+  ogType="book"
+  keywords="El Dorado book, El Dorado history, Muisca gold, Lake Guatavita, Sir Walter Raleigh, conquistadors, lost city of gold, Amazon expeditions"
+  bookSeo={{ bookTitle: "El Dorado", subtitle: "The City of Gold That Drove Men Mad", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Lost Worlds", format: "EBook", keywords: "El Dorado, Muisca, gold, conquistadors, Raleigh" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Lost Worlds", url: "/vol/lost-worlds" }, { name: "El Dorado", url: "/cases/el-dorado" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 06-1536</span>
+          <span class="meta-badge alert">STATUS: MYTHOLOGISED</span>
+        </div>
+
+        <h1 class="hero-title">El Dorado</h1>
+        <p class="hero-subtitle">The City of Gold That Drove Men Mad</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Span</span>
+            <span class="stat-value">1536–1618</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Expeditions</span>
+            <span class="stat-value">12+</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Death Toll</span>
+            <span class="stat-value text-accent">Tens of Thousands</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','el-dorado');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/el-dorado.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">It was never a city. It was never a kingdom. It was a man — a Muisca chief who coated himself in gold dust, boarded a raft on a sacred lake, and washed the gold into the water as an offering to the gods. But the Spanish heard "gold" and imagined something else entirely. For three centuries, the legend of El Dorado sent army after army into the jungles of South America.</p>
+        <p>They were searching for a city paved in gold. What they found was <strong>starvation, madness, and death</strong>.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Origin</span>
+            <h3 class="card-value">Lake Guatavita</h3>
+            <p class="card-desc">A perfectly circular crater lake at 3,000m in the Colombian Andes — where the Muisca chief was coated in gold dust and dove into sacred waters. The ceremony that launched three centuries of madness.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Gold Seized</span>
+            <h3 class="card-value text-accent">191,000 pesos</h3>
+            <p class="card-desc">Fine gold taken by Quesada from the Muisca — a fortune, but far less than the legend promised.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Pizarro's Expedition</span>
+            <h3 class="card-value">80 of 220</h3>
+            <p class="card-desc">Spaniards who survived — plus virtually none of the 4,000 indigenous porters.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Raleigh's Price</span>
+            <h3 class="card-value">His Head</h3>
+            <p class="card-desc">Beheaded at Westminster in 1618 after his second failed expedition to find El Dorado.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.lake} alt="Lake Guatavita, the sacred Muisca crater lake in Colombia" />
+            <div class="visual-overlay">
+              <span class="overlay-label">THE SACRED LAKE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Lake Guatavita</h3>
+            <p>A perfectly circular crater lake at 3,000m elevation — 500 metres across and 30 metres deep. Multiple attempts to drain it over four centuries recovered some gold, but the vast majority remains sealed in the sediment. Protected by Colombian law since 1965.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.map} alt="Historical map showing the mythical Lake Parime and El Dorado" />
+            <div class="visual-overlay">
+               <span class="overlay-label">THE PHANTOM LAKE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Lake Parime</h3>
+            <p>A mythical inland sea that appeared on European maps for over two centuries — despite never existing. The golden city of Manoa was said to sit on its shores. Cartographers drew it with confident precision, conjuring geography from nothing.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.tunjo} alt="A Muisca tunjo — gold votive figurine from pre-Columbian Colombia" />
+            <div class="visual-overlay">
+               <span class="overlay-label">MUISCA GOLDWORK</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Tunjos</h3>
+            <p>Small votive figurines cast in tumbaga by the lost-wax technique — created not as ornaments but as offerings to the gods. The Muisca made gold to give it away. The Spanish killed to possess it. The gap between those beliefs cost tens of thousands of lives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">Three Centuries of Obsession</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1537</span>
+          <div class="timeline-content">
+            <h4>The Conquest</h4>
+            <p>Quesada reaches the Muisca highlands with 166 survivors out of 800. Conquers the Muisca, seizes 191,000 pesos of gold. Founds Bogotá. Three expeditions converge from three different directions.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1541</span>
+          <div class="timeline-content">
+            <h4>Into the Amazon</h4>
+            <p>Gonzalo Pizarro leads 220 Spaniards and 4,000 indigenous porters east from Quito. Orellana navigates the entire Amazon — 4,800 km. Virtually all porters die. El Dorado is not found.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1561</span>
+          <div class="timeline-content highlight">
+            <h4>The Wrath of God</h4>
+            <p>Lope de Aguirre murders his commander, declares war on the Spanish Crown, kills 40–70 of his own men, murders his teenage daughter, and is shot and dismembered in Venezuela.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1595</span>
+          <div class="timeline-content">
+            <h4>Raleigh's Quest</h4>
+            <p>Sir Walter Raleigh sails 400 miles up the Orinoco. Finds no gold. Publishes a bestselling book about it anyway. Spends 13 years in the Tower of London.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1618</span>
+          <div class="timeline-content">
+            <h4>The Final Price</h4>
+            <p>Raleigh's second expedition ends in disaster — his son killed, his lieutenant dead by suicide. Raleigh is beheaded at Westminster. "Strike, man, strike!"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.aguirre} alt="Lope de Aguirre, the self-proclaimed Wrath of God" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Madman</span>
+            <h3>Lope de Aguirre</h3>
+            <p>Small, lame, and burning with resentment. The Basque conquistador who murdered his commander, declared war on King Philip II, killed dozens of his own men, and stabbed his own daughter. He called himself "the Wrath of God, Prince of Freedom." He died as he lived — violently.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.raleigh} alt="Sir Walter Raleigh, English explorer and poet" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Poet-Explorer</span>
+            <h3>Sir Walter Raleigh</h3>
+            <p>Courtier, poet, soldier, privateer. He wrote of Guiana as "a country that hath yet her maidenhead." He lost his son, his lieutenant, and his head to the pursuit of a golden city that never existed. His wife kept his embalmed head in a leather bag for 29 years.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.lidar} alt="LIDAR survey revealing ancient Amazonian settlements" />
+          <div class="image-caption">LIDAR technology revealing pre-Columbian settlements beneath the Amazon canopy.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Lost Cities Were Real</h2>
+          <p>LIDAR surveys have revealed what the conquistadors never found: vast networks of ancient settlements hidden beneath the Amazon canopy. The lost cities were real — just not golden. Built of earth, wood, and human ingenuity, they were destroyed so thoroughly by disease and conquest that for centuries, nobody knew they had existed.</p>
+          <p>El Dorado was never a city. It was a ceremony — a man on a raft, giving everything away. <em>The gold was never the point.</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the myth that consumed an empire — from the sacred lake to the scaffold.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','el-dorado');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/el-dorado.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_el-dorado', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_el-dorado') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

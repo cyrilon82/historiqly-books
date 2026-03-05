@@ -51,7 +51,7 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
     <div class="cases-section" id="cases">
       <div class="cases-header">
         <h2>Cases</h2>
-        <span class="cases-count">10 cases</span>
+        <span class="cases-count">7 cases</span>
       </div>
       <div class="cases-preview">
         <div class="case-preview"><span class="case-num">01</span><span class="case-title">The Piltdown Man</span><div class="case-btns"><a href="/cases/piltdown-man" class="btn-read">Read Case</a><a href="#" data-free-book class="btn-free-sm">Free</a></div></div>
@@ -61,9 +61,6 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
         <div class="case-preview"><span class="case-num">05</span><span class="case-title">Han van Meegeren's Vermeers</span><div class="case-btns"><a href="/cases/han-van-meegeren" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','han-van-meegeren');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="han-van-meegerenBuyPill">Buy $2.99</button><a href="/books/epub/han-van-meegeren.epub" class="btn-free-sm" id="han-van-meegerenDownloadPill" style="display:none;" download>Download</a></div></div>
         <div class="case-preview"><span class="case-num">06</span><span class="case-title">The Donation of Constantine</span><div class="case-btns"><a href="/cases/donation-of-constantine" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','donation-of-constantine');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="donation-of-constantineBuyPill">Buy $2.99</button><a href="/books/epub/donation-of-constantine.epub" class="btn-free-sm" id="donation-of-constantineDownloadPill" style="display:none;" download>Download</a></div></div>
         <div class="case-preview"><span class="case-num">07</span><span class="case-title">The Shroud of Turin</span><div class="case-btns"><a href="/cases/shroud-of-turin" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','shroud-of-turin');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="shroud-of-turinBuyPill">Buy $2.99</button><a href="/books/epub/shroud-of-turin.epub" class="btn-free-sm" id="shroud-of-turinDownloadPill" style="display:none;" download>Download</a></div></div>
-        <div class="case-preview"><span class="case-num">08</span><span class="case-title">The Bohemian Grove</span><div class="case-btns"><a href="/cases/bohemian-grove" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','bohemian-grove');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="bohemian-groveBuyPill">Buy $2.99</button><a href="/books/bohemian-grove.epub" class="btn-free-sm" id="bohemian-groveDownloadPill" style="display:none;" download>Download</a></div></div>
-        <div class="case-preview"><span class="case-num">09</span><span class="case-title">The Gulf of Tonkin</span><div class="case-btns"><a href="/cases/gulf-of-tonkin" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','gulf-of-tonkin');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="gulf-of-tonkinBuyPill">Buy $2.99</button><a href="/books/gulf-of-tonkin.epub" class="btn-free-sm" id="gulf-of-tonkinDownloadPill" style="display:none;" download>Download</a></div></div>
-        <div class="case-preview"><span class="case-num">10</span><span class="case-title">The Dancing Plague of 1518</span><div class="case-btns"><a href="/cases/dancing-plague" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','dancing-plague');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="dancing-plagueBuyPill">Buy $2.99</button><a href="/books/dancing-plague.epub" class="btn-free-sm" id="dancing-plagueDownloadPill" style="display:none;" download>Download</a></div></div>
       </div>
     </div>
 
@@ -75,7 +72,7 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
 
 <script>
   // Purchase detection for paid books
-  ['cardiff-giant', 'hitler-diaries', 'cottingley-fairies', 'han-van-meegeren', 'donation-of-constantine', 'shroud-of-turin', 'bohemian-grove', 'gulf-of-tonkin', 'dancing-plague'].forEach(slug => {
+  ['cardiff-giant', 'hitler-diaries', 'cottingley-fairies', 'han-van-meegeren', 'donation-of-constantine', 'shroud-of-turin'].forEach(slug => {
     if (localStorage.getItem(`historiqly_purchased_${slug}`) === 'true') {
       const buyPill = document.getElementById(`${slug}BuyPill`);
       const downloadPill = document.getElementById(`${slug}DownloadPill`);
