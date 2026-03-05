@@ -1,0 +1,366 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-alamut-castle.jpg',
+  gardenParadise: '/cases/images/atmosphere-garden-paradise-marco-polo.jpg',
+  nizamAssassination: '/cases/images/assassination-nizam-al-mulk.jpg',
+  masyafAerial: '/cases/images/atmosphere-masyaf-aerial.jpg',
+  hassanSabbah: '/cases/images/suspect-hassan-sabbah-2.jpg',
+  nizamAlMulk: '/cases/images/suspect-nizam-al-mulk.png',
+  rashidSinan: '/cases/images/suspect-rashid-sinan.jpg',
+  alamutCoin: '/cases/images/evidence-alamut-coin.jpg',
+};
+---
+
+<SidebarLayout
+  title="The Hashshashin — The Order That Made Murder a Political Art"
+  description="The Hashshashin: How a schoolteacher seized an impregnable fortress, built a network of assassins, and terrorised the medieval world for 166 years. Non-fiction ebook. $2.99 EPUB."
+  currentVolume={6}
+  image="/books/covers/hashshashin.jpg"
+  ogType="book"
+  keywords="Hashshashin book, Assassins history, Hassan-i Sabbah, Alamut Castle, Nizari Ismaili, Old Man of the Mountain, secret society"
+  bookSeo={{ bookTitle: "The Hashshashin", subtitle: "The Order That Made Murder a Political Art", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Secret Societies", format: "EBook", keywords: "Hashshashin, Assassins, Hassan-i Sabbah, Alamut, Nizari Ismaili" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Secret Societies", url: "/vol/secret-societies" }, { name: "The Hashshashin", url: "/cases/hashshashin" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 06-1090</span>
+          <span class="meta-badge alert">STATUS: CLASSIFIED</span>
+        </div>
+
+        <h1 class="hero-title">The Hashshashin</h1>
+        <p class="hero-subtitle">The Order That Made Murder a Political Art</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Founded</span>
+            <span class="stat-value">1090</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Duration</span>
+            <span class="stat-value">166 yrs</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Fortresses</span>
+            <span class="stat-value text-accent">50+</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','hashshashin');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/hashshashin.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">In 1090, a man disguised as a schoolteacher walked into an impregnable mountain fortress in Persia and took it without a single drop of blood. For the next 166 years, his followers would terrorise sultans, caliphs, and Crusader kings with a weapon no army could defend against: a single man with a dagger, willing to die.</p>
+        <p>They called themselves the <em>fida'is</em> — the self-sacrificers. Europe called them the Assassins. <strong>Their name became the word itself.</strong></p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Fortress</span>
+            <h3 class="card-value">Alamut</h3>
+            <p class="card-desc">The Eagle's Nest — a castle perched on a limestone ridge 180 metres above the valley floor. Seized without bloodshed in 1090. Held for 166 years. Never taken by force.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">The Weapon</span>
+            <h3 class="card-value text-accent">1 dagger</h3>
+            <p class="card-desc">No armies. No sieges. One man, one blade, in public — to maximise terror.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">The Network</span>
+            <h3 class="card-value">50+ castles</h3>
+            <p class="card-desc">Mountain fortresses across Persia and Syria. An invisible state within the Seljuk Empire.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">The Legacy</span>
+            <h3 class="card-value">A word</h3>
+            <p class="card-desc">"Assassin" — from the Arabic <em>Hashshashin</em>. The word entered every European language.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.nizamAssassination} alt="Persian manuscript illumination of Nizam al-Mulk's assassination" />
+            <div class="visual-overlay">
+              <span class="overlay-label">THE FIRST KILL: 1092</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Assassination of Nizam al-Mulk</h3>
+            <p>On 14 October 1092, a lone man disguised as a Sufi petitioner approached the most powerful vizier in the Islamic world — and drove a dagger into his chest. The Seljuk Empire never recovered. It was the Order's first major political kill, and it announced a new kind of warfare.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.gardenParadise} alt="Medieval manuscript illumination of the Garden of Paradise" />
+            <div class="visual-overlay">
+               <span class="overlay-label">THE GARDEN OF PARADISE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Myth That Endured</h3>
+            <p>Marco Polo claimed the Old Man of the Mountain drugged young recruits with hashish, showed them a walled garden of earthly delights, and told them it was Paradise — theirs to return to, if they died in service. Modern historians dismiss the story, but it became one of the most enduring legends of the medieval world.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.alamutCoin} alt="Gold coin minted at Alamut Castle during the Ismaili period" />
+            <div class="visual-overlay">
+               <span class="overlay-label">EVIDENCE: ALAMUT COIN</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>A State Within a State</h3>
+            <p>This gold coin, minted at Alamut, is one of the few surviving physical artefacts of the Nizari Ismaili state. The Hashshashin were not mere terrorists — they ran a functioning state with libraries, observatories, and diplomatic relations stretching from Persia to Egypt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">The Rise and Fall</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1090</span>
+          <div class="timeline-content">
+            <h4>The Eagle's Nest</h4>
+            <p>Hassan-i Sabbah seizes Alamut Castle without bloodshed, paying the departing governor three thousand gold dinars. A schoolteacher has just founded a state.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1092</span>
+          <div class="timeline-content highlight">
+            <h4>The First Kill</h4>
+            <p>A fida'i assassinates Nizam al-Mulk, the Seljuk vizier. Weeks later, Sultan Malik-Shah dies. The empire fragments. Hassan's strategy is vindicated.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1174</span>
+          <div class="timeline-content">
+            <h4>The Dagger on the Pillow</h4>
+            <p>Two assassination attempts on Saladin. Legend says he wakes to find a poisoned dagger and a threatening note beside his head. He withdraws from Masyaf and leaves the Assassins alone.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1192</span>
+          <div class="timeline-content">
+            <h4>The King of Jerusalem</h4>
+            <p>Conrad of Montferrat is murdered in the streets of Tyre by two fida'is disguised as monks. Three powers are suspected. The truth remains unknown.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1256</span>
+          <div class="timeline-content highlight">
+            <h4>The Mongol Storm</h4>
+            <p>Hulegu Khan's armies reach Alamut. The last lord surrenders. The Mongols destroy the castle and burn the famous library. After 166 years, the Eagle's Nest falls.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.hassanSabbah} alt="Hassan-i Sabbah, 19th-century engraving" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Founder</span>
+            <h3>Hassan-i Sabbah</h3>
+            <p>Born in Qom in the 1050s. Converted to Ismaili Shi'ism. Seized Alamut in 1090 and spent 34 years within its walls, building the most feared organisation in the medieval world. Never left his quarters except twice — to walk to the rooftop.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.rashidSinan} alt="Rashid ad-Din Sinan, the Old Man of the Mountain" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Old Man of the Mountain</span>
+            <h3>Rashid ad-Din Sinan</h3>
+            <p>Led the Syrian Assassins from Masyaf Castle for three decades (1162-1193). Terrorised Crusaders and Muslims alike. His legend spread across Europe through the chronicles of returning knights. The Crusaders called him "the Old Man."</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.nizamAlMulk} alt="Nizam al-Mulk, Seljuk vizier" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The First Victim</span>
+            <h3>Nizam al-Mulk</h3>
+            <p>The most powerful man in the Seljuk Empire. Author of the <em>Siyasatnama</em>, which devoted an entire chapter to the Ismaili threat. Assassinated on 14 October 1092 — the kill that announced the Order to the world.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.masyafAerial} alt="Aerial view of Masyaf Castle, Syria" />
+          <div class="image-caption">Masyaf Castle, Syria — stronghold of the Syrian Assassins.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Word That Outlived the Order</h2>
+          <p>The castles fell. The libraries burned. The Mongols erased the state that Hassan built. But the word survived — <em>assassin</em> — passing from Arabic into French, Italian, English, and every European tongue.</p>
+          <p>A schoolteacher's legacy, still alive in every headline, every thriller, every whispered fear of <em>the single man with the dagger.</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the Order that terrorised the medieval world for 166 years — from the seizure of Alamut to the Mongol storm.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','hashshashin');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/hashshashin.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_hashshashin', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_hashshashin') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

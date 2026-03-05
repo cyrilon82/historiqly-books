@@ -1,0 +1,350 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-escriva-portrait.jpg',
+  cilice: '/cases/images/cilice-mortification.jpg',
+  hqRome: '/cases/images/opus-dei-hq-rome.jpg',
+  hqManhattan: '/cases/images/opus-dei-hq-manhattan.jpg',
+  escrivaVatican: '/cases/images/escriva-in-vatican.jpg',
+  ocariz: '/cases/images/suspect-fernando-ocariz.jpg',
+  torreciudad: '/cases/images/torreciudad-shrine.jpg',
+};
+---
+
+<SidebarLayout
+  title="Opus Dei Book — The Secret Power Inside the Vatican"
+  description="Opus Dei: The Secret Power Inside the Vatican. From a young priest's 1928 vision to a global empire of influence. Non-fiction ebook. $2.99 EPUB."
+  currentVolume={6}
+  image="/books/covers/opus-dei.jpg"
+  ogType="book"
+  keywords="Opus Dei book, Opus Dei ebook, Opus Dei history, Josemaría Escrivá, Catholic secret society, Opus Dei controversies, cilice, corporal mortification"
+  bookSeo={{ bookTitle: "Opus Dei", subtitle: "The Secret Power Inside the Vatican", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Secret Societies", format: "EBook", keywords: "Opus Dei, Escrivá, Catholic Church, secret society" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Secret Societies", url: "/vol/secret-societies" }, { name: "Opus Dei", url: "/cases/opus-dei" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 08-1928</span>
+          <span class="meta-badge alert">STATUS: ACTIVE</span>
+        </div>
+
+        <h1 class="hero-title">Opus Dei</h1>
+        <p class="hero-subtitle">The Secret Power Inside the Vatican</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Founded</span>
+            <span class="stat-value">1928</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Members</span>
+            <span class="stat-value">90,000</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Countries</span>
+            <span class="stat-value text-accent">60+</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button onclick={`localStorage.setItem('historiqly_purchasing','opus-dei');window.location.href='${stripeUrl}'`} class="btn-buy-primary" id="heroBuyBtn">
+            <span class="btn-buy-text">Buy the Book</span>
+            <span class="btn-buy-price">$2.99</span>
+          </button>
+          <a href="/books/opus-dei.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">In 1928, a twenty-six-year-old Spanish priest had a vision. He saw an organisation that would sanctify ordinary work — factory floors, hospital wards, trading desks. Within decades, his followers had infiltrated governments, shaped economies, and fast-tracked their founder to sainthood. They called it the Work of God. Critics called it a cult.</p>
+        <p>This is the true story of <strong>Opus Dei</strong> — the Catholic Church's most powerful and most controversial secret society.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Work</span>
+            <h3 class="card-value">999</h3>
+            <p class="card-desc">Maxims in Escrivá's book <em>The Way</em> — the ideological foundation of Opus Dei. Maxim 617: "Obey, as an instrument obeys in the hands of the artist." Translated into 40+ languages, it has sold over six million copies.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Canonisation</span>
+            <h3 class="card-value text-accent">27 yrs</h3>
+            <p class="card-desc">From death to sainthood — one of the fastest canonisations in modern Catholic history. The Devil's Advocate was abolished just in time.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Franco Ministers</span>
+            <h3 class="card-value">8</h3>
+            <p class="card-desc">Opus Dei members who served as ministers in Franco's dictatorship, engineering the "Spanish Miracle" of the 1960s.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Cilice Hours</span>
+            <h3 class="card-value">2/day</h3>
+            <p class="card-desc">Hours per day numerary members wear a spiked metal chain on the thigh. Former members testified the prongs left puncture marks and sometimes drew blood.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.cilice} alt="A cilice — a spiked chain used for corporal mortification" />
+            <div class="visual-overlay">
+              <span class="overlay-label">THE CILICE: INSTRUMENT OF PENANCE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Cilice</h3>
+            <p>A braided wire band with inward-pointing metal prongs, worn around the upper thigh for two hours daily by numerary members. The official position: "a fairly low level of discomfort." Former member Sharon Clasen: she was encouraged to "draw a little blood." John Roche administered 40 strokes with a corded whip three times a week for 13 years. The practices are supervised by Opus Dei's own internal doctors — with no external oversight.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.hqRome} alt="Opus Dei central headquarters in Rome — Villa Tevere" />
+            <div class="visual-overlay">
+               <span class="overlay-label">VILLA TEVERE: THE NERVE CENTER</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Villa Tevere</h3>
+            <p>Opus Dei's central headquarters in Rome — the nerve centre of an organisation that spans more than sixty countries. From here, the Prelate oversees 90,000 members, including approximately 2,000 priests. Numeraries hand over their entire salaries. Mail was inspected by superiors. Members could not choose their own spiritual directors or read unapproved books. In 2024, Argentine prosecutors charged four Opus Dei priests with human trafficking of 43 women.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.hqManhattan} alt="Opus Dei national headquarters in Manhattan, New York" />
+            <div class="visual-overlay">
+               <span class="overlay-label">MANHATTAN HQ: 17 STORIES OF INFLUENCE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Network</h3>
+            <p>Opus Dei's 17-story national headquarters on Lexington Avenue, completed in 2001. The Catholic Information Center on K Street in Washington — run by Opus Dei — is described as "the closest tabernacle to the White House." Leonard Leo, the conservative legal strategist behind six Supreme Court confirmations, is closely associated with the centre. FBI spy Robert Hanssen attended daily Mass there before his arrest.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">The Work of God</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1928</span>
+          <div class="timeline-content">
+            <h4>The Vision</h4>
+            <p>On October 2, twenty-six-year-old priest Josemaría Escrivá experiences a vision in Madrid and founds Opus Dei — "The Work of God." His mission: ordinary people can become saints through their daily work. The first followers are gathered one by one from hospitals and universities.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1937</span>
+          <div class="timeline-content">
+            <h4>The Crossing</h4>
+            <p>During the Spanish Civil War, Escrivá and seven companions escape Republican Madrid by crossing the Pyrenees on foot in winter. The harrowing trek through freezing mountain passes becomes a founding myth of the organisation — an exodus narrative of persecution and deliverance.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1957</span>
+          <div class="timeline-content highlight">
+            <h4>The Technocrats</h4>
+            <p>Three Opus Dei members enter Franco's cabinet as "technocrat" ministers. Their Stabilisation Plan of 1959 transforms the Spanish economy, triggering the "Spanish Miracle" — the second-fastest growth rate in the world. The price: permanent association with a dictatorship.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1982</span>
+          <div class="timeline-content">
+            <h4>Personal Prelature</h4>
+            <p>Pope John Paul II erects Opus Dei as the first — and only — Personal Prelature in the Catholic Church. The designation gives the organisation unprecedented independence from local bishops. It answers directly to the Vatican. Or rather, directly to the Pope who champions it.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">2002</span>
+          <div class="timeline-content">
+            <h4>The Fastest Saint</h4>
+            <p>Escrivá is canonised by John Paul II — just 27 years after his death, one of the fastest canonisations in modern history. The Devil's Advocate office was abolished in 1983. Critical witnesses were refused hearings. Opus Dei's own doctors certified his miracles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.escrivaVatican} alt="Josemaría Escrivá" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Founder</span>
+            <h3>Josemaría Escrivá</h3>
+            <p>Born 1902 in Barbastro, Spain. Ordained 1925. Founded Opus Dei on October 2, 1928. Author of <em>The Way</em> — 999 maxims demanding blind obedience. His critics documented explosive temper, verbal cruelty toward subordinates, pursuit of an aristocratic title (Marqués de Peralta), and distress over Vatican II reforms so severe he allegedly considered converting to Orthodox Christianity. Canonised 2002. Died 1975.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.ocariz} alt="Fernando Ocáriz, current Prelate of Opus Dei" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Current Prelate</span>
+            <h3>Fernando Ocáriz</h3>
+            <p>Born 1944 in Paris. Elected Prelate of Opus Dei in 2017 — the third to hold the position after Escrivá's successors Álvaro del Portillo and Javier Echevarría. Ocáriz inherited an organisation under siege: Pope Francis's 2022 and 2023 reforms stripped the Prelate of bishop status, increased Vatican oversight, and curtailed Opus Dei's authority over its lay members. The Work of God faces its deepest institutional crisis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.torreciudad} alt="The Sanctuary of Torreciudad, built by Opus Dei in the Pyrenees" />
+          <div class="image-caption">The Sanctuary of Torreciudad — built by Opus Dei near the route of Escrivá's 1937 escape across the Pyrenees.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Reckoning</h2>
+          <p>For nearly a century, Opus Dei operated in the shadows of the Catholic Church — demanding blind obedience, practising corporal mortification, placing its members in corridors of power from Franco's cabinet to the U.S. Supreme Court. The founder became a saint in record time. The organisation became the Church's most powerful institution.</p>
+          <p>Now, for the first time, <em>the power is being taken back</em>. Pope Francis has stripped its privileges. Prosecutors have filed charges. Former members have broken their silence. The Work of God is being judged by the world it sought to sanctify.</p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of Opus Dei — from a young priest's vision in 1928 to a global empire of influence, wealth, and control.</p>
+            <button onclick={`localStorage.setItem('historiqly_purchasing','opus-dei');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy" id="ctaBuyBtn">
+              <span class="btn-buy-text">Buy the Book</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+            <a href="/books/opus-dei.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_opus-dei', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_opus-dei') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuy = document.getElementById('heroBuyBtn');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuy) heroBuy.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuy = document.getElementById('ctaBuyBtn');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuy) ctaBuy.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

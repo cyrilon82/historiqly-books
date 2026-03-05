@@ -1,0 +1,356 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/cremation-of-care-tavernier-1881.jpg',
+  owlShrine: '/cases/images/bohemian-grove-owl-shrine.jpg',
+  ceremony1907: '/cases/images/cremation-of-care-1907.jpg',
+  grove1909: '/cases/images/bohemian-grove-1909.png',
+  clubSF: '/cases/images/bohemian-club-san-francisco.jpg',
+  panorama: '/cases/images/bohemian-grove-camp-panorama-1918.jpg',
+  nixon: '/cases/images/suspect-richard-nixon.jpg',
+  hoover: '/cases/images/suspect-herbert-hoover.jpg',
+};
+---
+
+<SidebarLayout
+  title="The Bohemian Grove — Where Power Goes to Play"
+  description="The Bohemian Grove: The secret redwood retreat where presidents, tycoons, and generals perform torchlit rituals before a 40-foot owl. Non-fiction ebook. $2.99 EPUB."
+  currentVolume={1}
+  image="/books/covers/bohemian-grove.jpg"
+  ogType="book"
+  keywords="Bohemian Grove book, Bohemian Club, Cremation of Care, secret society, elite retreat, conspiracy history"
+  bookSeo={{ bookTitle: "The Bohemian Grove", subtitle: "Where Power Goes to Play", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Conspiracy", format: "EBook", keywords: "Bohemian Grove, Bohemian Club, Cremation of Care, secret society" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Hoaxes", url: "/vol/hoaxes" }, { name: "The Bohemian Grove", url: "/cases/bohemian-grove" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 03-1872</span>
+          <span class="meta-badge alert">STATUS: CLASSIFIED</span>
+        </div>
+
+        <h1 class="hero-title">The Bohemian Grove</h1>
+        <p class="hero-subtitle">Where Power Goes to Play</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Founded</span>
+            <span class="stat-value">1872</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Members</span>
+            <span class="stat-value">2,600+</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Acres</span>
+            <span class="stat-value text-accent">2,700</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','bohemian-grove');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/bohemian-grove.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">Every July, behind a chain-link fence in a California redwood forest, the most powerful men in America gather for a secret two-week retreat. Presidents, generals, bankers, and tycoons perform torchlit rituals before a forty-foot stone owl — and then the real business begins.</p>
+        <p>The Manhattan Project was discussed here. Nixon launched his presidential campaign from these clearings. And until recently, <strong>most Americans had never heard of it.</strong></p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Club</span>
+            <h3 class="card-value">1872</h3>
+            <p class="card-desc">Founded by San Francisco journalists and artists. Within a decade, the businessmen had taken over — bankers, railroad barons, and senators replacing the poets and painters.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">The Owl</span>
+            <h3 class="card-value text-accent">40 ft</h3>
+            <p class="card-desc">Concrete and steel, built 1929. Houses audio equipment. Voice of Walter Cronkite.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Encampment</span>
+            <h3 class="card-value">16 days</h3>
+            <p class="card-desc">Every July. ~120 camps. Off-the-record Lakeside Talks by world leaders.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Presidents</span>
+            <h3 class="card-value">Every GOP</h3>
+            <p class="card-desc">Every Republican president since Hoover has attended. Nixon, Reagan, both Bushes.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.owlShrine} alt="The 40-foot Owl Shrine at Bohemian Grove beside the lake" />
+            <div class="visual-overlay">
+              <span class="overlay-label">THE OWL SHRINE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Stone Idol</h3>
+            <p>A forty-foot concrete owl dominates the lakeside stage — hollow, wired for sound, its voice once recorded by Walter Cronkite. Before this shrine, robed figures perform the Cremation of Care each July, burning an effigy of "Dull Care" in a ritual dating to 1881.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.ceremony1907} alt="The Cremation of Care ceremony at Bohemian Grove, 1907" />
+            <div class="visual-overlay">
+               <span class="overlay-label">CREMATION OF CARE: 1907</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Ritual</h3>
+            <p>Torchlit processions, robed priests, a coffin containing an effigy, pyrotechnics lighting up the redwoods. For 145 years, the ceremony has opened every encampment — a theatrical "banishing of worldly cares" that conspiracy theorists call something far darker.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.clubSF} alt="The Bohemian Club building on Taylor Street, San Francisco" />
+            <div class="visual-overlay">
+               <span class="overlay-label">624 TAYLOR STREET, SF</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Clubhouse</h3>
+            <p>The six-story Bohemian Club headquarters sits just blocks from San Francisco's financial district. Inside: a 611-seat theatre, reading rooms, bars, and a dining hall. The waiting list for membership stretches decades. Dues are substantial. Women need not apply.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">Behind Closed Gates</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1872</span>
+          <div class="timeline-content">
+            <h4>The Founding</h4>
+            <p>San Francisco journalists found the Bohemian Club — a fraternity of artists, writers, and actors. The owl is their symbol. Their motto: "Weaving Spiders Come Not Here." Within a decade, the businessmen arrive.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1942</span>
+          <div class="timeline-content highlight">
+            <h4>The Manhattan Project</h4>
+            <p>A secret meeting at the Grove brings together Oppenheimer, Lawrence, and military officials to discuss building an atomic bomb. Three years later, Hiroshima.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1950</span>
+          <div class="timeline-content">
+            <h4>Eisenhower Meets Nixon</h4>
+            <p>At Cave Man camp, future president meets future vice president — introduced by Herbert Hoover. Within two years, they're on the same ticket.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">2000</span>
+          <div class="timeline-content">
+            <h4>Jones Infiltrates</h4>
+            <p>Alex Jones enters the Grove with a hidden camera and films the Cremation of Care. His documentary fuels decades of conspiracy theories about Satanic rituals and shadow governments.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">2023</span>
+          <div class="timeline-content highlight">
+            <h4>The Thomas Scandal</h4>
+            <p>ProPublica reveals Justice Clarence Thomas attended the Grove for 20+ years as a guest of billionaire Harlan Crow — undisclosed on his financial forms. The Supreme Court adopts its first-ever code of conduct.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.nixon} alt="Richard Nixon, official presidential portrait" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Politician</span>
+            <h3>Richard Nixon</h3>
+            <p>Called his 1967 Lakeside Talk "the first milestone on my road to the presidency." Negotiated with Reagan under the redwoods. Privately called the club "the most faggy goddamn thing you could ever imagine."</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.hoover} alt="Herbert Hoover, official presidential portrait" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Grand Old Man</span>
+            <h3>Herbert Hoover</h3>
+            <p>Joined in 1913. Attended nearly every encampment for fifty years. His Saturday afternoon Lakeside Talk was the climactic event of every gathering until his death in 1964. He introduced Eisenhower to Nixon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.panorama} alt="Panoramic view of Bohemian Grove camp, 1918" />
+          <div class="image-caption">Bohemian Grove camp, 1918. The tradition continues.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Grove Endures</h2>
+          <p>Every July, the gates open. The most powerful men in America shed their suits, pour their drinks, and gather beneath trees that have seen it all before.</p>
+          <p>Not a conspiracy. Something more ordinary — and more troubling: <em>privilege, exercised in private, accountable to no one.</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of America's most exclusive secret retreat — from its bohemian origins to the leaked membership list.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','bohemian-grove');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/bohemian-grove.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_bohemian-grove', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_bohemian-grove') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

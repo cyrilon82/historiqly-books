@@ -24,7 +24,11 @@
     "build:epub:gulf-of-tonkin": "node scripts/build-epub-tonkin.mjs",
     "build:epub:operation-northwoods": "node scripts/build-epub-operation-northwoods.mjs",
     "build:epub:operation-chaos": "node scripts/build-epub-operation-chaos.mjs",
-    "build:epub:operation-mincemeat": "node scripts/build-epub-operation-mincemeat.mjs"
+    "build:epub:operation-mincemeat": "node scripts/build-epub-operation-mincemeat.mjs",
+    "build:epub:opus-dei": "node scripts/build-epub-opus-dei.mjs",
+    "build:epub:bohemian-grove": "node scripts/build-epub-bohemian-grove.mjs",
+    "build:epub:hashshashin": "node scripts/build-epub-hashshashin.mjs",
+    "build:epub:knights-templar": "node scripts/build-epub-knights-templar.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

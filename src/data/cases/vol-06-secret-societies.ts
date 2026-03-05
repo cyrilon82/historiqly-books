@@ -96,7 +96,7 @@ export const secretSocietiesCases: Case[] = [
     verdictLabel: "Historical Analysis",
     year: "1928–present",
     confidence: 80,
-    releaseDate: "2027-01-01",
+    releaseDate: "2026-03-05",
     isFree: false,
   },
 ];
