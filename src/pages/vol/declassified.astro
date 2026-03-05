@@ -56,10 +56,10 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
         <div class="case-preview"><span class="case-num">01</span><span class="case-title">MKUltra</span><div class="case-btns"><a href="/cases/mkultra" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQ3QJWZY" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
         <div class="case-preview"><span class="case-num">02</span><span class="case-title">Operation Paperclip</span><div class="case-btns"><a href="/cases/operation-paperclip" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
         <div class="case-preview"><span class="case-num">03</span><span class="case-title">COINTELPRO</span><div class="case-btns"><a href="/cases/cointelpro" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQSM7ZMG" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
-        <div class="case-preview"><span class="case-num">04</span><span class="case-title">Operation Mincemeat</span></div>
-        <div class="case-preview"><span class="case-num">05</span><span class="case-title">Operation Northwoods</span></div>
-        <div class="case-preview"><span class="case-num">06</span><span class="case-title">Gulf of Tonkin</span></div>
-        <div class="case-preview"><span class="case-num">07</span><span class="case-title">Operation CHAOS</span></div>
+        <div class="case-preview"><span class="case-num">04</span><span class="case-title">Operation Mincemeat</span><div class="case-btns"><a href="/cases/operation-mincemeat" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','operation-mincemeat');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="operation-mincemeatBuyPill">Buy $2.99</button><a href="/books/operation-mincemeat.epub" class="btn-read" id="operation-mincemeatDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">05</span><span class="case-title">Operation Northwoods</span><div class="case-btns"><a href="/cases/operation-northwoods" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','operation-northwoods');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="operation-northwoodsBuyPill">Buy $2.99</button><a href="/books/operation-northwoods.epub" class="btn-read" id="operation-northwoodsDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">06</span><span class="case-title">Gulf of Tonkin</span><div class="case-btns"><a href="/cases/gulf-of-tonkin" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','gulf-of-tonkin');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="gulf-of-tonkinBuyPill">Buy $2.99</button><a href="/books/gulf-of-tonkin.epub" class="btn-read" id="gulf-of-tonkinDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">07</span><span class="case-title">Operation CHAOS</span><div class="case-btns"><a href="/cases/operation-chaos" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','operation-chaos');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="operation-chaosBuyPill">Buy $2.99</button><a href="/books/operation-chaos.epub" class="btn-read" id="operation-chaosDownloadPill" style="display:none;" download>Download</a></div></div>
       </div>
     </div>
 
@@ -75,6 +75,18 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
     </div>
   </div>
 </SidebarLayout>
+
+<script>
+  // Purchase detection for paid books in this volume
+  ['operation-mincemeat', 'operation-northwoods', 'gulf-of-tonkin', 'operation-chaos'].forEach(slug => {
+    if (localStorage.getItem(`historiqly_purchased_${slug}`) === 'true') {
+      const buyPill = document.getElementById(`${slug}BuyPill`);
+      const downloadPill = document.getElementById(`${slug}DownloadPill`);
+      if (buyPill) buyPill.style.display = 'none';
+      if (downloadPill) downloadPill.style.display = 'inline-flex';
+    }
+  });
+</script>
 
 <style>
   .volume-page { max-width: 820px; margin: 0 auto; }

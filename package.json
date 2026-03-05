@@ -20,7 +20,11 @@
     "build:epub:roswell": "node scripts/build-epub-roswell.mjs",
     "build:epub:philadelphia-experiment": "node scripts/build-epub-philadelphia-experiment.mjs",
     "build:epub:princess-diana-death": "node scripts/build-epub-princess-diana-death.mjs",
-    "build:epub:bermuda-triangle": "node scripts/build-epub-bermuda-triangle.mjs"
+    "build:epub:bermuda-triangle": "node scripts/build-epub-bermuda-triangle.mjs",
+    "build:epub:gulf-of-tonkin": "node scripts/build-epub-tonkin.mjs",
+    "build:epub:operation-northwoods": "node scripts/build-epub-operation-northwoods.mjs",
+    "build:epub:operation-chaos": "node scripts/build-epub-operation-chaos.mjs",
+    "build:epub:operation-mincemeat": "node scripts/build-epub-operation-mincemeat.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

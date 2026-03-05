@@ -1,0 +1,356 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-hms-seraph-portsmouth.jpg',
+  cholmondeleyMontagu: '/cases/images/cholmondeley-montagu-mincemeat.jpg',
+  montagu: '/cases/images/suspect-ewen-montagu.jpg',
+  glyndwrMichael: '/cases/images/suspect-glyndwr-michael.jpg',
+  corpse: '/cases/images/mincemeat-corpse-major-martin.jpg',
+  idCard: '/cases/images/mincemeat-major-martin-documents.jpg',
+  archiveDoc: '/cases/images/mincemeat-national-archives-document.jpg',
+  seraphOfficers: '/cases/images/mincemeat-hms-seraph-officers.jpg',
+  grave: '/cases/images/mincemeat-grave-huelva.jpg',
+  sicilyInvasion: '/cases/images/atmosphere-sicily-invasion-1943.jpg',
+  troopsAshore: '/cases/images/atmosphere-sicily-troops-ashore-1943.jpg',
+  aberbargoed: '/cases/images/mincemeat-aberbargoed-memorial.jpg',
+};
+---
+
+<SidebarLayout
+  title="Operation Mincemeat Book — The Dead Man Who Fooled Hitler"
+  description="Operation Mincemeat: How a dead homeless man fooled Hitler and changed WWII. Non-fiction ebook about the most audacious deception in military history. $2.99 EPUB."
+  currentVolume={7}
+  image="/books/covers/operation-mincemeat.jpg"
+  ogType="book"
+  keywords="Operation Mincemeat book, Operation Mincemeat ebook, WWII deception, Major William Martin, Ewen Montagu, Charles Cholmondeley, Sicily invasion, declassified history"
+  bookSeo={{ bookTitle: "Operation Mincemeat", subtitle: "The Dead Man Who Fooled Hitler", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Declassified, World War II", format: "EBook", keywords: "Operation Mincemeat, WWII deception, Sicily invasion, declassified" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Declassified", url: "/vol/declassified" }, { name: "Operation Mincemeat", url: "/cases/operation-mincemeat" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 07-1943</span>
+          <span class="meta-badge alert">STATUS: DECLASSIFIED</span>
+        </div>
+
+        <h1 class="hero-title">Operation Mincemeat</h1>
+        <p class="hero-subtitle">The Dead Man Who Fooled Hitler</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Body Deployed</span>
+            <span class="stat-value">Apr 1943</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Divisions Diverted</span>
+            <span class="stat-value text-accent">18+</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Declassified</span>
+            <span class="stat-value">1996</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button onclick={`localStorage.setItem('historiqly_purchasing','operation-mincemeat');window.location.href='${stripeUrl}'`} class="btn-buy-primary" id="heroBuyBtn">
+            <span class="btn-buy-text">Buy the Book</span>
+            <span class="btn-buy-price">$2.99</span>
+          </button>
+          <a href="/books/operation-mincemeat.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">In April 1943, a body washed ashore on a Spanish beach. He was dressed as a Royal Marines officer, with a briefcase chained to his wrist containing top-secret invasion plans. The Germans found the documents, believed every word, and moved entire armies to the wrong countries. The officer never existed. The plans were fake. And the body belonged to a homeless Welsh drifter who had swallowed rat poison in a London warehouse.</p>
+        <p>It was the most audacious deception of the Second World War — and it saved <strong>thousands of lives</strong>.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Deception</span>
+            <h3 class="card-value">1 Body</h3>
+            <p class="card-desc">A single corpse, dressed as Major William Martin, Royal Marines, was deployed off the coast of Huelva, Spain. His pockets were filled with love letters, theatre stubs, and an angry bank overdraft notice. His briefcase held forged letters between British generals suggesting the Allies would invade Greece, not Sicily.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">German Divisions Moved</span>
+            <h3 class="card-value text-accent">18+</h3>
+            <p class="card-desc">Hitler ordered the 1st Panzer Division to Greece, 7 divisions from Italy, and 10 more to the Balkans.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Allied Troops</span>
+            <h3 class="card-value">160K</h3>
+            <p class="card-desc">Soldiers who invaded Sicily on July 10, 1943 — the largest amphibious assault in history to that point.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Classified For</span>
+            <h3 class="card-value">53 Years</h3>
+            <p class="card-desc">The true identity of the body was not revealed until 1996, when files were declassified at the National Archives.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.idCard} alt="The forged Naval Identity Card of Major William Martin" />
+            <div class="visual-overlay">
+              <span class="overlay-label">FORGED ID — NAVAL IDENTITY CARD No. 148228</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Fake Identity</h3>
+            <p>A complete identity was fabricated for "Major William Martin, RM" — Naval Identity Card No. 148228, born Cardiff 1907. The photo was of MI5 officer Ronnie Reed, who resembled the corpse. Every detail was cross-referenced: dog tags, uniform, personal effects, even a Catholic designation to ensure respectful treatment in Spain.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.corpse} alt="The body of Glyndwr Michael dressed as Major Martin" />
+            <div class="visual-overlay">
+               <span class="overlay-label">THE CORPSE — APRIL 1943</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Body</h3>
+            <p>Glyndwr Michael died of rat poison in January 1943 and was kept on ice for three months. Sir Bernard Spilsbury, Britain's top pathologist, confirmed a Spanish doctor would mistake the phosphorus-damaged lungs for drowning. The gamble paid off — the autopsy found nothing suspicious.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.archiveDoc} alt="UK National Archives document related to Operation Mincemeat" />
+            <div class="visual-overlay">
+               <span class="overlay-label">WAR OFFICE FILE — NATIONAL ARCHIVES</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Eyelash Trap</h3>
+            <p>Montagu sealed a single black eyelash inside one of the letter envelopes. When the documents were returned through diplomatic channels, the eyelash was gone — proof that the Spanish had opened, read, and resealed the letters before passing them to German intelligence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">From Corpse to Conquest</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">JAN 1943</span>
+          <div class="timeline-content">
+            <h4>The Body</h4>
+            <p>Glyndwr Michael, a homeless Welshman, dies of phosphorus poisoning in a London warehouse. Coroner Bentley Purchase identifies his body as suitable for the operation. It is placed in cold storage at Hackney Mortuary.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">APR 17, 1943</span>
+          <div class="timeline-content">
+            <h4>The Journey</h4>
+            <p>The body is dressed, placed in a steel canister packed with dry ice, and driven 500 miles overnight from London to Scotland by MI5 driver Jock Horsfall — a former racing champion — through the wartime blackout.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">APR 30, 1943</span>
+          <div class="timeline-content highlight">
+            <h4>The Drop</h4>
+            <p>At 4:15 AM, HMS Seraph surfaces off Huelva. The body is lowered into the sea. Lieutenant Jewell reads Psalm 39. Five hours later, fisherman Jose Antonio Rey Maria finds the corpse near the mouth of the Rio Tinto.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">MAY 14, 1943</span>
+          <div class="timeline-content highlight">
+            <h4>Swallowed Whole</h4>
+            <p>Hitler declares Sicily is NOT the target. He orders the 1st Panzer Division to Greece and redirects 17 more divisions. Signal to Churchill: "Mincemeat swallowed rod, line and sinker."</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">JUL 10, 1943</span>
+          <div class="timeline-content highlight">
+            <h4>Operation Husky</h4>
+            <p>160,000 Allied troops invade Sicily. The German panzers are in Greece. Hitler delays committing reserves for critical days, still convinced Sicily is a feint. Mussolini is deposed two weeks later. Italy surrenders.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.montagu} alt="Ewen Montagu, Naval Intelligence officer, 1943" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Barrister</span>
+            <h3>Ewen Montagu</h3>
+            <p>Lieutenant Commander, RNVR. Barrister, son of Baron Swaythling, and Naval Intelligence representative on the Double Cross Committee. He drove the operation forward with a lawyer's precision and published "The Man Who Never Was" in 1953. He became Judge Advocate of the Fleet after the war.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.glyndwrMichael} alt="Glyndwr Michael of Aberbargoed, the body used in Operation Mincemeat" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Man Who Never Was</span>
+            <h3>Glyndwr Michael</h3>
+            <p>A homeless Welsh drifter from Aberbargoed whose father took his own life and whose mother died when he was thirty-one. He swallowed rat poison in a King's Cross warehouse at 34. In death, he became Major William Martin — and changed the course of the war.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.grave} alt="The grave of Major William Martin in Huelva, Spain" />
+          <div class="image-caption">The grave in Huelva. Two names, one headstone: "William Martin" and "Glyndwr Michael; Served as Major William Martin, RM."</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>Two Names on One Stone</h2>
+          <p>In the Cemetery of Solitude in Huelva, a headstone bears two identities. The original inscription honours "William Martin, Beloved Son" — a man who never existed. Below it, added in 1997 after the files were declassified: "Glyndwr Michael; Served as Major William Martin, RM."</p>
+          <p>A homeless man who was invisible in life became the most important soldier in the Mediterranean. <em>In death, he served his country more than most men serve in life.</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the dead man, the forged letters, the submarine, and the deception that saved thousands of lives.</p>
+            <button onclick={`localStorage.setItem('historiqly_purchasing','operation-mincemeat');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy" id="ctaBuyBtn">
+              <span class="btn-buy-text">Buy the Book</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+            <a href="/books/operation-mincemeat.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_operation-mincemeat', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_operation-mincemeat') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuy = document.getElementById('heroBuyBtn');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuy) heroBuy.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuy = document.getElementById('ctaBuyBtn');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuy) ctaBuy.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

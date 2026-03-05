@@ -326,16 +326,18 @@
   /* Form */
   form {
     display: flex;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.5rem;
     background: rgba(0, 0, 0, 0.3);
-    padding: 0.5rem;
+    padding: 0.35rem 0.35rem 0.35rem 0.75rem;
     border-radius: 4px;
     border: 1px solid rgba(227, 171, 113, 0.08);
   }
 
   .form-input {
     flex: 1;
-    padding: 0.75rem 1rem;
+    min-width: 0;
+    padding: 0.75rem 0.5rem;
     background: transparent;
     border: none;
     color: #fff;
@@ -348,8 +350,8 @@
 
   .form-btn {
     padding: 0.75rem 1.5rem;
-    background: var(--gold, #e3ab71);
-    color: #0f0c08;
+    background: #967E67;
+    color: #fff;
     font-weight: 700;
     font-size: 0.95rem;
     font-family: inherit;
@@ -361,13 +363,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(227, 171, 113, 0.2);
+    box-shadow: 0 4px 15px rgba(150, 126, 103, 0.25);
   }
 
   .form-btn:hover:not(:disabled) {
-    background: #A68E78;
+    background: #a68e78;
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(227, 171, 113, 0.3);
+    box-shadow: 0 6px 20px rgba(150, 126, 103, 0.35);
   }
 
   .form-btn:disabled { opacity: 0.8; cursor: not-allowed; }
@@ -391,20 +393,20 @@
     gap: 0.6rem;
     width: 100%;
     padding: 1rem;
-    background: var(--gold, #e3ab71);
-    color: #0f0c08;
+    background: #967E67;
+    color: #fff;
     font-weight: 700;
     font-size: 1rem;
     border-radius: 4px;
     text-decoration: none;
     transition: all 0.25s;
-    box-shadow: 0 0 25px rgba(227, 171, 113, 0.2);
+    box-shadow: 0 0 25px rgba(150, 126, 103, 0.25);
   }
 
   .download-btn:hover {
-    background: #A68E78;
+    background: #a68e78;
     transform: translateY(-2px);
-    box-shadow: 0 5px 35px rgba(227, 171, 113, 0.3);
+    box-shadow: 0 5px 35px rgba(150, 126, 103, 0.35);
   }
 
   .download-note {

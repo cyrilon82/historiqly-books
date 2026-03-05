@@ -1,0 +1,354 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-uss-maddox-at-sea.jpg',
+  torpedoBoat: '/cases/images/tonkin-torpedo-boat-under-fire.jpg',
+  trackChart: '/cases/images/tonkin-track-chart-aug2.png',
+  lbjSigns: '/cases/images/tonkin-lbj-signs-resolution.jpg',
+  herrick: '/cases/images/suspect-john-herrick.jpg',
+  mcnamara: '/cases/images/suspect-robert-mcnamara.jpg',
+  stockdale: '/cases/images/suspect-james-stockdale.jpg',
+};
+---
+
+<SidebarLayout
+  title="The Gulf of Tonkin — The Phantom Attack That Started a War"
+  description="The Gulf of Tonkin: On August 4, 1964, the US went to war over an attack that never happened. The true story of the fabricated incident that sent 58,000 Americans to their deaths in Vietnam. $2.99 EPUB."
+  currentVolume={7}
+  image="/books/covers/gulf-of-tonkin.jpg"
+  ogType="book"
+  keywords="Gulf of Tonkin book, Gulf of Tonkin incident, Vietnam War, USS Maddox, Robert McNamara, LBJ, government deception, history hoaxes"
+  bookSeo={{ bookTitle: "The Gulf of Tonkin", subtitle: "The Phantom Attack That Started a War", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Hoaxes, Military History", format: "EBook", keywords: "Gulf of Tonkin, Vietnam War, USS Maddox, government deception" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Hoaxes", url: "/vol/hoaxes" }, { name: "The Gulf of Tonkin", url: "/cases/gulf-of-tonkin" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 08-1964</span>
+          <span class="meta-badge alert">STATUS: FABRICATED</span>
+        </div>
+
+        <h1 class="hero-title">The Gulf of Tonkin</h1>
+        <p class="hero-subtitle">The Phantom Attack That Started a War</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Date</span>
+            <span class="stat-value">Aug 4, 1964</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">American Dead</span>
+            <span class="stat-value text-accent">58,220</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Status</span>
+            <span class="stat-value">Declassified</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','gulf-of-tonkin');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/gulf-of-tonkin.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">On the night of August 4, 1964, two American destroyers fired hundreds of rounds into empty darkness, believing they were under attack by North Vietnamese torpedo boats. They were not. No enemy vessels were present. No torpedoes were fired. The entire engagement was a phantom — a hallucination of sonar ghosts, nervous sailors, and monsoon weather.</p>
+        <p>But the lie was already in motion. Within hours, President Johnson addressed the nation. Within days, Congress handed him the power to wage war. Within years, <strong>58,220 Americans were dead</strong>.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Phantom Attack</span>
+            <h3 class="card-value">Aug 4</h3>
+            <p class="card-desc">Two destroyers fired at radar ghosts and sonar phantoms for four hours in the dark. Commander Stockdale, flying overhead, saw "nothing there but black water and American firepower."</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Senate Vote</span>
+            <h3 class="card-value text-accent">88–2</h3>
+            <p class="card-desc">Only Senators Wayne Morse and Ernest Gruening voted against the Gulf of Tonkin Resolution. The House passed it 416–0.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Torpedoes Claimed</span>
+            <h3 class="card-value">22</h3>
+            <p class="card-desc">The Maddox claimed to have evaded 22 torpedoes. The Turner Joy detected none. No damage was sustained by either ship.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">American Dead</span>
+            <h3 class="card-value">58,220</h3>
+            <p class="card-desc">Americans killed in a war authorised by a resolution based on a fabricated attack.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.torpedoBoat} alt="North Vietnamese torpedo boat under fire from USS Maddox on August 2, 1964" />
+            <div class="visual-overlay">
+              <span class="overlay-label">AUGUST 2 — THE REAL ATTACK</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The First Attack Was Real</h3>
+            <p>On August 2, three North Vietnamese P-4 torpedo boats attacked the USS Maddox. This attack is confirmed and undisputed. The Maddox sustained one bullet dent. One P-4 was sunk. But it was the phantom second attack two days later that Congress used to authorise war.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.trackChart} alt="Track chart of USS Maddox and North Vietnamese torpedo boats on August 2, 1964" />
+            <div class="visual-overlay">
+               <span class="overlay-label">TRACK CHART — AUG 2 ONLY</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>No Chart for August 4</h3>
+            <p>The Navy produced detailed track charts of the August 2 engagement. No comparable chart exists for August 4 — because there was nothing to chart. Captain Herrick's own cable warned: "Freak weather effects on radar and overeager sonarmen may have accounted for many reports."</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.lbjSigns} alt="President Johnson signs the Gulf of Tonkin Resolution" />
+            <div class="visual-overlay">
+               <span class="overlay-label">RESOLUTION SIGNED AUG 10</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Declassified NSA Documents</h3>
+            <p>In 2005, nearly 200 NSA documents were declassified. Historian Robert Hanyok proved signals intelligence had been deliberately manipulated — timestamps altered, contradicting intercepts suppressed. "The overwhelming body of reports would have told the story that no attack occurred."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">The Deception</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">JUL 30</span>
+          <div class="timeline-content">
+            <h4>The Covert Raids</h4>
+            <p>South Vietnamese commandos attack North Vietnamese islands under Operation 34-Alpha. The next day, USS Maddox enters the Gulf of Tonkin on a separate intelligence patrol. North Vietnam sees a coordinated assault.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">AUG 2</span>
+          <div class="timeline-content">
+            <h4>The Real Attack</h4>
+            <p>Three P-4 torpedo boats attack the Maddox. Aircraft from USS Ticonderoga sink one boat, damage two. The Maddox takes one bullet dent. Washington orders the ship to continue patrol — with reinforcements.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">AUG 4</span>
+          <div class="timeline-content highlight">
+            <h4>The Phantom Attack</h4>
+            <p>On a dark, stormy night, Maddox and Turner Joy report torpedo boat attacks. Both ships fire hundreds of rounds at radar ghosts. Commander Stockdale, overhead, sees nothing. Captain Herrick cables his doubts. McNamara suppresses them.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">AUG 7</span>
+          <div class="timeline-content">
+            <h4>The Blank Check</h4>
+            <p>Congress passes the Gulf of Tonkin Resolution 88-2 in the Senate, 416-0 in the House. Only Wayne Morse and Ernest Gruening vote no. Johnson calls it "like grandma's nightshirt — it covered everything."</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">2005</span>
+          <div class="timeline-content">
+            <h4>The Truth Emerges</h4>
+            <p>NSA declassifies nearly 200 documents. Historian Robert Hanyok proves the signals intelligence was deliberately falsified. The August 4 attack never happened — and the men who sent America to war knew it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.mcnamara} alt="Robert McNamara, Secretary of Defense" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Architect</span>
+            <h3>Robert McNamara</h3>
+            <p>Secretary of Defense who suppressed Captain Herrick's doubts and presented fabricated intelligence to Congress. In 1995, he asked General Giap what happened on August 4. "Absolutely nothing," Giap replied. In 2003, McNamara admitted the truth in <em>The Fog of War</em>.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.stockdale} alt="Commander James Stockdale, U.S. Navy pilot" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Witness</span>
+            <h3>James Stockdale</h3>
+            <p>Navy pilot who flew overhead during the "attack" and saw nothing. "There were no PT boats there. Nothing but black water and American firepower." Shot down in 1965, he spent 7.5 years as a POW. Awarded the Medal of Honor for extraordinary resistance under torture.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.hero} alt="USS Maddox at sea — the destroyer at the center of the Gulf of Tonkin incident" />
+          <div class="image-caption">USS Maddox (DD-731). Sold to Taiwan. Scrapped in 1985.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>Nothing There but Black Water</h2>
+          <p>The Gulf of Tonkin Resolution — the legal foundation for the entire Vietnam War — was passed in response to an attack that never happened. The evidence was fabricated, the doubts suppressed, and the consequences measured in millions of lives.</p>
+          <p><em>The men who told the truth were ignored. The men who told the lie were believed. And fifty-eight thousand Americans paid the price.</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the phantom battle, the fabricated intelligence, and the lie that launched the Vietnam War.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','gulf-of-tonkin');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/gulf-of-tonkin.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_gulf-of-tonkin', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_gulf-of-tonkin') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

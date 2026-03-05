@@ -1,0 +1,353 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-northwoods-memorandum.jpg',
+  pentagon: '/cases/images/atmosphere-pentagon-building.jpg',
+  guantanamo: '/cases/images/northwoods-guantanamo-bay.jpg',
+  bayOfPigs: '/cases/images/northwoods-bay-of-pigs.jpg',
+  kennedyMcnamara: '/cases/images/northwoods-kennedy-mcnamara.jpg',
+  excomm: '/cases/images/northwoods-excomm-meeting.jpg',
+  cubanMissiles: '/cases/images/northwoods-cuban-missiles.jpg',
+  lemnitzer: '/cases/images/suspect-lyman-lemnitzer.jpg',
+  mcnamara: '/cases/images/suspect-robert-mcnamara.jpg',
+  lansdale: '/cases/images/suspect-edward-lansdale.jpg',
+};
+---
+
+<SidebarLayout
+  title="Operation Northwoods Book — The Pentagon's Secret Plot Against America"
+  description="Operation Northwoods: The 1962 Joint Chiefs plan to stage terrorist attacks on American soil to justify invading Cuba. Non-fiction ebook. $2.99 EPUB."
+  currentVolume={7}
+  image="/books/covers/operation-northwoods.jpg"
+  ogType="book"
+  keywords="Operation Northwoods book, Operation Northwoods ebook, false flag, Joint Chiefs Cuba, Kennedy military, declassified documents, Cold War secrets non-fiction"
+  bookSeo={{ bookTitle: "Operation Northwoods", subtitle: "The Pentagon's Secret Plot Against America", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Declassified, Cold War", format: "EBook", keywords: "Operation Northwoods, false flag, declassified, Cuba, Kennedy" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Declassified", url: "/vol/declassified" }, { name: "Operation Northwoods", url: "/cases/operation-northwoods" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 07-1962</span>
+          <span class="meta-badge alert">STATUS: DECLASSIFIED</span>
+        </div>
+
+        <h1 class="hero-title">Operation Northwoods</h1>
+        <p class="hero-subtitle">The Pentagon's Secret Plot Against America</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Proposed</span>
+            <span class="stat-value">1962</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Declassified</span>
+            <span class="stat-value">1997</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Classification</span>
+            <span class="stat-value text-accent">TOP SECRET</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <button onclick={`localStorage.setItem('historiqly_purchasing','operation-northwoods');window.location.href='${stripeUrl}'`} class="btn-buy-primary" id="heroBuyBtn">
+            <span class="btn-buy-text">Buy the Book</span>
+            <span class="btn-buy-price">$2.99</span>
+          </button>
+          <a href="/books/operation-northwoods.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">In March 1962, every member of the Joint Chiefs of Staff signed a top-secret plan to bomb American cities, sink refugee boats, hijack planes, and stage a fake shoot-down of a civilian airliner — all to trick the American public into supporting an invasion of Cuba. President Kennedy killed the plan and fired the general behind it.</p>
+        <p>The document stayed classified for <strong>thirty-five years</strong>. When it was finally declassified, almost nobody noticed — until a journalist found it in the archives five months before 9/11.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Proposals</span>
+            <h3 class="card-value">10+</h3>
+            <p class="card-desc">Distinct false flag operations proposed by the Joint Chiefs: bombings in Miami and Washington, sinking boats of Cuban refugees "real or simulated," faking the destruction of a civilian airliner, attacking Guantanamo Bay, and even blaming Cuba if John Glenn died in space.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Signatories</span>
+            <h3 class="card-value text-accent">All JCS</h3>
+            <p class="card-desc">Every member of the Joint Chiefs signed the document. It was not one rogue general — it was unanimous.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Classification</span>
+            <h3 class="card-value">NOFORN</h3>
+            <p class="card-desc">Top Secret Special Handling. No Foreign Nationals. The highest classification level.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Hidden For</span>
+            <h3 class="card-value">35 Years</h3>
+            <p class="card-desc">Classified from 1962 until 1997. The authors were dead before the public learned what they had proposed.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.guantanamo} alt="Aerial view of U.S. Naval Station Guantanamo Bay, Cuba" />
+            <div class="visual-overlay">
+              <span class="overlay-label">GUANTANAMO BAY — TARGET SITE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>"Remember the Maine"</h3>
+            <p>The document proposed blowing up a U.S. ship in Guantanamo Bay and blaming Cuba — explicitly invoking the 1898 Maine incident. "Casualty lists in US newspapers would cause a helpful wave of national indignation," the Joint Chiefs wrote. The word "helpful" said everything.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.pentagon} alt="The Pentagon, U.S. Department of Defense headquarters" />
+            <div class="visual-overlay">
+               <span class="overlay-label">THE PENTAGON — ORIGIN OF THE PLAN</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Drone Aircraft Scheme</h3>
+            <p>The most elaborate proposal: paint a drone to match a CIA-front airline, load real passengers onto the real plane under aliases, swap the planes mid-flight, secretly evacuate the passengers at Eglin AFB, then blow up the drone over Cuba while it broadcasts a fake MAY DAY call.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.excomm} alt="Kennedy and the National Security Council during the Cuba Crisis" />
+            <div class="visual-overlay">
+               <span class="overlay-label">EXCOMM — CUBAN MISSILE CRISIS</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Terror in American Cities</h3>
+            <p>"We could develop a Communist Cuban terror campaign in the Miami area, in other Florida cities and even in Washington." Plastic bombs in carefully chosen spots. Attacks on Cuban refugees "even to the extent of wounding." Sink a boatload of refugees — "real or simulated."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">From Bay of Pigs to Declassification</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">APR 1961</span>
+          <div class="timeline-content">
+            <h4>Bay of Pigs Disaster</h4>
+            <p>CIA-trained Cuban exiles invade at the Bay of Pigs and are annihilated. Kennedy takes public blame but privately blames the Joint Chiefs. Lemnitzer loses faith in the president. The military begins looking for another way to invade Cuba.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">MAR 1962</span>
+          <div class="timeline-content highlight">
+            <h4>Northwoods Presented</h4>
+            <p>General Lemnitzer presents the document to McNamara on March 13. Three days later, Kennedy rejects it in a blunt Oval Office meeting: "We are not discussing the use of military force." Lemnitzer is removed from the chairmanship within months.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">OCT 1962</span>
+          <div class="timeline-content">
+            <h4>Cuban Missile Crisis</h4>
+            <p>Soviet nuclear missiles discovered in Cuba. The Joint Chiefs unanimously recommend invasion. Kennedy chooses a naval blockade. Unknown to anyone, Soviet forces already possess tactical nuclear weapons — an invasion could have triggered nuclear war.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">NOV 1997</span>
+          <div class="timeline-content">
+            <h4>Declassification</h4>
+            <p>The JFK Assassination Records Review Board declassifies 1,521 pages of military records including Operation Northwoods. The Washington Post runs a story. Almost nobody notices.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">APR 2001</span>
+          <div class="timeline-content highlight">
+            <h4>Bamford Publishes</h4>
+            <p>Journalist James Bamford brings Northwoods to mass attention in <em>Body of Secrets</em>, calling it "the most corrupt plan ever created by the U.S. government." Five months later, 9/11 occurs — and the document becomes a cornerstone of conspiracy theory.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.lemnitzer} alt="General Lyman L. Lemnitzer, Chairman of the Joint Chiefs of Staff" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Author</span>
+            <h3>Gen. Lyman Lemnitzer</h3>
+            <p>Chairman of the Joint Chiefs who signed and presented the Northwoods memorandum. A WWII veteran who had once infiltrated Switzerland under a false name to negotiate the surrender of Nazi forces. Kennedy called him "a dope." He was removed from the chairmanship and sent to NATO. Died in 1988, nine years before the document was declassified.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.kennedyMcnamara} alt="President Kennedy conferring with Secretary of Defense McNamara" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Rejection</span>
+            <h3>Kennedy & McNamara</h3>
+            <p>McNamara received the document and later said: "I have absolutely zero recollection of it. But I sure as hell would have rejected it. How stupid!" Kennedy rejected it on March 16, 1962, telling Lemnitzer bluntly there was "virtually no possibility" of military action against Cuba. Twenty months later, Kennedy was assassinated in Dallas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.cubanMissiles} alt="U.S. reconnaissance photo of Soviet missile installations in Cuba, 1962" />
+          <div class="image-caption">Soviet missiles in Cuba, October 1962. Seven months after Northwoods was rejected, the crisis the generals had wanted arrived — and Kennedy still chose diplomacy over invasion.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>What If Kennedy Had Said Yes?</h2>
+          <p>The system worked — barely. One president, in one meeting, said no. There was no independent review, no congressional oversight, no institutional safeguard. Just one man's judgment against the unanimous recommendation of the nation's highest military body.</p>
+          <p>Seven months later, the Cuban Missile Crisis revealed that Soviet forces in Cuba already had tactical nuclear weapons. <em>An invasion triggered by Northwoods-style pretexts could have started nuclear war.</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the secret document, the generals who signed it, the president who killed it, and the thirty-five years it took to reach the light.</p>
+            <button onclick={`localStorage.setItem('historiqly_purchasing','operation-northwoods');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy" id="ctaBuyBtn">
+              <span class="btn-buy-text">Buy the Book</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+            <a href="/books/operation-northwoods.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_operation-northwoods', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_operation-northwoods') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuy = document.getElementById('heroBuyBtn');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuy) heroBuy.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuy = document.getElementById('ctaBuyBtn');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuy) ctaBuy.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

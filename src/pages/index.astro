@@ -413,12 +413,6 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
       </div>
     </section>
 
-    <!-- Floating ambient glyph -->
-    <div class="ambient-glyph" aria-hidden="true">
-      <svg viewBox="0 0 16 16" fill="currentColor">
-        <path d="M8 2L9.5 6.5L14 8L9.5 9.5L8 14L6.5 9.5L2 8L6.5 6.5Z" />
-      </svg>
-    </div>
 
   </div>
 </SidebarLayout>
@@ -1848,23 +1842,6 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
     z-index: 2;
   }
 
-  /* ── Ambient Glyph ── */
-  .ambient-glyph {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.06;
-  }
-
-  .ambient-glyph svg {
-    width: 80px;
-    height: 80px;
-    color: var(--gold);
-    animation: slow-rotate 90s linear infinite;
-  }
-
   /* ── Fade-in animation ── */
   .fade-in {
     opacity: 0;
@@ -1984,9 +1961,6 @@ const volumeLookup = new Map(volumes.map(v => [v.num, v]));
       display: none;
     }
 
-    .ambient-glyph {
-      display: none;
-    }
 
     /* Disable sibling dimming on mobile */
     .vol-grid:hover .vol-card:not(:hover) {
