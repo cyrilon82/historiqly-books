@@ -1,0 +1,347 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-yonaguni-monument.jpg',
+  terraces: '/cases/images/yonaguni-terraces.jpg',
+  turtle: '/cases/images/yonaguni-turtle.jpg',
+  arch: '/cases/images/yonaguni-underwater-arch.jpg',
+  megaliths: '/cases/images/yonaguni-underwater-megaliths.jpg',
+  diver: '/cases/images/yonaguni-underwater-diver.jpg',
+  aboveWater: '/cases/images/yonaguni-above-water.jpg',
+  divers: '/cases/images/yonaguni-underwater-divers.jpg',
+};
+---
+
+<SidebarLayout
+  title="The Yonaguni Monument — Japan's Underwater Enigma"
+  description="The Yonaguni Monument: Japan's Underwater Enigma. The true story of the enormous stepped structure beneath the waves off Japan's westernmost island — discovered in 1986, still debated today. $2.99 EPUB."
+  currentVolume={9}
+  image="/books/covers/yonaguni-monument.jpg"
+  ogType="book"
+  keywords="Yonaguni Monument book, Yonaguni ebook, underwater ruins Japan, Yonaguni pyramid, Masaaki Kimura, Robert Schoch, lost world, underwater archaeology"
+  bookSeo={{
+    bookTitle: "The Yonaguni Monument",
+    subtitle: "Japan's Underwater Enigma",
+    price: "2.99",
+    author: "HistorIQly Mysteries",
+    genre: "Non-Fiction, History, Archaeology, Lost Worlds",
+    format: "EBook",
+    keywords: "Yonaguni Monument, underwater ruins, Japan, Kimura, Schoch, lost civilization",
+  }}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Lost Worlds", url: "/vol/lost-worlds" },
+    { name: "The Yonaguni Monument", url: "/cases/yonaguni-monument" },
+  ]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 09 — Discovered 1986</span>
+          <span class="meta-badge alert">STATUS: UNRESOLVED</span>
+        </div>
+
+        <h1 class="hero-title">The Yonaguni Monument</h1>
+        <p class="hero-subtitle">Japan's Underwater Enigma</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Size</span>
+            <span class="stat-value">150m × 40m</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Depth</span>
+            <span class="stat-value">5–27m</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Artefacts Found</span>
+            <span class="stat-value text-accent">Zero</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','yonaguni-monument');window.location.href='${stripeUrl}'`} class="btn-buy-primary" id="heroBuyBtn">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+            <a href="/books/yonaguni-monument.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+              <span>Download Your Book</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">Off the southern coast of Japan's westernmost island lies an enormous stepped structure beneath the waves — a formation so geometrically precise that it has divided scientists for decades. Flat terraces, sharp right angles, and a stepped profile that looks unmistakably like a pyramid.</p>
+        <p>Discovered by a shark-hunting diver in 1986, the Yonaguni Monument has been called everything from <strong>a ten-thousand-year-old temple to a striking example of natural geology</strong>. After nearly four decades, the question remains unanswered.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Structure</span>
+            <h3 class="card-value">150m Long</h3>
+            <p class="card-desc">The main formation measures roughly 150 metres long, 40 metres wide, and 27 metres tall — equivalent to two football pitches laid end to end, rising the height of a nine-storey building.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Discoverer</span>
+            <h3 class="card-value text-accent">Aratake</h3>
+            <p class="card-desc">Kihachiro Aratake, a dive operator scouting for hammerhead sharks, stumbled upon the formation in the warm, clear waters off Yonaguni's southern coast.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">The Debate</span>
+            <h3 class="card-value">38 Years</h3>
+            <p class="card-desc">Since 1986, scientists have argued over whether the monument is a natural geological formation, a human construction, or something in between.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Human Artefacts</span>
+            <h3 class="card-value">None</h3>
+            <p class="card-desc">No pottery, no tools, no bones, no charcoal — not a single unambiguous human artefact has been found at the monument site.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.terraces} alt="The stepped terraces of the Yonaguni Monument" />
+            <div class="visual-overlay">
+              <span class="overlay-label">TERRACES</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Steps</h3>
+            <p>Broad, flat terraces descend from the top of the structure to its base like a colossal staircase. Their regularity has been cited as evidence of human construction — and as a textbook example of natural sandstone erosion.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.aboveWater} alt="Above-water rock formations on Yonaguni matching the underwater monument" />
+            <div class="visual-overlay">
+               <span class="overlay-label">ONSHORE MATCH</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Sanninudai Problem</h3>
+            <p>Identical stepped formations exist above the waterline on Yonaguni's coast — universally recognised as natural. If the same rock produces the same shapes on land, why would the underwater version require a different explanation?</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.megaliths} alt="The Twin Megaliths at Yonaguni" />
+            <div class="visual-overlay">
+               <span class="overlay-label">MEGALITHS</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Twin Megaliths</h3>
+            <p>Two massive rectangular stones stand side by side, their resemblance to standing stones found at megalithic sites worldwide impossible to ignore — and equally impossible to prove meaningful.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">The Investigation</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1986</span>
+          <div class="timeline-content">
+            <h4>Discovery</h4>
+            <p>Dive operator Kihachiro Aratake discovers the monument while scouting for hammerhead sharks off Yonaguni's southern coast.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1992</span>
+          <div class="timeline-content">
+            <h4>The Professor</h4>
+            <p>Masaaki Kimura of the University of the Ryukyus makes his first dive. He becomes convinced the monument is at least partly man-made.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1997</span>
+          <div class="timeline-content highlight">
+            <h4>The Sceptic</h4>
+            <p>Boston University geologist Robert Schoch examines the site and concludes it is most likely natural — but leaves the door open for possible human modification.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">2019</span>
+          <div class="timeline-content">
+            <h4>The Science</h4>
+            <p>Ogata et al. publish a detailed topographical analysis confirming the monument's features match natural onshore formations on Yonaguni.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Key Figures</span>
+        <h2 class="section-title">The Protagonists</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.turtle} alt="The turtle formation at Yonaguni" />
+          </div>
+          <div class="figure-info">
+            <h3>Masaaki Kimura</h3>
+            <span class="figure-role">University of the Ryukyus</span>
+            <p>Marine geologist who devoted his career to proving the monument was man-made. He catalogued tool marks, carved characters, and an entire complex of ruins — temples, stadiums, and roads.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.diver} alt="Diver examining the Yonaguni Monument" />
+          </div>
+          <div class="figure-info">
+            <h3>Robert Schoch</h3>
+            <span class="figure-role">Boston University</span>
+            <p>Geologist who examined the monument and concluded the stepped terraces were consistent with natural erosion of jointed sandstone — the same processes that shaped Yonaguni's coastline.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.arch} alt="Underwater arch near the Yonaguni Monument" />
+          <div class="image-caption">An arch formation near the monument — natural gateway or ancient architecture?</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Question That Won't Die</h2>
+          <p>The Yonaguni Monument is too regular to be comfortably natural, too lacking in artefacts to be confidently artificial. It sits in the gap between these two positions — <em>a permanent question mark carved into the sea floor</em>.</p>
+          <p>No official archaeological excavation has ever been conducted. No government agency has investigated. The monument waits, with <strong>the implacable patience of twenty-million-year-old stone</strong>, for someone to answer the question.</p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>10 chapters. The complete story of the Yonaguni Monument — from Aratake's discovery to the geological science to the debate that refuses to die.</p>
+            <div class="buy-options cta-buy-options">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','yonaguni-monument');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy" id="ctaBuyBtn">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+              <a href="/books/yonaguni-monument.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+                <span>Download Your Book</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+
+  // Purchase detection
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_yonaguni-monument', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_yonaguni-monument') === 'true';
+
+  if (hasPurchased) {
+    const heroBuy = document.getElementById('heroBuyBtn');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuy) heroBuy.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    const ctaBuy = document.getElementById('ctaBuyBtn');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuy) ctaBuy.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+</script>

@@ -56,10 +56,10 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
         <div class="case-preview"><span class="case-num">01</span><span class="case-title">The Nazca Lines</span><div class="case-btns"><a href="/cases/nazca-lines" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
         <div class="case-preview"><span class="case-num">02</span><span class="case-title">The Antikythera Mechanism</span><div class="case-btns"><a href="/cases/antikythera-mechanism" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQ8DS8Q7" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
         <div class="case-preview"><span class="case-num">03</span><span class="case-title">The Voynich Manuscript</span><div class="case-btns"><a href="/cases/voynich-manuscript" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
-        <div class="case-preview"><span class="case-num">04</span><span class="case-title">The Phaistos Disc</span></div>
-        <div class="case-preview"><span class="case-num">05</span><span class="case-title">Oak Island Money Pit</span></div>
-        <div class="case-preview"><span class="case-num">06</span><span class="case-title">The Roman Dodecahedron</span></div>
-        <div class="case-preview"><span class="case-num">07</span><span class="case-title">The Yonaguni Monument</span></div>
+        <div class="case-preview"><span class="case-num">04</span><span class="case-title">The Phaistos Disc: The Bronze Age Script Nobody Can Read</span><div class="case-btns"><a href="/cases/phaistos-disc" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','phaistos-disc');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="phaistos-discBuyPill">Buy $2.99</button><a href="/books/phaistos-disc.epub" class="btn-free-sm" id="phaistos-discDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">05</span><span class="case-title">Oak Island Money Pit</span><div class="case-btns"><a href="/cases/oak-island" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','oak-island');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="oak-islandBuyPill">Buy $2.99</button><a href="/books/oak-island.epub" class="btn-free-sm" id="oak-islandDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">06</span><span class="case-title">The Roman Dodecahedron: The Object That Defied an Empire</span><div class="case-btns"><a href="/cases/roman-dodecahedron" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','roman-dodecahedron');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="roman-dodecahedronBuyPill">Buy $2.99</button><a href="/books/roman-dodecahedron.epub" class="btn-free-sm" id="roman-dodecahedronDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">07</span><span class="case-title">The Yonaguni Monument: Japan's Underwater Enigma</span><div class="case-btns"><a href="/cases/yonaguni-monument" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','yonaguni-monument');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="yonaguni-monumentBuyPill">Buy $2.99</button><a href="/books/yonaguni-monument.epub" class="btn-free-sm" id="yonaguni-monumentDownloadPill" style="display:none;" download>Download</a></div></div>
       </div>
     </div>
 
@@ -75,6 +75,17 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
     </div>
   </div>
 </SidebarLayout>
+
+<script>
+  ['oak-island', 'phaistos-disc', 'roman-dodecahedron', 'yonaguni-monument'].forEach(slug => {
+    if (localStorage.getItem(`historiqly_purchased_${slug}`) === 'true') {
+      const buyPill = document.getElementById(`${slug}BuyPill`);
+      const downloadPill = document.getElementById(`${slug}DownloadPill`);
+      if (buyPill) buyPill.style.display = 'none';
+      if (downloadPill) downloadPill.style.display = 'inline-flex';
+    }
+  });
+</script>
 
 <style>
   .volume-page { max-width: 820px; margin: 0 auto; }

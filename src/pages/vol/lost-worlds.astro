@@ -50,7 +50,7 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
     <div class="cases-section" id="cases">
       <div class="cases-header">
         <h2>Cases</h2>
-        <span class="cases-count">7 cases</span>
+        <span class="cases-count">9 cases</span>
       </div>
       <div class="cases-preview">
         <div class="case-preview"><span class="case-num">01</span><span class="case-title">Atlantis: Deconstructing Plato's Original Myth</span><div class="case-btns"><a href="/cases/atlantis" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQ4XF4CX" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
@@ -60,6 +60,8 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
         <div class="case-preview"><span class="case-num">05</span><span class="case-title">The Lost Continent Craze: Lemuria, Mu & Pseudoscience</span><div class="case-btns"><a href="/cases/lost-continent-craze" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','lost-continent-craze');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="lost-continent-crazeBuyPill">Buy $2.99</button><a href="/books/lost-continent-craze.epub" class="btn-free-sm" id="lost-continent-crazeDownloadPill" style="display:none;" download>Download</a></div></div>
         <div class="case-preview"><span class="case-num">06</span><span class="case-title">El Dorado: The City of Gold That Drove Men Mad</span><div class="case-btns"><a href="/cases/el-dorado" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','el-dorado');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="el-doradoBuyPill">Buy $2.99</button><a href="/books/el-dorado.epub" class="btn-free-sm" id="el-doradoDownloadPill" style="display:none;" download>Download</a></div></div>
         <div class="case-preview"><span class="case-num">07</span><span class="case-title">The Library of Alexandria: What Was Really Lost?</span><div class="case-btns"><a href="/cases/library-of-alexandria" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','library-of-alexandria');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="library-of-alexandriaBuyPill">Buy $2.99</button><a href="/books/library-of-alexandria.epub" class="btn-free-sm" id="library-of-alexandriaDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">08</span><span class="case-title">The Oak Island Money Pit: The Treasure Hunt That Swallowed Fortunes and Lives</span><div class="case-btns"><a href="/cases/oak-island" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','oak-island');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="oak-islandBuyPill">Buy $2.99</button><a href="/books/oak-island.epub" class="btn-free-sm" id="oak-islandDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">09</span><span class="case-title">The Yonaguni Monument: Japan's Underwater Enigma</span><div class="case-btns"><a href="/cases/yonaguni-monument" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','yonaguni-monument');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="yonaguni-monumentBuyPill">Buy $2.99</button><a href="/books/yonaguni-monument.epub" class="btn-free-sm" id="yonaguni-monumentDownloadPill" style="display:none;" download>Download</a></div></div>
       </div>
     </div>
 
@@ -77,7 +79,7 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
 </SidebarLayout>
 
 <script>
-  ['doggerland', 'lost-continent-craze', 'el-dorado', 'library-of-alexandria'].forEach(slug => {
+  ['doggerland', 'lost-continent-craze', 'el-dorado', 'library-of-alexandria', 'oak-island', 'yonaguni-monument'].forEach(slug => {
     if (localStorage.getItem(`historiqly_purchased_${slug}`) === 'true') {
       const buyPill = document.getElementById(`${slug}BuyPill`);
       const downloadPill = document.getElementById(`${slug}DownloadPill`);

@@ -1,0 +1,362 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-roman-dodecahedron-bronze.jpg',
+  tongerenCloseup: '/cases/images/evidence-roman-dodecahedron-tongeren-closeup.jpg',
+  strasbourgMultiple: '/cases/images/evidence-roman-dodecahedron-strasbourg-multiple.jpg',
+  bonn: '/cases/images/evidence-roman-dodecahedron-bonn.jpg',
+  nortonDisney: '/cases/images/location-roman-dodecahedron-norton-disney.jpg',
+  corbridge: '/cases/images/evidence-roman-dodecahedron-corbridge.jpg',
+  lyonCollection: '/cases/images/roman-dodecahedron-lyon-collection.jpg',
+};
+---
+
+<SidebarLayout
+  title="Roman Dodecahedron Book — Archaeology's Greatest Enigma"
+  description="The Roman Dodecahedron: 130+ mysterious bronze objects found across the Roman Empire. No written record. No consensus. Non-fiction ebook. $2.99 EPUB."
+  currentVolume={10}
+  image="/books/covers/roman-dodecahedron.jpg"
+  ogType="book"
+  keywords="Roman dodecahedron book, Roman dodecahedron ebook, Gallo-Roman dodecahedron, Norton Disney dodecahedron, Roman mystery, archaeological mystery non-fiction"
+  bookSeo={{ bookTitle: "The Roman Dodecahedron", subtitle: "The Object That Defied an Empire", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Archaeology", format: "EBook", keywords: "Roman dodecahedron, Gallo-Roman, Norton Disney, bronze, Platonic solid" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Archaeology", url: "/vol/archaeological" }, { name: "Roman Dodecahedron", url: "/cases/roman-dodecahedron" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 06 — 2nd–4th C. CE</span>
+          <span class="meta-badge alert">STATUS: UNSOLVED</span>
+        </div>
+
+        <h1 class="hero-title">The Roman Dodecahedron</h1>
+        <p class="hero-subtitle">The Object That Defied an Empire</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Objects Found</span>
+            <span class="stat-value">130+</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Theories</span>
+            <span class="stat-value text-accent">50+</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Written Records</span>
+            <span class="stat-value">Zero</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','roman-dodecahedron');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/roman-dodecahedron.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">They are small, hollow, and made of bronze. They have twelve pentagonal faces, each pierced by a circular hole of a different size, and twenty knobs protruding from every corner. More than a hundred and thirty have been found across the former Roman Empire. Not a single Roman text mentions them.</p>
+        <p>After eighteen hundred years and <strong>more than fifty proposed theories</strong>, nobody knows what they were for. This is archaeology's most beautiful enigma.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Object</span>
+            <h3 class="card-value">12</h3>
+            <p class="card-desc">Pentagonal faces, each pierced by a circular hole of varying diameter (6–40mm). Twenty knobs at the vertices. Hollow interior. Cast in leaded bronze using the lost-wax technique. Size: 4–11cm. No two are identical.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Distribution</span>
+            <h3 class="card-value text-accent">NW Only</h3>
+            <p class="card-desc">Found only in Britain, Gaul, and Germania. None in Italy, Spain, Greece, or the Mediterranean. Concentrated in the Gallo-Roman cultural zone.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">First Recorded</span>
+            <h3 class="card-value">1739</h3>
+            <p class="card-desc">Presented to the Society of Antiquaries of London. Found in a field called Hagdale, Hertfordshire. That specimen is now lost.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Wear Marks</span>
+            <h3 class="card-value">None</h3>
+            <p class="card-desc">No signs of use or wear. Polished exterior, rough interior. Made with extraordinary care then apparently set aside — buried, hidden, or placed in graves.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.tongerenCloseup} alt="Close-up of a Roman dodecahedron showing holes and knobs" />
+            <div class="visual-overlay">
+              <span class="overlay-label">STRUCTURAL ANALYSIS</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Varying Holes</h3>
+            <p>Every face has a different-sized hole. The largest opposing holes never match. Concentric rings decorate each aperture — more rings around smaller holes. The systematic variation implies purpose, but no theory has explained the pattern convincingly.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.strasbourgMultiple} alt="Multiple Roman dodecahedra showing size variation" />
+            <div class="visual-overlay">
+               <span class="overlay-label">COMPARATIVE SPECIMENS</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Not Standardised</h3>
+            <p>No two dodecahedra are dimensionally identical. They range from 4 to 11cm, weigh 35 to 580 grams, and show different hole arrangements. This rules out any theory requiring precision calibration — rangefinders, gauges, or measuring instruments.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.bonn} alt="Roman dodecahedron alongside an icosahedron at Bonn museum" />
+            <div class="visual-overlay">
+               <span class="overlay-label">PLATONIC SOLIDS</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Icosahedron</h3>
+            <p>At least one Roman <em>icosahedron</em> (20 faces) exists alongside the dodecahedra — both are Platonic solids. Plato assigned the dodecahedron to the cosmos itself: "the god used it for arranging the constellations on the whole heaven."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">Eighteen Centuries</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">2nd–4th C. CE</span>
+          <div class="timeline-content">
+            <h4>Manufacture</h4>
+            <p>Dodecahedra are cast in bronze across the Gallo-Roman frontier provinces — Britain, Gaul, Germania. They are expensive, individually crafted objects made by skilled metalworkers using the lost-wax process.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">4th C. CE</span>
+          <div class="timeline-content highlight">
+            <h4>The Silence</h4>
+            <p>Christianity becomes the state religion. Pagan practices including divination are criminalised. Some dodecahedra are deliberately broken, buried, or hidden. No written record of their purpose survives — if one ever existed.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1739</span>
+          <div class="timeline-content">
+            <h4>First Recorded Find</h4>
+            <p>"Mr. North" presents a bronze dodecahedron to the Society of Antiquaries of London. Found in a field called Hagdale, Hertfordshire, alongside copper coins. The specimen is later lost.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1939</span>
+          <div class="timeline-content">
+            <h4>The Krefeld Grave</h4>
+            <p>A dodecahedron is found in a wealthy woman's grave in Krefeld, Germany, alongside a bone staff — suggesting it may have been mounted as a scepter head. One of the strongest clues to ritual function.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">2023</span>
+          <div class="timeline-content">
+            <h4>Norton Disney</h4>
+            <p>Amateur archaeologists discover a remarkably preserved dodecahedron at Potter Hill, Lincolnshire — the 33rd found in Britain. XRF analysis reveals leaded gunmetal composition. The find goes viral worldwide.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">2024–26</span>
+          <div class="timeline-content highlight">
+            <h4>The Mystery Endures</h4>
+            <p>Featured on BBC's <em>Digging for Britain</em>, the dodecahedron trends globally. 3D-printed replicas flood the internet. After 130+ specimens and 50+ theories, the purpose remains completely unknown.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.nortonDisney} alt="The Norton Disney dodecahedron" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Discovery</span>
+            <h3>Norton Disney, 2023</h3>
+            <p>Found by the Norton Disney History and Archaeology Group during a controlled excavation at Potter Hill, Lincolnshire. One of the largest (8cm, 245g) and most finely made examples ever recovered. Secretary Richard Parker called it "the find of a lifetime."</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.corbridge} alt="Roman dodecahedron from Corbridge Roman Town" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Collection</span>
+            <h3>Corbridge, Hadrian's Wall</h3>
+            <p>English Heritage's specimen from Corbridge Roman Town — the northernmost complete find in Britain. "Complex objects," the curators note, "a skilled craftsman would have been needed to make them. They would have been expensive and likely made to order."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.lyonCollection} alt="Collection of Roman dodecahedra at the Lyon Gallo-Roman Museum" />
+          <div class="image-caption">Roman dodecahedra of varying sizes. Lyon Gallo-Roman Museum, France.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>Perfectly, Stubbornly Silent</h2>
+          <p>They were made by people whose names we will never know, for purposes we cannot determine, in a world that vanished so completely that only its foundations remain.</p>
+          <p>After eighteen hundred years, the dodecahedra <em>still refuse to explain themselves.</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the discoveries, the theories, and the mystery that has baffled archaeologists for three centuries.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','roman-dodecahedron');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/roman-dodecahedron.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_roman-dodecahedron', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_roman-dodecahedron') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

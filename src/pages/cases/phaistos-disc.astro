@@ -1,0 +1,358 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-phaistos-disc-side-a.jpg',
+  sideB: '/cases/images/phaistos-disc-side-b.jpg',
+  palace: '/cases/images/atmosphere-phaistos-palace.jpg',
+};
+---
+
+<SidebarLayout
+  title="Phaistos Disc Book — The Bronze Age Script Nobody Can Read"
+  description="The Phaistos Disc: 241 mysterious symbols stamped into clay 3,700 years ago. No one has ever deciphered them. Non-fiction ebook. $2.99 EPUB."
+  currentVolume={10}
+  image="/cases/images/hero-phaistos-disc-side-a.jpg"
+  ogType="book"
+  keywords="Phaistos Disc book, Phaistos Disc ebook, Minoan script, Bronze Age writing, undeciphered script, archaeological mystery non-fiction"
+  bookSeo={{ bookTitle: "The Phaistos Disc", subtitle: "The Bronze Age Script Nobody Can Read", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Archaeology", format: "EBook", keywords: "Phaistos Disc, Minoan, Bronze Age, undeciphered, clay disc, Crete" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Archaeology", url: "/vol/archaeological" }, { name: "Phaistos Disc", url: "/cases/phaistos-disc" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 04 — c. 1700 BCE</span>
+          <span class="meta-badge alert">STATUS: UNSOLVED</span>
+        </div>
+
+        <h1 class="hero-title">The Phaistos Disc</h1>
+        <p class="hero-subtitle">The Bronze Age Script Nobody Can Read</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Symbols</span>
+            <span class="stat-value">241</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Distinct Signs</span>
+            <span class="stat-value text-accent">45</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Decipherments</span>
+            <span class="stat-value">Zero</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','phaistos-disc');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/phaistos-disc.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">In the summer of 1908, an Italian archaeologist lifted a small clay disc from the ruins of a Minoan palace on Crete. Both faces were covered in symbols — 241 impressions of 45 distinct signs, stamped into the wet clay with individual punches before firing. The technique was without precedent. The script matched nothing else in the ancient world. For more than a century, <strong>every attempt to read it has failed.</strong></p>
+        <p>Claimed as a prayer, a calendar, a game board, and an adventure story, the Phaistos Disc remains the most famous unsolved puzzle in archaeology.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Object</span>
+            <h3 class="card-value">241</h3>
+            <p class="card-desc">Symbol impressions stamped into clay using 45 distinct punches. Arranged in a spiral from edge to centre on both faces. Side A: 122 symbols in 31 groups. Side B: 119 symbols in 30 groups. Diameter: 15.8–16.5cm. Hand-shaped, not wheel-thrown.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">The Technique</span>
+            <h3 class="card-value text-accent">Stamped</h3>
+            <p class="card-desc">Each sign was pressed into wet clay with a reusable punch — a form of movable type 3,200 years before Gutenberg. No other Bronze Age inscription uses this method.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Date</span>
+            <h3 class="card-value">c. 1700 BCE</h3>
+            <p class="card-desc">Found in a sealed Old Palace deposit alongside a Linear A tablet (PH-1). The context dates to the destruction of the first palace at Phaistos by earthquake, placing the disc firmly in the Middle Minoan period.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Decipherment Attempts</span>
+            <h3 class="card-value">Dozens</h3>
+            <p class="card-desc">Linguists, amateurs, and codebreakers have proposed readings in Semitic, Greek, Anatolian, and invented languages. None has achieved scholarly consensus. The text is too short and the script too isolated for conventional decipherment.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.sideB} alt="Side B of the Phaistos Disc showing spiral arrangement of stamped symbols" />
+            <div class="visual-overlay">
+              <span class="overlay-label">SIDE B — 119 SYMBOLS</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Spiral Script</h3>
+            <p>Symbols run in a clockwise spiral from edge to centre, divided into groups by incised lines. Forty-five distinct signs place it in the range of a syllabary — too many for an alphabet, too few for a logographic system. The script appears nowhere else in the archaeological record.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.hero} alt="Side A of the Phaistos Disc showing the plumed-head symbol" />
+            <div class="visual-overlay">
+               <span class="overlay-label">SIGN 02 — PLUMED HEAD</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Signs</h3>
+            <p>The most common symbol — appearing 19 times — is a human head with a feathered headdress. Other signs depict shields, helmets, a walking figure, a ship, a fish, flowers, and a carpenter's tools. Each is vivid, naturalistic, and recognisably Minoan in style.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.palace} alt="Ruins of the Minoan palace at Phaistos, Crete" />
+            <div class="visual-overlay">
+               <span class="overlay-label">PHAISTOS PALACE, CRETE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Context</h3>
+            <p>Found in the basement of Room 8, Building 101 — a sealed Old Palace deposit beneath the later New Palace. The room contained burnt bovine bones and a Linear A tablet, suggesting a ritual depository. The disc had lain undisturbed for nearly four thousand years.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">Four Millennia of Silence</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">c. 1700 BCE</span>
+          <div class="timeline-content">
+            <h4>Creation</h4>
+            <p>The disc is made during the Old Palace period at Phaistos, the second-largest Minoan palace on Crete. Someone stamps 241 symbols into wet clay using 45 individual punches, then fires the disc to permanence. The technique is unique in the Bronze Age world.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">c. 1700 BCE</span>
+          <div class="timeline-content highlight">
+            <h4>The Earthquake</h4>
+            <p>A devastating earthquake destroys the Old Palace. When the New Palace is built over the ruins, the disc is sealed beneath metres of fill in Room 8 — preserving it in its original context for nearly four thousand years.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">3 July 1908</span>
+          <div class="timeline-content">
+            <h4>Discovery</h4>
+            <p>At 7 p.m., foreman Zacharias Iliakis lifts the disc from the black earth of Room 8. Luigi Pernier, directing the excavation for the Italian School of Archaeology, immediately recognises its significance. He publishes the find in <em>Ausonia</em> later that year.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1952</span>
+          <div class="timeline-content">
+            <h4>Linear B Deciphered</h4>
+            <p>Michael Ventris cracks Linear B, revealing it as an early form of Greek. But the breakthrough sheds no light on the Phaistos Disc — its script shares no signs with Linear B and may record a different language entirely.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">2008–Present</span>
+          <div class="timeline-content">
+            <h4>The Forgery Debate</h4>
+            <p>In 2008, a minority of scholars raise the possibility that the disc was fabricated by Pernier. Thermoluminescence testing and clay analysis have supported its antiquity, but the debate has brought renewed attention to the disc's unique status.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">117 Years</span>
+          <div class="timeline-content highlight">
+            <h4>Still Unread</h4>
+            <p>After more than a century of study by linguists, mathematicians, cryptographers, and enthusiasts, the Phaistos Disc has yielded no confirmed reading. It remains the most famous undeciphered text in archaeology.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.hero} alt="The Phaistos Disc, Side A" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Discoverer</span>
+            <h3>Luigi Pernier (1874–1937)</h3>
+            <p>Italian archaeologist who directed the Phaistos excavations from 1908. Born to a wealthy Roman family, trained under Halbherr and Lanciani. Published the disc in <em>Ausonia</em> with meticulous documentation. Later accused — posthumously and controversially — of forging the object he spent his career studying.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.palace} alt="The Minoan palace at Phaistos" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Rival</span>
+            <h3>Arthur Evans (1851–1941)</h3>
+            <p>British archaeologist whose excavations at Knossos — 60km north of Phaistos — defined Minoan civilisation. His discoveries of Linear A and Linear B set the framework for Aegean epigraphy. He examined the disc and confirmed its uniqueness but could not read it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.sideB} alt="Side B of the Phaistos Disc" />
+          <div class="image-caption">The Phaistos Disc, Side B. Heraklion Archaeological Museum, Crete.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>A Message With No Reader</h2>
+          <p>Someone made forty-five tiny stamps, pressed them into wet clay in a careful spiral, and fired the result into permanence. That person expected the disc to be read. They expected the symbols to mean something to whoever held it next.</p>
+          <p>Three thousand seven hundred years later, <em>nobody has held up their end of the bargain.</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the discovery, the symbols, the failed decipherments, and the mystery that has outlasted empires.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','phaistos-disc');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/phaistos-disc.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_phaistos-disc', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_phaistos-disc') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

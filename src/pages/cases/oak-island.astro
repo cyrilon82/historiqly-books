@@ -1,0 +1,355 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-oak-island-1931.jpg',
+  digs: '/cases/images/oak-island-digs-1931.jpg',
+  fdr: '/cases/images/suspect-fdr-oak-island.jpg',
+  diagram: '/cases/images/oak-island-money-pit-diagram.jpg',
+  headline: '/cases/images/oak-island-headline-1866.jpg',
+  crossSection: '/cases/images/oak-island-pit-cross-section.png',
+  kidd: '/cases/images/suspect-captain-kidd.jpg',
+  treasureSign: '/cases/images/oak-island-treasure-sign.jpg',
+};
+---
+
+<SidebarLayout
+  title="Oak Island Money Pit Book — The Treasure Hunt That Swallowed Fortunes and Lives"
+  description="The Oak Island Money Pit: the longest, most expensive, and most deadly treasure hunt in history. From 1795 to today, this is the true story of the pit that consumed fortunes and lives. $2.99 EPUB."
+  currentVolume={9}
+  image="/books/covers/oak-island.jpg"
+  ogType="book"
+  keywords="Oak Island book, Money Pit ebook, Oak Island treasure, Nova Scotia, treasure hunt, flood tunnels, Curse of Oak Island, pirate treasure, Knights Templar"
+  bookSeo={{
+    bookTitle: "The Oak Island Money Pit",
+    subtitle: "The Treasure Hunt That Swallowed Fortunes and Lives",
+    price: "2.99",
+    author: "HistorIQly Mysteries",
+    genre: "Non-Fiction, History, Archaeology, Lost Worlds",
+    format: "EBook",
+    keywords: "Oak Island, Money Pit, treasure hunt, Nova Scotia, pirate treasure",
+  }}
+  breadcrumbs={[
+    { name: "Home", url: "/" },
+    { name: "Lost Worlds", url: "/vol/lost-worlds" },
+    { name: "Oak Island", url: "/cases/oak-island" },
+  ]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 08 — 1795–Present</span>
+          <span class="meta-badge alert">STATUS: UNSOLVED</span>
+        </div>
+
+        <h1 class="hero-title">The Oak Island<br/>Money Pit</h1>
+        <p class="hero-subtitle">The Treasure Hunt That Swallowed Fortunes and Lives</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Duration</span>
+            <span class="stat-value">231 years</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Deaths</span>
+            <span class="stat-value text-accent">6</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Expeditions</span>
+            <span class="stat-value">50+</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','oak-island');window.location.href='${stripeUrl}'`} class="btn-buy-primary" id="heroBuyBtn">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+            <a href="/books/oak-island.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+              <span>Download Your Book</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">In 1795, three teenage boys discovered a mysterious depression in the earth on a wooded island off the coast of Nova Scotia — and ignited the longest, most expensive, and most deadly treasure hunt in history. For over two centuries, the Oak Island Money Pit has consumed fortunes, broken lives, and killed six men.</p>
+        <p>What lies at the bottom? <strong>Pirate gold, Templar relics, Shakespeare's lost manuscripts — or nothing at all?</strong> The pit has never given up its secret. The water always wins.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Pit</span>
+            <h3 class="card-value">200+ feet</h3>
+            <p class="card-desc">The Money Pit extends over two hundred feet below the surface of Oak Island. Oak platforms were found every ten feet, with layers of charcoal, putty, and coconut fibre — material from thousands of miles away.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Flood Tunnels</span>
+            <h3 class="card-value text-accent">2+ tunnels</h3>
+            <p class="card-desc">The pit is connected to the ocean by at least two underground flood tunnels. When diggers breach a certain depth, seawater rushes in — an automated booby trap powered by the tides.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Cost</span>
+            <h3 class="card-value">$50M+</h3>
+            <p class="card-desc">More than fifty million dollars has been spent on Oak Island excavations. The Lagina brothers' modern operation alone has invested tens of millions since 2006.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Deaths</span>
+            <h3 class="card-value">6 men</h3>
+            <p class="card-desc">Six treasure hunters have died on Oak Island. Legend says the pit requires seven deaths before it yields its secret. The most devastating tragedy killed four men in minutes in 1965.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.crossSection} alt="Cross-section diagram of the Oak Island Money Pit" />
+            <div class="visual-overlay">
+              <span class="overlay-label">ENGINEERING</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Layered Shaft</h3>
+            <p>Oak platforms every ten feet. Coconut fibre from the tropics. An inscribed stone at ninety feet. Whoever built the Money Pit had engineering expertise, manpower, and materials from far away.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.diagram} alt="Diagram of the Oak Island Money Pit" />
+            <div class="visual-overlay">
+               <span class="overlay-label">FLOOD SYSTEM</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Smith's Cove Drains</h3>
+            <p>An artificial beach concealing stone box drains, coconut fibre filters, and a 460-foot tunnel to the pit. The ocean itself was weaponised as a security system — powered by the tides, requiring no maintenance.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.headline} alt="1866 New York Herald headline about Oak Island" />
+            <div class="visual-overlay">
+               <span class="overlay-label">DRILL SAMPLES</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Gold and Parchment</h3>
+            <p>In 1849, a drill brought up gold chain links from 104 feet and a scrap of parchment with India ink lettering from 126 feet. Someone had buried something worth writing about.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">Two Centuries of Obsession</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1795</span>
+          <div class="timeline-content">
+            <h4>The Discovery</h4>
+            <p>Daniel McGinnis, 16, finds a depression with a ship's tackle block on Oak Island. With two friends, he digs to 30 feet — finding oak platforms every 10 feet.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1802</span>
+          <div class="timeline-content">
+            <h4>The Onslow Company</h4>
+            <p>Investors excavate to 90 feet. They find an inscribed stone, coconut fibre — then the pit floods with 60 feet of seawater. The booby trap has been triggered.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1849</span>
+          <div class="timeline-content">
+            <h4>Gold and Parchment</h4>
+            <p>The Truro Company's drill brings up gold chain links and a scrap of parchment from 126 feet. Stone box drains discovered at Smith's Cove — an artificial beach concealing flood tunnels.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1965</span>
+          <div class="timeline-content highlight">
+            <h4>The Restall Tragedy</h4>
+            <p>Robert Restall, his son Bobby, and two others die from toxic gas in a shaft. Four men killed in minutes. The deadliest day in the pit's history.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">2006–present</span>
+          <div class="timeline-content">
+            <h4>The Lagina Brothers</h4>
+            <p>Rick and Marty Lagina deploy ground-penetrating radar, sonic drilling, and high-definition cameras. Thirteen seasons of television. Tens of millions invested. The mystery endures.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Key Figures</span>
+        <h2 class="section-title">The Hunters</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.fdr} alt="Franklin D. Roosevelt at Oak Island, 1909" />
+          </div>
+          <div class="figure-info">
+            <h3>Franklin D. Roosevelt</h3>
+            <span class="figure-role">Investor & U.S. President</span>
+            <p>A young FDR invested in the Old Gold Salvage Company and visited Oak Island in 1909. He maintained a lifelong interest, writing to treasure hunters from the White House during the Depression.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.kidd} alt="Captain William Kidd, historical engraving" />
+          </div>
+          <div class="figure-info">
+            <h3>Captain William Kidd</h3>
+            <span class="figure-role">Prime Suspect</span>
+            <p>The most frequently named builder of the Money Pit. Kidd sailed Nova Scotia's waters before his execution in 1701. A dying sailor allegedly confessed that Kidd's crew buried £2 million on the island.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.treasureSign} alt="Oak Island treasure hunting sign, Nova Scotia" />
+          <div class="image-caption">Oak Island, Nova Scotia — site of the world's longest treasure hunt.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>What Would You Give to Know?</h2>
+          <p>The Money Pit is less a treasure hunt than a parable. It is a story about the human compulsion to believe that something extraordinary lies just out of reach — that the next shovelful of earth will reveal <strong>the prize that justifies all the sacrifice</strong>.</p>
+          <p>Six men dead. Tens of millions spent. 231 years and counting. The pit has never answered its own question: <em>What am I hiding?</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>10 chapters. The complete story from the 1795 discovery to the Lagina brothers — every expedition, every death, every theory, every failure.</p>
+            <div class="buy-options cta-buy-options">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','oak-island');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy" id="ctaBuyBtn">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+              <a href="/books/oak-island.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+                <span>Download Your Book</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+
+  // Purchase detection
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_oak-island', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_oak-island') === 'true';
+
+  if (hasPurchased) {
+    const heroBuy = document.getElementById('heroBuyBtn');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuy) heroBuy.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    const ctaBuy = document.getElementById('ctaBuyBtn');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuy) ctaBuy.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+</script>

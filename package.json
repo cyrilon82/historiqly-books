@@ -36,7 +36,10 @@
     "build:epub:library-of-alexandria": "node scripts/build-epub-library-of-alexandria.mjs",
     "build:epub:el-dorado": "node scripts/build-epub-el-dorado.mjs",
     "build:epub:doggerland": "node scripts/build-epub-doggerland.mjs",
-    "build:epub:lost-continent-craze": "node scripts/build-epub-lost-continent-craze.mjs"
+    "build:epub:lost-continent-craze": "node scripts/build-epub-lost-continent-craze.mjs",
+    "build:epub:oak-island": "node scripts/build-epub-oak-island.mjs",
+    "build:epub:roman-dodecahedron": "node scripts/build-epub-roman-dodecahedron.mjs",
+    "build:epub:yonaguni-monument": "node scripts/build-epub-yonaguni-monument.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"
