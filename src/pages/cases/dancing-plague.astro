@@ -1,0 +1,355 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-dancing-plague-hondius.jpg',
+  churchyard: '/cases/images/dancing-plague-churchyard.jpg',
+  mania: '/cases/images/dancing-mania-engraving.jpg',
+  bruegel: '/cases/images/brueghel-pilgrimage-molenbeek.jpg',
+  color: '/cases/images/brueghel-st-johns-dancers-color.jpg',
+  tanzwut: '/cases/images/tanzwut-hecker-illustration.jpg',
+  map: '/cases/images/strasbourg-map-1548.jpg',
+  vitus: '/cases/images/st-vitus-dance-rijksmuseum.jpg',
+};
+---
+
+<SidebarLayout
+  title="The Dancing Plague of 1518 — When Strasbourg Danced to Death"
+  description="The Dancing Plague of 1518: How a woman's involuntary dance in Strasbourg became a citywide epidemic that killed dozens. The true story of history's most bizarre mass hysteria. $2.99 EPUB."
+  currentVolume={8}
+  image="/books/covers/dancing-plague.jpg"
+  ogType="book"
+  keywords="Dancing Plague 1518 book, Strasbourg dancing plague, choreomania, mass hysteria, St Vitus dance, medieval history, dancing mania"
+  bookSeo={{ bookTitle: "The Dancing Plague of 1518", subtitle: "When Strasbourg Danced to Death", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Unexplained", format: "EBook", keywords: "Dancing Plague, 1518, Strasbourg, choreomania, mass hysteria" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Unexplained", url: "/vol/unexplained" }, { name: "The Dancing Plague", url: "/cases/dancing-plague" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 03-1518</span>
+          <span class="meta-badge alert">STATUS: UNEXPLAINED</span>
+        </div>
+
+        <h1 class="hero-title">The Dancing Plague</h1>
+        <p class="hero-subtitle">When Strasbourg Danced to Death</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Year</span>
+            <span class="stat-value">1518</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Afflicted</span>
+            <span class="stat-value">~400</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Duration</span>
+            <span class="stat-value text-accent">2 Months</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','dancing-plague');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/dancing-plague.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">On July 14, 1518, a woman stepped into a narrow street in Strasbourg and began to dance. There was no music. Her husband begged her to stop. She could not. She danced for six days straight, her feet swollen and bloody, her eyes vacant and unseeing. Then others joined her.</p>
+        <p>Within weeks, <strong>400 people</strong> were dancing involuntarily through the streets — and the city's cure only made it worse.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">Patient Zero</span>
+            <h3 class="card-value">Frau Troffea</h3>
+            <p class="card-desc">A common woman who stepped into the street and began to dance without music. She danced for six consecutive days before the city council took notice. No one recorded her first name.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Peak Afflicted</span>
+            <h3 class="card-value text-accent">~400</h3>
+            <p class="card-desc">People dancing involuntarily at the height of the plague in August 1518.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Death Rate</span>
+            <h3 class="card-value">15/day*</h3>
+            <p class="card-desc">Claimed at peak — contested by modern scholars.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">The "Cure"</span>
+            <h3 class="card-value">Red Shoes</h3>
+            <p class="card-desc">Anointed with holy oil, placed on dancers' feet at the shrine of Saint Vitus. It worked.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.churchyard} alt="Engraving of 1518 Strasbourg dancers in a churchyard" />
+            <div class="visual-overlay">
+              <span class="overlay-label">CONTEMPORARY ENGRAVING</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Dancing</h3>
+            <p>The dancing was not joyful. It was spasmodic, convulsive, involuntary. Arms thrashed wildly. Eyes were vacant and glassy. Dancers reported visions of drowning in seas of blood. They recoiled from the colour red and from pointed shoes. Their feet became swollen and bloody — blood pooled into their shoes.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.map} alt="Bird's eye view map of Strasbourg from 1548" />
+            <div class="visual-overlay">
+               <span class="overlay-label">STRASBOURG, 1548</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The City</h3>
+            <p>A Free Imperial City of 20,000 souls on the Grand Île, surrounded by the Ill River, dominated by a 142-metre cathedral spire. In 1518, Strasbourg was reeling from three years of failed harvests, famine, syphilis, plague, floods — and the spiritual crisis sparked by Luther's theses.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.tanzwut} alt="Illustration from Hecker's foundational text on the dancing mania" />
+            <div class="visual-overlay">
+               <span class="overlay-label">MEDICAL HISTORY</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Diagnosis</h3>
+            <p>Physicians diagnosed "hot blood" and prescribed <em>more dancing</em>. The council built stages, hired musicians, and recruited professional dancers. The strategy backfired — the spectacle drew hundreds more into the dance. Paracelsus later coined the term "choreomania."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">The Summer of Madness</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">JUL 14</span>
+          <div class="timeline-content">
+            <h4>The First Step</h4>
+            <p>Frau Troffea begins dancing in a Strasbourg street. No music, no partner. She dances for six days without stopping, her feet bloody, her eyes vacant.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">JUL 20</span>
+          <div class="timeline-content">
+            <h4>The Contagion</h4>
+            <p>34 people are now dancing. The city council formally notes the crisis. Physicians diagnose "hot blood" and prescribe more dancing to purge the illness.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">AUG 1518</span>
+          <div class="timeline-content highlight">
+            <h4>The Catastrophe</h4>
+            <p>The council builds stages, hires musicians, recruits dancers. The spectacle draws more afflicted. At the peak: ~400 dancers. Later chroniclers claimed up to 15 deaths per day.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">AUG 3</span>
+          <div class="timeline-content">
+            <h4>The Reversal</h4>
+            <p>Sebastian Brant records the council banning all public dancing until September 29. Stages dismantled, musicians dismissed. But the dancing continues.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">SEP 1518</span>
+          <div class="timeline-content">
+            <h4>The Red Shoes</h4>
+            <p>Dancers are transported to the shrine of Saint Vitus near Saverne. Priests place red shoes anointed with holy oil on their bleeding feet. The dancing stops.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.mania} alt="La danse de saint Guy — the dancing mania, circa 1600" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Chancellor</span>
+            <h3>Sebastian Brant</h3>
+            <p>Author of <em>The Ship of Fools</em> and secretary of the Strasbourg council since 1503. His August 3, 1518 note banning public dancing is the most important surviving primary document of the plague. He wrote: "Dance and sin are one in kind."</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.vitus} alt="Design for a painting of St. Vitus's Dance" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Modern Scholar</span>
+            <h3>John Waller</h3>
+            <p>Author of <em>A Time to Dance, A Time to Die</em> (2009), the definitive modern study. His mass psychogenic illness theory — that extreme stress and belief in St. Vitus's curse combined to produce the dancing — is now the leading explanation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.color} alt="The Saint John's Dancers in Molenbeeck, 1592, by Pieter Brueghel II" />
+          <div class="image-caption">Pieter Brueghel II, <em>The Saint John's Dancers</em>, 1592.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Body Remembers</h2>
+          <p>The dancing plague disappeared in the seventeenth century, along with the belief system that gave it form. But its lesson endures: <em>the human body carries the pain that the mind cannot hold.</em></p>
+          <p>Five centuries later, the streets of Strasbourg are quiet. The cathedral still stands. And somewhere, in the cobblestones, the ghost of a rhythm no one chose to dance to.</p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the woman who danced, the city that tried everything, and the red shoes that ended the plague.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','dancing-plague');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/dancing-plague.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_dancing-plague', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_dancing-plague') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

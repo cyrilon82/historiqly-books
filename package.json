@@ -28,7 +28,11 @@
     "build:epub:opus-dei": "node scripts/build-epub-opus-dei.mjs",
     "build:epub:bohemian-grove": "node scripts/build-epub-bohemian-grove.mjs",
     "build:epub:hashshashin": "node scripts/build-epub-hashshashin.mjs",
-    "build:epub:knights-templar": "node scripts/build-epub-knights-templar.mjs"
+    "build:epub:knights-templar": "node scripts/build-epub-knights-templar.mjs",
+    "build:epub:ball-lightning": "node scripts/build-epub-ball-lightning.mjs",
+    "build:epub:tunguska-event": "node scripts/build-epub-tunguska.mjs",
+    "build:epub:hessdalen-lights": "node scripts/build-epub-hessdalen-lights.mjs",
+    "build:epub:dancing-plague": "node scripts/build-epub-dancing-plague.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

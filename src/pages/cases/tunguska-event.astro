@@ -1,0 +1,354 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-tunguska-fallen-trees.jpg',
+  devastation: '/cases/images/atmosphere-tunguska-devastation.jpg',
+  river: '/cases/images/atmosphere-tunguska-river.jpg',
+  evenki: '/cases/images/atmosphere-evenki-tent.jpg',
+  blastCenter: '/cases/images/evidence-tunguska-blast-center.png',
+  effectAreas: '/cases/images/evidence-tunguska-effect-areas.png',
+  kulik: '/cases/images/figure-leonid-kulik.jpg',
+};
+---
+
+<SidebarLayout
+  title="The Tunguska Event — The Explosion That Shook the World"
+  description="The Tunguska Event: On June 30, 1908, an explosion 1,000 times more powerful than Hiroshima flattened 80 million trees in Siberia. No crater. No fragments. The true story. $2.99 EPUB."
+  currentVolume={8}
+  image="/books/covers/tunguska-event.jpg"
+  ogType="book"
+  keywords="Tunguska Event book, Tunguska explosion ebook, 1908 Siberia explosion, Leonid Kulik, asteroid impact, comet theory, unexplained phenomena"
+  bookSeo={{ bookTitle: "The Tunguska Event", subtitle: "The Explosion That Shook the World", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, Science, Unexplained", format: "EBook", keywords: "Tunguska Event, 1908, Siberia, asteroid, comet, explosion" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Unexplained", url: "/vol/unexplained" }, { name: "The Tunguska Event", url: "/cases/tunguska-event" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 06-1908</span>
+          <span class="meta-badge alert">STATUS: UNSOLVED</span>
+        </div>
+
+        <h1 class="hero-title">The Tunguska Event</h1>
+        <p class="hero-subtitle">The Explosion That Shook the World</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Date</span>
+            <span class="stat-value">June 30, 1908</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Yield</span>
+            <span class="stat-value">15 MT</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Trees Felled</span>
+            <span class="stat-value text-accent">80M</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','tunguska-event');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/tunguska-event.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">On the morning of June 30, 1908, something fell from the sky over central Siberia and exploded with the force of a thousand Hiroshima bombs. The blast flattened 80 million trees across 830 square miles of taiga. Windows shattered 400 miles away. The shockwave circled the earth twice. For days afterward, the skies over Europe glowed so brightly that Londoners could read newspapers at midnight.</p>
+        <p>No crater was found. No fragments were recovered. <strong>For 19 years, not a single scientist visited the site.</strong></p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Blast</span>
+            <h3 class="card-value">10-15 MT</h3>
+            <p class="card-desc">Megatons of TNT equivalent. A thousand times the Hiroshima bomb. The largest impact event in recorded human history — and it struck one of the most remote places on earth.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Devastation</span>
+            <h3 class="card-value text-accent">2,150 km&sup2;</h3>
+            <p class="card-desc">Of forest flattened. Larger than London.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Crater</span>
+            <h3 class="card-value">None</h3>
+            <p class="card-desc">No impact crater. No fragments. The object vanished.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Investigation</span>
+            <h3 class="card-value">19 yrs</h3>
+            <p class="card-desc">Between the explosion and the first scientific expedition to the site.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.devastation} alt="The Tunguska blast zone showing fallen trees stretching to the horizon" />
+            <div class="visual-overlay">
+              <span class="overlay-label">RADIAL DEVASTATION</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Flattened Forest</h3>
+            <p>Eighty million trees knocked flat in a radial pattern — all pointing away from a single epicentre. At the very centre, stripped trunks stood upright like telegraph poles, evidence that the explosion came from directly above. No crater, no impact site — just devastation so complete it looked like the work of an invisible hand.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.blastCenter} alt="The centre of the Tunguska blast zone with standing dead trees" />
+            <div class="visual-overlay">
+               <span class="overlay-label">BLAST CENTRE: EPICENTRE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Ghost Forest</h3>
+            <p>At ground zero, trees were stripped of every branch and needle but left standing — bare poles thrusting at the sky. This pattern is the signature of an aerial explosion directly overhead. Kulik found marshy bog where he expected an impact crater. Whatever destroyed this forest did so without touching the ground.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.effectAreas} alt="Map of the Tunguska event destruction pattern" />
+            <div class="visual-overlay">
+               <span class="overlay-label">BUTTERFLY PATTERN</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Aerial Survey</h3>
+            <p>Kulik's 1938 aerial photographs revealed a butterfly-shaped destruction pattern — asymmetric, elongated in the direction of the object's travel. This confirmed the object entered from the southeast at an oblique angle and exploded while still in motion. The pattern spans over 2,150 square kilometres of Siberian taiga.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">The Sky Breaks Open</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1908</span>
+          <div class="timeline-content">
+            <h4>The Explosion</h4>
+            <p>At 7:17 a.m. on June 30, an object explodes in the atmosphere above the Podkamennaya Tunguska River. The blast is heard 700 km away. Seismographs worldwide register a magnitude 5.0 earthquake. The shockwave circles the earth twice.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1927</span>
+          <div class="timeline-content">
+            <h4>Kulik Arrives</h4>
+            <p>Soviet mineralogist Leonid Kulik becomes the first scientist to reach the blast zone — 19 years after the event. He finds miles of fallen trees in radial rows but no crater and no meteorite fragments. His photographs make the event world-famous.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1946</span>
+          <div class="timeline-content">
+            <h4>The Alien Theory</h4>
+            <p>Inspired by Hiroshima, Soviet engineer Alexander Kazantsev publishes a story proposing the explosion was caused by an alien nuclear-powered spacecraft. The theory becomes a cultural sensation and spawns decades of UFO speculation.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">2001</span>
+          <div class="timeline-content highlight">
+            <h4>The Verdict</h4>
+            <p>Orbital modelling gives an 83% probability the object was an asteroid. Microscopic spherules found in the soil support a stony body that vaporised completely in the atmosphere. But the debate is not over.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">2013</span>
+          <div class="timeline-content">
+            <h4>Chelyabinsk</h4>
+            <p>A 20-metre asteroid explodes over Chelyabinsk, Russia, injuring 1,500 people. The largest airburst since Tunguska. A vivid reminder that the next impact could strike a populated area.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.kulik} alt="Leonid Kulik, Soviet mineralogist" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Investigator</span>
+            <h3>Leonid Kulik</h3>
+            <p>Soviet mineralogist who led four expeditions to the blast zone between 1927 and 1938. He spent years searching for meteorite fragments in the Siberian bogs and never found them. Died of typhus in a German POW camp in 1942.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.evenki} alt="Evenki reindeer herders" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Witnesses</span>
+            <h3>The Evenki People</h3>
+            <p>The Shanyagir clan of Evenki nomads were camped just 20 km from the epicentre. They lost reindeer, shelters, and everything they needed for survival. No investigation or aid was ever sent. Their oral traditions preserved the earliest accounts of the event.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.river} alt="The Podkamennaya Tunguska River from the air" />
+          <div class="image-caption">The Podkamennaya Tunguska River. The blast zone is now a nature reserve.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Sky Gives No Warning</h2>
+          <p>The Tunguska Event was the largest impact event in recorded history — and it happened in one of the emptiest places on earth. Had the object arrived four hours and forty-seven minutes later, it would have struck St Petersburg.</p>
+          <p>The next Tunguska-class asteroid is out there, somewhere in the darkness between the planets. <em>The sky gives no warning, and the forest does not look up.</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the explosion, the investigation, the theories, and the warning that Tunguska still carries for our world.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','tunguska-event');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/tunguska-event.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_tunguska-event', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_tunguska-event') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

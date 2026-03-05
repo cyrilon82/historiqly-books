@@ -50,17 +50,17 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
     <div class="cases-section" id="cases">
       <div class="cases-header">
         <h2>Cases</h2>
-        <span class="cases-count">7 cases</span>
+        <span class="cases-count">8 cases</span>
       </div>
       <div class="cases-preview">
         <div class="case-preview"><span class="case-num">01</span><span class="case-title">The Dyatlov Pass Incident</span><div class="case-btns"><a href="/cases/dyatlov-pass" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQSVJHTW" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
         <div class="case-preview"><span class="case-num">02</span><span class="case-title">The Loch Ness Monster</span><div class="case-btns"><a href="/cases/loch-ness-monster" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
         <div class="case-preview"><span class="case-num">03</span><span class="case-title">The Wow! Signal</span><div class="case-btns"><a href="/cases/wow-signal" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button></div></div>
         <div class="case-preview"><span class="case-num">04</span><span class="case-title">The Shroud of Turin</span><div class="case-btns"><a href="/cases/shroud-of-turin" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','shroud-of-turin');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="shroud-of-turinBuyPill">Buy $2.99</button><a href="/books/epub/shroud-of-turin.epub" class="btn-read" id="shroud-of-turinDownloadPill" style="display:none;" download>Download</a></div></div>
-        <div class="case-preview"><span class="case-num">05</span><span class="case-title">The Dancing Plague of 1518</span></div>
-        <div class="case-preview"><span class="case-num">06</span><span class="case-title">The Tunguska Event</span></div>
-        <div class="case-preview"><span class="case-num">07</span><span class="case-title">Ball Lightning</span></div>
-        <div class="case-preview"><span class="case-num">08</span><span class="case-title">The Hessdalen Lights</span></div>
+        <div class="case-preview"><span class="case-num">05</span><span class="case-title">The Dancing Plague of 1518</span><div class="case-btns"><a href="/cases/dancing-plague" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','dancing-plague');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="dancing-plagueBuyPill">Buy $2.99</button><a href="/books/dancing-plague.epub" class="btn-free-sm" id="dancing-plagueDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">06</span><span class="case-title">The Tunguska Event</span><div class="case-btns"><a href="/cases/tunguska-event" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','tunguska-event');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="tunguska-eventBuyPill">Buy $2.99</button><a href="/books/tunguska-event.epub" class="btn-read" id="tunguska-eventDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">07</span><span class="case-title">Ball Lightning</span><div class="case-btns"><a href="/cases/ball-lightning" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','ball-lightning');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="ball-lightningBuyPill">Buy $2.99</button><a href="/books/epub/ball-lightning.epub" class="btn-read" id="ball-lightningDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">08</span><span class="case-title">The Hessdalen Lights</span><div class="case-btns"><a href="/cases/hessdalen-lights" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','hessdalen-lights');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="hessdalen-lightsBuyPill">Buy $2.99</button><a href="/books/epub/hessdalen-lights.epub" class="btn-read" id="hessdalen-lightsDownloadPill" style="display:none;" download>Download</a></div></div>
       </div>
     </div>
 
@@ -79,7 +79,7 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
 
 <script>
   // Check each paid book in this volume
-  ['dyatlov-pass', 'loch-ness-monster', 'wow-signal', 'shroud-of-turin'].forEach(slug => {
+  ['dyatlov-pass', 'loch-ness-monster', 'wow-signal', 'shroud-of-turin', 'dancing-plague', 'tunguska-event', 'ball-lightning', 'hessdalen-lights'].forEach(slug => {
     if (localStorage.getItem(`historiqly_purchased_${slug}`) === 'true') {
       const buyPill = document.getElementById(`${slug}BuyPill`);
       const downloadPill = document.getElementById(`${slug}DownloadPill`);

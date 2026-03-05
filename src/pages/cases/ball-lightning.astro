@@ -1,0 +1,355 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-ball-lightning-1886.jpg',
+  widecombe: '/cases/images/widecombe-thunderstorm-1638-woodcut.gif',
+  richmann: '/cases/images/richmann-death-1753.jpg',
+  tesla: '/cases/images/tesla-colorado-springs-sparks.jpg',
+  maastricht: '/cases/images/ball-lightning-maastricht-2011.jpg',
+  arago: '/cases/images/suspect-francois-arago.jpg',
+  kapitsa: '/cases/images/suspect-pyotr-kapitsa.jpg',
+};
+---
+
+<SidebarLayout
+  title="Ball Lightning — The Fire That Walks Through Walls"
+  description="Ball Lightning: Glowing orbs that appear in thunderstorms, float through walls, and kill without warning. The true story of science's most elusive phenomenon. $2.99 EPUB."
+  currentVolume={8}
+  image="/books/covers/ball-lightning.jpg"
+  ogType="book"
+  keywords="ball lightning book, ball lightning ebook, atmospheric mystery, unexplained phenomena, Georg Richmann, Nikola Tesla, Pyotr Kapitsa, thunderstorm"
+  bookSeo={{ bookTitle: "Ball Lightning", subtitle: "The Fire That Walks Through Walls", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, Science, Unexplained", format: "EBook", keywords: "ball lightning, atmospheric physics, unexplained, thunderstorm" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Unexplained", url: "/vol/unexplained" }, { name: "Ball Lightning", url: "/cases/ball-lightning" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 07-1638</span>
+          <span class="meta-badge alert">STATUS: UNSOLVED</span>
+        </div>
+
+        <h1 class="hero-title">Ball Lightning</h1>
+        <p class="hero-subtitle">The Fire That Walks Through Walls</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">First Recorded</span>
+            <span class="stat-value">1195</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">First Spectrum</span>
+            <span class="stat-value">2012</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Theories</span>
+            <span class="stat-value text-accent">100+</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','ball-lightning');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/epub/ball-lightning.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">On a Sunday afternoon in 1638, a ball of fire smashed through the window of a packed Devon church, killing four worshippers and injuring sixty. The congregation blamed the Devil. Nearly four centuries later, science still cannot fully explain what happened. They call it ball lightning — glowing spheres that appear in thunderstorms, drift through walls, and vanish without a trace.</p>
+        <p>Over <strong>5,000</strong> eyewitness reports. Over <strong>100</strong> competing theories. Zero consensus.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Phenomenon</span>
+            <h3 class="card-value">1195</h3>
+            <p class="card-desc">Earliest known record — a medieval monk in Canterbury describes a "fiery globe" descending near London. Ball lightning has been observed on every continent, in every century since.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Duration</span>
+            <h3 class="card-value text-accent">1–180s</h3>
+            <p class="card-desc">Balls persist from one second to three minutes — millions of times longer than a lightning bolt.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Size Range</span>
+            <h3 class="card-value">1cm–15m</h3>
+            <p class="card-desc">From pea-sized to larger than a car. Most reports describe balls the size of a human head.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Aircraft Incidents</span>
+            <h3 class="card-value">87</h3>
+            <p class="card-desc">Documented cases of ball lightning encounters with aircraft, including three military losses.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.widecombe} alt="Woodcut of the Great Thunderstorm at Widecombe, 1638" />
+            <div class="visual-overlay">
+              <span class="overlay-label">WIDECOMBE 1638</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Devil's Church</h3>
+            <p>A ball of fire entered the Church of St Pancras during a packed Sunday service, killing four and injuring sixty. A contemporary woodcut depicted the Devil perched on the tower — the only explanation the seventeenth century could offer. The event is one of the earliest well-documented encounters with ball lightning.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.richmann} alt="Engraving of Georg Richmann's death, 1753" />
+            <div class="visual-overlay">
+               <span class="overlay-label">ST PETERSBURG 1753</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Scientist's Death</h3>
+            <p>Professor Georg Wilhelm Richmann was measuring atmospheric electricity when a pale blue ball of fire appeared near his apparatus and struck him in the forehead. He became the first scientist killed during an electrical experiment — and the first scientific casualty of ball lightning.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.maastricht} alt="Possible ball lightning photographed in Maastricht, 2011" />
+            <div class="visual-overlay">
+               <span class="overlay-label">QINGHAI PLATEAU 2012</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The First Spectrum</h3>
+            <p>In 2012, Chinese researchers captured the first-ever video and emission spectrum of natural ball lightning. The spectrum revealed silicon, iron, and calcium — elements from vaporized soil, not air. The breakthrough was published in Physical Review Letters and remains the strongest scientific data ever obtained.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">Centuries of Mystery</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1638</span>
+          <div class="timeline-content">
+            <h4>The Widecombe Disaster</h4>
+            <p>A ball of fire enters a Devon church during a thunderstorm, killing four and injuring sixty. The event is blamed on the Devil and commemorated in a famous woodcut.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1753</span>
+          <div class="timeline-content">
+            <h4>Richmann's Death</h4>
+            <p>Georg Wilhelm Richmann becomes the first scientist killed during an electrical experiment when ball lightning strikes him in his St Petersburg laboratory.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1899</span>
+          <div class="timeline-content">
+            <h4>Tesla's Fireballs</h4>
+            <p>Nikola Tesla accidentally produces small, stable fireballs in his Colorado Springs laboratory while experimenting with his magnifying transmitter.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1955</span>
+          <div class="timeline-content">
+            <h4>Kapitsa's Theory</h4>
+            <p>Nobel laureate Pyotr Kapitsa proposes that ball lightning is caused by standing electromagnetic waves — the most influential theory ever advanced.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">2012</span>
+          <div class="timeline-content highlight">
+            <h4>First Spectrum Captured</h4>
+            <p>Chinese researchers on the Qinghai Plateau capture the first scientific spectrum of natural ball lightning, finding silicon, iron, and calcium from vaporized soil.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.arago} alt="François Arago" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Cataloguer</span>
+            <h3>François Arago</h3>
+            <p>French astronomer who compiled the first systematic scientific catalogue of ball lightning, describing thirty instances in his 1855 book. He made it impossible for science to ignore the phenomenon.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.kapitsa} alt="Pyotr Kapitsa, 1964" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Theorist</span>
+            <h3>Pyotr Kapitsa</h3>
+            <p>Nobel Prize-winning Soviet physicist who proposed the electromagnetic standing wave theory in 1955. His willingness to take ball lightning seriously gave permission to a generation of researchers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.tesla} alt="Nikola Tesla in his Colorado Springs laboratory" />
+          <div class="image-caption">Tesla's Colorado Springs laboratory, 1899.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Fire Still Walks</h2>
+          <p>After nearly a thousand years of observation, over a hundred theories, and one single spectrum captured on a Chinese plateau — ball lightning remains unsolved.</p>
+          <p>It has killed scientists, entered aircraft, passed through walls, and defied every explanation offered. <em>The fire still walks. And we still do not know why.</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the phenomenon that has baffled science for centuries — from the Devil's church to the Qinghai Plateau.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','ball-lightning');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/epub/ball-lightning.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_ball-lightning', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_ball-lightning') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>
