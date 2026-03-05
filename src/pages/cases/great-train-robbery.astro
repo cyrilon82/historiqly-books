@@ -1,0 +1,355 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-bridego-bridge-robbery-site.jpg',
+  mailtrain: '/cases/images/mailtrain-bridego-bridge.jpg',
+  leatherslade: '/cases/images/leatherslade-farm-buildings.jpg',
+  memorial: '/cases/images/jack-mills-david-whitby-memorial.jpg',
+  plaque: '/cases/images/train-robbers-bridge-plaque.jpg',
+  biggs: '/cases/images/suspect-ronnie-biggs-mugshot.jpg',
+  reynolds: '/cases/images/suspect-bruce-reynolds.jpg',
+  wcml: '/cases/images/west-coast-main-line-robbery-site.jpg',
+};
+---
+
+<SidebarLayout
+  title="The Great Train Robbery Book — Britain's Crime of the Century"
+  description="The Great Train Robbery: How fifteen men stopped a Royal Mail train and stole £2.6 million. Non-fiction ebook about Britain's most famous heist. $2.99 EPUB."
+  currentVolume={11}
+  image="/books/covers/great-train-robbery.jpg"
+  ogType="book"
+  keywords="Great Train Robbery book, Great Train Robbery ebook, Ronnie Biggs, Bruce Reynolds, 1963 heist, British crime, train heist non-fiction"
+  bookSeo={{ bookTitle: "The Great Train Robbery", subtitle: "Britain's Crime of the Century", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, True Crime, Heists, British History", format: "EBook", keywords: "Great Train Robbery, Ronnie Biggs, Bruce Reynolds, 1963, heist" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Heists", url: "/vol/heists" }, { name: "Great Train Robbery", url: "/cases/great-train-robbery" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 11-1963</span>
+          <span class="meta-badge alert">STATUS: SOLVED</span>
+        </div>
+
+        <h1 class="hero-title">The Great Train Robbery</h1>
+        <p class="hero-subtitle">Britain's Crime of the Century</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Stolen</span>
+            <span class="stat-value">£2.6M</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Today's Value</span>
+            <span class="stat-value text-accent">£62M</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Gang</span>
+            <span class="stat-value">15 Men</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','great-train-robbery');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/great-train-robbery.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">At 3:00 a.m. on August 8, 1963, fifteen men stopped a Royal Mail train in the Buckinghamshire countryside by rigging a signal with a leather glove and a six-volt battery. In under thirty minutes, they unloaded <strong>120 mailbags containing £2.6 million</strong> in used banknotes — the equivalent of £62 million today — and vanished into the night.</p>
+        <p>It was the largest robbery in British history. The manhunt that followed, the <strong>30-year prison sentences</strong>, the dramatic escapes, and Ronnie Biggs's decades as a fugitive in Brazil would captivate Britain for generations.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Heist</span>
+            <h3 class="card-value">30 MIN</h3>
+            <p class="card-desc">Fifteen men rigged a railway signal, stopped the Up Special Travelling Post Office, coshed the driver, and formed a human chain to unload 120 sacks of cash into a waiting truck. The entire operation took less than half an hour.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Stolen</span>
+            <h3 class="card-value text-accent">£2.6M</h3>
+            <p class="card-desc">Over 2.5 tons of used banknotes. Worth approximately £62 million in today's money.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Recovered</span>
+            <h3 class="card-value">£343K</h3>
+            <p class="card-desc">Barely one-eighth of the total. Most of the money was never found — and became worthless after decimalisation in 1971.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Sentences</span>
+            <h3 class="card-value">307 YRS</h3>
+            <p class="card-desc">Total prison time handed down at Aylesbury Assizes. Seven men received 30 years each — the harshest sentences for a non-lethal crime in British history.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.leatherslade} alt="Leatherslade Farm buildings near Oakley, Buckinghamshire" />
+            <div class="visual-overlay">
+              <span class="overlay-label">LEATHERSLADE FARM, OAKLEY</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Hideout</h3>
+            <p>Leatherslade Farm, 27 miles from the robbery site, was purchased through intermediaries. The gang hid here for days, counting money and playing Monopoly with real banknotes. Their failure to destroy it left fingerprints on everything — the fatal mistake that broke the case.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.memorial} alt="Jack Mills and David Whitby memorial plaque" />
+            <div class="visual-overlay">
+               <span class="overlay-label">MEMORIAL PLAQUE: MILLS & WHITBY</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Victims</h3>
+            <p>Driver Jack Mills was coshed during the robbery and suffered permanent injuries. He never fully recovered, dying in 1970. Fireman David Whitby, traumatised by the ordeal, died of a heart attack in 1972, aged just 34. A memorial honours their bravery.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.mailtrain} alt="Royal Mail train crossing Bridego Bridge" />
+            <div class="visual-overlay">
+               <span class="overlay-label">ROYAL MAIL ON BRIDEGO BRIDGE</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Scene</h3>
+            <p>A Royal Mail train crosses the very bridge where the robbery took place. The gang chose this remote location because the lane beneath gave direct vehicle access. For years it was known as "Train Robbers' Bridge" before being officially renamed Mentmore Bridge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">The Crime and Its Aftermath</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">3:00 AM</span>
+          <div class="timeline-content">
+            <h4>Signal Rigged</h4>
+            <p>Roger Cordrey covers a green signal with a glove and powers a red light with a battery. The Up Special stops at Sears Crossing exactly as planned. Driver Jack Mills sends fireman David Whitby to investigate — he finds the phone wires cut.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">3:10 AM</span>
+          <div class="timeline-content">
+            <h4>The Attack</h4>
+            <p>Masked men storm the locomotive cab. Mills fights back but is coshed from behind. The injured driver is forced to move the train forward half a mile to Bridego Bridge, where vehicles are waiting.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">3:15 AM</span>
+          <div class="timeline-content">
+            <h4>The Human Chain</h4>
+            <p>The gang uncouples the HVP coach and forms a human chain from the carriage to the waiting truck. 120 sacks of banknotes — 2.5 tons of cash — are passed hand to hand down the embankment.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">AUG 13</span>
+          <div class="timeline-content">
+            <h4>Farm Discovered</h4>
+            <p>A herdsman reports suspicious activity at Leatherslade Farm. Police find sleeping bags, mailbags, the Monopoly board — and fingerprints everywhere. The gang's identities are revealed.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">APR 1964</span>
+          <div class="timeline-content highlight">
+            <h4>The Sentences</h4>
+            <p>Justice Edmund Davies hands down 307 years total. Seven men receive 30 years each. He calls it "a crime of sordid violence inspired by vast greed." The sentences stun the nation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.reynolds} alt="Bruce Reynolds, mastermind of the Great Train Robbery" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Mastermind</span>
+            <h3>Bruce Reynolds</h3>
+            <p>Career criminal who planned the heist with meticulous precision over months. Evaded capture for five years before being arrested in Torquay by Tommy Butler. Sentenced to 10 years. Died in 2013, aged 81.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.biggs} alt="Ronnie Biggs mugshot, 1960s" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Fugitive</span>
+            <h3>Ronnie Biggs</h3>
+            <p>Minor participant who became the most famous train robber. Escaped from Wandsworth Prison in 1965 and fled to Brazil, where he lived as a celebrity fugitive for 31 years. Returned voluntarily to Britain in 2001. Died in 2013, aged 84.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.plaque} alt="Train Robbers Bridge Network Rail plaque" />
+          <div class="image-caption">The bridge between Cheddington and Leighton Buzzard — once signed "Train Robbers' Bridge," now officially Mentmore Bridge.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Price of Ambition</h2>
+          <p>The Great Train Robbery made its perpetrators famous — but it destroyed them. Jack Mills never recovered. Most of the money was lost, confiscated, or rendered worthless by decimalisation. Charlie Wilson was murdered. Buster Edwards took his own life. The mastermind spent years as a fugitive. The most famous robber spent three decades in exile.</p>
+          <p>The Monopoly board — still bearing their fingerprints — sits in a <strong>Thames Valley Police museum</strong>. A five-pound note from the robbery lies beside it, worth nothing except as a relic of the night that <em>fifteen men tried to steal their way out of ordinary life</em>.</p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the robbery, the manhunt, the escapes, and the decades of consequences.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','great-train-robbery');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/great-train-robbery.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_great-train-robbery', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_great-train-robbery') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

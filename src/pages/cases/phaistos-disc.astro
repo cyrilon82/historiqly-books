@@ -10,6 +10,10 @@ const images = {
   hero: '/cases/images/hero-phaistos-disc-side-a.jpg',
   sideB: '/cases/images/phaistos-disc-side-b.jpg',
   palace: '/cases/images/atmosphere-phaistos-palace.jpg',
+  detailSymbols: '/cases/images/evidence-phaistos-disc-detail-symbols.jpg',
+  museumDisplay: '/cases/images/evidence-phaistos-disc-museum-display.jpg',
+  courtyard: '/cases/images/location-phaistos-palace-courtyard.jpg',
+  sideACrop: '/cases/images/evidence-phaistos-disc-side-a-crop.jpg',
 };
 ---
 
@@ -143,9 +147,9 @@ const images = {
         <!-- Item 1 -->
         <div class="evidence-card">
           <div class="evidence-visual">
-            <img src={images.sideB} alt="Side B of the Phaistos Disc showing spiral arrangement of stamped symbols" />
+            <img src={images.detailSymbols} alt="Close-up of stamped symbols on the Phaistos Disc" />
             <div class="visual-overlay">
-              <span class="overlay-label">SIDE B — 119 SYMBOLS</span>
+              <span class="overlay-label">STAMPED SYMBOLS — DETAIL</span>
             </div>
           </div>
           <div class="evidence-data">
@@ -157,9 +161,9 @@ const images = {
         <!-- Item 2 -->
         <div class="evidence-card">
           <div class="evidence-visual">
-            <img src={images.hero} alt="Side A of the Phaistos Disc showing the plumed-head symbol" />
+            <img src={images.sideACrop} alt="Side A of the Phaistos Disc showing the spiral of stamped signs" />
             <div class="visual-overlay">
-               <span class="overlay-label">SIGN 02 — PLUMED HEAD</span>
+               <span class="overlay-label">SIDE A — 122 SYMBOLS</span>
             </div>
           </div>
           <div class="evidence-data">
@@ -171,7 +175,7 @@ const images = {
         <!-- Item 3 -->
         <div class="evidence-card">
           <div class="evidence-visual">
-            <img src={images.palace} alt="Ruins of the Minoan palace at Phaistos, Crete" />
+            <img src={images.courtyard} alt="Central courtyard of the Minoan palace at Phaistos, Crete" />
             <div class="visual-overlay">
                <span class="overlay-label">PHAISTOS PALACE, CRETE</span>
             </div>
@@ -258,7 +262,7 @@ const images = {
       <div class="figures-grid">
         <div class="figure-card">
           <div class="figure-image">
-            <img src={images.hero} alt="The Phaistos Disc, Side A" />
+            <img src={images.museumDisplay} alt="The Phaistos Disc on display at Heraklion Archaeological Museum" />
           </div>
           <div class="figure-info">
             <span class="figure-role">The Discoverer</span>
@@ -269,7 +273,7 @@ const images = {
 
         <div class="figure-card">
           <div class="figure-image">
-            <img src={images.palace} alt="The Minoan palace at Phaistos" />
+            <img src={images.palace} alt="The Minoan palace ruins at Phaistos" />
           </div>
           <div class="figure-info">
             <span class="figure-role">The Rival</span>
@@ -284,7 +288,7 @@ const images = {
     <section class="conclusion-section fade-in-section">
       <div class="conclusion-grid">
         <div class="conclusion-image">
-          <img src={images.sideB} alt="Side B of the Phaistos Disc" />
+          <img src={images.sideB} alt="The Phaistos Disc, Side B" />
           <div class="image-caption">The Phaistos Disc, Side B. Heraklion Archaeological Museum, Crete.</div>
         </div>
         <div class="conclusion-text">

@@ -56,14 +56,25 @@ const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
         <div class="case-preview"><span class="case-num">01</span><span class="case-title">The Gardner Museum Heist: $500M in Art, Still Missing</span><div class="case-btns"><a href="/cases/gardner-museum-heist" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQ3KCGJY" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
         <div class="case-preview"><span class="case-num">02</span><span class="case-title">The Amber Room: The Eighth Wonder, Stolen by Nazis</span><div class="case-btns"><a href="/cases/amber-room" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GGWV1C83" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
         <div class="case-preview"><span class="case-num">03</span><span class="case-title">The Antwerp Diamond Heist: The "Impossible" Vault Robbery</span><div class="case-btns"><a href="/cases/antwerp-diamond-heist" class="btn-read">Read Case</a><button onclick={`window.location.href='${stripeUrl}'`} class="btn-buy-sm">Buy $2.99</button><a href="https://www.amazon.com/dp/B0GQ82SFX7" target="_blank" rel="noopener" class="btn-kindle-sm">Kindle</a></div></div>
-        <div class="case-preview"><span class="case-num">04</span><span class="case-title">The Great Train Robbery: Britain's Crime of the Century</span></div>
-        <div class="case-preview"><span class="case-num">05</span><span class="case-title">The Flor de la Mar: The Richest Shipwreck Never Found</span></div>
-        <div class="case-preview"><span class="case-num">06</span><span class="case-title">Nazi Gold Train: Hidden Treasure in Polish Tunnels?</span></div>
-        <div class="case-preview"><span class="case-num">07</span><span class="case-title">Yamashita's Gold: Japan's Buried Philippine Treasure</span></div>
+        <div class="case-preview"><span class="case-num">04</span><span class="case-title">The Great Train Robbery: Britain's Crime of the Century</span><div class="case-btns"><a href="/cases/great-train-robbery" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','great-train-robbery');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="great-train-robberyBuyPill">Buy $2.99</button><a href="/books/great-train-robbery.epub" class="btn-free-sm" id="great-train-robberyDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">05</span><span class="case-title">The Flor de la Mar: The Richest Shipwreck Never Found</span><div class="case-btns"><a href="/cases/flor-de-la-mar" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','flor-de-la-mar');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="flor-de-la-marBuyPill">Buy $2.99</button><a href="/books/flor-de-la-mar.epub" class="btn-free-sm" id="flor-de-la-marDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">06</span><span class="case-title">Nazi Gold Train: Hidden Treasure in Polish Tunnels?</span><div class="case-btns"><a href="/cases/nazi-gold-train" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','nazi-gold-train');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="nazi-gold-trainBuyPill">Buy $2.99</button><a href="/books/nazi-gold-train.epub" class="btn-free-sm" id="nazi-gold-trainDownloadPill" style="display:none;" download>Download</a></div></div>
+        <div class="case-preview"><span class="case-num">07</span><span class="case-title">Yamashita's Gold: Japan's Buried Philippine Treasure</span><div class="case-btns"><a href="/cases/yamashitas-gold" class="btn-read">Read Case</a><button onclick={`localStorage.setItem('historiqly_purchasing','yamashitas-gold');window.location.href='${stripeUrl}'`} class="btn-buy-sm" id="yamashitas-goldBuyPill">Buy $2.99</button><a href="/books/yamashitas-gold.epub" class="btn-free-sm" id="yamashitas-goldDownloadPill" style="display:none;" download>Download</a></div></div>
       </div>
     </div>
 
     <div class="email-section"><EmailCapture /></div>
+
+    <script>
+      ['gardner-museum-heist', 'amber-room', 'antwerp-diamond-heist', 'great-train-robbery', 'flor-de-la-mar', 'nazi-gold-train', 'yamashitas-gold'].forEach(slug => {
+        if (localStorage.getItem(`historiqly_purchased_${slug}`) === 'true') {
+          const buyPill = document.getElementById(`${slug}BuyPill`);
+          const downloadPill = document.getElementById(`${slug}DownloadPill`);
+          if (buyPill) buyPill.style.display = 'none';
+          if (downloadPill) downloadPill.style.display = 'inline-flex';
+        }
+      });
+    </script>
 
     <div class="available-now">
       <p>While you wait, check out:</p>

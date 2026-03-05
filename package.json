@@ -39,7 +39,11 @@
     "build:epub:lost-continent-craze": "node scripts/build-epub-lost-continent-craze.mjs",
     "build:epub:oak-island": "node scripts/build-epub-oak-island.mjs",
     "build:epub:roman-dodecahedron": "node scripts/build-epub-roman-dodecahedron.mjs",
-    "build:epub:yonaguni-monument": "node scripts/build-epub-yonaguni-monument.mjs"
+    "build:epub:yonaguni-monument": "node scripts/build-epub-yonaguni-monument.mjs",
+    "build:epub:great-train-robbery": "node scripts/build-epub-great-train-robbery.mjs",
+    "build:epub:yamashitas-gold": "node scripts/build-epub-yamashitas-gold.mjs",
+    "build:epub:flor-de-la-mar": "node scripts/build-epub-flor-de-la-mar.mjs",
+    "build:epub:nazi-gold-train": "node scripts/build-epub-nazi-gold-train.mjs"
   },
   "dependencies": {
     "astro": "^5.0.0"

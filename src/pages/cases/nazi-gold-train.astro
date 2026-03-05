@@ -1,0 +1,354 @@
+---
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/hero-ksiaz-castle-trees.jpg',
+  tunnel: '/cases/images/nazi-gold-train-osowka-tunnel.jpg',
+  corridor: '/cases/images/nazi-gold-train-underground-corridor.jpg',
+  interior: '/cases/images/nazi-gold-train-ksiaz-interior.jpg',
+  marker: '/cases/images/nazi-gold-train-golden-train-marker.jpg',
+  mountains: '/cases/images/nazi-gold-train-owl-mountains.jpg',
+  autumn: '/cases/images/nazi-gold-train-ksiaz-autumn.jpg',
+};
+---
+
+<SidebarLayout
+  title="Nazi Gold Train Book — Hidden Treasure in Polish Tunnels"
+  description="The Nazi Gold Train: How two treasure hunters, a deathbed map, and ground-penetrating radar ignited a global frenzy — and found nothing. Non-fiction ebook. $2.99 EPUB."
+  currentVolume={1}
+  image="/books/covers/nazi-gold-train.jpg"
+  ogType="book"
+  keywords="Nazi gold train book, Nazi gold train ebook, Project Riese, Książ Castle, Wałbrzych Poland, WWII treasure, Nazi treasure hunt"
+  bookSeo={{ bookTitle: "The Nazi Gold Train", subtitle: "Hidden Treasure in Polish Tunnels", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Hoaxes", format: "EBook", keywords: "Nazi gold train, Project Riese, Poland treasure, WWII" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Hoaxes", url: "/vol/hoaxes" }, { name: "The Nazi Gold Train", url: "/cases/nazi-gold-train" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 09-1945</span>
+          <span class="meta-badge alert">STATUS: LEGEND</span>
+        </div>
+
+        <h1 class="hero-title">The Nazi Gold Train</h1>
+        <p class="hero-subtitle">Hidden Treasure in Polish Tunnels</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Legend Born</span>
+            <span class="stat-value">1945</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Claimed Found</span>
+            <span class="stat-value">2015</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Excavation Cost</span>
+            <span class="stat-value text-accent">€116K</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','nazi-gold-train');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/nazi-gold-train.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">In the spring of 1945, an armored train laden with gold allegedly vanished into the mountains of Lower Silesia. For seventy years, treasure hunters searched the tunnels. In 2015, two men said they'd found it. The Polish government was ninety-nine percent certain. The world was watching.</p>
+        <p>They dug for seven days. They spent <strong>€116,000</strong>. They found a horseshoe.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">Project Riese</span>
+            <h3 class="card-value">1943</h3>
+            <p class="card-desc">Hitler authorises a massive underground construction project in the Owl Mountains. Seven tunnel complexes, nine kilometres of tunnels, 150 million Reichsmarks — and thousands of slave labourers from concentration camps.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Claimed Cargo</span>
+            <h3 class="card-value text-accent">300+</h3>
+            <p class="card-desc">Tonnes of gold, silver, jewels, and art allegedly aboard the missing train.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Tourism Boom</span>
+            <h3 class="card-value">40%+</h3>
+            <p class="card-desc">Increase in visitors to Wałbrzych after the 2015 announcement.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Free Publicity</span>
+            <h3 class="card-value">$200M</h3>
+            <p class="card-desc">Estimated value of global media coverage for a city with a $380K promotion budget.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.tunnel} alt="Interior of the Osówka tunnel complex, Project Riese" />
+            <div class="visual-overlay">
+              <span class="overlay-label">PROJECT RIESE TUNNELS</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Nine Kilometres of Secrets</h3>
+            <p>Seven underground complexes carved into hard gneiss by forced labourers. Halls twelve metres high, underground railways, machine-gun positions, and ventilation systems designed to resist poison gas. Only a fraction of the tunnel network may have been discovered — the SS destroyed entrances before retreating.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.corridor} alt="Underground corridor in the Osówka complex" />
+            <div class="visual-overlay">
+               <span class="overlay-label">GROUND-PENETRATING RADAR</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Radar Anomaly</h3>
+            <p>Koper and Richter's KS-700 radar showed a 100-metre-long object at 8-9 metres depth. Six independent companies detected similar anomalies. But AGH University's magnetic and gravitational surveys found nothing consistent with a buried train. The anomalies were natural ice formations.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.marker} alt="Golden Train monument in Wałbrzych, Poland" />
+            <div class="visual-overlay">
+               <span class="overlay-label">WAŁBRZYCH GOLD TRAIN</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Deathbed Map</h3>
+            <p>An unnamed dying man reportedly drew a map showing where he had "helped to hide the train." Koper and Richter used it to locate the search site. The map led to seven days of excavation — and the discovery of rocks, old railway track, and a horseshoe. No train. No tunnel. No gold.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">The Hunt</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1943</span>
+          <div class="timeline-content">
+            <h4>Project Riese</h4>
+            <p>Hitler authorises a vast underground construction project in the Owl Mountains. Concentration camp prisoners from Gross-Rosen and Auschwitz are deployed as slave labour. An estimated 5,000 die building the tunnels.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">1945</span>
+          <div class="timeline-content">
+            <h4>The Legend</h4>
+            <p>As the Soviet army closes in on Breslau, an armored train laden with gold allegedly departs the city and vanishes into the mountains. The SS destroys tunnel entrances before retreating.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">AUG 2015</span>
+          <div class="timeline-content">
+            <h4>The Claim</h4>
+            <p>Treasure hunters Piotr Koper and Andreas Richter announce they've found the train using ground-penetrating radar. Deputy Culture Minister Żuchowski declares himself "99% convinced." Global media frenzy erupts.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">DEC 2015</span>
+          <div class="timeline-content">
+            <h4>The Verdict</h4>
+            <p>AGH University geologist Janusz Madej announces: no evidence of a train. "It's human to make a mistake, but it's foolish to stand by it."</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">AUG 2016</span>
+          <div class="timeline-content highlight">
+            <h4>The Dig</h4>
+            <p>A 64-person team spends seven days and €116,000 excavating the site. They find rocks, old track, and a horseshoe. The radar anomalies are natural ice formations. No train exists.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.autumn} alt="Książ Castle in autumn" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Legend Keeper</span>
+            <h3>Tadeusz Słowikowski</h3>
+            <p>A retired miner who spent over fifty years searching for the gold train. He built a scale model in his basement and declared himself "100 percent sure that the train is there." He never found it.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.mountains} alt="The Owl Mountains panorama" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Scientist</span>
+            <h3>Janusz Madej</h3>
+            <p>Head of the AGH University geological survey team. His magnetic and gravitational analysis found no evidence of a buried train. He told Koper and Richter: "It's human to make a mistake, but it's foolish to stand by it."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.interior} alt="Interior of Książ Castle" />
+          <div class="image-caption">Książ Castle today. Wałbrzych, Poland.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>The Real Treasure</h2>
+          <p>The gold train was never found. Most historians believe it never existed. But the legend transformed a depressed coal town into a tourist destination — delivering $200 million in free publicity.</p>
+          <p>As one local official put it: <em>"Whether the explorers find anything or not, that gold train has already arrived."</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of Project Riese, the deathbed map, the media frenzy, and the excavation that found nothing.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','nazi-gold-train');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/nazi-gold-train.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_nazi-gold-train', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_nazi-gold-train') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>

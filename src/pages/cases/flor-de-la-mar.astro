@@ -1,0 +1,355 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
+import CornerOrnaments from '../../components/CornerOrnaments.astro';
+import HeroGlow from '../../components/HeroGlow.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
+
+const stripeUrl = import.meta.env.PUBLIC_STRIPE_BUY_URL;
+
+const images = {
+  hero: '/cases/images/evidence-portuguese-carracks.jpg',
+  drawing: '/cases/images/hero-flor-de-la-mar.jpg',
+  conquest: '/cases/images/evidence-conquest-malacca-1511.jpg',
+  replica: '/cases/images/location-flor-de-la-mar-replica.jpg',
+  chart: '/cases/images/location-strait-of-malacca-chart.jpg',
+  albuquerque: '/cases/images/suspect-albuquerque.png',
+  sultan: '/cases/images/suspect-sultan-mahmud-shah.jpg',
+};
+---
+
+<SidebarLayout
+  title="The Flor de la Mar — The Richest Shipwreck Never Found"
+  description="The Flor de la Mar: How a Portuguese carrack carrying $2.6 billion in treasure sank in a monsoon storm and was never found. Non-fiction ebook. $2.99 EPUB."
+  currentVolume={9}
+  image="/books/covers/flor-de-la-mar.jpg"
+  ogType="book"
+  keywords="Flor de la Mar book, Flor de la Mar ebook, richest shipwreck, Portuguese empire, Malacca conquest, Albuquerque, lost treasure, shipwreck history"
+  bookSeo={{ bookTitle: "The Flor de la Mar", subtitle: "The Richest Shipwreck Never Found", price: "2.99", author: "HistorIQly Mysteries", genre: "Non-Fiction, History, Maritime", format: "EBook", keywords: "Flor de la Mar, shipwreck, Portuguese empire, Malacca, treasure" }}
+  breadcrumbs={[{ name: "Home", url: "/" }, { name: "Lost Worlds", url: "/vol/lost-worlds" }, { name: "The Flor de la Mar", url: "/cases/flor-de-la-mar" }]}
+>
+  <article class="case-file">
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div class="hero-bg">
+        <img src={images.hero} alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <HeroGlow />
+      <CornerOrnaments />
+      <div class="hero-content">
+        <div class="case-meta">
+          <span class="meta-badge price">$2.99</span>
+          <span class="meta-badge">CASE 10-1511</span>
+          <span class="meta-badge alert">STATUS: NEVER FOUND</span>
+        </div>
+
+        <h1 class="hero-title">The Flor de la Mar</h1>
+        <p class="hero-subtitle">The Richest Shipwreck Never Found</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-label">Sunk</span>
+            <span class="stat-value">1511</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Value</span>
+            <span class="stat-value text-accent">$2.6B</span>
+          </div>
+           <div class="stat">
+            <span class="stat-label">Lost</span>
+            <span class="stat-value">400+</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <div class="buy-options" id="heroBuyOptions">
+            <button onclick={`localStorage.setItem('historiqly_purchasing','flor-de-la-mar');window.location.href='${stripeUrl}'`} class="btn-buy-primary">
+              <span class="btn-buy-text">Buy on Website</span>
+              <span class="btn-buy-price">$2.99</span>
+            </button>
+          </div>
+          <a href="/books/flor-de-la-mar.epub" class="btn-download-primary" id="heroDownloadBtn" style="display:none;" download>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Your Book</span>
+          </a>
+        </div>
+      </div>
+
+       <div class="scroll-indicator">
+        <span>INVESTIGATE</span>
+        <div class="scroll-line"></div>
+      </div>
+    </header>
+
+    <!-- THE HOOK -->
+    <section class="intro-section fade-in-section">
+      <div class="intro-text">
+        <p class="drop-cap">On the night of November 20, 1511, the largest ship in the Portuguese fleet broke apart in a monsoon storm off the coast of Sumatra. In her hold lay the plundered treasure of the Malacca Sultanate — gold thrones, two hundred chests of jewels, and sixty tons of gold. More than four hundred men drowned. The treasure sank to the bottom of the Strait of Malacca.</p>
+        <p>Five centuries later, the <strong>$2.6 billion</strong> wreck of the <em>Flor de la Mar</em> has never been found.</p>
+      </div>
+    </section>
+
+    <!-- BENTO GRID STATS -->
+    <section class="bento-section fade-in-section">
+      <div class="bento-grid">
+
+        <div class="bento-card large-card discovery-card">
+          <div class="card-content">
+            <span class="card-label">The Ship</span>
+            <h3 class="card-value">1502</h3>
+            <p class="card-desc">Built in Lisbon as the largest Portuguese carrack of her time — 400 tons, 36 metres long, 50 guns. Magnificent but structurally cursed from her maiden voyage.</p>
+          </div>
+        </div>
+
+        <div class="bento-card check-card">
+          <div class="card-content">
+            <span class="card-label">Treasure</span>
+            <h3 class="card-value text-accent">60–80</h3>
+            <p class="card-desc">Tons of gold plundered from the Malacca Sultanate, plus jewels, thrones, and diplomatic gifts.</p>
+          </div>
+        </div>
+
+        <div class="bento-card papers-card">
+          <div class="card-content">
+            <span class="card-label">Modern Value</span>
+            <h3 class="card-value">$2.6B</h3>
+            <p class="card-desc">Estimated value today — potentially the richest shipwreck in the world.</p>
+          </div>
+        </div>
+
+        <div class="bento-card fraud-card">
+          <div class="card-content">
+            <span class="card-label">Claimants</span>
+            <h3 class="card-value">3</h3>
+            <p class="card-desc">Nations — Portugal, Indonesia, and Malaysia — each claim ownership of the treasure.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- FORENSIC EVIDENCE -->
+    <section class="evidence-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Exhibit A</span>
+        <h2 class="section-title">The Evidence</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <!-- Item 1 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.drawing} alt="16th-century drawing of the Flor de la Mar" />
+            <div class="visual-overlay">
+              <span class="overlay-label">EARLIEST DEPICTION</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Ship Herself</h3>
+            <p>The only known contemporary drawing of the Flor de la Mar, from the 16th-century Roteiro de Malaca. Built in 1502, she was the largest carrack of her era — and leaked on every major voyage. Nine years of tropical waters, marine worms, and overloading sealed her fate.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.conquest} alt="Painting of the Portuguese conquest of Malacca, 1511" />
+            <div class="visual-overlay">
+               <span class="overlay-label">CONQUEST: AUG 1511</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>The Fall of Malacca</h3>
+            <p>After 40 days of fighting — including war elephants, poisoned arrows, and a Chinese junk stratagem — Malacca fell to 900 Portuguese soldiers. Albuquerque systematically stripped the Sultan's palace of its treasures and loaded them onto his flagship.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="evidence-card">
+          <div class="evidence-visual">
+            <img src={images.chart} alt="1806 nautical chart of the Strait of Malacca" />
+            <div class="visual-overlay">
+               <span class="overlay-label">WRECK LOCATION</span>
+            </div>
+          </div>
+          <div class="evidence-data">
+            <h3>Lost in the Strait</h3>
+            <p>The ship sank off Timia Point on the northeast Sumatran coast during a monsoon storm. Five hundred years of sediment, murky waters, and a three-way territorial dispute between Portugal, Indonesia, and Malaysia have kept the wreck hidden.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- TIMELINE -->
+    <section class="timeline-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Chronology</span>
+        <h2 class="section-title">Flower of the Sea</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1502</span>
+          <div class="timeline-content">
+            <h4>Built in Lisbon</h4>
+            <p>The largest carrack of her era launches from the Lisbon dockyards. On her maiden voyage she springs leaks in the Mozambique Channel — a warning of things to come.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">FEB 1509</span>
+          <div class="timeline-content">
+            <h4>Battle of Diu</h4>
+            <p>Serves as flagship at the decisive naval battle that gives Portugal unchallenged control of the Indian Ocean for a century. One of the most important naval battles in history.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">AUG 1511</span>
+          <div class="timeline-content">
+            <h4>Malacca Falls</h4>
+            <p>After 40 days of fighting, the richest trading port in Southeast Asia falls to Albuquerque's forces. The Sultan's treasure — gold thrones, 200 chests of jewels — is loaded aboard the Flor de la Mar.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry right">
+          <span class="timeline-year">NOV 1511</span>
+          <div class="timeline-content highlight">
+            <h4>The Sinking</h4>
+            <p>Caught in a monsoon storm off Sumatra, the overloaded ship strikes shoals and splits in two. More than 400 men perish. Albuquerque survives on a makeshift raft. The $2.6 billion treasure vanishes.</p>
+          </div>
+        </div>
+
+        <div class="timeline-entry left">
+          <span class="timeline-year">1992</span>
+          <div class="timeline-content">
+            <h4>The Hunt</h4>
+            <p>American treasure hunter Robert Marx claims to locate the wreck after a $20 million search. Indonesian authorities shut the expedition down. The claim is never verified. The wreck remains lost.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <SectionDivider />
+
+    <!-- KEY FIGURES -->
+    <section class="figures-section fade-in-section">
+      <div class="section-header">
+        <span class="section-label">Dossier</span>
+        <h2 class="section-title">Key Figures</h2>
+      </div>
+
+      <div class="figures-grid">
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.albuquerque} alt="Afonso de Albuquerque, Viceroy of Portuguese India" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Conqueror</span>
+            <h3>Afonso de Albuquerque</h3>
+            <p>Governor of Portuguese India, known as "The Lion of the Seas." He conquered Goa, Malacca, and Hormuz — then loaded the richest treasure of the Age of Discovery onto a ship he knew was structurally unsound. He survived the wreck. The treasure did not.</p>
+          </div>
+        </div>
+
+        <div class="figure-card">
+          <div class="figure-image">
+            <img src={images.sultan} alt="Sultan Mahmud Shah of Malacca" />
+          </div>
+          <div class="figure-info">
+            <span class="figure-role">The Sultan</span>
+            <h3>Sultan Mahmud Shah</h3>
+            <p>Last ruler of the Malacca Sultanate. Led a counterattack atop a war elephant, then fled as his city fell. His royal treasure — thrones of gold, chests of jewels, diplomatic gifts from Siam and China — was swallowed by the sea. His sons founded the sultanates of Johor and Perak.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="conclusion-section fade-in-section">
+      <div class="conclusion-grid">
+        <div class="conclusion-image">
+          <img src={images.replica} alt="Full-size replica of the Flor de la Mar at the Maritime Museum in Malacca" />
+          <div class="image-caption">The Flor de la Mar replica. Maritime Museum, Malacca, Malaysia.</div>
+        </div>
+        <div class="conclusion-text">
+          <h2>Still Waiting</h2>
+          <p>Five centuries after the storm, the Flor de la Mar lies somewhere beneath the murky waters of the Strait of Malacca. Three nations claim her treasure. No one can find it.</p>
+          <p>The greatest treasure of the Age of Discovery, won through conquest and lost to the sea in a single night — <em>still waiting to be found.</em></p>
+
+          <div class="cta-box" id="ctaBox">
+            <h3 id="ctaTitle">Get the Full Book</h3>
+            <p>The complete story of the cursed ship, the conqueror, the sultan, and the richest treasure ever lost at sea.</p>
+            <div class="buy-options cta-buy-options" id="ctaBuyOptions">
+              <button onclick={`localStorage.setItem('historiqly_purchasing','flor-de-la-mar');window.location.href='${stripeUrl}'`} class="btn-buy-primary cta-buy">
+                <span class="btn-buy-text">Buy on Website</span>
+                <span class="btn-buy-price">$2.99</span>
+              </button>
+            </div>
+            <a href="/books/flor-de-la-mar.epub" class="btn-download-primary cta-download" id="ctaDownloadBtn" style="display:none;" download>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Your Book
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </article>
+</SidebarLayout>
+
+<script>
+  // Purchase detection (fallback — homepage handles the main redirect)
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('purchased') === 'true') {
+    localStorage.setItem('historiqly_purchased_flor-de-la-mar', 'true');
+    localStorage.removeItem('historiqly_purchasing');
+    history.replaceState({}, '', window.location.pathname);
+  }
+
+  const hasPurchased = localStorage.getItem('historiqly_purchased_flor-de-la-mar') === 'true';
+
+  if (hasPurchased) {
+    // Hero buttons
+    const heroBuyOptions = document.getElementById('heroBuyOptions');
+    const heroDownload = document.getElementById('heroDownloadBtn');
+    if (heroBuyOptions) heroBuyOptions.style.display = 'none';
+    if (heroDownload) heroDownload.style.display = 'inline-flex';
+
+    // CTA buttons
+    const ctaBuyOptions = document.getElementById('ctaBuyOptions');
+    const ctaDownload = document.getElementById('ctaDownloadBtn');
+    const ctaTitle = document.getElementById('ctaTitle');
+    if (ctaBuyOptions) ctaBuyOptions.style.display = 'none';
+    if (ctaDownload) ctaDownload.style.display = 'inline-flex';
+    if (ctaTitle) ctaTitle.textContent = 'Your Book Is Ready';
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-section').forEach((el) => observer.observe(el));
+</script>
